@@ -6,11 +6,10 @@ Articular is a framework for building [Linked Art](https://linked.art/) knowledg
 
 ## Overview
 
-With Articular, you create webs of information by using styled text to connect tree-like structures of headings, lists and block quotes. Metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
+With Articular, you create webs of information by using styled text to connect tree-like structures of headings, lists and block quotes which represent events in the lifecycle of the entity you are describing. Metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
 
-Here is an example of how a snippet of Articular Markdown is transformed into JSON-LD by the framework.
+Here is an example of how a snippet of Articular Markdown stored in the file `PhysicalObjects/nefertiti.md` is transformed into JSON-LD by the framework:
 
-`PhysicalObjects/nefertiti.md`
 ```markdown
 # Nefertiti Bust
 * _classified as_ `Type` [Sculpture](http://vocab.getty.edu/aat/300047090)
@@ -51,14 +50,12 @@ Articular has several features to help keep your documentation succinct.
 
     The following two patterns generate the same data, because the default property for a `Name` is _identified by_, and a block quote can be used to specify textual content instead of the `_property_ **value**` pattern.
 
-    `People/nefertiti.md`
     ```markdown
     # Queen Nefertiti
     ## `Name`
     > Neferneferuaten Nefertiti
     ```
 
-    `People/frida-kahlo.md`
     ```markdown
     # Frida Kahlo
     ## _identified by_ `Name`
@@ -67,16 +64,18 @@ Articular has several features to help keep your documentation succinct.
 
 2. Certain authorities and vocabulary URIs have default types.
 
-    For example, URIs from the [Thesaurus for Geographic Names](http://www.getty.edu/research/tools/vocabularies/tgn/index.html) are instances of `Place`. And the default property for `Place` is _took place at_
+    For example, URIs from the [Thesaurus for Geographic Names](http://www.getty.edu/research/tools/vocabularies/tgn/index.html) are instances of `Place`. And the default property for `Place` is _took place at_.
 
-    `People/nefertiti.md`
     ```markdown
-    ### `Birth`
+    # Queen Nefertiti
+    ## `Birth`
     * [Thebes](http://vocab.getty.edu/tgn/7001297)
     ```
 
     ```json
     {
+      "type": "Person",
+      "_label": "Queen Nefertiti",
       "born": {
         "type": "Birth",
         "took_place_at": [
@@ -94,11 +93,11 @@ Articular has several features to help keep your documentation succinct.
 
     Frida Kahlo _died in_ a `Death` which _took place at_ the `Place` of Coyacán in 1954.
 
-    `People/frida-kahlo.md`
     ```markdown
-    ### 💀
+    # Frida Kahlo
+    ## 💀
     * 📍 [Coyoacán](http://www.wikidata.org/entity/Q661315)
-    #### ⌛
+    ### ⌛
     > 13 July 1954
     ```
 
@@ -109,16 +108,17 @@ A date parser shortens the syntax necessary for `TimeSpan` definition when dates
 
 Either of the following patterns is possible.
 
-1.  `People/frida-kahlo.md`
-    ```markdown
-    ### `Birth`
-    #### `TimeSpan`
+1.  ```markdown
+    # Frida Kahlo
+    ## `Birth`
+    ### `TimeSpan`
     > 6 July 1907
     ```
 
 2.  ```markdown
-    ### _born_ `Birth`
-    #### _timespan_ `TimeSpan`
+    # Frida Kahlo
+    ## _born_ `Birth`
+    ### _timespan_ `TimeSpan`
     * _begin of the begin_ **1907-07-06T00:00:00Z**
     * _end of the end_ **1907-07-06T23:59:59Z**
     * _identified by_ `Name`
@@ -129,7 +129,9 @@ Both of the snippets generate the same output.
 
 ```json
 {
-  "died": {
+  "type": "Person",
+  "_label": "Frida Kahlo",
+  "born": {
     "type": "Birth",
     "timespan": {
       "type": "TimeSpan",
@@ -172,11 +174,10 @@ Mark-up block quotes to preserve rich text formatting in the output.
 
 ## Example
 
-Here is a short document describing a few features of Roy Lichtenstein's painting _Whaam!_ (1963) illustrating the various features and brevity of Articular Markdown:
+Here, saved as `PhysicalObjects/whaam.md`, is a short document describing a few features of Roy Lichtenstein's painting _Whaam!_ (1963) illustrating the various features and brevity of Articular Markdown:
 
-`whaam.md`
 ```markdown
-# Whaam! `HumanMadeObject`
+# Whaam!
 * [Painting](http://vocab.getty.edu/aat/300033618)
     * [Type of Work](http://vocab.getty.edu/aat/300435443)
 * _equivalent_ [Wikidata](http://www.wikidata.org/entity/Q3567592)
