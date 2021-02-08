@@ -2,6 +2,10 @@
 
 Articular documents are written using conventional Markdown syntax. Each document describes a single entity, for example an artwork, an event, a person, etc.
 
+
+[TOC]
+
+
 ## Quickstart
 Documents can be composed of:
 
@@ -136,7 +140,7 @@ Values MUST be written in bold. Dates given as ISO fragments are automatically n
 
 ### h1
 
-The `h1` heading MUST provide the class of the entity the document is describing. It MAY identify it with a URI given as a labelled hyperlink.
+The `h1` heading MUST provide the class of the entity the document is describing. It MAY be identified a labelled hyperlink.
 
 ```markdown
 # [Example painting](www.example.com/painting/1) `HumanMadeObject`
@@ -290,13 +294,13 @@ Textual information and numeric values MUST be written as block quotes. A blank 
 Text MAY be styled Markdown. It is converted to HTML.
 
 ```markdown
-> An extremely **important** artwork.
+> An extremely **important** and _significant_ artwork.
 
 ```
 
 ```json
 {
-    "content": "<p>An extremely <strong>important</strong> artwork.</p>",
+    "content": "<p>An extremely <strong>important</strong> and <em>significant</em> artwork.</p>",
     "format": "text/html"
 }
 ```
@@ -332,6 +336,46 @@ Text MAY be styled Markdown. It is converted to HTML.
 }
 ```
 
+The default property when using an image tag is _digitally shown by_. Depending on the class being described, a different property MAY need to be specified. MIME types are guessed from the URL file extension.
+
+```markdown
+# `Person` [Frida Kahlo](http://www.example.com/people/1)
+* _representation_ `VisualItem`
+    * _digitally carried by_ ![Frida](http://www.example.com/images/frida.jpg)
+```
+
+```json
+{
+    "id": "http://www.example.com/people/1",
+    "type": "Person",
+    "_label": "Frida Kahlo",
+    "representation": [
+        {
+            "type": "VisualItem",
+            "digitally_carried_by": [
+                {
+                    "type": "DigitalObject",
+                    "format": "image/jpeg",
+                    "_label": "Frida",
+                    "classified_as": [
+                        {
+                            "id": "http://vocab.getty.edu/aat/300215302",
+                            "type": "Type",
+                            "_label": "Digital Image"
+                        }
+                    ],
+                    "access_point": [
+                        {
+                            "id": "http://www.example.com/images/frida.jpf",
+                            "type": "DigitalObject"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
 
 
 ### Class/Property Defaults
@@ -346,7 +390,7 @@ Framework default properties are used (if available) when none is specified.
 | `Addition`            | ➕    | _added member by_ |
 | `AttributeAssignment` | 📝    | _assigned by_     |
 | `Birth`               | 👶    | _born_            |
-| `Creation`            | 🆕`   | _created by_      |
+| `Creation`            | 🆕    | _created by_      |
 | `Currency`            | 💲    | _currency_        |
 | `Death`               | 💀    | _died_            |
 | `Destruction`         | 💣    | _destroyed by_    |
@@ -358,7 +402,7 @@ Framework default properties are used (if available) when none is specified.
 | `Formation`           | 🤝    | _formed by_       |
 | `Group`               | 👥    |                   |
 | `HumanMadeObject`     | 🏺    |                   |
-| `Identifier`          | 🆔`   | _identified by_   |
+| `Identifier`          | 🆔    | _identified by_   |
 | `InformationObject`   | 📖    |                   |
 | `Language`            | 💬    | _language_        |
 | `LinguisticObject`    | 📃    | _referred to by_  |
@@ -377,6 +421,6 @@ Framework default properties are used (if available) when none is specified.
 | `RightAcquisition`    | 🧾    |                   |
 | `Set`                 | 🗃️    |                   |
 | `TimeSpan`            | ⌛    | _timespan_        |
-| `TransferOfCustody`   | 📦    |                   |
+| `TransferOfCustody`   | 🎁    |                   |
 | `Type`                | 🔤    | _classified as_   |
 | `VisualItem`          | 🖼️    | _shows_           |

@@ -4,55 +4,221 @@ Articular is a framework for building [Linked Art](https://linked.art/) knowledg
 
 
 
+## Overview
+
+With Articular, you create webs of information by using styled text to connect tree-like structures of headings, lists and block quotes. Metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
+
+Here is an example of how a snippet of Articular Markdown is transformed into JSON-LD by the framework.
+
+`PhysicalObjects/nefertiti.md`
+```markdown
+# Nefertiti Bust
+* _classified as_ `Type` [Sculpture](http://vocab.getty.edu/aat/300047090)
+* _current location_ `Place` [Egyptian Museum of Berlin](http://www.wikidata.org/entity/Q254156)
+```
+
+```json
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "...PhysicalObjects/nefertiti",
+  "type": "HumanMadeObject",
+  "_label": "Nefertiti Bust",
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300047090",
+      "type": "Type",
+      "_label": "Sculpture"
+    }
+  ],
+  "current_location": {
+    "id": "http://www.wikidata.org/entity/Q254156",
+    "type": "Place",
+    "_label": "Egyptian Museum of Berlin"
+  }
+}
+```
+
+
+## Features
+
+Articular has several features to help keep your documentation succinct.
+
+
+
+### Defaults & Emojis
+
+1. Built-in defaults for common types and properties mean less boiler-plate syntax.
+
+    The following two patterns generate the same data, because the default property for a `Name` is _identified by_, and a block quote can be used to specify textual content instead of the `_property_ **value**` pattern.
+
+    `People/nefertiti.md`
+    ```markdown
+    # Queen Nefertiti
+    ## `Name`
+    > Neferneferuaten Nefertiti
+    ```
+
+    `People/frida-kahlo.md`
+    ```markdown
+    # Frida Kahlo
+    ## _identified by_ `Name`
+    * _content_ **Magdalena Carmen Frida Kahlo y Calderón**
+    ```
+
+2. Certain authorities and vocabulary URIs have default types.
+
+    For example, URIs from the [Thesaurus for Geographic Names](http://www.getty.edu/research/tools/vocabularies/tgn/index.html) are instances of `Place`. And the default property for `Place` is _took place at_
+
+    `People/nefertiti.md`
+    ```markdown
+    ### `Birth`
+    * [Thebes](http://vocab.getty.edu/tgn/7001297)
+    ```
+
+    ```json
+    {
+      "born": {
+        "type": "Birth",
+        "took_place_at": [
+          {
+            "id": "http://vocab.getty.edu/tgn/7001297",
+            "type": "Place",
+            "_label": "Thebes"
+          }
+        ]
+      }
+    }
+    ```
+
+3. Emojis are aliases for textual types.
+
+    Frida Kahlo _died in_ a `Death` which _took place at_ the `Place` of Coyacán in 1954.
+
+    `People/frida-kahlo.md`
+    ```markdown
+    ### 💀
+    * 📍 [Coyoacán](http://www.wikidata.org/entity/Q661315)
+    #### ⌛
+    > 13 July 1954
+    ```
+
+
+### Dates
+
+A date parser shortens the syntax necessary for `TimeSpan` definition when dates are block quoted.
+
+Either of the following patterns is possible.
+
+1.  `People/frida-kahlo.md`
+    ```markdown
+    ### `Birth`
+    #### `TimeSpan`
+    > 6 July 1907
+    ```
+
+2.  ```markdown
+    ### _born_ `Birth`
+    #### _timespan_ `TimeSpan`
+    * _begin of the begin_ **1907-07-06T00:00:00Z**
+    * _end of the end_ **1907-07-06T23:59:59Z**
+    * _identified by_ `Name`
+        * _content_ **6 July 1907**
+    ```
+
+Both of the snippets generate the same output.
+
+```json
+{
+  "died": {
+    "type": "Birth",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1907-07-06T00:00:00Z",
+      "end_of_the_end": "1907-07-06T23:59:59Z",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "6 July 1907"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Rich Text
+
+Mark-up block quotes to preserve rich text formatting in the output.
+
+`PhysicalObjects/nefertiti.md`
+```markdown
+## `LinguisticObject`
+> The **Nefertiti Bust** is a painted [stucco](https://en.wikipedia.org/wiki/Stucco)-coated [limestone](https://en.wikipedia.org/wiki/Limestone).
+```
+
+```json
+{
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "format": "text/html",
+      "content": "<p>The <strong>Nefertiti Bust</strong> is a painted <a href=\"https://en.wikipedia.org/wiki/Stucco\">stucco</a>-coated <a href=\"https://en.wikipedia.org/wiki/Limestone\">limestone</a>.</p>"
+    }
+  ]
+}
+```
+
+
+
 ## Example
 
-Here is a short document describing features of Roy Lichtenstein's painting _Whaam!_ (1963):
+Here is a short document describing a few features of Roy Lichtenstein's painting _Whaam!_ (1963) illustrating the various features and brevity of Articular Markdown:
 
 `whaam.md`
 ```markdown
-# 🏺 [Whaam!](http://www.wikidata.org/entity/Q3567592)
-* 🔤 [Painting](http://vocab.getty.edu/aat/300033618)
+# Whaam! `HumanMadeObject`
+* [Painting](http://vocab.getty.edu/aat/300033618)
+    * [Type of Work](http://vocab.getty.edu/aat/300435443)
+* _equivalent_ [Wikidata](http://www.wikidata.org/entity/Q3567592)
 
-## 🏷️ Title
+## `Name`
 > Whaam!
 
 * 🔤 [Primary Title](http://vocab.getty.edu/aat/300404670)
 * 💬 [English](http://vocab.getty.edu/aat/300388277)
 
-## 🏭 Creation
-* _carried out by_ [Roy Lichtenstein](http://vocab.getty.edu/ulan/500013596) `Actor`
+## `Production`
+* _carried out by_ `Actor` [Roy Lichtenstein](http://vocab.getty.edu/ulan/500013596)
+* 📍 [USA](http://vocab.getty.edu/tgn/7012149)
 
-### ⌛ Creation date
-* _begin of the begin_ **1963-01-01**
-* _end of the end_ **1963-12-31**
-* `Name`
-    * _content_ **1963**
+### `TimeSpan`
+> 1963
 
-## 📃 Summary
+## 📃
 > **Whaam!** is a 1963 diptych painting by the American artist [Roy Lichtenstein](https://en.wikipedia.org/wiki/Roy_Lichtenstein). It is one of the best-known works of [pop art](https://en.wikipedia.org/wiki/Pop_art), and among Lichtenstein's most important paintings.
 
-* 🔤 [Description](http://vocab.getty.edu/aat/300411780)
-    * 🔤 [Brief Text](http://vocab.getty.edu/aat/300418049)
+* [Description](http://vocab.getty.edu/aat/300411780)
+    * [Brief Text](http://vocab.getty.edu/aat/300418049)
 * 💬 [English](http://vocab.getty.edu/aat/300388277)
 
-## 🖼️ Depictions
+## 🖼️
 ![Wikipedia](https://upload.wikimedia.org/wikipedia/en/b/b7/Roy_Lichtenstein_Whaam.jpg)
 
 ![Tate](https://www.tate.org.uk/art/images/work/T/T00/T00897_10.jpg)
 
-* _about_ [war](http://vocab.getty.edu/aat/300055314) 🔤
-* _depicts_ [projectiles, explosives, etc. (+ combat planes, fighters)](<http://iconclass.org/45C17+41>) `Type`
+* _about_ [war](http://vocab.getty.edu/aat/300055314)
+* _depicts_ 🔤 [projectiles, explosives, etc. (+ combat planes, fighters)](<http://iconclass.org/45C17+41>)
 ```
 
 This is how Articular serialises `whaam.md` as Linked Open Data:
 
 <details>
-<summary>Linked Art JSON-LD</summary>
+<summary>JSON-LD</summary>
 
 ```json
 {
   "@context": "https://linked.art/ns/v1/linked-art.json",
-  "id": "http://www.wikidata.org/entity/Q3567592",
+  "id": "https://github.com/example-museum/physical-objects/whaam",
   "type": "HumanMadeObject",
   "produced_by": {
     "type": "Production",
@@ -73,7 +239,14 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
       ],
       "begin_of_the_begin": "1963-01-01T00:00:00Z",
       "end_of_the_end": "1963-12-31T23:59:59Z"
-    }
+    },
+    "took_place_at": [
+      {
+        "id": "http://vocab.getty.edu/tgn/7012149",
+        "type": "Place",
+        "_label": "USA"
+      }
+    ]
   },
   "identified_by": [
     {
@@ -99,6 +272,13 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
     {
       "id": "http://vocab.getty.edu/aat/300033618",
       "type": "Type",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435443",
+          "type": "Type",
+          "_label": "Type of Work"
+        }
+      ],
       "_label": "Painting"
     }
   ],
@@ -108,7 +288,6 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
       "about": [
         {
           "id": "http://vocab.getty.edu/aat/300055314",
-          "type": "Type",
           "_label": "war"
         }
       ],
@@ -187,14 +366,20 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
       ]
     }
   ],
-  "_label": "Whaam!"
+  "_label": "Whaam!",
+  "equivalent": [
+    {
+      "id": "http://www.wikidata.org/entity/Q3567592",
+      "_label": "Wikidata"
+    }
+  ]
 }
 ```
 
 </details>
 
 <details>
-<summary>CIDOC-CRM Turtle</summary>
+<summary>Turtle</summary>
 
 ```turtle
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
@@ -204,7 +389,7 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://www.wikidata.org/entity/Q3567592> a crm:E22_Human-Made_Object ;
+<https://github.com/example-museum/physical-objects/whaam> a crm:E22_Human-Made_Object ;
     rdfs:label "Whaam!" ;
     crm:P108i_was_produced_by [ a crm:E12_Production ;
             crm:P14_carried_out_by <http://vocab.getty.edu/ulan/500013596> ;
@@ -212,7 +397,8 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
                     crm:P1_is_identified_by [ a crm:E33_E41_Linguistic_Appellation ;
                             crm:P190_has_symbolic_content "1963" ] ;
                     crm:P82a_begin_of_the_begin "1963-01-01T00:00:00+00:00"^^xsd:dateTime ;
-                    crm:P82b_end_of_the_end "1963-12-31T23:59:59+00:00"^^xsd:dateTime ] ] ;
+                    crm:P82b_end_of_the_end "1963-12-31T23:59:59+00:00"^^xsd:dateTime ] ;
+            crm:P7_took_place_at <http://vocab.getty.edu/tgn/7012149> ] ;
     crm:P1_is_identified_by [ a crm:E33_E41_Linguistic_Appellation ;
             crm:P190_has_symbolic_content "Whaam!" ;
             crm:P2_has_type <http://vocab.getty.edu/aat/300404670> ;
@@ -235,16 +421,17 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
             dc:format "text/html" ;
             crm:P190_has_symbolic_content "<p><strong>Whaam!</strong> is a 1963 diptych painting by the American artist <a href=\"https://en.wikipedia.org/wiki/Roy_Lichtenstein\">Roy Lichtenstein</a>. It is one of the best-known works of <a href=\"https://en.wikipedia.org/wiki/Pop_art\">pop art</a>, and among Lichtenstein's most important paintings.</p>" ;
             crm:P2_has_type <http://vocab.getty.edu/aat/300411780> ;
-            crm:P72_has_language <http://vocab.getty.edu/aat/300388277> ] .
+            crm:P72_has_language <http://vocab.getty.edu/aat/300388277> ] ;
+    la:equivalent <http://www.wikidata.org/entity/Q3567592> .
 
 <http://iconclass.org/45C17+41> a crm:E55_Type ;
     rdfs:label "projectiles, explosives, etc. (+ combat planes, fighters)" .
 
 <http://vocab.getty.edu/aat/300033618> a crm:E55_Type ;
-    rdfs:label "Painting" .
+    rdfs:label "Painting" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300435443> .
 
-<http://vocab.getty.edu/aat/300055314> a crm:E55_Type ;
-    rdfs:label "war" .
+<http://vocab.getty.edu/aat/300055314> rdfs:label "war" .
 
 <http://vocab.getty.edu/aat/300404670> a crm:E55_Type ;
     rdfs:label "Primary Title" .
@@ -256,8 +443,17 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
 <http://vocab.getty.edu/aat/300418049> a crm:E55_Type ;
     rdfs:label "Brief Text" .
 
+<http://vocab.getty.edu/aat/300435443> a crm:E55_Type ;
+    rdfs:label "Type of Work" .
+
+<http://vocab.getty.edu/tgn/7012149> a crm:E53_Place ;
+    rdfs:label "USA" .
+
 <http://vocab.getty.edu/ulan/500013596> a crm:E39_Actor ;
     rdfs:label "Roy Lichtenstein" .
+
+<http://www.wikidata.org/entity/Q3567592> a crm:E22_Human-Made_Object ;
+    rdfs:label "Wikidata" .
 
 <https://upload.wikimedia.org/wikipedia/en/b/b7/Roy_Lichtenstein_Whaam.jpg> a dig:D1_Digital_Object .
 
