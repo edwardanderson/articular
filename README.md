@@ -80,6 +80,7 @@ Articular has several features to help keep documentation succinct.
     ```markdown
     # Queen Nefertiti
     * [Female](http://vocab.getty.edu/aat/300189557)
+      * [Gender](http://vocab.getty.edu/aat/300055147)
     ## `Birth`
     * [Thebes](http://vocab.getty.edu/tgn/7001297)
     ```
@@ -98,7 +99,14 @@ Articular has several features to help keep documentation succinct.
         {
           "id": "http://vocab.getty.edu/aat/300189557",
           "type": "Type",
-          "_label": "Female"
+          "_label": "Female",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300055147",
+              "type": "Type",
+              "_label": "Gender"
+            }
+          ]
         }
       ],
       "born": {
@@ -258,6 +266,109 @@ A [date parser](https://dateparser.readthedocs.io/en/latest/) shortens the synta
 
 </details>
 
+
+
+### Images
+
+Expressing the relationship between image files on the web and the content they represent is simplified using the Markdown image tag.
+
+1.  Artwork
+
+    ```markdown
+    # Regents of the Old Men's House
+    ## `VisualItem`
+    ![Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Frans_Hals_-_Regents_of_the_Old_Men%27s_Almshouse_-_WGA11182.jpg/330px-Frans_Hals_-_Regents_of_the_Old_Men%27s_Almshouse_-_WGA11182.jpg)
+
+    * _depicts_ [Regents](http://iconclass.org/44B1161)
+    ```
+
+    <details>
+    <summary>JSON-LD</summary>
+
+    ```json
+    {
+      "_label": "Regents of the Old Men's House",
+      "shows": [
+        {
+          "type": "VisualItem",
+          "depicts": [
+            {
+              "id": "http://iconclass.org/44B1161",
+              "type": "Type",
+              "_label": "Regents"
+            }
+          ],
+          "digitally_shown_by": [
+            {
+              "type": "DigitalObject",
+              "format": "image/jpeg",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300215302",
+                  "type": "Type",
+                  "_label": "Digital Image"
+                }
+              ],
+              "_label": "Wikipedia",
+              "access_point": [
+                {
+                  "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Frans_Hals_-_Regents_of_the_Old_Men%27s_Almshouse_-_WGA11182.jpg/330px-Frans_Hals_-_Regents_of_the_Old_Men%27s_Almshouse_-_WGA11182.jpg",
+                  "type": "DigitalObject"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+    </details>
+
+
+2.  Person
+
+    ```markdown
+    # Charlie Mingus
+    ## _representation_ `VisualItem`
+    * _digitally carried by_ ![Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Charles_Mingus_1976_cropped.jpg/330px-Charles_Mingus_1976_cropped.jpg)
+    ```
+
+    <details>
+    <summary>JSON-LD</summary>
+
+    ```json
+    {
+      "_label": "Charlie Mingus",
+      "representation": [
+        {
+          "type": "VisualItem",
+          "digitally_carried_by": [
+            {
+              "type": "DigitalObject",
+              "format": "image/jpeg",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300215302",
+                  "type": "Type",
+                  "_label": "Digital Image"
+                }
+              ],
+              "_label": "Wikipedia",
+              "access_point": [
+                {
+                  "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Charles_Mingus_1976_cropped.jpg/330px-Charles_Mingus_1976_cropped.jpg",
+                  "type": "DigitalObject"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+    </details>
 
 
 ### Rich Text
@@ -504,4 +615,4 @@ documents/
 
 
 
-See the [specification](specification.md) for detailed guidance on writing Articular flavoured Markdown.
+Refer to these [examples](examples/) and review the [specification](specification.md) for detailed guidance on writing Articular flavoured Markdown.
