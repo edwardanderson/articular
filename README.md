@@ -6,9 +6,15 @@ Articular is a framework for building [Linked Art](https://linked.art/) knowledg
 
 ## Overview
 
-With Articular, you create webs of information by using styled text to connect tree-like structures of headings, lists and block quotes which represent events in the lifecycle of the entity you are describing. Metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
+With Articular, you create webs of information by using styled text to connect trees of headings, images, lists and block quotes representing events in the lifecycle of an artwork (or person, event, place, etc.). Metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
 
-Here is an example of how a snippet of Articular Markdown stored in the file `PhysicalObjects/nefertiti.md` is transformed into JSON-LD by the framework:
+Here is an example file containing a snippet of Articular Markdown:
+
+```text
+documents/
+└── PhysicalObjects/
+    └── nefertiti.md
+```
 
 ```markdown
 # Nefertiti Bust
@@ -16,10 +22,12 @@ Here is an example of how a snippet of Articular Markdown stored in the file `Ph
 * _current location_ `Place` [Egyptian Museum of Berlin](http://www.wikidata.org/entity/Q254156)
 ```
 
+The document is transformed into this interoperable Linked Art JSON-LD by the framework:
+
 ```json
 {
   "@context": "https://linked.art/ns/v1/linked-art.json",
-  "id": "...PhysicalObjects/nefertiti",
+  "id": ".../PhysicalObjects/nefertiti",
   "type": "HumanMadeObject",
   "_label": "Nefertiti Bust",
   "classified_as": [
@@ -38,17 +46,16 @@ Here is an example of how a snippet of Articular Markdown stored in the file `Ph
 ```
 
 
+
 ## Features
 
-Articular has several features to help keep your documentation succinct.
+Articular has several features to help keep documentation succinct.
 
 
 
-### Defaults & Emojis
+### Default Types and Properties
 
-1. Built-in defaults for common types and properties mean less boiler-plate syntax.
-
-    The following two patterns generate the same data, because the default property for a `Name` is _identified by_, and a block quote can be used to specify textual content instead of the `_property_ **value**` pattern.
+1. Built-in [defaults](defaults.json) for common types and properties mean less boiler-plate syntax. Both of these two patterns populate the same JSON structure with data:
 
     ```markdown
     # Queen Nefertiti
@@ -62,20 +69,38 @@ Articular has several features to help keep your documentation succinct.
     * _content_ **Magdalena Carmen Frida Kahlo y Calderón**
     ```
 
-2. Certain authorities and vocabulary URIs have default types.
+2. Authorities and vocabularies on the web map to default types. For example, URIs from the [Thesaurus for Geographic Names](http://www.getty.edu/research/tools/vocabularies/tgn/index.html) are instances of `Place`, while those from the [Art and Architecture Thesaurus](https://www.getty.edu/research/tools/vocabularies/aat/) are instances of `Type` by default. The default property for `Place` is _took place at_; for `Type` it is _classified as_.
 
-    For example, URIs from the [Thesaurus for Geographic Names](http://www.getty.edu/research/tools/vocabularies/tgn/index.html) are instances of `Place`. And the default property for `Place` is _took place at_.
+    ```text
+    documents/
+    └── People/
+        └── queen-nefertiti.md
+    ```
 
     ```markdown
     # Queen Nefertiti
+    * [Female](http://vocab.getty.edu/aat/300189557)
     ## `Birth`
     * [Thebes](http://vocab.getty.edu/tgn/7001297)
     ```
 
+    <details>
+    <summary>JSON-LD</summary>
+
+
     ```json
     {
+      "@context": "https://linked.art/ns/v1/linked-art.json",
+      "id": "../People/queen-nefertiti",
       "type": "Person",
       "_label": "Queen Nefertiti",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300189557",
+          "type": "Type",
+          "_label": "Female"
+        }
+      ],
       "born": {
         "type": "Birth",
         "took_place_at": [
@@ -89,43 +114,103 @@ Articular has several features to help keep your documentation succinct.
     }
     ```
 
-3. Emojis are aliases for textual types.
+    </details>
 
-    Frida Kahlo _died in_ a `Death` which _took place at_ the `Place` of Coyacán in 1954.
+
+
+### Emojis
+
+Emojis can be used as aliases for types.
+
+1.  Frida Kahlo died in Coyoacán.
 
     ```markdown
     # Frida Kahlo
     ## 💀
     * 📍 [Coyoacán](http://www.wikidata.org/entity/Q661315)
-    ### ⌛
-    > 13 July 1954
     ```
+
+    <details>
+    <summary>JSON-LD</summary>
+
+    ```json
+    {
+      "_label": "Frida Kahlo",
+      "died": {
+        "type": "Death",
+        "took_place_at": [
+          {
+            "id": "http://www.wikidata.org/entity/Q661315",
+            "type": "Place",
+            "_label": "Coyoacán"
+          }
+        ]
+      }
+    }
+    ```
+
+    </details>
+
+2.  This description of Alfred Hitchcock is in English.
+
+    ```markdown
+    # Alfred Hitchcock
+    ## 📃
+    > Sir Alfred Joseph Hitchcock KBE (13 August 1899 – 29 April 1980) was an English film director, producer, and screenwriter.
+
+    * 🔤 [Description](http://vocab.getty.edu/aat/300411780)
+    * 💬 [English](http://vocab.getty.edu/aat/300388277)
+    ```
+
+    <details>
+    <summary>JSON-LD</summary>
+
+    ```json
+    {
+      "_label": "Alfred Hitchcock",
+      "referred_to_by": [
+        {
+          "type": "LinguisticObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300411780",
+              "type": "Type",
+              "_label": "Description"
+            }
+          ],
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388277",
+              "type": "Language",
+              "_label": "English"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+    </details>
 
 
 ### Dates
 
-A date parser shortens the syntax necessary for `TimeSpan` definition when dates are block quoted.
+A [date parser](https://dateparser.readthedocs.io/en/latest/) shortens the syntax necessary for `TimeSpan` definition when textual dates are block quoted. This means simple time periods can be described without having to specify pairs of _begin of the begin_ and _end of the end_ properties.
 
-Either of the following patterns is possible.
+```markdown
+# Frida Kahlo
+## `Birth`
+### `TimeSpan`
+> 6 July 1907
 
-1.  ```markdown
-    # Frida Kahlo
-    ## `Birth`
-    ### `TimeSpan`
-    > 6 July 1907
-    ```
+## _carried out_ `Activity`
+* [painter](http://vocab.getty.edu/aat/300025136)
+### `TimeSpan`
+> c.1925 - 1954
+```
 
-2.  ```markdown
-    # Frida Kahlo
-    ## _born_ `Birth`
-    ### _timespan_ `TimeSpan`
-    * _begin of the begin_ **1907-07-06T00:00:00Z**
-    * _end of the end_ **1907-07-06T23:59:59Z**
-    * _identified by_ `Name`
-        * _content_ **6 July 1907**
-    ```
-
-Both of the snippets generate the same output.
+<details>
+<summary>JSON-LD</summary>
 
 ```json
 {
@@ -144,22 +229,53 @@ Both of the snippets generate the same output.
         }
       ]
     }
-  }
+  },
+  "carried_out": [
+    {
+      "type": "Activity",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300025136",
+          "type": "Type",
+          "_label": "painter"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1925-01-01T00:00:00Z",
+        "end_of_the_end": "1954-12-31T23:59:59Z",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "c.1925 - 1954"
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
+</details>
+
+
+
 ### Rich Text
 
-Mark-up block quotes to preserve rich text formatting in the output.
+Text styling inside block quotes is preserved as HTML in the output data.
 
-`PhysicalObjects/nefertiti.md`
 ```markdown
+# Nefertiti Bust
 ## `LinguisticObject`
-> The **Nefertiti Bust** is a painted [stucco](https://en.wikipedia.org/wiki/Stucco)-coated [limestone](https://en.wikipedia.org/wiki/Limestone).
+> The **Nefertiti Bust** is a painted [stucco](https://en.wikipedia.org/wiki/Stucco)-coated [limestone](https://en.wikipedia.org/wiki/Limestone) sculpture.
 ```
+
+<details>
+<summary>JSON-LD</summary>
 
 ```json
 {
+  "_label": "Nefertiti Bust",
   "referred_to_by": [
     {
       "type": "LinguisticObject",
@@ -170,17 +286,25 @@ Mark-up block quotes to preserve rich text formatting in the output.
 }
 ```
 
+</details>
+
 
 
 ## Example
 
-Here, saved as `PhysicalObjects/whaam.md`, is a short document describing a few features of Roy Lichtenstein's painting _Whaam!_ (1963) illustrating the various features and brevity of Articular Markdown:
+Here is a short document describing features of Roy Lichtenstein's painting _Whaam!_ (1963) illustrating the various features of Articular Markdown:
+
+```text
+documents/
+└── PhysicalObjects/
+    └── whaam.md
+```
 
 ```markdown
 # Whaam!
 * [Painting](http://vocab.getty.edu/aat/300033618)
     * [Type of Work](http://vocab.getty.edu/aat/300435443)
-* _equivalent_ [Wikidata](http://www.wikidata.org/entity/Q3567592)
+* _equivalent_ 🏺 [Wikidata](http://www.wikidata.org/entity/Q3567592)
 
 ## `Name`
 > Whaam!
@@ -210,8 +334,6 @@ Here, saved as `PhysicalObjects/whaam.md`, is a short document describing a few 
 * _about_ [war](http://vocab.getty.edu/aat/300055314)
 * _depicts_ 🔤 [projectiles, explosives, etc. (+ combat planes, fighters)](<http://iconclass.org/45C17+41>)
 ```
-
-This is how Articular serialises `whaam.md` as Linked Open Data:
 
 <details>
 <summary>JSON-LD</summary>
@@ -371,100 +493,11 @@ This is how Articular serialises `whaam.md` as Linked Open Data:
   "equivalent": [
     {
       "id": "http://www.wikidata.org/entity/Q3567592",
+      "type": "HumanMadeObject",
       "_label": "Wikidata"
     }
   ]
 }
-```
-
-</details>
-
-<details>
-<summary>Turtle</summary>
-
-```turtle
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dig: <http://www.ics.forth.gr/isl/CRMdig/> .
-@prefix la: <https://linked.art/ns/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://github.com/example-museum/physical-objects/whaam> a crm:E22_Human-Made_Object ;
-    rdfs:label "Whaam!" ;
-    crm:P108i_was_produced_by [ a crm:E12_Production ;
-            crm:P14_carried_out_by <http://vocab.getty.edu/ulan/500013596> ;
-            crm:P4_has_time-span [ a crm:E52_Time-Span ;
-                    crm:P1_is_identified_by [ a crm:E33_E41_Linguistic_Appellation ;
-                            crm:P190_has_symbolic_content "1963" ] ;
-                    crm:P82a_begin_of_the_begin "1963-01-01T00:00:00+00:00"^^xsd:dateTime ;
-                    crm:P82b_end_of_the_end "1963-12-31T23:59:59+00:00"^^xsd:dateTime ] ;
-            crm:P7_took_place_at <http://vocab.getty.edu/tgn/7012149> ] ;
-    crm:P1_is_identified_by [ a crm:E33_E41_Linguistic_Appellation ;
-            crm:P190_has_symbolic_content "Whaam!" ;
-            crm:P2_has_type <http://vocab.getty.edu/aat/300404670> ;
-            crm:P72_has_language <http://vocab.getty.edu/aat/300388277> ] ;
-    crm:P2_has_type <http://vocab.getty.edu/aat/300033618> ;
-    crm:P65_shows_visual_item [ a crm:E36_Visual_Item ;
-            crm:P129_is_about <http://vocab.getty.edu/aat/300055314> ;
-            crm:P62_depicts <http://iconclass.org/45C17+41> ;
-            la:digitally_shown_by [ a dig:D1_Digital_Object ;
-                    rdfs:label "Tate" ;
-                    dc:format "image/jpeg" ;
-                    crm:P2_has_type <http://vocab.getty.edu/aat/300215302> ;
-                    la:access_point <https://www.tate.org.uk/art/images/work/T/T00/T00897_10.jpg> ],
-                [ a dig:D1_Digital_Object ;
-                    rdfs:label "Wikipedia" ;
-                    dc:format "image/jpeg" ;
-                    crm:P2_has_type <http://vocab.getty.edu/aat/300215302> ;
-                    la:access_point <https://upload.wikimedia.org/wikipedia/en/b/b7/Roy_Lichtenstein_Whaam.jpg> ] ] ;
-    crm:P67i_is_referred_to_by [ a crm:E33_Linguistic_Object ;
-            dc:format "text/html" ;
-            crm:P190_has_symbolic_content "<p><strong>Whaam!</strong> is a 1963 diptych painting by the American artist <a href=\"https://en.wikipedia.org/wiki/Roy_Lichtenstein\">Roy Lichtenstein</a>. It is one of the best-known works of <a href=\"https://en.wikipedia.org/wiki/Pop_art\">pop art</a>, and among Lichtenstein's most important paintings.</p>" ;
-            crm:P2_has_type <http://vocab.getty.edu/aat/300411780> ;
-            crm:P72_has_language <http://vocab.getty.edu/aat/300388277> ] ;
-    la:equivalent <http://www.wikidata.org/entity/Q3567592> .
-
-<http://iconclass.org/45C17+41> a crm:E55_Type ;
-    rdfs:label "projectiles, explosives, etc. (+ combat planes, fighters)" .
-
-<http://vocab.getty.edu/aat/300033618> a crm:E55_Type ;
-    rdfs:label "Painting" ;
-    crm:P2_has_type <http://vocab.getty.edu/aat/300435443> .
-
-<http://vocab.getty.edu/aat/300055314> rdfs:label "war" .
-
-<http://vocab.getty.edu/aat/300404670> a crm:E55_Type ;
-    rdfs:label "Primary Title" .
-
-<http://vocab.getty.edu/aat/300411780> a crm:E55_Type ;
-    rdfs:label "Description" ;
-    crm:P2_has_type <http://vocab.getty.edu/aat/300418049> .
-
-<http://vocab.getty.edu/aat/300418049> a crm:E55_Type ;
-    rdfs:label "Brief Text" .
-
-<http://vocab.getty.edu/aat/300435443> a crm:E55_Type ;
-    rdfs:label "Type of Work" .
-
-<http://vocab.getty.edu/tgn/7012149> a crm:E53_Place ;
-    rdfs:label "USA" .
-
-<http://vocab.getty.edu/ulan/500013596> a crm:E39_Actor ;
-    rdfs:label "Roy Lichtenstein" .
-
-<http://www.wikidata.org/entity/Q3567592> a crm:E22_Human-Made_Object ;
-    rdfs:label "Wikidata" .
-
-<https://upload.wikimedia.org/wikipedia/en/b/b7/Roy_Lichtenstein_Whaam.jpg> a dig:D1_Digital_Object .
-
-<https://www.tate.org.uk/art/images/work/T/T00/T00897_10.jpg> a dig:D1_Digital_Object .
-
-<http://vocab.getty.edu/aat/300215302> a crm:E55_Type ;
-    rdfs:label "Digital Image" .
-
-<http://vocab.getty.edu/aat/300388277> a crm:E56_Language ;
-    rdfs:label "English" .
 ```
 
 </details>
