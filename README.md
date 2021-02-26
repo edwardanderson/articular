@@ -6,7 +6,7 @@ Articular is a framework for building [Linked Art](https://linked.art/) knowledg
 
 ## Overview
 
-With Articular, you create webs of information by using styled text to connect trees of headings, images, lists and block quotes representing events in the lifecycle of an artwork (or person, event, place, etc.). Metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
+With Articular, you create webs of information by describing events in the lifecycle of an artwork (or person, event, place, etc.) in individual documents. Each document is a simple tree of headings, images, lists and block quotes. These elements, within and between documents, are connected together using styled text statements. All the metadata is managed in directories of files instead of inside a database. Concise and readable documentation is automatically converted into rich semantic data.
 
 Here is an example file containing a snippet of Articular Markdown:
 
@@ -18,7 +18,7 @@ documents/
 
 ```markdown
 # Nefertiti Bust
-* _classified as_ `Type` [Sculpture](http://vocab.getty.edu/aat/300047090)
+* [Sculpture](http://vocab.getty.edu/aat/300047090)
 * _current location_ `Place` [Egyptian Museum of Berlin](http://www.wikidata.org/entity/Q254156)
 ```
 
@@ -47,6 +47,40 @@ The document is transformed into this interoperable Linked Art JSON-LD by the fr
 
 
 
+## Quickstart
+
+```bash
+# Clone this repository
+git@github.com:edwardanderson/articular.git
+cd articular
+
+# Create a virtual environment
+python3 -m venv v
+source v/bin/activate
+
+# Packages
+pip install tqdm rdflib PyLD markdown dateparser beautifulsoup4 requests
+
+# Create source and destination directory trees
+# TODO: Script this.
+# documents/
+# └── Physical Objects/
+# └── Events/
+# └── Provenance Activityies/
+# etc. (see code/articulate.py)
+#
+# data/
+# └── object/
+# └── event/
+# └── provenance/
+# etc.
+
+# Parse *.md files in ./documents/
+python code/articulate.py
+```
+
+
+
 ## Features
 
 Articular has several features to help keep documentation succinct.
@@ -55,7 +89,7 @@ Articular has several features to help keep documentation succinct.
 
 ### Default Types and Properties
 
-1. Built-in [defaults](defaults.json) for common types and properties mean less boiler-plate syntax. Both of these two patterns populate the same JSON structure with data:
+1. Built-in [defaults](defaults.json) for common types and properties means writing less boiler-plate syntax. Both of these two patterns populate the same JSON structure with data:
 
     ```markdown
     # Queen Nefertiti
@@ -80,7 +114,7 @@ Articular has several features to help keep documentation succinct.
     ```markdown
     # Queen Nefertiti
     * [Female](http://vocab.getty.edu/aat/300189557)
-      * [Gender](http://vocab.getty.edu/aat/300055147)
+        * [Gender](http://vocab.getty.edu/aat/300055147)
     ## `Birth`
     * [Thebes](http://vocab.getty.edu/tgn/7001297)
     ```
@@ -270,7 +304,7 @@ A [date parser](https://dateparser.readthedocs.io/en/latest/) shortens the synta
 
 ### Images
 
-Expressing the relationship between image files on the web and the content they represent is simplified using the Markdown image tag.
+Expressing the relationship between image files on the web and the content they represent is simplified using the Markdown image tag. MIME types are automatically guessed from file extensions.
 
 1.  Artwork
 
@@ -278,7 +312,6 @@ Expressing the relationship between image files on the web and the content they 
     # Regents of the Old Men's House
     ## `VisualItem`
     ![Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Frans_Hals_-_Regents_of_the_Old_Men%27s_Almshouse_-_WGA11182.jpg/330px-Frans_Hals_-_Regents_of_the_Old_Men%27s_Almshouse_-_WGA11182.jpg)
-
     * _depicts_ [Regents](http://iconclass.org/44B1161)
     ```
 
