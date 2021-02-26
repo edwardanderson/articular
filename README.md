@@ -77,6 +77,9 @@ pip install tqdm rdflib PyLD markdown dateparser beautifulsoup4 requests
 
 # Parse *.md files in ./documents/
 python code/articulate.py
+
+# Patch hash-parameter URIs
+python fix_relative_uris.py
 ```
 
 
