@@ -1,4 +1,4 @@
-# The Great Fire of London, 1666 `Event`
+# The Great Fire of London, 1666
 
 ## `Production`
 * _carried out by_ `Actor` [Jan Griffier](http://vocab.getty.edu/ulan/500031308)
