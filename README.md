@@ -12,7 +12,7 @@ Here is an example file containing a snippet of Articular Markdown:
 
 ```text
 documents/
-└── PhysicalObjects/
+└── Physical Objects/
     └── nefertiti.md
 ```
 
@@ -27,7 +27,7 @@ The document is transformed into this interoperable Linked Art JSON-LD by the fr
 ```json
 {
   "@context": "https://linked.art/ns/v1/linked-art.json",
-  "id": ".../PhysicalObjects/nefertiti",
+  "id": "object/nefertiti",
   "type": "HumanMadeObject",
   "_label": "Nefertiti Bust",
   "classified_as": [
@@ -51,7 +51,7 @@ The document is transformed into this interoperable Linked Art JSON-LD by the fr
 
 ```bash
 # Clone this repository
-git@github.com:edwardanderson/articular.git
+git clone git@github.com:edwardanderson/articular.git
 cd articular
 
 # Create a virtual environment
@@ -61,25 +61,11 @@ source v/bin/activate
 # Packages
 pip install tqdm rdflib PyLD markdown dateparser beautifulsoup4 requests
 
-# Create source and destination directory trees
-# TODO: Script this.
-# documents/
-# └── Physical Objects/
-# └── Events/
-# └── Provenance Activityies/
-# etc. (see code/articulate.py)
-#
-# data/
-# └── object/
-# └── event/
-# └── provenance/
-# etc.
-
 # Parse *.md files in ./documents/
 python code/articulate.py
 
 # Patch hash-parameter URIs
-python fix_relative_uris.py
+python code/fix_relative_uris.py
 ```
 
 
@@ -129,7 +115,7 @@ Articular has several features to help keep documentation succinct.
     ```json
     {
       "@context": "https://linked.art/ns/v1/linked-art.json",
-      "id": "../People/queen-nefertiti",
+      "id": "person/queen-nefertiti",
       "type": "Person",
       "_label": "Queen Nefertiti",
       "classified_as": [
@@ -488,7 +474,7 @@ documents/
 ```json
 {
   "@context": "https://linked.art/ns/v1/linked-art.json",
-  "id": "https://github.com/example-museum/physical-objects/whaam",
+  "id": "https://github.com/example-museum/object/whaam",
   "type": "HumanMadeObject",
   "produced_by": {
     "type": "Production",
