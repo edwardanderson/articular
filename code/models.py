@@ -4,6 +4,7 @@ Classes for parsing and serialising Linked Art JSON-LD from Markdown documents (
 
 
 import re
+import os
 import json
 import mimetypes
 import markdown as md
@@ -394,7 +395,10 @@ jsonld.set_document_loader(jsonld.requests_document_loader(timeout=30))
 # Collect default properties/classes to allow user to omit.
 defaults = {}
 emoji_types = {}
-with open('defaults.json', 'r') as in_file:
+
+defaults_file = os.path.join(os.path.dirname(__file__), 'defaults.json')
+
+with open(defaults_file, 'r') as in_file:
     d = json.load(in_file)
     for key in d:
         default_property = d[key]['default_property']

@@ -4,7 +4,7 @@ import models
 from pathlib import Path
 from tqdm import tqdm
 from rdflib import Graph
-
+import os
 
 
 graph = Graph()
@@ -43,7 +43,16 @@ for articular_doc in tqdm(list(files)):
         json_ld = document.jsonld()
 
         # target_folder = folder.lower()
-        out_file = f'data/{document_class}/{articular_doc.stem}'.replace(' ', '-').lower()
+        out_path = os.path.join('data', document_class)
+        if not os.path.exists(out_path):
+            p = Path(out_path)
+            try:
+                p.mkdir(parents=True)
+            except:
+                pass
+
+        out_file = os.path.join(out_path, articular_doc.stem.replace(' ', '-').lower())
+        # out_file = f'data/{document_class}/{articular_doc.stem}'.replace(' ', '-').lower()
         with open(f'{out_file}.json', 'w') as of:
             of.write(json_ld)
 
