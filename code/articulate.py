@@ -24,16 +24,30 @@ endpoints = {
     'Visual Works': 'visual_work'
 }
 
+classes = {
+    'Digital Objects': 'DigitalObject',
+    'Events': 'Event',
+    'Groups': 'Group',
+    'People': 'Person',
+    'Physical Objects': 'HumanMadeObject',
+    'Places': 'Place',
+    'Provenance Activities': 'Activity',
+    'Sets': 'Set',
+    'Textual Works': 'LinguisticObject',
+    'Visual Works': 'VisualItem'
+}
+
 files = Path('documents').glob('**/*.md')
 for articular_doc in tqdm(list(files)):
     folder = str(articular_doc.parent).split('/')[1]
-    document_class = endpoints[folder]
+    document_dir = endpoints[folder]
+    document_class = classes[folder]
 
     with open(articular_doc, 'r', encoding='utf-8') as input_file:
         text = input_file.read()
         document = models.LinkedArtDocument(text)
 
-        document_id = repository + '/' + document_class + '/' + articular_doc.stem.replace(' ', '-').lower()
+        document_id = repository + '/' + document_dir + '/' + articular_doc.stem.replace(' ', '-').lower()
         if 'id' not in document:
             document['id'] = document_id
 
@@ -43,7 +57,7 @@ for articular_doc in tqdm(list(files)):
         json_ld = document.jsonld()
 
         # target_folder = folder.lower()
-        out_path = os.path.join('data', document_class)
+        out_path = os.path.join('data', document_dir)
         if not os.path.exists(out_path):
             p = Path(out_path)
             try:
