@@ -45,7 +45,7 @@ for articular_doc in tqdm(list(files)):
 
     with open(articular_doc, 'r', encoding='utf-8') as input_file:
         text = input_file.read()
-        document = models.LinkedArtDocument(text)
+        document = models.LinkedArtDocument(text, type=document_class)
 
         document_id = repository + '/' + document_dir + '/' + articular_doc.stem.replace(' ', '-').lower()
         if 'id' not in document:

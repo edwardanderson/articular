@@ -83,6 +83,7 @@ class LinkedArtObject(dict):
 
     def __init__(self, *args, **kwargs):
         self._property = None
+        self._parent = None
         for html_obj in args:
             primitive = LinkedArtPrimitive(html_obj)
             if primitive._property is not None:
@@ -102,10 +103,12 @@ class LinkedArtObject(dict):
         if not 'type' in self:
             if self._property:
                 # Apply framework default property
-                try:
+                if self._property == "equivalent" and self._parent and 'type' in self._parent:
+                    # TODO: This doesn't catch properties in lists, as self is a transitory UnorderedList instance
+                    self['type'] = self._parent['type']
+                elif self._property in defaults:
                     self['type'] = defaults[self._property]
-                except:
-                    pass
+
             else:
                 # Infer type from vocabulary
                 if 'id' in self:
@@ -134,6 +137,7 @@ class LinkedArtObject(dict):
                 else:
                     self[obj._property] = obj['str']
             else:
+                obj._parent = self
                 try:
                     self[obj._property].append(obj)
                 except:
@@ -219,13 +223,13 @@ class Image(LinkedArtObject):
 
 class LinkedArtDocument(LinkedArtObject):
 
-    def __init__(self, markdown_doc_str):
+    def __init__(self, markdown_doc_str, **kwargs):
         html_doc = md.markdown(markdown_doc_str)
         self.soup = BeautifulSoup(html_doc, 'html.parser')
 
         # Heading
         h1 = self.soup.find('h1')
-        super().__init__(*h1.contents)
+        super().__init__(*h1.contents, **kwargs)
         self['@context'] = 'https://linked.art/ns/v1/linked-art.json'
 
         # Sub-headings
@@ -289,6 +293,7 @@ class LinkedArtDocument(LinkedArtObject):
         stack = []
         depth = 0
         current = LinkedArtObject()
+        current._ref = self
         for d in sections:
             # Determine how to nest headings.
             if d['depth'] > depth:
