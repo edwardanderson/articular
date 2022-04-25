@@ -10,7 +10,7 @@
 ## Install
 
 ```bash
-pip install git+https://github.com/edwardanderson/mdul-json
+pip install git+https://github.com/edwardanderson/articular
 ```
 
 ## Example
