@@ -1,0 +1,15 @@
+{
+    "@context": "http://mdul.io/ns/v1/mdul.json",
+    "id": "image.md",
+    "_label": "image.md",
+    "type": "_Document",
+    "_describes": {
+        "id": "image",
+        "_label": "Charlie Parker",
+        "_image": {
+            "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Portrait_of_Charlie_Parker_in_1947.jpg/375px-Portrait_of_Charlie_Parker_in_1947.jpg",
+            "_label": "Parker at Three Deuces, New York in 1947",
+            "type": "_Image"
+        }
+    }
+}

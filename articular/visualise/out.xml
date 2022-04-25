@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<root>
+	<key name="@context" type="list">
+		<item type="str">ns/v1/mdul.json</item>
+		<item type="dict">
+			<key name="@base" type="str">http://www.example.com/examples/whaam</key>
+			<key name="@vocab" type="str">http://www.example.com/terms/</key>
+		</item>
+		<item type="dict">
+			<identified_by type="str">user:identified_by</identified_by>
+			<content type="list">
+				<item type="str">user:content</item>
+				<item type="str">user:content</item>
+			</content>
+			<produced_by type="str">user:produced_by</produced_by>
+			<timespan type="str">user:timespan</timespan>
+			<begin_of_the_begin type="str">user:begin_of_the_begin</begin_of_the_begin>
+			<end_of_the_end type="str">user:end_of_the_end</end_of_the_end>
+			<carried_out_by type="str">user:carried_out_by</carried_out_by>
+			<shows type="str">user:shows</shows>
+			<digitally_shown_by type="str">user:digitally_shown_by</digitally_shown_by>
+			<access_point type="list">
+				<item type="str">user:access_point</item>
+				<item type="str">user:access_point</item>
+			</access_point>
+			<made_of type="str">user:made_of</made_of>
+			<referred_to_by type="str">user:referred_to_by</referred_to_by>
+			<classified_as type="list">
+				<item type="str">user:classified_as</item>
+				<item type="str">user:classified_as</item>
+			</classified_as>
+			<subject_of type="str">user:subject_of</subject_of>
+		</item>
+		<item type="str">https://linked.art/ns/v1/linked-art.json</item>
+	</key>
+	<id type="str">whaam.md</id>
+	<type type="str">_Document</type>
+	<_describes type="dict">
+		<id type="str">https://www.wikidata.org/wiki/Q3567592</id>
+		<type type="str">HumanMadeObject</type>
+		<identified_by type="dict">
+			<type type="str">Name</type>
+			<content type="str">Whaam!</content>
+		</identified_by>
+		<produced_by type="dict">
+			<type type="str">Production</type>
+			<timespan type="dict">
+				<type type="str">TimeSpan</type>
+				<begin_of_the_begin type="str">1963-01-01T00:00:00Z</begin_of_the_begin>
+				<end_of_the_end type="str">1963-12-31T23:59:59Z</end_of_the_end>
+			</timespan>
+			<carried_out_by type="dict">
+				<id type="str">http://www.wikidata.org/entity/Q151679</id>
+				<type type="str">Person</type>
+				<_label type="str">Roy Lichtenstein</_label>
+			</carried_out_by>
+		</produced_by>
+		<shows type="dict">
+			<type type="str">VisualItem</type>
+			<digitally_shown_by type="dict">
+				<type type="str">DigitalObject</type>
+				<access_point type="dict">
+					<id type="str">https://www.tate.org.uk/art/images/work/T/T00/T00897_10.jpg</id>
+					<label type="str">Whaam!</label>
+					<type type="str">DigitalObject</type>
+				</access_point>
+			</digitally_shown_by>
+		</shows>
+		<made_of type="list">
+			<item type="dict">
+				<id type="str">http://vocab.getty.edu/aat/300015058</id>
+				<type type="str">Material</type>
+				<_label type="str">acrylic paint</_label>
+			</item>
+			<item type="dict">
+				<id type="str">http://vocab.getty.edu/aat/300015050</id>
+				<type type="str">Material</type>
+				<_label type="str">oil paint</_label>
+			</item>
+			<item type="dict">
+				<id type="str">http://vocab.getty.edu/aat/300014078</id>
+				<type type="str">Material</type>
+				<_label type="str">canvas</_label>
+			</item>
+		</made_of>
+		<referred_to_by type="dict">
+			<type type="str">LinguisticObject</type>
+			<content type="str">Acrylic paint and oil paint on canvas</content>
+			<classified_as type="dict">
+				<id type="str">http://vocab.getty.edu/aat/300435429</id>
+				<type type="str">Type</type>
+				<_label type="str">Material statement</_label>
+				<classified_as type="dict">
+					<id type="str">http://vocab.getty.edu/aat/300418049</id>
+					<type type="str">Type</type>
+					<_label type="str">Brief text</_label>
+				</classified_as>
+			</classified_as>
+		</referred_to_by>
+		<subject_of type="dict">
+			<type type="str">DigitalObject</type>
+			<access_point type="dict">
+				<id type="str">https://www.tate.org.uk/art/artworks/lichtenstein-whaam-t00897</id>
+				<type type="str">DigitalObject</type>
+				<_label type="str">Tate Modern: Whaam!</_label>
+			</access_point>
+		</subject_of>
+		<_label type="str">Whaam!</_label>
+	</_describes>
+</root>
+

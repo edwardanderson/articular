@@ -1,0 +1,31 @@
+{
+    "@context": "http://mdul.io/ns/v1/mdul.json",
+    "id": "h1_h2_list.md",
+    "_label": "h1_h2_list.md",
+    "type": "_Document",
+    "_describes": {
+        "id": "h1_h2_list",
+        "_label": "The Rolling Stones",
+        "_see_also": [
+            {
+                "id": "#mick",
+                "_label": "Mick",
+                "born_in": {
+                    "_label": "Dartford"
+                }
+            },
+            {
+                "id": "#keith",
+                "_label": "Keith"
+            },
+            {
+                "id": "#charlie",
+                "_label": "Charlie"
+            },
+            {
+                "id": "#ronnie",
+                "_label": "Ronnie"
+            }
+        ]
+    }
+}

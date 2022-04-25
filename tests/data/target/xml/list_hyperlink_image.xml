@@ -1,0 +1,52 @@
+<document>
+    <context>
+        <author>user:author</author>
+        <date_of_birth>
+            <id>https://schema.org/birthDate</id>
+        </date_of_birth>
+        <place_of_birth>
+            <id>https://schema.org/birthPlace</id>
+        </place_of_birth>
+        <part_of>user:part of</part_of>
+        <date>
+            <id>user:date</id>
+            <type>https://schema.org/Date</type>
+        </date>
+        <inspired>
+            <_reverse>https://schema.org/about</_reverse>
+        </inspired>
+        <actor>user:actor</actor>
+        <shown_in>user:shown in</shown_in>
+    </context>
+    <_label>Tortilla Flat</_label>
+    <author>
+        <id>http://www.wikidata.org/entity/Q39212</id>
+        <type>Person</type>
+        <_label>John Steinbeck</_label>
+        <date_of_birth>27 February 1902</date_of_birth>
+        <place_of_birth>
+            <id>http://www.wikidata.org/entity/Q488125</id>
+            <_label>Salinas</_label>
+            <part_of>
+                <_label>California</_label>
+            </part_of>
+        </place_of_birth>
+    </author>
+    <date>1935</date>
+    <inspired>
+        <id>http://www.wikidata.org/entity/Q377776</id>
+        <type>Movie</type>
+        <_label>Tortilla Flat</_label>
+        <actor>
+            <_label>Spencer Tracy</_label>
+        </actor>
+        <actor>
+            <_label>Hedy Lamarr</_label>
+            <shown_in>
+                <id>https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hedy_Lamarr_Publicity_Photo_for_The_Heavenly_Body_1944.jpg/330px-Hedy_Lamarr_Publicity_Photo_for_The_Heavenly_Body_1944.jpg</id>
+                <_label>Publicity photo (c.&#160;1944)</_label>
+                <type>_Image</type>
+            </shown_in>
+        </actor>
+    </inspired>
+</document>

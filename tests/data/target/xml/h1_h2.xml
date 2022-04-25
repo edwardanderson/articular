@@ -1,0 +1,20 @@
+<document>
+    <context/>
+    <_label>The Beatles</_label>
+    <_see_also>
+        <id>#john</id>
+        <_label>John</_label>
+    </_see_also>
+    <_see_also>
+        <id>#paul</id>
+        <_label>Paul</_label>
+    </_see_also>
+    <_see_also>
+        <id>#george</id>
+        <_label>George</_label>
+    </_see_also>
+    <_see_also>
+        <id>#ringo</id>
+        <_label>Ringo</_label>
+    </_see_also>
+</document>

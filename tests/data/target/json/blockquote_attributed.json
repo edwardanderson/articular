@@ -1,0 +1,21 @@
+{
+    "@context": {
+        "@context": "http://mdul.io/ns/v1/mdul.json",
+        "@base": "/home/"
+    },
+    "id": "blockquote_attributed.md",
+    "_label": "blockquote_attributed.md",
+    "type": "_Document",
+    "_describes": {
+        "id": "blockquote_attributed",
+        "_label": "Attributed Blockquote",
+        "_comment": {
+            "type": "_Quotation",
+            "_content": "It seemed like a nice neighborhood to have bad habits in.",
+            "spokenByCharacter": {
+                "id": "http://www.wikidata.org/entity/Q623732",
+                "_label": "Philip Marlowe"
+            }
+        }
+    }
+}

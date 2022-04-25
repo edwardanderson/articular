@@ -1,0 +1,19 @@
+digraph {
+	nodesep="2"
+	overlap="false"
+
+    n1 [
+        label="Whaam!"
+        href="https://www.wikidata.org/wiki/Q3567592"
+    ]
+
+    n2 [
+        label="HumanMadeObject"
+    ]
+
+    n1 -> n2 [
+        label="type"
+        href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+    ]
+
+}

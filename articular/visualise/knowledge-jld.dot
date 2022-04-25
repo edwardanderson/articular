@@ -1,0 +1,710 @@
+digraph {
+	layout="dot"
+	graph [
+		concentrate="true"
+		overlap="false"
+		style="rounded,dashed"
+		penwidth="0.2"
+		labeljust="l"
+		labelloc="t"
+		fontname="Mono"
+		fontsize="8"
+		// layout="neato"
+	]
+	node [
+		fontname="DejaVu Sans"
+		shape="rectangle"
+		style="rounded,dashed"
+		color="black"
+		fontsize="10"
+		margin="0.2"
+		penwidth="0.2"
+	]
+	edge [
+		style="dashed"
+		fontsize="8"
+		arrowhead="empty"
+		penwidth="0.2"
+	]
+	subgraph cluster_knowledge {
+		label="knowledge_label"
+		knowledge0 [
+			label="whaam.md"
+			href="whaam.md"
+			tooltip="whaam.md"
+			target="_blank"
+			penwidth="1"
+			color="red"
+		]
+		knowledge1 [
+			label="_Document"
+		]
+		knowledge2 [
+			label="Whaam!"
+			href="https://www.wikidata.org/wiki/Q3567592"
+			tooltip="https://www.wikidata.org/wiki/Q3567592"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge3 [
+			label="HumanMadeObject"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge4 [
+			label=" "
+		]
+		knowledge5 [
+			label="Name"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E33_E41_Linguistic_Appellation"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E33_E41_Linguistic_Appellation"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge6 [
+			label="Whaam!"
+		]
+		knowledge7 [
+			label=" "
+		]
+		knowledge8 [
+			label="Production"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E12_Production"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E12_Production"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge9 [
+			label=" "
+		]
+		knowledge10 [
+			label="TimeSpan"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge11 [
+			label="1963-01-01T00:00:00Z"
+		]
+		knowledge12 [
+			label="1963-12-31T23:59:59Z"
+		]
+		knowledge13 [
+			label="Roy Lichtenstein"
+			href="http://www.wikidata.org/entity/Q151679"
+			tooltip="http://www.wikidata.org/entity/Q151679"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge14 [
+			label="Person"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E21_Person"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E21_Person"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge15 [
+			label=" "
+		]
+		knowledge16 [
+			label="VisualItem"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge17 [
+			label=" "
+		]
+		knowledge18 [
+			label="DigitalObject"
+			class="Vocabulary"
+			href="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"
+			tooltip="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge19 [
+			label="Whaam!"
+			href="https://www.tate.org.uk/art/images/work/T/T00/T00897_10.jpg"
+			tooltip="https://www.tate.org.uk/art/images/work/T/T00/T00897_10.jpg"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge20 [
+			label="acrylic paint"
+			href="http://vocab.getty.edu/aat/300015058"
+			tooltip="http://vocab.getty.edu/aat/300015058"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge21 [
+			label="Material"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E57_Material"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E57_Material"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge22 [
+			label="oil paint"
+			href="http://vocab.getty.edu/aat/300015050"
+			tooltip="http://vocab.getty.edu/aat/300015050"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge23 [
+			label="canvas"
+			href="http://vocab.getty.edu/aat/300014078"
+			tooltip="http://vocab.getty.edu/aat/300014078"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge24 [
+			label=" "
+		]
+		knowledge25 [
+			label="LinguisticObject"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge26 [
+			label="Acrylic paint and oil paint on canvas"
+		]
+		knowledge27 [
+			label="Material statement"
+			href="http://vocab.getty.edu/aat/300435429"
+			tooltip="http://vocab.getty.edu/aat/300435429"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge28 [
+			label="Type"
+			class="Vocabulary"
+			href="http://www.cidoc-crm.org/cidoc-crm/E55_Type"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/E55_Type"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge29 [
+			label="Brief text"
+			href="http://vocab.getty.edu/aat/300418049"
+			tooltip="http://vocab.getty.edu/aat/300418049"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge30 [
+			label=" "
+		]
+		knowledge31 [
+			label="Tate Modern: Whaam!"
+			href="https://www.tate.org.uk/art/artworks/lichtenstein-whaam-t00897"
+			tooltip="https://www.tate.org.uk/art/artworks/lichtenstein-whaam-t00897"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge32 [
+			label="the-big-sleep.md"
+			href="the-big-sleep.md"
+			tooltip="the-big-sleep.md"
+			target="_blank"
+			penwidth="1"
+			color="red"
+		]
+		knowledge33 [
+			label="_Document"
+		]
+		knowledge34 [
+			label="The Big Sleep"
+			href="http://www.wikidata.org/entity/Q1649862"
+			tooltip="http://www.wikidata.org/entity/Q1649862"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge35 [
+			label="Book"
+			class="Vocabulary"
+			href="http://schema.org/Book"
+			tooltip="http://schema.org/Book"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge36 [
+			label=" "
+		]
+		knowledge37 [
+			label="<p><strong>The Big Sleep (1939)</strong>\lis a hardboiled crime novel by American-\lBritish writer Raymond Chandler, the\lfirst to feature the detective Philip\lMarlowe.</p>\l"
+			margin="0.8,0.2"
+		]
+		knowledge38 [
+			label="text/html"
+		]
+		knowledge39 [
+			label="_Comment"
+		]
+		knowledge40 [
+			label=" "
+		]
+		knowledge41 [
+			label="It seemed like a nice neighborhood to\lhave bad habits in.\l"
+			margin="0.8,0.2"
+		]
+		knowledge42 [
+			label="_Quote"
+		]
+		knowledge43 [
+			label="Raymond Chandler"
+			href="https://www.wikidata.org/entity/Q180377"
+			tooltip="https://www.wikidata.org/entity/Q180377"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge44 [
+			label="Person"
+			class="Vocabulary"
+			href="http://schema.org/Person"
+			tooltip="http://schema.org/Person"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge45 [
+			label="Chicago"
+		]
+		knowledge46 [
+			label="Place"
+			class="Vocabulary"
+			href="http://schema.org/Place"
+			tooltip="http://schema.org/Place"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge47 [
+			label="1939"
+		]
+		knowledge48 [
+			label="The Big Sleep"
+			href="http://www.wikidata.org/entity/Q1137931"
+			tooltip="http://www.wikidata.org/entity/Q1137931"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge49 [
+			label="Movie"
+			class="Vocabulary"
+			href="http://schema.org/Movie"
+			tooltip="http://schema.org/Movie"
+			color="blue"
+			penwidth="1"
+		]
+		knowledge50 [
+			label="1949"
+		]
+		knowledge51 [
+			label="The Big Sleep"
+			href="http://www.wikidata.org/entity/Q2610883"
+			tooltip="http://www.wikidata.org/entity/Q2610883"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge52 [
+			label="1978"
+		]
+		knowledge53 [
+			label="Michael Winner"
+			href="http://vocab.getty.edu/ulan/500293397"
+			tooltip="http://vocab.getty.edu/ulan/500293397"
+			target="_blank"
+			penwidth="1"
+			color="blue"
+		]
+		knowledge54 [
+			label="winner.md"
+			href="winner.md"
+			tooltip="winner.md"
+			target="_blank"
+			penwidth="1"
+			color="red"
+		]
+		knowledge55 [
+			label="_Document"
+		]
+		knowledge0 -> knowledge1 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge0 -> knowledge2 [
+			label="_describes"
+		]
+		knowledge2 -> knowledge3 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge4 [
+			label="identified_by"
+			href="http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"
+			target="_blank"
+		]
+		knowledge4 -> knowledge5 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge4 -> knowledge6 [
+			label="content"
+			href="http://www.cidoc-crm.org/cidoc-crm/P190_has_symbolic_content"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P190_has_symbolic_content"
+			target="_blank"
+		]
+		knowledge2 -> knowledge7 [
+			label="produced_by"
+			href="http://www.cidoc-crm.org/cidoc-crm/P108i_was_produced_by"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P108i_was_produced_by"
+			target="_blank"
+		]
+		knowledge7 -> knowledge8 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge7 -> knowledge9 [
+			label="timespan"
+			href="http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span"
+			target="_blank"
+		]
+		knowledge9 -> knowledge10 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge9 -> knowledge11 [
+			label="begin_of_the_begin"
+			href="http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin"
+			target="_blank"
+		]
+		knowledge9 -> knowledge12 [
+			label="end_of_the_end"
+			href="http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end"
+			target="_blank"
+		]
+		knowledge7 -> knowledge13 [
+			label="carried_out_by"
+			href="http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by"
+			target="_blank"
+		]
+		knowledge13 -> knowledge14 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge15 [
+			label="shows"
+			href="http://www.cidoc-crm.org/cidoc-crm/P65_shows_visual_item"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P65_shows_visual_item"
+			target="_blank"
+		]
+		knowledge15 -> knowledge16 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge15 -> knowledge17 [
+			label="digitally_shown_by"
+			href="https://linked.art/ns/terms/digitally_shown_by"
+			tooltip="https://linked.art/ns/terms/digitally_shown_by"
+			target="_blank"
+		]
+		knowledge17 -> knowledge18 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge17 -> knowledge19 [
+			label="access_point"
+			href="https://linked.art/ns/terms/access_point"
+			tooltip="https://linked.art/ns/terms/access_point"
+			target="_blank"
+		]
+		knowledge19 -> knowledge18 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge20 [
+			label="made_of"
+			href="http://www.cidoc-crm.org/cidoc-crm/P45_consists_of"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P45_consists_of"
+			target="_blank"
+		]
+		knowledge20 -> knowledge21 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge22 [
+			label="made_of"
+			href="http://www.cidoc-crm.org/cidoc-crm/P45_consists_of"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P45_consists_of"
+			target="_blank"
+		]
+		knowledge22 -> knowledge21 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge23 [
+			label="made_of"
+			href="http://www.cidoc-crm.org/cidoc-crm/P45_consists_of"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P45_consists_of"
+			target="_blank"
+		]
+		knowledge23 -> knowledge21 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge24 [
+			label="referred_to_by"
+			href="http://www.cidoc-crm.org/cidoc-crm/P67i_is_referred_to_by"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P67i_is_referred_to_by"
+			target="_blank"
+		]
+		knowledge24 -> knowledge25 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge24 -> knowledge26 [
+			label="content"
+			href="http://www.cidoc-crm.org/cidoc-crm/P190_has_symbolic_content"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P190_has_symbolic_content"
+			target="_blank"
+		]
+		knowledge24 -> knowledge27 [
+			label="classified_as"
+			href="http://www.cidoc-crm.org/cidoc-crm/P2_has_type"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P2_has_type"
+			target="_blank"
+		]
+		knowledge27 -> knowledge28 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge27 -> knowledge29 [
+			label="classified_as"
+			href="http://www.cidoc-crm.org/cidoc-crm/P2_has_type"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P2_has_type"
+			target="_blank"
+		]
+		knowledge29 -> knowledge28 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge2 -> knowledge30 [
+			label="subject_of"
+			href="http://www.cidoc-crm.org/cidoc-crm/P129i_is_subject_of"
+			tooltip="http://www.cidoc-crm.org/cidoc-crm/P129i_is_subject_of"
+			target="_blank"
+		]
+		knowledge30 -> knowledge18 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge30 -> knowledge31 [
+			label="access_point"
+			href="https://linked.art/ns/terms/access_point"
+			tooltip="https://linked.art/ns/terms/access_point"
+			target="_blank"
+		]
+		knowledge31 -> knowledge18 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge32 -> knowledge33 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge32 -> knowledge34 [
+			label="_describes"
+		]
+		knowledge34 -> knowledge35 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge34 -> knowledge36 [
+			label="_comment"
+		]
+		knowledge36 -> knowledge37 [
+			label="_content"
+		]
+		knowledge36 -> knowledge38 [
+			label="_format"
+		]
+		knowledge36 -> knowledge39 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge34 -> knowledge40 [
+			label="_comment"
+		]
+		knowledge40 -> knowledge41 [
+			label="_content"
+		]
+		knowledge40 -> knowledge42 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge34 -> knowledge43 [
+			label="author"
+			href="http://schema.org/author"
+			tooltip="http://schema.org/author"
+			target="_blank"
+		]
+		knowledge43 -> knowledge44 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge43 -> knowledge45 [
+			label="birthPlace"
+			href="http://schema.org/birthPlace"
+			tooltip="http://schema.org/birthPlace"
+			target="_blank"
+		]
+		knowledge45 -> knowledge46 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge34 -> knowledge47 [
+			label="date"
+			href="https://schema.org/dateCreated"
+			tooltip="https://schema.org/dateCreated"
+			target="_blank"
+		]
+		knowledge34 -> knowledge48 [
+			label="inspired"
+			href="https://schema.org/isBasedOn"
+			tooltip="https://schema.org/isBasedOn"
+			target="_blank"
+		]
+		knowledge48 -> knowledge49 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge48 -> knowledge50 [
+			label="dateCreated"
+			href="http://schema.org/dateCreated"
+			tooltip="http://schema.org/dateCreated"
+			target="_blank"
+		]
+		knowledge34 -> knowledge51 [
+			label="inspired"
+			href="https://schema.org/isBasedOn"
+			tooltip="https://schema.org/isBasedOn"
+			target="_blank"
+		]
+		knowledge51 -> knowledge49 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge51 -> knowledge52 [
+			label="dateCreated"
+			href="http://schema.org/dateCreated"
+			tooltip="http://schema.org/dateCreated"
+			target="_blank"
+		]
+		knowledge51 -> knowledge53 [
+			label="director"
+			href="http://schema.org/director"
+			tooltip="http://schema.org/director"
+			target="_blank"
+		]
+		knowledge53 -> knowledge44 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge54 -> knowledge55 [
+			label="type"
+			href="@type"
+			tooltip="@type"
+			target="_blank"
+		]
+		knowledge54 -> knowledge53 [
+			label="_describes"
+		]
+		knowledge53 -> knowledge13 [
+			label="likes"
+		]
+	}
+	
+}
+

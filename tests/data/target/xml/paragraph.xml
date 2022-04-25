@@ -1,0 +1,21 @@
+<document>
+    <context/>
+    <_label>Mon Oncle</_label>
+    <_comment>
+        <type>_Comment</type>
+        <_content>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Mon Oncle&lt;/strong&gt;&lt;/em&gt; is a 1958 &lt;a href="https://en.wikipedia.org/wiki/Comedy_film"&gt;comedy film&lt;/a&gt; by French filmmaker &lt;a href="https://en.wikipedia.org/wiki/Jacques_Tati"&gt;Jacques Tati&lt;/a&gt;.&lt;/p&gt;</_content>
+        <_format>text/html</_format>
+        <_mentions>
+            <id>https://en.wikipedia.org/wiki/Comedy_film</id>
+            <_label>comedy film</_label>
+        </_mentions>
+        <_mentions>
+            <id>https://en.wikipedia.org/wiki/Jacques_Tati</id>
+            <_label>Jacques Tati</_label>
+        </_mentions>
+    </_comment>
+    <_comment>
+        <type>_Comment</type>
+        <_content>The film centers on the socially awkward yet lovable character of Monsieur Hulot and his quixotic struggle with postwar France&#8217;s infatuation with modern architecture, mechanical efficiency and consumerism.</_content>
+    </_comment>
+</document>
