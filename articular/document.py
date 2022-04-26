@@ -3,7 +3,10 @@ Create JSON-LD representations of Markdown content.
 '''
 
 
+import json
+
 from articular.template import Template
+from pyld import jsonld
 from typing import Dict
 
 
@@ -127,6 +130,25 @@ class Document:
         # TODO: Deduplicate keys if @id is in ontology too.
 
         return user_context
+
+    @property
+    def framed(self):
+        '''
+        Refer to <https://json-ld.org/spec/latest/json-ld-framing/#framing>.
+        '''
+        context = self.document['@context']
+        with open('ns/v1/articular.json', 'r') as in_file:
+            ctx = json.load(in_file)
+
+        context[0] = ctx['@context']
+        frame = {
+            '@context': context,
+            '@embed': '@always',
+            '@id': self.document['id']
+        }
+        framed = jsonld.frame(self.document, frame)
+        framed['@context'][0] = 'ns/v1/articular.json'
+        return Template._dump(framed)
 
 
 if __name__ == '__main__':
