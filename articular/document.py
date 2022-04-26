@@ -6,6 +6,7 @@ Create JSON-LD representations of Markdown content.
 import json
 
 from articular.template import Template
+from pathlib import Path
 from pyld import jsonld
 from typing import Dict
 
@@ -137,7 +138,8 @@ class Document:
         Refer to <https://json-ld.org/spec/latest/json-ld-framing/#framing>.
         '''
         context = self.document['@context']
-        with open('ns/v1/articular.json', 'r') as in_file:
+        context_path = Path(__file__).parent.parent.joinpath('ns/v1/articular.json')
+        with open(context_path, 'r') as in_file:
             ctx = json.load(in_file)
 
         context[0] = ctx['@context']
