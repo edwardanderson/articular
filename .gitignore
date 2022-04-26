@@ -6,5 +6,6 @@ __pycache__/
 out/
 experiments/
 *.egg-info/
+build/
 
 linked-art.json

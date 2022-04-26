@@ -1,6 +1,12 @@
-# The Beatles
+---
+context:
+  Group: http://purl.org/dc/terms/Agent
+  Person: http://purl.org/dc/terms/Agent
+---
 
-## John
+# [The Beatles](http://www.wikidata.org/entity/Q1299 "Group")
+
+## [John]("Person")
 
 ## Paul
 

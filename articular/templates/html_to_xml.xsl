@@ -121,9 +121,11 @@
                     <xsl:value-of select="a/@title"/>
                 </type>
             </xsl:if>
-            <_same_as>
-                <xsl:apply-templates select="a"/>
-            </_same_as>
+            <xsl:if test="a/@href != ''">
+                <_same_as>
+                    <xsl:apply-templates select="a"/>
+                </_same_as>
+            </xsl:if>
         </xsl:if>
         <xsl:apply-templates select="parent::section"/>
     </_see_also>
