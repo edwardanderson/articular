@@ -56,35 +56,40 @@ articular examples/tortilla-flat.md --base http://www.example.com/
         "@base": "http://www.example.com/examples/tortilla-flat#"
       }
     ],
-    "id": "http://www.example.com/examples/tortilla-flat",
-    "_label": "Tortilla Flat",
+    "id": "tortilla-flat",
     "type": "Book",
-    "_same_as": {
-      "id": "http://www.wikidata.org/entity/Q606720",
-      "type": "Book",
-      "_label": "Tortilla Flat"
-    },
     "_comment": [
       {
         "type": "_Comment",
-        "_content": "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>",
+        "_comment": "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>",
         "_format": "text/html",
-        "_mentions": {
-          "id": "http://www.wikidata.org/entity/Q39212",
-          "_label": "John Steinbeck"
-        }
+        "_mentions": [
+          {
+            "id": "http://www.wikidata.org/entity/Q39212",
+            "type": "Person",
+            "_label": "John Steinbeck"
+          }
+        ]
       },
       {
         "type": "_Quotation",
-        "_content": "Thoughts are slow and deep and golden in the morning."
+        "_comment": "Thoughts are slow and deep and golden in the morning."
       }
     ],
+    "_label": "Tortilla Flat",
     "author": {
       "id": "http://www.wikidata.org/entity/Q39212",
       "type": "Person",
       "_label": "John Steinbeck"
     },
-    "date": "1935"
+    "date": "1935",
+    "_same_as": [
+      {
+        "id": "http://www.wikidata.org/entity/Q606720",
+        "type": "Book",
+        "_label": "Tortilla Flat"
+      }
+    ]
   }
   ```
 
