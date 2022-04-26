@@ -4,8 +4,8 @@ from setuptools import setup, find_packages
 setup(
     name='articular',
     version='0.1.0',
-    description='Create knowledge graphs from Markdown.',
-    url='https://github.com/edwardanderson/mdul-json',
+    description='Create knowledge graphs from Markdown documents.',
+    url='https://github.com/edwardanderson/articular',
     author='Edward Anderson',
     license='MIT',
     keywords=[
