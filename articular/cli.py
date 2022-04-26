@@ -4,6 +4,7 @@ Command line interface.
 
 
 import frontmatter
+import json
 
 from argparse import ArgumentParser
 from articular.document import Document
@@ -60,7 +61,10 @@ def main():
         document = Document(markdown, uri=uri, context=cached_contexts)
 
         if args.format == 'json':
-            print_json(str(document))
+            if args.base:
+                print_json(document.framed)
+            else:
+                print_json(str(document))
         else:
             # Serialise RDF.
             graph = Graph()
