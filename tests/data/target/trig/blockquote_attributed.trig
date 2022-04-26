@@ -1,0 +1,17 @@
+@prefix : </> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+
+<blockquote_attributed.md> {
+    <blockquote_attributed.md> rdf:type schema:Dataset ;
+        rdfs:label "blockquote_attributed.md" ;
+        schema:about <blockquote_attributed> .
+    
+    <blockquote_attributed> rdfs:label "Attributed Blockquote" ;
+        rdfs:comment [ rdf:type schema:Quotation ;
+            rdfs:comment "It seemed like a nice neighborhood to have bad habits in." ;
+            :spokenByCharacter <http://www.wikidata.org/entity/Q623732> ] .
+
+    <http://www.wikidata.org/entity/Q623732> rdfs:label "Philip Marlowe" .
+}

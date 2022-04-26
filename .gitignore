@@ -1,0 +1,11 @@
+dev/
+old/
+out/
+v/
+__pycache__/
+out/
+experiments/
+*.egg-info/
+build/
+
+linked-art.json

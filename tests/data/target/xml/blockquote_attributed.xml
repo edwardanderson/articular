@@ -1,0 +1,14 @@
+<document>
+    <context>
+        <spokenByCharacter>user:spokenByCharacter</spokenByCharacter>
+    </context>
+    <_label>Attributed Blockquote</_label>
+    <_comment>
+        <type>_Quotation</type>
+        <_content>It seemed like a nice neighborhood to have bad habits in.</_content>
+        <spokenByCharacter>
+            <id>http://www.wikidata.org/entity/Q623732</id>
+            <_label>Philip Marlowe</_label>
+        </spokenByCharacter>
+    </_comment>
+</document>

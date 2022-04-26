@@ -1,0 +1,23 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+
+<blockquote_rich.md> {
+    <blockquote_rich.md> rdf:type schema:Dataset ;
+        rdfs:label "blockquote_rich.md" ;
+        schema:about <blockquote_rich> .
+    
+    <blockquote_rich> rdfs:label "Rich Text Blockquote" ;
+        rdfs:comment [ rdf:type schema:Quotation ;
+            rdfs:comment "<em><strong>Vertigo</strong></em> is a 1958 American <a href=\"https://en.wikipedia.org/wiki/Film_noir\">film noir</a> <a href=\"https://en.wikipedia.org/wiki/Psychological_thriller\">psychological thriller</a> film directed and produced by <a href=\"https://en.wikipedia.org/wiki/Alfred_Hitchcock\">Alfred Hitchcock</a>." ;
+            schema:encodingFormat "text/html" ; 
+            schema:mentions <https://en.wikipedia.org/wiki/Film_noir> ,
+                <https://en.wikipedia.org/wiki/Psychological_thriller> ,
+                <https://en.wikipedia.org/wiki/Alfred_Hitchcock> ] .
+    
+    <https://en.wikipedia.org/wiki/Film_noir> rdfs:label "film noir" .
+
+    <https://en.wikipedia.org/wiki/Psychological_thriller> rdfs:label "psychological thriller" .
+
+    <https://en.wikipedia.org/wiki/Alfred_Hitchcock> rdfs:label "Alfred Hitchcock" .
+}

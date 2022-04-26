@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "@context": "ns/v1/mdul.json",
+        "@base": "/home/"
+    },
+    "id": "blockquote.md",
+    "_label": "blockquote.md",
+    "type": "_Document",
+    "_describes": {
+        "id": "blockquote",
+        "_label": "Blockquote",
+        "_comment": {
+            "type": "_Quotation",
+            "_content": "All for one and one for all."
+        }
+    }
+}

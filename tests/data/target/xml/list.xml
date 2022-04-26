@@ -1,0 +1,11 @@
+<document>
+    <context>
+        <director>user:director</director>
+        <title>user:title</title>
+    </context>
+    <_label>Jean-Pierre Melville</_label>
+    <director>
+        <type>Movie</type>
+        <title>Le Cercle Rouge</title>
+    </director>
+</document>

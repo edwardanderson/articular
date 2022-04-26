@@ -1,0 +1,55 @@
+{
+    "@context": [
+        "http://mdul.io/ns/v1/mdul.json",
+        {
+            "date_of_birth": {
+                "@id": "https://schema.org/birthDate"
+            },
+            "place_of_birth": {
+                "@id": "https://schema.org/birthPlace"
+            },
+            "inspired": {
+                "@reverse": "https://schema.org/about"
+            }
+        }
+    ],
+    "id": "list_hyperlink_image.md",
+    "_label": "list_hyperlink_image.md",
+    "type": "_Document",
+    "_describes": {
+        "id": "list_hyperlink_image",
+        "_label": "Tortilla Flat",
+        "author": {
+            "id": "http://www.wikidata.org/entity/Q39212",
+            "_label": "John Steinbeck",
+            "type": "Person",
+            "date_of_birth": "27 February 1902",
+            "place_of_birth": {
+                "id": "http://www.wikidata.org/entity/Q488125",
+                "_label": "Salinas",
+                "part_of": {
+                    "_label": "California"
+                }
+            }
+        },
+        "date": "1935",
+        "inspired": {
+            "id": "http://www.wikidata.org/entity/Q377776",
+            "_label": "Tortilla Flat",
+            "type": "Movie",
+            "actor": [
+                {
+                    "_label": "Spencer Tracy"
+                },
+                {
+                    "_label": "Hedy Lamarr",
+                    "_image": {
+                        "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hedy_Lamarr_Publicity_Photo_for_The_Heavenly_Body_1944.jpg/330px-Hedy_Lamarr_Publicity_Photo_for_The_Heavenly_Body_1944.jpg",
+                        "_label": "Publicity photo (c. 1944)",
+                        "type": "_Image"
+                    }
+                }
+            ]
+        }
+    }
+}
