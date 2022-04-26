@@ -50,9 +50,13 @@ articular examples/tortilla-flat.md --base http://www.example.com/
     "@context": [
       "ns/v1/articular.json",
       {
-        "author": "https://schema.org/author",
-        "date": "https://schema.org/dateCreated",
-        "Book": "https://schema.org/Book",
+        "author": "schema:author",
+        "born_in": "schema:birthPlace",
+        "date": "schema:dateCreated",
+        "schema": "https://schema.org/",
+        "Book": "schema:Book",
+        "Person": "schema:Person",
+        "Place": "schema:Place",
         "@base": "http://www.example.com/examples/tortilla-flat#"
       }
     ],
@@ -67,7 +71,12 @@ articular examples/tortilla-flat.md --base http://www.example.com/
           {
             "id": "http://www.wikidata.org/entity/Q39212",
             "type": "Person",
-            "_label": "John Steinbeck"
+            "_label": "John Steinbeck",
+            "born_in": {
+              "id": "http://www.wikidata.org/entity/Q488125",
+              "type": "Place",
+              "_label": "Salinas, California"
+            }
           }
         ]
       },
@@ -80,7 +89,12 @@ articular examples/tortilla-flat.md --base http://www.example.com/
     "author": {
       "id": "http://www.wikidata.org/entity/Q39212",
       "type": "Person",
-      "_label": "John Steinbeck"
+      "_label": "John Steinbeck",
+      "born_in": {
+        "id": "http://www.wikidata.org/entity/Q488125",
+        "type": "Place",
+        "_label": "Salinas, California"
+      }
     },
     "date": "1935",
     "_same_as": [
@@ -118,11 +132,15 @@ articular examples/tortilla-flat.md --base http://www.example.com/ --format turt
       schema:dateCreated "1935" ;
       schema:sameAs <http://www.wikidata.org/entity/Q606720> .
 
+  <http://www.wikidata.org/entity/Q488125> a schema:Place ;
+      rdfs:label "Salinas, California" .
+
   <http://www.wikidata.org/entity/Q606720> a schema:Book ;
       rdfs:label "Tortilla Flat" .
 
-  <http://www.wikidata.org/entity/Q39212> a <http://www.example.com/examples/Person> ;
-      rdfs:label "John Steinbeck" .
+  <http://www.wikidata.org/entity/Q39212> a schema:Person ;
+      rdfs:label "John Steinbeck" ;
+      schema:birthPlace <http://www.wikidata.org/entity/Q488125> .
   ```
 
 </details>

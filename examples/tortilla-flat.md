@@ -1,14 +1,20 @@
 ---
 context:
-  Book: https://schema.org/Book
-  author: https://schema.org/author
-  date: https://schema.org/dateCreated
+  schema: https://schema.org/
+  Book: schema:Book
+  Person: schema:Person
+  Place: schema:Place
+  author: schema:author
+  born_in: schema:birthPlace
+  date: schema:dateCreated
 ---
 
 # [Tortilla Flat](http://www.wikidata.org/entity/Q606720 "Book")
 
 * author
   * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
+    * born in
+      * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
 * date
   * "1935"
 
