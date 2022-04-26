@@ -4,7 +4,6 @@ Command line interface.
 
 
 import frontmatter
-import json
 
 from argparse import ArgumentParser
 from articular.document import Document

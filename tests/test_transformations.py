@@ -5,7 +5,7 @@ Transformation tests.
 
 import json
 import unittest
-from mdul_json import Document, create_context
+from articular import Document
 from pathlib import Path
 from rdflib import ConjunctiveGraph
 from rdflib.compare import isomorphic, graph_diff
@@ -18,16 +18,13 @@ class MarkdownFile(object):
         self.file = data_path.joinpath(f'source/md/{filename}')
 
         # Generate document.
-        document = Document(
-            context=create_context(
-                'ns/v1/mdul.json',
-                base='/home/'
-            ),
-            file=self.file
-        )
-        self.source_json = json.loads(document.to_json())
+        with open(self.file, 'r') as in_file:
+            markdown = in_file.read()
+
+        document = Document(markdown, uri=str(self.file))
+
         self.source_graph = ConjunctiveGraph()
-        self.source_graph.parse(data=self.source_json, format='json-ld')
+        self.source_graph.parse(data=str(document), format='json-ld')
 
         target_json_path = data_path.joinpath(f'target/json/{self.file.stem}.json')
         with open(target_json_path, 'r') as in_file:

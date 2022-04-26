@@ -11,7 +11,7 @@ from pathlib import Path
 class XSLTest(object):
 
     def __init__(self, xsl_filename, data_filename):
-        xslt_path = Path(__file__).parent.parent.joinpath(f'mdul_json/templates/{xsl_filename}')
+        xslt_path = Path(__file__).parent.parent.joinpath(f'articular/templates/{xsl_filename}')
         xslt = etree.parse(str(xslt_path))
         self.template = etree.XSLT(xslt)
 
@@ -40,7 +40,7 @@ class TestFile(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'file')
+        self.xsl = XSLTest('html_to_xml.xsl', 'file')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -52,7 +52,7 @@ class TestH1PlainText(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'h1_plain_text')
+        self.xsl = XSLTest('html_to_xml.xsl', 'h1_plain_text')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -64,7 +64,7 @@ class TestH1Hyperlink(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'h1_hyperlink')
+        self.xsl = XSLTest('html_to_xml.xsl', 'h1_hyperlink')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -76,7 +76,7 @@ class TestH1H2(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'h1_h2')
+        self.xsl = XSLTest('html_to_xml.xsl', 'h1_h2')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -88,7 +88,7 @@ class TestH1H2Hyperlink(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'h1_h2_hyperlink')
+        self.xsl = XSLTest('html_to_xml.xsl', 'h1_h2_hyperlink')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -100,7 +100,7 @@ class TestBlockquoteAttributed(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'blockquote_attributed')
+        self.xsl = XSLTest('html_to_xml.xsl', 'blockquote_attributed')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -112,7 +112,7 @@ class TestBlockquoteRich(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'blockquote_rich')
+        self.xsl = XSLTest('html_to_xml.xsl', 'blockquote_rich')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -124,7 +124,7 @@ class TestBlockquote(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'blockquote')
+        self.xsl = XSLTest('html_to_xml.xsl', 'blockquote')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -136,7 +136,7 @@ class TestParagraph(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'paragraph')
+        self.xsl = XSLTest('html_to_xml.xsl', 'paragraph')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -148,7 +148,7 @@ class TestImage(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'image')
+        self.xsl = XSLTest('html_to_xml.xsl', 'image')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -160,7 +160,7 @@ class TestTable(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'table')
+        self.xsl = XSLTest('html_to_xml.xsl', 'table')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -172,7 +172,7 @@ class TestList(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'list')
+        self.xsl = XSLTest('html_to_xml.xsl', 'list')
  
     def test_xsl(self):
         result = self.xsl.transform()
@@ -184,7 +184,7 @@ class TestListHyperlinkImage(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.xsl = XSLTest('mdul_to_json.xsl', 'list_hyperlink_image')
+        self.xsl = XSLTest('html_to_xml.xsl', 'list_hyperlink_image')
  
     def test_xsl(self):
         result = self.xsl.transform()
