@@ -132,10 +132,12 @@ class Document:
                     if key in remote_context:
                         item.pop(key)
                     # Remove user-defined key.
-                    value = item[key]
-                    if isinstance(value, str):
+                    try:
+                        value = item[key]
                         if value.startswith('user:'):
                             item.pop(key)
+                    except Exception:
+                        pass
 
         # Remove empty contexts.
         for item in list(user_context):

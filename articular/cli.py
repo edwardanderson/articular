@@ -62,7 +62,7 @@ def main():
         if args.base:
             vocab = str(Path(args.base).joinpath('terms')) + '/'
         else:
-            vocab = str(path.parent.joinpath('terms')) + '/'
+            vocab = 'file://' + str(path.parent.absolute().joinpath('terms')) + '/'
 
         document = Document(
             markdown,
