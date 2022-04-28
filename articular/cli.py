@@ -22,10 +22,12 @@ def main():
         help=''
     )
     parser.add_argument(
+        '-b',
         '--base',
         type=str
     )
     parser.add_argument(
+        '-f',
         '--format',
         type=str,
         default='json'
@@ -43,7 +45,7 @@ def main():
         if args.base:
             uri = args.base + location
         else:
-            uri = location
+            uri = 'file://' + str(Path(location).absolute())
 
         # Cache remote context.
         front_matter, _ = frontmatter.parse(markdown)
@@ -57,13 +59,20 @@ def main():
                 context = response.json()
                 cached_contexts[front_matter_context] = context
 
-        document = Document(markdown, uri=uri, context=cached_contexts)
+        if args.base:
+            vocab = str(Path(args.base).joinpath('terms')) + '/'
+        else:
+            vocab = str(path.parent.joinpath('terms')) + '/'
+
+        document = Document(
+            markdown,
+            uri=uri,
+            context=cached_contexts,
+            vocab=vocab
+        )
 
         if args.format == 'json':
-            if args.base:
-                print_json(document.framed)
-            else:
-                print_json(str(document))
+            print_json(document.framed)
         else:
             # Serialise RDF.
             graph = Graph()

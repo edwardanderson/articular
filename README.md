@@ -20,11 +20,7 @@ pip install git+https://github.com/edwardanderson/articular
 ```markdown
 ---
 context:
-  schema: https://schema.org/
-  Book: schema:Book
-  Person: schema:Person
-  Place: schema:Place
-  author: schema:author
+  "@vocab": "https://schema.org/"
   born_in: schema:birthPlace
   date: schema:dateCreated
 ---
@@ -56,13 +52,9 @@ articular examples/tortilla-flat.md --base http://www.example.com/
     "@context": [
       "ns/v1/articular.json",
       {
-        "author": "schema:author",
         "born_in": "schema:birthPlace",
         "date": "schema:dateCreated",
-        "schema": "https://schema.org/",
-        "Book": "schema:Book",
-        "Person": "schema:Person",
-        "Place": "schema:Place",
+        "@vocab": "https://schema.org/",
         "@base": "http://www.example.com/examples/tortilla-flat#"
       }
     ],

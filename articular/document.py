@@ -81,15 +81,15 @@ class Document:
 
     '''
 
-    def __init__(self, markdown: str, uri: str = None, context: Dict = None) -> None:
+    def __init__(self, markdown: str, uri: str = None, context: Dict = None, vocab: str = None) -> None:
         content = Template.transform(markdown)
-        user_context = content.pop('@context')
+        user_contexts = content.pop('@context')
         try:
-            self.remote_context_keys = [i for i in user_context if isinstance(i, str)]
+            self.remote_context_keys = [i for i in user_contexts if isinstance(i, str)]
         except TypeError:
             self.remote_context_keys = list()
 
-        clean_context = self._deduplicate_context(user_context, context)
+        clean_context = self._deduplicate_context(user_contexts, context)
         # Keep `id` at the top of the document.
         self.document = {'@context' : clean_context}
         if uri:
@@ -99,6 +99,14 @@ class Document:
                 self.document['@context'][-1]['@base'] = base
             except:
                 self.document['@context'].append({'@base': base})
+
+        if vocab:
+            try:
+                if '@vocab' not in self.document['@context'][-1]:
+                    self.document['@context'][-1]['@vocab'] = vocab
+            except:
+                self.document['@context'].append({'@vocab': vocab})
+
 
         self.document.update(content)
 
@@ -116,12 +124,18 @@ class Document:
                 if key in context:
                     remote_context.update(context[key]['@context'])
 
-        # Remove user-duplicated keys.
+        # Remove unwanted keys.
         for item in user_context:
             if isinstance(item, dict):
                 for key in dict(item):
+                    # Remove user-duplicated key.
                     if key in remote_context:
                         item.pop(key)
+                    # Remove user-defined key.
+                    value = item[key]
+                    if isinstance(value, str):
+                        if value.startswith('user:'):
+                            item.pop(key)
 
         # Remove empty contexts.
         for item in list(user_context):
