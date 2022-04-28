@@ -1,10 +1,6 @@
 ---
 context:
-  schema: https://schema.org/
-  Book: schema:Book
-  Person: schema:Person
-  Place: schema:Place
-  author: schema:author
+  "@vocab": "https://schema.org/"
   born_in: schema:birthPlace
   date: schema:dateCreated
 ---
