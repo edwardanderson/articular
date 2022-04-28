@@ -22,7 +22,6 @@ pip install git+https://github.com/edwardanderson/articular
 context:
   "@vocab": "https://schema.org/"
   born_in: schema:birthPlace
-  date: schema:dateCreated
 ---
 
 # [Tortilla Flat](http://www.wikidata.org/entity/Q606720 "Book")
@@ -31,7 +30,7 @@ context:
   * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
     * born in
       * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
-* date
+* [date](https://schema.org/dateCreated "Date")
   * "1935"
 
 Tortilla Flat (1935) is an early [John Steinbeck](http://www.wikidata.org/entity/Q39212) novel set in Monterey, California.
@@ -53,7 +52,10 @@ articular examples/tortilla-flat.md --base http://www.example.com/
       "ns/v1/articular.json",
       {
         "born_in": "schema:birthPlace",
-        "date": "schema:dateCreated",
+        "date": {
+          "@id": "https://schema.org/dateCreated",
+          "@type": "Date"
+        },
         "@vocab": "https://schema.org/",
         "@base": "http://www.example.com/examples/tortilla-flat#"
       }
@@ -120,14 +122,14 @@ articular examples/tortilla-flat.md --base http://www.example.com/ --format turt
 
   <http://www.example.com/examples/tortilla-flat> a schema:Book ;
       rdfs:label "Tortilla Flat" ;
-      rdfs:comment [ a schema:Quotation ;
-              rdfs:comment "Thoughts are slow and deep and golden in the morning." ],
-          [ a schema:Comment ;
+      rdfs:comment [ a schema:Comment ;
               rdfs:comment "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>" ;
               schema:encodingFormat "text/html" ;
-              schema:mentions <http://www.wikidata.org/entity/Q39212> ] ;
+              schema:mentions <http://www.wikidata.org/entity/Q39212> ],
+          [ a schema:Quotation ;
+              rdfs:comment "Thoughts are slow and deep and golden in the morning." ] ;
       schema:author <http://www.wikidata.org/entity/Q39212> ;
-      schema:dateCreated "1935" ;
+      schema:dateCreated "1935"^^schema:Date ;
       schema:sameAs <http://www.wikidata.org/entity/Q606720> .
 
   <http://www.wikidata.org/entity/Q488125> a schema:Place ;

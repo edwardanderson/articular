@@ -2,7 +2,6 @@
 context:
   "@vocab": "https://schema.org/"
   born_in: schema:birthPlace
-  date: schema:dateCreated
 ---
 
 # [Tortilla Flat](http://www.wikidata.org/entity/Q606720 "Book")
@@ -11,7 +10,7 @@ context:
   * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
     * born in
       * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
-* date
+* [date](https://schema.org/dateCreated "Date")
   * "1935"
 
 Tortilla Flat (1935) is an early [John Steinbeck](http://www.wikidata.org/entity/Q39212) novel set in Monterey, California.

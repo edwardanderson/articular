@@ -76,7 +76,7 @@ def main():
         else:
             # Serialise RDF.
             graph = Graph()
-            graph.parse(data=str(document), format='json-ld')
+            graph.parse(data=str(document).encode('utf-8'), format='json-ld')
             serialisation = graph.serialize(format=args.format)
             print(serialisation)
 
