@@ -51,7 +51,7 @@ articular examples/tortilla-flat.md --base http://www.example.com/
   ```json
   {
     "@context": [
-      "ns/v1/articular.json",
+      "https://articular.netlify.app/articular.json",
       {
         "born_in": "schema:birthPlace",
         "date": {
@@ -124,12 +124,12 @@ articular examples/tortilla-flat.md --base http://www.example.com/ --format turt
 
   <http://www.example.com/examples/tortilla-flat> a schema:Book ;
       rdfs:label "Tortilla Flat" ;
-      rdfs:comment [ a schema:Comment ;
+      rdfs:comment [ a schema:Quotation ;
+              rdfs:comment "Thoughts are slow and deep and golden in the morning." ],
+          [ a schema:Comment ;
               rdfs:comment "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>" ;
               schema:encodingFormat "text/html" ;
-              schema:mentions <http://www.wikidata.org/entity/Q39212> ],
-          [ a schema:Quotation ;
-              rdfs:comment "Thoughts are slow and deep and golden in the morning." ] ;
+              schema:mentions <http://www.wikidata.org/entity/Q39212> ] ;
       schema:author <http://www.wikidata.org/entity/Q39212> ;
       schema:dateCreated "1935"^^schema:Date ;
       schema:sameAs <http://www.wikidata.org/entity/Q606720> .
