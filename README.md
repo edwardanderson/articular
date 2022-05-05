@@ -1,6 +1,6 @@
 # Articular
 
-**Articular** is a tool for creating knowledge graphs from Markdown documents.
+**Articular** is a tool for creating knowledge graphs with Markdown documents.
 
 ## Requirements
 
@@ -38,6 +38,8 @@ Tortilla Flat (1935) is an early [John Steinbeck](http://www.wikidata.org/entity
 > Thoughts are slow and deep and golden in the morning.
 
 ```
+
+Convert the Markdown document into Linked Data.
 
 ```bash
 articular examples/tortilla-flat.md --base http://www.example.com/

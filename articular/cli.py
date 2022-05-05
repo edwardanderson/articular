@@ -72,7 +72,7 @@ def main():
         )
 
         if args.format == 'json':
-            print_json(document.framed)
+            print_json(document.framed, ensure_ascii=False)
         else:
             # Serialise RDF.
             graph = Graph()
