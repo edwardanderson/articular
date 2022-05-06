@@ -55,7 +55,7 @@ articular examples/tortilla-flat.md --base http://www.example.com/
   ```json
   {
     "@context": [
-      "https://articular.netlify.app/articular.json",
+      "https://edwardanderson.github.io/articular/ns/v1/articular.json",
       {
         "born_in": "schema:birthPlace",
         "date": {
