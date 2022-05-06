@@ -28,12 +28,15 @@ pip install git+https://github.com/edwardanderson/articular
 context:
   "@vocab": "https://schema.org/"
   born_in: schema:birthPlace
+  portrait: schema:image
 ---
 
 # [Tortilla Flat](http://www.wikidata.org/entity/Q606720 "Book")
 
 * author
   * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
+    * portrait
+      * ![John Steinbeck, 1939](https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg)
     * born in
       * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
 * [date](https://schema.org/dateCreated "Date")
@@ -59,6 +62,7 @@ articular examples/tortilla-flat.md --base http://www.example.com/
     "@context": [
       "https://edwardanderson.github.io/articular/ns/v1/articular.json",
       {
+        "portrait": "schema:image",
         "born_in": "schema:birthPlace",
         "date": {
           "@id": "https://schema.org/dateCreated",
@@ -84,7 +88,14 @@ articular examples/tortilla-flat.md --base http://www.example.com/
               "id": "http://www.wikidata.org/entity/Q488125",
               "type": "Place",
               "_label": "Salinas, California"
-            }
+            },
+            "_image": [
+              {
+                "id": "https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg",
+                "type": "_Image",
+                "_label": "John Steinbeck, 1939"
+              }
+            ]
           }
         ]
       },
@@ -102,7 +113,14 @@ articular examples/tortilla-flat.md --base http://www.example.com/
         "id": "http://www.wikidata.org/entity/Q488125",
         "type": "Place",
         "_label": "Salinas, California"
-      }
+      },
+      "_image": [
+        {
+          "id": "https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg",
+          "type": "_Image",
+          "_label": "John Steinbeck, 1939"
+        }
+      ]
     },
     "date": "1935",
     "_same_as": [
@@ -127,30 +145,34 @@ articular examples/tortilla-flat.md --base http://www.example.com/ --format turt
   <summary>Turtle</summary>
 
   ```turtle
-  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-  @prefix schema: <https://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 
-  <http://www.example.com/examples/tortilla-flat> a schema:Book ;
-      rdfs:label "Tortilla Flat" ;
-      rdfs:comment [ a schema:Quotation ;
-              rdfs:comment "Thoughts are slow and deep and golden in the morning." ],
-          [ a schema:Comment ;
-              rdfs:comment "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>" ;
-              schema:encodingFormat "text/html" ;
-              schema:mentions <http://www.wikidata.org/entity/Q39212> ] ;
-      schema:author <http://www.wikidata.org/entity/Q39212> ;
-      schema:dateCreated "1935"^^schema:Date ;
-      schema:sameAs <http://www.wikidata.org/entity/Q606720> .
+<http://www.example.com/examples/tortilla-flat> a schema:Book ;
+    rdfs:label "Tortilla Flat" ;
+    rdfs:comment [ a schema:Comment ;
+            rdfs:comment "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>" ;
+            schema:encodingFormat "text/html" ;
+            schema:mentions <http://www.wikidata.org/entity/Q39212> ],
+        [ a schema:Quotation ;
+            rdfs:comment "Thoughts are slow and deep and golden in the morning." ] ;
+    schema:author <http://www.wikidata.org/entity/Q39212> ;
+    schema:dateCreated "1935"^^schema:Date ;
+    schema:sameAs <http://www.wikidata.org/entity/Q606720> .
 
-  <http://www.wikidata.org/entity/Q488125> a schema:Place ;
-      rdfs:label "Salinas, California" .
+<http://www.wikidata.org/entity/Q488125> a schema:Place ;
+    rdfs:label "Salinas, California" .
 
-  <http://www.wikidata.org/entity/Q606720> a schema:Book ;
-      rdfs:label "Tortilla Flat" .
+<http://www.wikidata.org/entity/Q606720> a schema:Book ;
+    rdfs:label "Tortilla Flat" .
 
-  <http://www.wikidata.org/entity/Q39212> a schema:Person ;
-      rdfs:label "John Steinbeck" ;
-      schema:birthPlace <http://www.wikidata.org/entity/Q488125> .
+<https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg> a schema:ImageObject ;
+    rdfs:label "John Steinbeck, 1939" .
+
+<http://www.wikidata.org/entity/Q39212> a schema:Person ;
+    rdfs:label "John Steinbeck" ;
+    schema:birthPlace <http://www.wikidata.org/entity/Q488125> ;
+    schema:image <https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg> .
   ```
 
 </details>

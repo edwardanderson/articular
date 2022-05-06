@@ -250,7 +250,7 @@
             </id>
             <xsl:if test="img/@alt">
                 <_label>
-                    <xsl:value-of select="img/@alt/text()"/>
+                    <xsl:value-of select="img/@alt"/>
                 </_label>
             </xsl:if>
             <xsl:choose>

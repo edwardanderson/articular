@@ -18,6 +18,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'lxml',
+        'pyld',
         'pypandoc',
         'python-frontmatter',
         'requests',
