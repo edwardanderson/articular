@@ -38,7 +38,7 @@ The title heading annotates the resource.
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -58,7 +58,7 @@ Headings and [sub-headings](#sub-headings) can be [hyperlinks](#hyperlinks). The
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -88,7 +88,7 @@ When hyperlinks are used in sub-headings, [`schema:sameAs`](https://schema.org/s
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -129,7 +129,7 @@ Rich paragraph text is encoded as HTML, otherwise it is plain text. Hyperlinks c
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -166,7 +166,7 @@ Quoted rich text is encoded as HTML, otherwise it is plain text. Unlike [paragra
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -197,7 +197,7 @@ Images of resources are connected by [`schema:image`](https://schema.org/image) 
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -224,7 +224,7 @@ Hyperlinks label, identify and classify resources. Type classifications may be U
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -263,7 +263,7 @@ Lists may be nested.
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -303,7 +303,7 @@ A backtick-wrapped term in the object position creates a blank node.
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
@@ -334,7 +334,7 @@ Classifying a predicate hyperlink sets the [data type](https://www.w3.org/TR/rdf
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "publication_date": {
         "@id": "https://schema.org/datePublished",
@@ -375,7 +375,7 @@ Specify that a predicate is an [inverse property](https://www.w3.org/TR/json-ld1
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "members": {
         "@reverse": "https://schema.org/memberOf"
@@ -443,7 +443,7 @@ context:
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "Book": "https://schema.org/Book",
       "written_by": "https://schema.org/author",
@@ -475,7 +475,7 @@ context: https://schema.org/docs/jsonldcontext.json
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     "https://schema.org/docs/jsonldcontext.json"
     {
       "@vocab": "http://www.example.com/terms/",
@@ -516,7 +516,7 @@ Articular terms may be overriden. **Warning: this may have unintended consequenc
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json",
+    "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
       "_see_also": "https://schema.org/member",
       "@base": "file:///home/edward/Desktop/code/articular/the-beatles#",
