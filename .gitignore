@@ -3,3 +3,4 @@ v/
 __pycache__/
 *.egg-info/
 build/
+.markdownlint.json
