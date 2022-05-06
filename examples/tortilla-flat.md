@@ -10,7 +10,7 @@ context:
 * author
   * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
     * portrait
-      * ![John Steinbeck, 1939](https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg)
+      * ![John Steinbeck, 1939](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg)
     * born in
       * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
 * [date](https://schema.org/dateCreated "Date")

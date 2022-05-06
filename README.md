@@ -36,7 +36,7 @@ context:
 * author
   * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
     * portrait
-      * ![John Steinbeck, 1939](https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg)
+      * ![John Steinbeck, 1939](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg)
     * born in
       * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
 * [date](https://schema.org/dateCreated "Date")
@@ -91,7 +91,7 @@ articular examples/tortilla-flat.md --base http://www.example.com/
             },
             "_image": [
               {
-                "id": "https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg",
+                "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg",
                 "type": "_Image",
                 "_label": "John Steinbeck, 1939"
               }
@@ -116,7 +116,7 @@ articular examples/tortilla-flat.md --base http://www.example.com/
       },
       "_image": [
         {
-          "id": "https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg",
+          "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg",
           "type": "_Image",
           "_label": "John Steinbeck, 1939"
         }
@@ -166,13 +166,13 @@ articular examples/tortilla-flat.md --base http://www.example.com/ --format turt
 <http://www.wikidata.org/entity/Q606720> a schema:Book ;
     rdfs:label "Tortilla Flat" .
 
-<https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg> a schema:ImageObject ;
+<https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg> a schema:ImageObject ;
     rdfs:label "John Steinbeck, 1939" .
 
 <http://www.wikidata.org/entity/Q39212> a schema:Person ;
     rdfs:label "John Steinbeck" ;
     schema:birthPlace <http://www.wikidata.org/entity/Q488125> ;
-    schema:image <https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg> .
+    schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg> .
   ```
 
 </details>
