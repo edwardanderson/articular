@@ -27,7 +27,7 @@ class Document:
         >>> print(document)
         {
             "@context": [
-                "https://articular.netlify.app/articular.json",
+                "https://edwardanderson.github.io/articular/ns/v1/articular.json",
                 {
                     "Book": "https://schema.org/Book"
                 }
@@ -66,7 +66,7 @@ class Document:
         >>> print(document)
         {
             "@context": [
-                "https://articular.netlify.app/articular.json",
+                "https://edwardanderson.github.io/articular/ns/v1/articular.json",
                 "https://schema.org/docs/jsonldcontext.json",
                 {
                     "@base": "alfred-hitchcock#"
@@ -165,7 +165,7 @@ class Document:
             '@id': self.document['id']
         }
         framed = jsonld.frame(self.document, frame)
-        framed['@context'][0] = 'https://articular.netlify.app/articular.json'
+        framed['@context'][0] = 'https://edwardanderson.github.io/articular/ns/v1/articular.json'
         return Template._dump(framed)
 
 

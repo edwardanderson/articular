@@ -36,7 +36,7 @@ class Template:
     >>> print(Template._dump(d))
     {
         "@context": [
-            "https://articular.netlify.app/articular.json",
+            "https://edwardanderson.github.io/articular/ns/v1/articular.json",
             {
                 "Album": "https://schema.org/MusicAlbum"
             }
@@ -137,7 +137,7 @@ class Template:
         '''
         Convert a Markdown string.
         '''
-        contexts = ['https://articular.netlify.app/articular.json']
+        contexts = ['https://edwardanderson.github.io/articular/ns/v1/articular.json']
         front_matter, content = frontmatter.parse(text)
 
         # User-declared context
