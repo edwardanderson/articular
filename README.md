@@ -4,7 +4,7 @@
 
 ## Overview
 
-**Articular** creates an [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) graph representation of a plain Markdown document. Refer to the [Data Model](model.md).
+Articular creates [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) graph representations of plain Markdown documents. Refer to the [Data Model](model.md).
 
 ## Requirements
 
