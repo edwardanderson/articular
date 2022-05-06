@@ -154,7 +154,7 @@ class Document:
         Refer to <https://json-ld.org/spec/latest/json-ld-framing/#framing>.
         '''
         context = self.document['@context']
-        context_path = Path(__file__).parent.parent.joinpath('ns/v1/articular.json')
+        context_path = Path(__file__).parent.parent.joinpath('docs/ns/v1/articular.json')
         with open(context_path, 'r') as in_file:
             ctx = json.load(in_file)
 
