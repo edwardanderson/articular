@@ -186,7 +186,7 @@ Quoted rich text is encoded as HTML, otherwise it is plain text. Unlike [paragra
 
 ## Images
 
-Images of resources are connected by [`schema:image`](https://schema.org/image) relations to instances of [`schema:ImageObject`](https://schema.org/ImageObject).
+In-line images of resources are connected by [`schema:image`](https://schema.org/image) relations to instances of [`schema:ImageObject`](https://schema.org/ImageObject). Images referenced in [unordered lists](#unordered-lists) are linked by the given predicate.
 
 ```markdown
 #  Wuthering Heights
