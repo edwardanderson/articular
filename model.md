@@ -425,7 +425,7 @@ Tables are encoded as `text/csv`. **This is liable to change in future releases.
 
 ## Context
 
-A front matter `context` section may be used to map terms used in the document to other ontologies. Terms containing spaces should be mapped using snake_case. Terms which are not defined in the `context` are expected to be available at the `@base` location.
+A front matter `context` section may be used to map terms used in the document to other ontologies. Terms containing spaces should be mapped using snake_case. Terms which are not defined in the `context` are expected to be available at the `terms/` sub-directory of the `@base` location.
 
 ```markdown
 ---
