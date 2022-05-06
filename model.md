@@ -462,7 +462,7 @@ context:
 
 ### Context JSON
 
-A link to a JSON-LD `@context` document may be used instead of a map.
+A link to a JSON-LD [`@context`](https://json-ld.org/spec/latest/json-ld/#the-context) document may be used instead of a map.
 
 ```markdown
 ---
@@ -516,15 +516,16 @@ Articular terms may be overriden. **Warning: this may have unintended consequenc
 ```json
 {
   "@context": [
-    "https://articular.netlify.app/articular.json"
+    "https://articular.netlify.app/articular.json",
     {
-      "@vocab": "http://www.example.com/terms/",
-      "@base": "http://www.example.com/the-beatles#"
+      "_see_also": "https://schema.org/member",
+      "@base": "file:///home/edward/Desktop/code/articular/the-beatles#",
+      "@vocab": "file:///home/edward/Desktop/code/articular/terms/"
     }
   ],
   "id": "the-beatles",
   "_label": "The Beatles",
-  "member": [
+  "_see_also": [
     {
       "id": "#john",
       "_label": "John"
