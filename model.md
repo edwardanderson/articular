@@ -108,7 +108,7 @@ When hyperlinks are used in sub-headings, [`schema:sameAs`](https://schema.org/s
       "_same_as": {
         "id": "https://en.wikipedia.org/wiki/Wuthering_Heights#Publication_history",
         "type": "Article",
-        "_label": "Publication
+        "_label": "Publication"
       }
 
     }
@@ -118,7 +118,7 @@ When hyperlinks are used in sub-headings, [`schema:sameAs`](https://schema.org/s
 
 ## Text
 
-Paragraph text is encoded as HTML. Hyperlinks create [`schema:mentions`](https://schema.org/mentions) relationships.
+Rich paragraph text is encoded as HTML, otherwise it is plain text. Hyperlinks create [`schema:mentions`](https://schema.org/mentions) relationships.
 
 ```markdown
 # Wuthering Heights
@@ -151,7 +151,7 @@ Paragraph text is encoded as HTML. Hyperlinks create [`schema:mentions`](https:/
 
 ## Blockquotes
 
-Quoted rich text is encoded as HTML, otherwise it is plain text. Unlike [paragraph text](#text), hyperlinks are not parsed. An [unordered list](#unordered-lists) may be added to attribute the quotation.
+Quoted rich text is encoded as HTML, otherwise it is plain text. Unlike [paragraph text](#text), hyperlinks are not parsed. An [unordered list](#unordered-lists) may be added at the end of the blockquote to attribute the quotation.
 
 ```markdown
 # Wuthering Heights
@@ -242,9 +242,10 @@ Use unordered lists to describe a resource with predicate-object pairs. Objects 
 
 * Plain text - creating labelled blank nodes
 * Hyperlinks - identifying other resources
-* Quoted text - creating literals
+* Quoted text - creating [literals](#literals)
+* Backticked text - creating [anonymous types](#anonymous-types)
 
-Predicates may be plain text or hyperlinks.
+Predicates may be plain text or hyperlinks. [Data types](#data-types) and [inverse properties](#inverse-properties) may be used.
 
 Lists may be nested.
 
@@ -290,7 +291,6 @@ Literal string values must be wrapped in double quotes.
 
 A backtick-wrapped term in the object position creates a blank node.
 
-
 ```markdown
 # Wuthering Heights
 
@@ -312,7 +312,7 @@ A backtick-wrapped term in the object position creates a blank node.
   "id": "wuthering-heights",
   "_label": "Wuthering Heights",
   "publication": {
-    "id": "PublicationEvent",
+    "type": "PublicationEvent",
     "location": {
       "_label": "United Kingdom"
     }
