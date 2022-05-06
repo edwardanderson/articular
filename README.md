@@ -2,6 +2,10 @@
 
 **Articular** is a tool for creating knowledge graphs with Markdown documents.
 
+## Overview
+
+**Articular** creates an [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) graph representation of a plain Markdown document. Refer to the [Data Model](model.md).
+
 ## Requirements
 
 * Python 3
