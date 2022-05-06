@@ -4,7 +4,9 @@
 
 ## Overview
 
-Articular creates [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) graph representations of plain Markdown documents. Refer to the [Data Model](docs/model.md).
+Articular creates [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) graph representations of plain Markdown documents.
+
+Refer to the [Articular Data Model](docs/model.md).
 
 ## Requirements
 
@@ -19,7 +21,7 @@ pip install git+https://github.com/edwardanderson/articular
 
 ## Example
 
-[examples/tortilla-flat.md](examples/tortilla-flat.md)
+[./examples/tortilla-flat.md](examples/tortilla-flat.md)
 
 ```markdown
 ---
@@ -115,6 +117,8 @@ articular examples/tortilla-flat.md --base http://www.example.com/
 
 </details>
 
+Specify a different [serialisation format](https://rdflib.readthedocs.io/en/stable/plugin_serializers.html).
+
 ```bash
 articular examples/tortilla-flat.md --base http://www.example.com/ --format turtle
 ```
@@ -150,3 +154,8 @@ articular examples/tortilla-flat.md --base http://www.example.com/ --format turt
   ```
 
 </details>
+
+## Acknowledgements
+
+* Articular is inspired by [Linked Open Usable Data](https://linked.art/loud/) and [MkDocs](https://www.mkdocs.org/).
+* [xml-to-string.xsl](articular/templates/xml-to-string.xsl) was written by Evan Lenz.
