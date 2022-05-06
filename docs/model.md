@@ -240,10 +240,11 @@ Hyperlinks label, identify and classify resources. Type classifications may be U
 
 Use unordered lists to describe a resource with predicate-object pairs. Objects may be:
 
-* Plain text - creating labelled blank nodes
-* Hyperlinks - identifying other resources
+* Plain text - creating labelled [blank nodes](https://www.w3.org/TR/rdf11-concepts/#section-blank-nodes)
+* [Hyperlinks](#hyperlinks) - identifying other resources
 * Quoted text - creating [literals](#literals)
 * Backticked text - creating [anonymous types](#anonymous-types)
+* [Images](#images)
 
 Predicates may be plain text or hyperlinks. [Data types](#data-types) and [inverse properties](#inverse-properties) may be used.
 
@@ -256,7 +257,7 @@ Lists may be nested.
   * [Emily Brontë](http://www.wikidata.org/entity/Q80137 "Person")
     * sister of
       * Charlotte Brontë
-* published in
+* [published in](https://schema.org/datePublished "https://schema.org/Date)
   * "1847"
 ```
 
@@ -265,6 +266,10 @@ Lists may be nested.
   "@context": [
     "https://edwardanderson.github.io/articular/ns/v1/articular.json",
     {
+      "published_in": {
+        "@id": "https://schema.org/datePublished",
+        "@type": "https://schema.org/Date"
+      },
       "@vocab": "http://www.example.com/terms/",
       "@base": "http://www.example.com/books/wuthering-heights#"
     }
@@ -289,7 +294,7 @@ Literal string values must be wrapped in double quotes.
 
 ### Anonymous types
 
-A backtick-wrapped term in the object position creates a blank node.
+A backtick-wrapped term in the object position creates a [blank node](https://www.w3.org/TR/rdf11-concepts/#section-blank-nodes).
 
 ```markdown
 # Wuthering Heights
