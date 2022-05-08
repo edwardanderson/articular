@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='articular',
-    version='0.1.1',
+    version='0.1.2',
     description='Create knowledge graphs from Markdown documents.',
     url='https://github.com/edwardanderson/articular',
     author='Edward Anderson',
