@@ -291,7 +291,7 @@
     <xsl:if test="@href != ''">
         <id>
             <!-- Patch out .md suffix. -->
-            <xsl:value-of select="re:replace(@href, '(\.md)(?=#[\w-]+){0,}', 'g', '')"/>
+            <xsl:value-of select="re:replace(@href, '(\.md$)|(\.md)(?=#[\w-]+$){1,}', 'g', '')"/>
         </id>
     </xsl:if>
     <!-- Type. -->
