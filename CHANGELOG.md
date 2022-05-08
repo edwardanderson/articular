@@ -1,5 +1,11 @@
 # Change Log
 
+### 0.1.2
+
+### Fixed
+
+* Fixed bug in Markdown resource URI-ification causing ".md" substring to be replaced when not in end position.
+
 ## 0.1.1
 
 ### Fixed
