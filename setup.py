@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='articular',
-    version='0.1.2',
+    version='0.1.3',
     description='Create knowledge graphs from Markdown documents.',
     url='https://github.com/edwardanderson/articular',
     author='Edward Anderson',
-    license='MIT',
+    license='GPLv3',
     keywords=[
         'Markdown',
         'JSON-LD',

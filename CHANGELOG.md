@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.3
+
+### Fixed
+
+* Update licence in setup.py.
+
 ## 0.1.2
 
 ### Fixed
