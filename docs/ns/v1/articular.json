@@ -7,7 +7,7 @@
         "id": "@id",
         "type": "@type",
         "_comment": {
-            "@id": "rdfs:comment"
+            "@id": "schema:comment"
         },
         "_content": {
             "@id": "rdfs:comment"

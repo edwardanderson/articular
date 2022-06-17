@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.1.5
+
+### Fixed
+
+* Replaced semantics for `_comment` from `rdfs:comment` to `schema:comment` as range was Literal.
+* `Path()` was mangling `@vocab`
+
 ## 0.1.4
 
 ### Fixed

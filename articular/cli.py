@@ -60,7 +60,7 @@ def main():
                 cached_contexts[front_matter_context] = context
 
         if args.base:
-            vocab = str(Path(args.base).joinpath('terms')) + '/'
+            vocab = args.base + 'terms/'
         else:
             vocab = 'file://' + str(path.parent.absolute().joinpath('terms')) + '/'
 
