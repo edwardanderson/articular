@@ -15,8 +15,11 @@ Refer to the [Articular Data Model](docs/model.md).
 
 ## Install
 
+While this package is in development, clone and install in editable state.
+
 ```bash
-pip install git+https://github.com/edwardanderson/articular
+git clone https://github.com/edwardanderson/articular.git
+pip install --editable articular-cms/
 ```
 
 ## Example
