@@ -25,10 +25,10 @@ pip install git+https://github.com/edwardanderson/articular
 An Articular document is a list of **Things** and **Texts** connected to each other via **Relationships**.
 
 ```mermaid
-flowchart LR
-    Thing(📦 Thing)
-    Text>✏️ Text]
-    Type[⚙️ Type]
+graph LR
+    Thing("📦 Thing")
+    Text>"✏️ Text"]
+    Type["⚙️ Type"]
 
     Thing -- Relationship --> Thing
     Thing <-- Relationship --> Text
