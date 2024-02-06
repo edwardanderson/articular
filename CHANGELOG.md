@@ -1,4 +1,8 @@
-# Change Log
+# Changelog
+
+## 2.0.0
+
+* Simply everything
 
 ## 0.1.5
 
