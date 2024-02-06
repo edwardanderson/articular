@@ -1,2 +1,1 @@
-from .template import Template
-from .document import Document
+from articular.articular import Template

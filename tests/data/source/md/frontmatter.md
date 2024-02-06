@@ -1,4 +1,0 @@
----
-context: "..."
-type: Book
----
