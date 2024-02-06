@@ -6,8 +6,6 @@
   - [Example](#example)
     - [Input](#input)
     - [Output](#output)
-      - [`application/ld+json`](#applicationldjson)
-      - [`text/turtle`](#textturtle)
       - [Visualisation](#visualisation)
 
 Articular is a tool for creating knowledge graphs with [Markdown](https://daringfireball.net/projects/markdown/) elements: lists of hyperlinks, images, and styled or plain text.
@@ -96,16 +94,13 @@ autotype: false
 
 ### Output
 
-#### `application/ld+json`
-
-![application/json](examples/adventures_of_huckleberry_finn.json)
-
-#### `text/turtle`
-
-![text/turtle](examples/adventures_of_huckleberry_finn.ttl)
+| Syntax             | Example |
+|--------------------|----------------------------------------------------------------------------------------------|
+| `application/json` | [examples/adventures_of_huckleberry_finn.json](examples/adventures_of_huckleberry_finn.json) |
+| `text/turtle`      | [examples/adventures_of_huckleberry_finn.ttl](examples/adventures_of_huckleberry_finn.ttl)   |
 
 #### Visualisation
 
-![Visualisation](examples/adventures_of_huckleberry_finn.png)
+![Visualisation](examples/adventures_of_huckleberry_finn.png).
 
-Generated with [RDF Sketch](https://sketch.zazuko.com/).
+Generated with [RDF Sketch](https://sketch.zazuko.com/)
