@@ -1,0 +1,79 @@
+{
+  "@context": [
+    {
+      "@base": "http://example.org/",
+      "@language": "en",
+      "@version": 1.1,
+      "@vocab": "http://example.org/terms/",
+      "html": "http://www.w3.org/1999/xhtml/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      },
+      "_value": {
+        "@id": "rdf:value"
+      },
+      "source": {
+        "@id": "https://schema.org/isBasedOn"
+      }
+    }
+  ],
+  "@id": "1",
+  "_label": "Adventures of Huckleberry Finn",
+  "@type": [
+    "Book"
+  ],
+  "description": [
+    {
+      "@type": "html:blockquote",
+      "_value": {
+        "@value": "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>",
+        "@type": "rdf:HTML"
+      },
+      "_seeAlso": [
+        {
+          "@id": "https://en.wikipedia.org/wiki/Mark_Twain",
+          "_label": "Mark Twain"
+        }
+      ],
+      "source": [
+        {
+          "@id": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
+          "_label": "\"Adventures of Huckleberry Finn\", Wikipedia"
+        }
+      ]
+    }
+  ],
+  "author": [
+    {
+      "@id": "http://www.wikidata.org/entity/Q7245",
+      "_label": "Mark Twain",
+      "date_of_birth": [
+        {
+          "@type": "xsd:date",
+          "@value": "1835-11-30"
+        }
+      ],
+      "name": [
+        {
+          "@value": "Samuel Longhorn Clemens"
+        },
+        {
+          "@language": "ar",
+          "@value": "صمويل لانغهورن كليمنس"
+        },
+        {
+          "@language": "zh",
+          "@value": "塞姆·朗赫恩·克莱門斯"
+        }
+      ]
+    }
+  ]
+}

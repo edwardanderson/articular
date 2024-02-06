@@ -1,9 +1,0 @@
-{
-    "@context": "http://mdul.io/ns/v1/mdul.json",
-    "id": "file.md",
-    "_label": "file.md",
-    "type": "_Document",
-    "_describes": {
-        "id": "file"
-    }
-}

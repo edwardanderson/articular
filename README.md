@@ -1,186 +1,111 @@
 # Articular
 
-**Articular** is a tool for creating knowledge graphs with Markdown documents.
+- [Articular](#articular)
+  - [Install](#install)
+  - [Model](#model)
+  - [Example](#example)
+    - [Input](#input)
+    - [Output](#output)
+      - [`application/ld+json`](#applicationldjson)
+      - [`text/turtle`](#textturtle)
+      - [Visualisation](#visualisation)
 
-## Overview
+Articular is a tool for creating knowledge graphs with [Markdown](https://daringfireball.net/projects/markdown/) elements: lists of hyperlinks, images, and styled or plain text.
 
-Articular creates [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) graph representations of plain [Markdown](https://en.wikipedia.org/wiki/Markdown) documents. [Linked Data](https://en.wikipedia.org/wiki/Linked_data) results are serialised as framed [JSON-LD](https://json-ld.org/) by default.
-
-Refer to the [Articular Data Model](docs/model.md).
-
-## Requirements
-
-* Python 3
-* [Pandoc](https://pandoc.org/installing.html)
+As a readable, content-first, low-syntax document format, Articular is intended to facilitate the exchange of structured data between researchers, writers and developers to support the construction of databases of networked information.
 
 ## Install
 
-While this package is in development, clone and install in editable state.
-
 ```bash
-git clone https://github.com/edwardanderson/articular.git
-pip install --editable articular-cms/
+pip install git+https://github.com/edwardanderson/articular
+```
+
+## Model
+
+An Articular document is a list of **Things** and **Texts** connected to each other via **Relationships**.
+
+```mermaid
+flowchart LR
+    Thing(📦 Thing)
+    Text>✏️ Text]
+    Type[⚙️ Type]
+
+    Thing -- Relationship --> Thing
+    Thing <-- Relationship --> Text
+    Text .-> Type
+```
+
+* **Things** are [hyperlinks](https://daringfireball.net/projects/markdown/syntax#link), [images](https://daringfireball.net/projects/markdown/syntax#img) or identifying plain-text strings
+* **Relationships** are hyperlinks or identifying plain-text strings
+* **Texts** are [blockquotes](https://daringfireball.net/projects/markdown/syntax#blockquote), with or without [emphasis](https://daringfireball.net/projects/markdown/syntax#em)
+* **Types** are optional qualifiers for language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://daringfireball.net/projects/markdown/syntax#code)
+
+Documents are nested lists of these components.
+
+```text
+- Thing
+  - Relationship
+    - Thing
+  - Relationship
+    - > Text `Type`
+      - Relationship
+        - ...
+```
+
+Parameters are set in the YAML frontmatter.
+
+```markdown
+---
+base: http://www.example.org/
+vocab: https://schema.org/
+language: fr
+autotype: true
+---
 ```
 
 ## Example
 
-[./examples/tortilla-flat.md](examples/tortilla-flat.md)
+```bash
+articular examples/adventures_of_huckleberry_finn.md
+```
+
+### Input
 
 ```markdown
 ---
-context:
-  "@vocab": "https://schema.org/"
-  born_in: schema:birthPlace
-  portrait: schema:image
+language: en
+autotype: false
 ---
 
-# [Tortilla Flat](http://www.wikidata.org/entity/Q606720 "Book")
-
-* author
-  * [John Steinbeck](http://www.wikidata.org/entity/Q39212 "Person")
-    * portrait
-      * ![John Steinbeck, 1939](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg)
-    * born in
-      * [Salinas, California](http://www.wikidata.org/entity/Q488125 "Place")
-* [date](https://schema.org/dateCreated "Date")
-  * "1935"
-
-Tortilla Flat (1935) is an early [John Steinbeck](http://www.wikidata.org/entity/Q39212) novel set in Monterey, California.
-
-> Thoughts are slow and deep and golden in the morning.
-
+- [Adventures of Huckleberry Finn](1)
+  - a
+    - Book
+  - description
+    - > **Adventures of Huckleberry Finn** is a novel by American author [Mark Twain](https://en.wikipedia.org/wiki/Mark_Twain).
+      - [source](https://schema.org/isBasedOn)
+        - <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn>
+  - author
+    - [Mark Twain](http://www.wikidata.org/entity/Q7245)
+      - date of birth
+        - > 1835-11-30 `date`
+      - name
+        - > Samuel Longhorn Clemens
+        - > صمويل لانغهورن كليمنس `ar`
+        - > 塞姆·朗赫恩·克莱門斯 `zh`
 ```
 
-Convert the Markdown document into Linked Data.
+### Output
 
-```bash
-articular examples/tortilla-flat.md --base http://www.example.com/
-```
+#### `application/ld+json`
 
-<details>
-  <summary>JSON-LD</summary>
+![application/json](examples/adventures_of_huckleberry_finn.json)
 
-  ```json
-  {
-    "@context": [
-      "https://edwardanderson.github.io/articular/ns/v1/articular.json",
-      {
-        "portrait": "schema:image",
-        "born_in": "schema:birthPlace",
-        "date": {
-          "@id": "https://schema.org/dateCreated",
-          "@type": "Date"
-        },
-        "@vocab": "https://schema.org/",
-        "@base": "http://www.example.com/examples/tortilla-flat#"
-      }
-    ],
-    "id": "tortilla-flat",
-    "type": "Book",
-    "_comment": [
-      {
-        "type": "_Comment",
-        "_comment": "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>",
-        "_format": "text/html",
-        "_mentions": [
-          {
-            "id": "http://www.wikidata.org/entity/Q39212",
-            "type": "Person",
-            "_label": "John Steinbeck",
-            "born_in": {
-              "id": "http://www.wikidata.org/entity/Q488125",
-              "type": "Place",
-              "_label": "Salinas, California"
-            },
-            "_image": [
-              {
-                "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg",
-                "type": "_Image",
-                "_label": "John Steinbeck, 1939"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "_Quotation",
-        "_comment": "Thoughts are slow and deep and golden in the morning."
-      }
-    ],
-    "_label": "Tortilla Flat",
-    "author": {
-      "id": "http://www.wikidata.org/entity/Q39212",
-      "type": "Person",
-      "_label": "John Steinbeck",
-      "born_in": {
-        "id": "http://www.wikidata.org/entity/Q488125",
-        "type": "Place",
-        "_label": "Salinas, California"
-      },
-      "_image": [
-        {
-          "id": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg",
-          "type": "_Image",
-          "_label": "John Steinbeck, 1939"
-        }
-      ]
-    },
-    "date": "1935",
-    "_same_as": [
-      {
-        "id": "http://www.wikidata.org/entity/Q606720",
-        "type": "Book",
-        "_label": "Tortilla Flat"
-      }
-    ]
-  }
-  ```
+#### `text/turtle`
 
-</details>
+![text/turtle](examples/adventures_of_huckleberry_finn.ttl)
 
-Specify a different [serialisation format](https://rdflib.readthedocs.io/en/stable/plugin_serializers.html).
+#### Visualisation
 
-```bash
-articular examples/tortilla-flat.md --base http://www.example.com/ --format turtle
-```
+![Visualisation](examples/adventures_of_huckleberry_finn.png)
 
-<details>
-  <summary>Turtle</summary>
-
-  ```turtle
-  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-  @prefix schema: <https://schema.org/> .
-
-  <http://www.example.com/examples/tortilla-flat> a schema:Book ;
-      rdfs:label "Tortilla Flat" ;
-      rdfs:comment [ a schema:Comment ;
-              rdfs:comment "<p>Tortilla Flat (1935) is an early <a href=\"http://www.wikidata.org/entity/Q39212\">John Steinbeck</a> novel set in Monterey, California.</p>" ;
-              schema:encodingFormat "text/html" ;
-              schema:mentions <http://www.wikidata.org/entity/Q39212> ],
-          [ a schema:Quotation ;
-              rdfs:comment "Thoughts are slow and deep and golden in the morning." ] ;
-      schema:author <http://www.wikidata.org/entity/Q39212> ;
-      schema:dateCreated "1935"^^schema:Date ;
-      schema:sameAs <http://www.wikidata.org/entity/Q606720> .
-
-  <http://www.wikidata.org/entity/Q488125> a schema:Place ;
-      rdfs:label "Salinas, California" .
-
-  <http://www.wikidata.org/entity/Q606720> a schema:Book ;
-      rdfs:label "Tortilla Flat" .
-
-  <https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg> a schema:ImageObject ;
-      rdfs:label "John Steinbeck, 1939" .
-
-  <http://www.wikidata.org/entity/Q39212> a schema:Person ;
-      rdfs:label "John Steinbeck" ;
-      schema:birthPlace <http://www.wikidata.org/entity/Q488125> ;
-      schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/330px-John_Steinbeck_1939_%28cropped%29.jpg> .
-  ```
-
-</details>
-
-## Acknowledgements
-
-* Articular is inspired by [Linked Open Usable Data](https://linked.art/loud/) and [MkDocs](https://www.mkdocs.org/).
-* [xml-to-string.xsl](articular/templates/xml-to-string.xsl) was written by Evan Lenz.
+Generated with [RDF Sketch](https://sketch.zazuko.com/).
