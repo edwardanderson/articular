@@ -26,14 +26,15 @@
     <xsl:variable name="bcp-47" select="document(bcp_47.xml)"/>
 
     <!-- Child templates -->
-    <xsl:import href="context.xsl"/>
-    <xsl:import href="li.xsl"/>
-    <xsl:import href="identifier.xsl"/>
-    <xsl:import href="label.xsl"/>
     <xsl:import href="a.xsl"/>
-    <xsl:import href="img.xsl"/>
     <xsl:import href="blockquote.xsl"/>
+    <xsl:import href="context.xsl"/>
+    <xsl:import href="img.xsl"/>
+    <xsl:import href="label.xsl"/>
+    <xsl:import href="identifier.xsl"/>
+    <xsl:import href="li.xsl"/>
     <xsl:import href="p.xsl"/>
+    <xsl:import href="table.xsl"/>
 
     <!-- Document -->
     <xsl:template match="/">

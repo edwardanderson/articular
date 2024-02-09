@@ -1,5 +1,5 @@
 import logging
-import markdown as markdown
+from markdown_it import MarkdownIt
 
 from lxml import etree
 from pathlib import Path
@@ -41,7 +41,15 @@ class Template:
         )
 
     def transform(self, md_str: str):
-        html_str = markdown.markdown(md_str, tab_length=2)
+        arguments = {'breaks': True, 'html': True}
+        md = (
+            MarkdownIt(
+                'commonmark',
+                arguments
+            )
+            .enable('table')
+        )
+        html_str = md.render(md_str)
         html_obj = etree.fromstring(html_str, parser=Template._parser)
         logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
         node = self.processor.parse_xml(xml_text=str(html_str))

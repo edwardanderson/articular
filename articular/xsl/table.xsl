@@ -16,7 +16,12 @@
             <string key="@type">rdf:HMTL</string>
         </map>
         <!-- Reference -->
-        <xsl:apply-templates select="(thead|tbody)/tr/(th|td)/a" mode="reference"/>
+        <!-- See also -->
+        <xsl:if test="(thead|tbody)/tr/(th|td)/a">
+            <array key="_seeAlso">
+                <xsl:apply-templates select="(thead|tbody)/tr/(th|td)/a" mode="reference"/>
+            </array>
+        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>

@@ -59,7 +59,7 @@
     </xsl:template>
 
     <!-- Blank node -->
-    <xsl:template match="li[not(a|img|blockquote)]">
+    <xsl:template match="li[not(a|img|blockquote|table)]">
         <!-- Identifier -->
         <xsl:apply-templates select="." mode="identifier"/>
         <!-- Label -->
@@ -67,18 +67,23 @@
     </xsl:template>
 
     <!-- Hyperlink -->
-    <xsl:template match="li[a][not(img|blockquote)]">
+    <xsl:template match="li[a][not(img|blockquote|table)]">
         <xsl:apply-templates select="a"/>
     </xsl:template>
 
     <!-- Image -->
-    <xsl:template match="li[img][not(a|blockquote)]">
+    <xsl:template match="li[img][not(a|blockquote|table)]">
         <xsl:apply-templates select="img"/>
     </xsl:template>
 
     <!-- Blockquote -->
-    <xsl:template match="li[blockquote][not(a|img)]">
+    <xsl:template match="li[blockquote][not(a|img|table)]">
         <xsl:apply-templates select="blockquote"/>
+    </xsl:template>
+
+    <!-- Table -->
+    <xsl:template match="li[table][not(a|blockquote|img)]">
+        <xsl:apply-templates select="table"/>
     </xsl:template>
 
 </xsl:stylesheet>
