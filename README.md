@@ -3,6 +3,8 @@
 - [Articular](#articular)
   - [Install](#install)
   - [Model](#model)
+    - [Logical](#logical)
+    - [Physical](#physical)
   - [Example](#example)
     - [Input](#input)
     - [Output](#output)
@@ -20,6 +22,8 @@ pip install git+https://github.com/edwardanderson/articular
 
 ## Model
 
+### Logical
+
 An Articular document is a list of **Things** and **Texts** connected to each other via **Relationships**.
 
 ```mermaid
@@ -33,10 +37,12 @@ graph LR
     Text .-> Type
 ```
 
+### Physical
+
 * **Things** are [hyperlinks](https://daringfireball.net/projects/markdown/syntax#link), [images](https://daringfireball.net/projects/markdown/syntax#img) or identifying plain-text strings
 * **Relationships** are hyperlinks or identifying plain-text strings
 * **Texts** are [blockquotes](https://daringfireball.net/projects/markdown/syntax#blockquote), with or without [emphasis](https://daringfireball.net/projects/markdown/syntax#em)
-* **Types** are optional qualifiers for language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://daringfireball.net/projects/markdown/syntax#code)
+* **Types** are optional qualifiers for human language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://daringfireball.net/projects/markdown/syntax#code)
 
 Documents are nested lists of these components.
 
@@ -101,6 +107,6 @@ autotype: false
 
 #### Visualisation
 
-![Visualisation](examples/adventures_of_huckleberry_finn.png).
+![Visualisation](examples/adventures_of_huckleberry_finn.png)
 
 Generated with [RDF Sketch](https://sketch.zazuko.com/)
