@@ -3,6 +3,8 @@
 - [Articular](#articular)
   - [Install](#install)
   - [Model](#model)
+    - [Logical](#logical)
+    - [Physical](#physical)
   - [Example](#example)
     - [Input](#input)
     - [Output](#output)
@@ -20,6 +22,8 @@ pip install git+https://github.com/edwardanderson/articular
 
 ## Model
 
+### Logical
+
 An Articular document is a list of **Things** and **Texts** connected to each other via **Relationships**.
 
 ```mermaid
@@ -32,6 +36,8 @@ graph LR
     Thing <-- Relationship --> Text
     Text .-> Type
 ```
+
+### Physical
 
 * **Things** are [hyperlinks](https://daringfireball.net/projects/markdown/syntax#link), [images](https://daringfireball.net/projects/markdown/syntax#img) or identifying plain-text strings
 * **Relationships** are hyperlinks or identifying plain-text strings
