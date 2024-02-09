@@ -107,6 +107,6 @@ autotype: false
 
 #### Visualisation
 
-![Visualisation](examples/adventures_of_huckleberry_finn.png).
+![Visualisation](examples/adventures_of_huckleberry_finn.png)
 
 Generated with [RDF Sketch](https://sketch.zazuko.com/)
