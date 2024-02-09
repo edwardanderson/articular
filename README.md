@@ -39,11 +39,6 @@ graph LR
 
 ### Physical
 
-* **Things** are [hyperlinks](https://daringfireball.net/projects/markdown/syntax#link), [images](https://daringfireball.net/projects/markdown/syntax#img) or identifying plain-text strings
-* **Relationships** are hyperlinks or identifying plain-text strings
-* **Texts** are [blockquotes](https://daringfireball.net/projects/markdown/syntax#blockquote), with or without [emphasis](https://daringfireball.net/projects/markdown/syntax#em)
-* **Types** are optional qualifiers for human language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://daringfireball.net/projects/markdown/syntax#code)
-
 Documents are nested lists of these components.
 
 ```text
@@ -55,6 +50,11 @@ Documents are nested lists of these components.
       - Relationship
         - ...
 ```
+
+* **Things** are [hyperlinks](https://daringfireball.net/projects/markdown/syntax#link), [images](https://daringfireball.net/projects/markdown/syntax#img) or identifying plain-text strings
+* **Relationships** are hyperlinks or identifying plain-text strings
+* **Texts** are [blockquotes](https://daringfireball.net/projects/markdown/syntax#blockquote), with or without [emphasis](https://daringfireball.net/projects/markdown/syntax#em)
+* **Types** are optional qualifiers for human language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://daringfireball.net/projects/markdown/syntax#code)
 
 Parameters are set in the YAML frontmatter.
 
@@ -102,7 +102,7 @@ autotype: false
 
 | Syntax             | Example |
 |--------------------|----------------------------------------------------------------------------------------------|
-| `application/json` | [examples/adventures_of_huckleberry_finn.json](examples/adventures_of_huckleberry_finn.json) |
+| `application/ld+json` | [examples/adventures_of_huckleberry_finn.json](examples/adventures_of_huckleberry_finn.json) |
 | `text/turtle`      | [examples/adventures_of_huckleberry_finn.ttl](examples/adventures_of_huckleberry_finn.ttl)   |
 
 #### Visualisation
