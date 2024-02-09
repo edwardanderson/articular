@@ -8,6 +8,7 @@
   - [Example](#example)
     - [Input](#input)
     - [Output](#output)
+      - [Data](#data)
       - [Visualisation](#visualisation)
 
 Articular is a tool for creating knowledge graphs with [Markdown](https://daringfireball.net/projects/markdown/) elements: lists of hyperlinks, images, and styled or plain text.
@@ -99,6 +100,8 @@ autotype: false
 ```
 
 ### Output
+
+#### Data
 
 | Syntax             | Example |
 |--------------------|----------------------------------------------------------------------------------------------|
