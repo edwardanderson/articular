@@ -14,7 +14,7 @@ keywords = [
 urls = { project-url = "https://github.com/edwardanderson/articular" }
 dependencies = [
     "lxml",
-    "markdown",
+    "markdown-it-py[plugins]",
     "python-frontmatter",
     "rdflib",
     "rich",
