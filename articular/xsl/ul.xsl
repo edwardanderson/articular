@@ -17,6 +17,7 @@
     <xsl:param name="boolean-false" select="('false', 'False', 'FALSE')"/>
     <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
     <!-- Data-->
+    <xsl:param name="graph-name"/>
     <xsl:param name="base">http://example.org/</xsl:param>
     <xsl:param name="vocab">http://example.org/terms/</xsl:param>
     <xsl:param name="language"></xsl:param>
@@ -48,6 +49,11 @@
                     <!-- <xsl:with-param name="context" select="$context"/> -->
                 </xsl:call-template>
                 <!-- (Un)named graph -->
+                <xsl:if test="$graph-name">
+                    <string key="@id">
+                        <xsl:value-of select="$graph-name"/>
+                    </string>
+                </xsl:if>
                 <array key="@graph">
                     <xsl:apply-templates select="ul"/>
                 </array>

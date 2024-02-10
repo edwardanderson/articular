@@ -25,53 +25,61 @@
       }
     }
   ],
-  "@id": "1",
-  "_label": "Adventures of Huckleberry Finn",
-  "@type": [
-    "Book"
-  ],
-  "description": [
+  "@id": "adventures_of_huckleberry_finn.md",
+  "@graph": [
     {
-      "@type": "html:blockquote",
-      "_value": {
-        "@value": "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>",
-        "@type": "rdf:HTML"
-      },
-      "_seeAlso": [
+      "@id": "1",
+      "_label": "Adventures of Huckleberry Finn",
+      "a": [
         {
-          "@id": "https://en.wikipedia.org/wiki/Mark_Twain",
-          "_label": "Mark Twain"
+          "@id": "_:Book",
+          "_label": "Book"
         }
       ],
-      "source": [
+      "description": [
         {
-          "@id": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
-          "_label": "\"Adventures of Huckleberry Finn\", Wikipedia"
-        }
-      ]
-    }
-  ],
-  "author": [
-    {
-      "@id": "http://www.wikidata.org/entity/Q7245",
-      "_label": "Mark Twain",
-      "date_of_birth": [
-        {
-          "@type": "xsd:date",
-          "@value": "1835-11-30"
+          "@type": "html:blockquote",
+          "_value": {
+            "@value": "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>",
+            "@type": "rdf:HTML"
+          },
+          "_seeAlso": [
+            {
+              "@id": "https://en.wikipedia.org/wiki/Mark_Twain",
+              "_label": "Mark Twain"
+            }
+          ],
+          "source": [
+            {
+              "@id": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
+              "_label": "\"Adventures of Huckleberry Finn\", Wikipedia"
+            }
+          ]
         }
       ],
-      "name": [
+      "author": [
         {
-          "@value": "Samuel Longhorn Clemens"
-        },
-        {
-          "@language": "ar",
-          "@value": "صمويل لانغهورن كليمنس"
-        },
-        {
-          "@language": "zh",
-          "@value": "塞姆·朗赫恩·克莱門斯"
+          "@id": "http://www.wikidata.org/entity/Q7245",
+          "_label": "Mark Twain",
+          "date_of_birth": [
+            {
+              "@type": "xsd:date",
+              "@value": "1835-11-30"
+            }
+          ],
+          "name": [
+            {
+              "@value": "Samuel Longhorn Clemens"
+            },
+            {
+              "@language": "ar",
+              "@value": "صمويل لانغهورن كليمنس"
+            },
+            {
+              "@language": "zh",
+              "@value": "塞姆·朗赫恩·克莱門斯"
+            }
+          ]
         }
       ]
     }
