@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.3.0
+
+* Support for typographic conventions like (c)
+* Granular detection of `xsd` type when user specifies `date`
+
 # 2.2.1
 
 * Fix failure to map 'a' to `rdf:type` caused by unexpected newline
