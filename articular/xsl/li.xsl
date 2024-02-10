@@ -7,10 +7,6 @@
     <!-- Subject -->
     <xsl:template match="li" mode="subject">
         <xsl:apply-templates select="."/>
-        <!-- <xsl:apply-templates select=".[not(a|img|blockquote)]"/>
-        <xsl:apply-templates select=".[a][not(img|blockquote)]"/>
-        <xsl:apply-templates select=".[img][not(a|blockquote)]"/>
-        <xsl:apply-templates select=".[blockquote][not(a|img)]"/> -->
         <!-- Predicate -->
         <xsl:apply-templates select="ul/li" mode="predicate"/>
     </xsl:template>
