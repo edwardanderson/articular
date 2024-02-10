@@ -3,7 +3,7 @@ import logging
 import typer
 
 from pathlib import Path
-from rdflib import Graph, ConjunctiveGraph
+from rdflib import ConjunctiveGraph
 from rich import print_json
 
 from articular import Template
