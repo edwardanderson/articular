@@ -5,8 +5,8 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/1> a :Book ;
-    rdfs:label "Adventures of Huckleberry Finn"@en ;
+<http://example.org/1> rdfs:label "Adventures of Huckleberry Finn"@en ;
+    :a [ rdfs:label "Book"@en ] ;
     :author <http://www.wikidata.org/entity/Q7245> ;
     :description [ a html:blockquote ;
             rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;

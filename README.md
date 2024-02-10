@@ -103,10 +103,11 @@ autotype: false
 
 #### Data
 
-| Syntax             | Example |
-|--------------------|----------------------------------------------------------------------------------------------|
+| Syntax                | Example |
+|-----------------------|----------------------------------------------------------------------------------------------|
 | `application/ld+json` | [examples/adventures_of_huckleberry_finn.json](examples/adventures_of_huckleberry_finn.json) |
-| `text/turtle`      | [examples/adventures_of_huckleberry_finn.ttl](examples/adventures_of_huckleberry_finn.ttl)   |
+| `text/turtle`         | [examples/adventures_of_huckleberry_finn.ttl](examples/adventures_of_huckleberry_finn.ttl)   |
+| `application/trig`    | [examples/adventures_of_huckleberry_finn.trig](examples/adventures_of_huckleberry_finn.trig) |
 
 #### Visualisation
 
