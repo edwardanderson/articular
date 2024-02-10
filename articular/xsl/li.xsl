@@ -23,7 +23,7 @@
     </xsl:template>
 
     <!-- Predicate (except class) -->
-    <xsl:template match="li[not(text()[normalize-space()][1] = 'a')][not(a)]" mode="predicate">
+    <xsl:template match="li[not(text()[normalize-space()][1] = 'a&#xa;')][not(a)]" mode="predicate">
         <xsl:variable name="key" select="replace(normalize-space(text()[1]), ' ', '_')"/>
 
         <array key="{encode-for-uri($key)}">
@@ -45,7 +45,7 @@
     </xsl:template> -->
 
     <!-- Predicate (class, multiple) -->
-    <xsl:template match="li[normalize-space()][1] = 'a'][not(a)]" mode="predicate">
+    <xsl:template match="li[text()[normalize-space()][1] = 'a&#xa;'][not(a)]" mode="predicate">
         <array key="@type">
             <xsl:for-each select="ul/li">
                 <string>

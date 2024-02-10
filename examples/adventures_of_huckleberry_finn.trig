@@ -6,10 +6,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/adventures_of_huckleberry_finn.md> {
-    <http://example.org/1> rdfs:label "Adventures of Huckleberry Finn"@en ;
-        :a _:Book ;
+    <http://example.org/1> a :Book ;
+        rdfs:label "Adventures of Huckleberry Finn"@en ;
         :author <http://www.wikidata.org/entity/Q7245> ;
-        :description _:Ncc537ccc2bfa40f8aa9f6d332e54e1cd .
+        :description _:N0ff569a9573240ee97918dbce6c85c22 .
 
     <http://www.wikidata.org/entity/Q7245> rdfs:label "Mark Twain"@en ;
         :date_of_birth "1835-11-30"^^xsd:date ;
@@ -21,9 +21,7 @@
 
     <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en .
 
-    _:Book rdfs:label "Book"@en .
-
-    _:Ncc537ccc2bfa40f8aa9f6d332e54e1cd a html:blockquote ;
+    _:N0ff569a9573240ee97918dbce6c85c22 a html:blockquote ;
         rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
         schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> .

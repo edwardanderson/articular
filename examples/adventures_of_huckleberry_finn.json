@@ -30,11 +30,8 @@
     {
       "@id": "1",
       "_label": "Adventures of Huckleberry Finn",
-      "a": [
-        {
-          "@id": "_:Book",
-          "_label": "Book"
-        }
+      "@type": [
+        "Book"
       ],
       "description": [
         {
