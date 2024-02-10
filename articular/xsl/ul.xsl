@@ -47,11 +47,23 @@
                     <xsl:with-param name="language" select="$language"/>
                     <!-- <xsl:with-param name="context" select="$context"/> -->
                 </xsl:call-template>
-                <!-- Subject -->
-                <xsl:apply-templates select="ul/li" mode="subject"/>
+                <!-- (Un)named graph -->
+                <array key="@graph">
+                    <xsl:apply-templates select="ul"/>
+                </array>
             </map>
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml)"/>
+    </xsl:template>
+
+    <!-- Tree -->
+    <xsl:template match="ul">
+        <xsl:for-each select="li">
+            <map>
+                <!-- Subject -->
+                <xsl:apply-templates select="." mode="subject"/>
+            </map>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="text()">
