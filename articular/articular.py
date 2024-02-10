@@ -1,7 +1,7 @@
 import logging
-from markdown_it import MarkdownIt
 
 from lxml import etree
+from markdown_it import MarkdownIt
 from pathlib import Path
 from saxonche import PySaxonProcessor
 
@@ -41,13 +41,23 @@ class Template:
         )
 
     def transform(self, md_str: str):
-        arguments = {'breaks': True, 'html': True}
+        arguments = {
+            'breaks': True,
+            'html': True,
+            'typographer': True
+        }
         md = (
             MarkdownIt(
                 'commonmark',
                 arguments
             )
-            .enable('table')
+            .enable(
+                [
+                    'replacements',
+                    'smartquotes',
+                    'table'
+                ]
+            )
         )
         html_str = md.render(md_str)
         html_obj = etree.fromstring(html_str, parser=Template._parser)

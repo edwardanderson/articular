@@ -15,7 +15,6 @@
             </string>
             <string key="@type">rdf:HMTL</string>
         </map>
-        <!-- Reference -->
         <!-- See also -->
         <xsl:if test="(thead|tbody)/tr/(th|td)/a">
             <array key="_seeAlso">
