@@ -58,21 +58,55 @@
     <xsl:template match="p[not(strong|em|del)][code]">
         <xsl:choose>
             <!-- Datatype -->
-            <xsl:when test="code=('date', 'integer', 'boolean')">
+            <xsl:when test="code=('integer', 'boolean')">
                 <string key="@type">
                     <xsl:value-of select="concat('xsd:', code)"/>
                 </string>
+                <string key="@value">
+                    <xsl:apply-templates select="text()"/>
+                </string>
             </xsl:when>
-            <!-- BCp 47 language -->
+            <xsl:when test="code = 'date'">
+                <xsl:choose>
+                    <!-- gYear -->
+                    <xsl:when test="matches(text(), '^-?\d+\s*$')">
+                        <string key="@type">
+                            <xsl:value-of select="'xsd:gYear'"/>
+                        </string>
+                        <string key="@value">
+                            <xsl:apply-templates select="text()"/>
+                        </string>
+                    </xsl:when>
+                    <!-- gMonth -->
+                    <xsl:when test="matches(text(), '^-?\d+-[01][0-9]{1}\s*$')">
+                        <string key="@type">
+                            <xsl:value-of select="'xsd:gMonth'"/>
+                        </string>
+                        <string key="@value">
+                            <xsl:apply-templates select="text()"/>
+                        </string>
+                    </xsl:when>
+                    <!-- Date -->
+                    <xsl:when test="matches(text(), '^-?\d+-[01]{1}[0-9]{1}-[0123]{1}[0-9]{1}\s*$')">
+                        <string key="@type">
+                            <xsl:value-of select="'xsd:date'"/>
+                        </string>
+                        <string key="@value">
+                            <xsl:apply-templates select="text()"/>
+                        </string>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:when>
+            <!-- BCP 47 language -->
             <xsl:when test="matches(code, '^[a-z]{2}(-[A-Z]{2})?$')">
                 <string key="@language">
                     <xsl:value-of select="code"/>
                 </string>
+                <string key="@value">
+                    <xsl:apply-templates select="text()"/>
+                </string>
             </xsl:when>
         </xsl:choose>
-        <string key="@value">
-            <xsl:apply-templates select="text()"/>
-        </string>
     </xsl:template>
 
     <!-- HTML (without language or datatype) -->
