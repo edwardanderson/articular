@@ -19,7 +19,7 @@
         "صمويل لانغهورن كليمنس"@ar,
         "塞姆·朗赫恩·克莱門斯"@zh .
 
-<https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> rdfs:label "\"Adventures of Huckleberry Finn\", Wikipedia"@en .
+<https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> rdfs:label "“Adventures of Huckleberry Finn”, Wikipedia"@en .
 
 <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en .
 

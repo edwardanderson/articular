@@ -9,7 +9,7 @@
     <http://example.org/1> a :Book ;
         rdfs:label "Adventures of Huckleberry Finn"@en ;
         :author <http://www.wikidata.org/entity/Q7245> ;
-        :description _:N0ff569a9573240ee97918dbce6c85c22 .
+        :description _:N68ad2aab4b444018820d28584bd08c4f .
 
     <http://www.wikidata.org/entity/Q7245> rdfs:label "Mark Twain"@en ;
         :date_of_birth "1835-11-30"^^xsd:date ;
@@ -17,11 +17,11 @@
             "صمويل لانغهورن كليمنس"@ar,
             "塞姆·朗赫恩·克莱門斯"@zh .
 
-    <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> rdfs:label "\"Adventures of Huckleberry Finn\", Wikipedia"@en .
+    <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> rdfs:label "“Adventures of Huckleberry Finn”, Wikipedia"@en .
 
     <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en .
 
-    _:N0ff569a9573240ee97918dbce6c85c22 a html:blockquote ;
+    _:N68ad2aab4b444018820d28584bd08c4f a html:blockquote ;
         rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
         schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> .
