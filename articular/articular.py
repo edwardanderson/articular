@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 class Template:
 
-    _path = Path(__file__).parent / 'xsl/ul.xsl'
+    _path = Path(__file__).parent / 'xsl/document.xsl'
 
     _parser = etree.XMLParser(
         ns_clean=True,
