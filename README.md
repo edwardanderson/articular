@@ -57,6 +57,20 @@ Documents are nested lists of these components.
 * **Texts** are [blockquotes](https://www.markdownguide.org/basic-syntax/#blockquotes-1), with or without [emphasis](https://www.markdownguide.org/basic-syntax/#emphasis)
 * **Types** are optional qualifiers for human language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://www.markdownguide.org/basic-syntax/#code)
 
+Use definition lists to identify multiple references of the same **Thing**.
+
+```text
+* John
+  * born in
+    * Liverpool
+* Paul
+  * born in
+    * Liverpool
+
+Liverpool
+: <http://www.wikidata.org/entity/Q24826>
+```
+
 Parameters are set in the YAML frontmatter.
 
 ```markdown
