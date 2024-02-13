@@ -23,7 +23,7 @@
     </xsl:template>
 
     <!-- Predicate (except class) -->
-    <xsl:template match="li[not(text()[normalize-space()][1] = 'a&#xa;')][not(a)]" mode="predicate">
+    <xsl:template match="li[not(text()[normalize-space()][1] = 'a')][not(a)]" mode="predicate">
         <xsl:variable name="key" select="replace(normalize-space(text()[1]), ' ', '_')"/>
 
         <array key="{encode-for-uri($key)}">
@@ -36,16 +36,14 @@
     </xsl:template>
 
     <!-- Predicate (class, single) -->
-    <!-- <xsl:template match="li[text()[1] = 'a'][not(a)][count(ul/li) eq 1]" mode="predicate">
-        <map key="@type">
-            <string key="@id">
-                <xsl:value-of select="ul/li/text()"/>
-            </string>
-        </map>
-    </xsl:template> -->
+    <xsl:template match="li[text()[normalize-space()][1] = 'a'][not(a)][count(ul/li) eq 1]" mode="predicate">
+        <string key="@type">
+            <xsl:value-of select="ul/li/text()"/>
+        </string>
+    </xsl:template>
 
     <!-- Predicate (class, multiple) -->
-    <xsl:template match="li[text()[normalize-space()][1] = 'a&#xa;'][not(a)]" mode="predicate">
+    <xsl:template match="li[text()[normalize-space()][1] = 'a'][not(a)][count(ul/li) gt 1]" mode="predicate">
         <array key="@type">
             <xsl:for-each select="ul/li">
                 <string>
