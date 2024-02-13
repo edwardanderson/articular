@@ -52,10 +52,10 @@ Documents are nested lists of these components.
         - ...
 ```
 
-* **Things** are [hyperlinks](https://daringfireball.net/projects/markdown/syntax#link), [images](https://daringfireball.net/projects/markdown/syntax#img) or identifying plain-text strings
+* **Things** are [hyperlinks](https://www.markdownguide.org/basic-syntax/#links), [images](https://www.markdownguide.org/basic-syntax/#images-1) or identifying plain-text strings
 * **Relationships** are hyperlinks or identifying plain-text strings
-* **Texts** are [blockquotes](https://daringfireball.net/projects/markdown/syntax#blockquote), with or without [emphasis](https://daringfireball.net/projects/markdown/syntax#em)
-* **Types** are optional qualifiers for human language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://daringfireball.net/projects/markdown/syntax#code)
+* **Texts** are [blockquotes](https://www.markdownguide.org/basic-syntax/#blockquotes-1), with or without [emphasis](https://www.markdownguide.org/basic-syntax/#emphasis)
+* **Types** are optional qualifiers for human language or [datatype](https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Datatypes) of **Texts** as [code](https://www.markdownguide.org/basic-syntax/#code)
 
 Parameters are set in the YAML frontmatter.
 
