@@ -19,9 +19,6 @@
       },
       "_value": {
         "@id": "rdf:value"
-      },
-      "source": {
-        "@id": "https://schema.org/isBasedOn"
       }
     }
   ],
@@ -30,9 +27,7 @@
     {
       "@id": "1",
       "_label": "Adventures of Huckleberry Finn",
-      "@type": [
-        "Book"
-      ],
+      "@type": "Book",
       "description": [
         {
           "@type": "html:blockquote",
