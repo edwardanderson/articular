@@ -4,8 +4,24 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns="http://www.w3.org/2005/xpath-functions">
    
+    <!-- Label (defined) -->
+    <xsl:template match="li[not(code or (strong|em|del))][node() = /document/dl/dt]" mode="label">
+        <xsl:variable name="value" select="text()"/>
+        <string key="_label">
+            <xsl:variable name="a" select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a"/>
+            <xsl:choose>
+                <xsl:when test="$a/@href != a/text()">
+                    <xsl:apply-templates select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a/text()" mode="label"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="text()" mode="label"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </string>
+    </xsl:template>
+
     <!-- Label (without language) -->
-    <xsl:template match="(li|a|img)[not(code or (strong|em|del))]" mode="label">
+    <xsl:template match="(li|a|img)[not(code or (strong|em|del))][not(node() = /document/dl/dt)]" mode="label">
         <string key="_label">
             <xsl:apply-templates select="@alt|text()"/>
         </string>

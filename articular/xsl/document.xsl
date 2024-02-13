@@ -39,7 +39,7 @@
     <xsl:import href="ul.xsl"/>
 
     <!-- Document -->
-    <xsl:template match="/">
+    <xsl:template match="/document">
         <xsl:variable name="xml">
             <map>
                 <!-- @context -->

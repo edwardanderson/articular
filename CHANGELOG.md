@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.4.0
+
+* Support definition lists for subjects and objects
+
 # 2.3.0
 
 * Support for typographic conventions like (c)
