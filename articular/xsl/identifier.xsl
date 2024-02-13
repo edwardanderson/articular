@@ -5,11 +5,17 @@
     xmlns="http://www.w3.org/2005/xpath-functions">
 
     <!-- Blank -->
-    <xsl:template match="li[not(a|img|blockquote)]" mode="identifier">
+    <xsl:template match="li[not(a|img|blockquote)][not(node() = /document/dl/dt)]" mode="identifier">
         <string key="@id">
             <xsl:text>_:</xsl:text>
             <xsl:apply-templates select="node()[not(self::code)]" mode="plain-text"/>
         </string>
+    </xsl:template>
+
+    <!-- Defined -->
+    <xsl:template match="li[not(a|img|blockquote)][node() = /document/dl/dt]" mode="identifier">
+        <xsl:variable name="value" select="text()"/>
+        <xsl:apply-templates select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a/@href" mode="identifier"/>
     </xsl:template>
 
     <!-- Identified -->

@@ -2,6 +2,7 @@ import logging
 
 from lxml import etree
 from markdown_it import MarkdownIt
+from mdit_py_plugins import deflist
 from pathlib import Path
 from saxonche import PySaxonProcessor
 
@@ -58,10 +59,21 @@ class Template:
                     'table'
                 ]
             )
+            .use(deflist.deflist_plugin)
         )
         html_str = md.render(md_str)
-        html_obj = etree.fromstring(html_str, parser=Template._parser)
+        html_doc = '<document>' + html_str + '</document>'
+        logger.debug(html_doc)
+        html_obj = etree.fromstring(html_doc, parser=Template._parser)
+
+        # Trim trailing new line characters from list items.
+        items = html_obj.xpath('//li')
+        for item in items:
+            item.text = item.text.rstrip()
+
+        html_doc_str = etree.tostring(html_obj).decode('utf-8')
+
         logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
-        node = self.processor.parse_xml(xml_text=str(html_str))
+        node = self.processor.parse_xml(xml_text=str(html_doc_str))
         result = self.executable.transform_to_string(xdm_node=node)
         return result
