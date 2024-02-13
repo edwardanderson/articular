@@ -69,7 +69,10 @@ class Template:
         # Trim trailing new line characters from list items.
         items = html_obj.xpath('//li')
         for item in items:
-            item.text = item.text.rstrip()
+            try:
+                item.text = item.text.rstrip()
+            except AttributeError:
+                pass
 
         html_doc_str = etree.tostring(html_obj).decode('utf-8')
 

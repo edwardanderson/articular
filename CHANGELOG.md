@@ -1,15 +1,19 @@
 # Changelog
 
-# 2.4.0
+## 2.4.1
+
+* Fix bad handling of `None` when stripping new line characters from `li` elements
+
+## 2.4.0
 
 * Support definition lists for subjects and objects
 
-# 2.3.0
+## 2.3.0
 
 * Support for typographic conventions like (c)
 * Granular detection of `xsd` type when user specifies `date`
 
-# 2.2.1
+## 2.2.1
 
 * Fix failure to map 'a' to `rdf:type` caused by unexpected newline
 
