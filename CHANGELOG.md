@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.6.0
+
+* Add error reporting to transformation failure
+
 ## 2.5.0
 
 * Support ordered lists (as objects only)
