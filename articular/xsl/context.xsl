@@ -34,8 +34,7 @@
                     <string key="@id">rdf:value</string>
                 </map>
                 <!-- User aliases -->
-                <!-- <xsl:apply-templates select="//ul/li/ul/li[a][ul/li]" mode="context"/> -->
-                <xsl:apply-templates select="/ul/li/ul/li[ul/li]" mode="context"/>
+                <xsl:apply-templates select="/document/ul/li/ul/li" mode="context"/>
             </map>
             <xsl:if test="$context">
                 <string>
@@ -46,15 +45,15 @@
     </xsl:template>
 
     <!-- Predicate aliases -->
-    <xsl:template match="//ul/li/ul/li[ul/li]" mode="context">
-        <xsl:if test="a">
+    <xsl:template match="(ol|ul)/li/(ol|ul)/li" mode="context">
+        <xsl:if test="a/@href">
             <map key="{a/text()}">
                 <string key="@id">
                     <xsl:value-of select="a/@href"/>
                 </string>
             </map>
         </xsl:if>
-        <xsl:apply-templates select="ul/li/ul/li" mode="context"/>
+        <xsl:apply-templates select="(ol|ul)/li/(ol|ul)/li" mode="context"/>
     </xsl:template>
 
 </xsl:stylesheet>

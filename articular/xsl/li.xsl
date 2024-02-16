@@ -8,11 +8,43 @@
     <xsl:template match="li" mode="subject">
         <xsl:apply-templates select="."/>
         <!-- Predicate -->
-        <xsl:apply-templates select="ul/li" mode="predicate"/>
+        <xsl:apply-templates select="(ul|ol)/li" mode="predicate"/>
     </xsl:template>
 
+    <!-- Ordered -->
+
     <!-- Predicate (identified) -->
-    <xsl:template match="li[a]" mode="predicate">
+    <xsl:template match="li[a][ol]" mode="predicate">
+        <map key="{a/text()}">
+            <array key="@list">
+                <xsl:for-each select="ol/li">
+                    <map>
+                        <xsl:apply-templates select="." mode="subject"/>
+                    </map>
+                </xsl:for-each>
+            </array>
+        </map>
+    </xsl:template>
+
+    <!-- Predicate (unidentified) -->
+    <xsl:template match="li[not(text() = 'a')][not(a)][ol]" mode="predicate">
+        <xsl:variable name="key" select="replace(normalize-space(text()[1]), ' ', '_')"/>
+
+        <map key="{encode-for-uri($key)}">
+            <array key="@list">
+                <xsl:for-each select="ol/li">
+                    <map>
+                        <xsl:apply-templates select="." mode="subject"/>
+                    </map>
+                </xsl:for-each>
+            </array>
+        </map>
+    </xsl:template>
+
+    <!-- Unordered -->
+
+    <!-- Predicate (identified) -->
+    <xsl:template match="li[a][ul]" mode="predicate">
         <array key="{a/text()}">
             <xsl:for-each select="ul/li">
                 <map>
@@ -22,8 +54,8 @@
         </array>
     </xsl:template>
 
-    <!-- Predicate (except class) -->
-    <xsl:template match="li[not(text() = 'a')][not(a)]" mode="predicate">
+    <!-- Predicate (unidentified) -->
+    <xsl:template match="li[not(text() = 'a')][not(a)][ul]" mode="predicate">
         <xsl:variable name="key" select="replace(normalize-space(text()[1]), ' ', '_')"/>
 
         <array key="{encode-for-uri($key)}">
