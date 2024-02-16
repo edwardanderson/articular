@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.0
+
+* Support ordered lists (as objects only)
+* Add input path validation
+
 ## 2.4.2
 
 * Fix single class
