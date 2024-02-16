@@ -11,7 +11,7 @@
     - [Logical](#logical)
     - [Physical](#physical)
 
-Articular is a tool for creating [RDF](https://www.w3.org/TR/rdf11-primer/) knowledge graphs with [Markdown](https://www.markdownguide.org/) elements: lists of hyperlinks, images, and styled or plain text.
+Articular is a tool for creating [RDF](https://www.w3.org/TR/rdf11-primer/) knowledge graphs with [Markdown](https://www.markdownguide.org/) elements: lists of hyperlinks, images, tables and styled or plain text.
 
 As a readable, content-first, low-syntax document format, Articular is intended to facilitate the exchange of structured data between researchers, writers and developers to support the construction of databases of networked information.
 

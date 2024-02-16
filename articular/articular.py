@@ -21,7 +21,7 @@ class Template:
         remove_blank_text=True
     )
 
-    def __init__(self, template_path: Path = _path, **parameters):
+    def __init__(self, template_path: Path = _path, **parameters) -> None:
         self.processor = PySaxonProcessor()
         self.xslt = self.processor.new_xslt30_processor()
         for (parameter, value) in parameters.items():
@@ -41,7 +41,7 @@ class Template:
             stylesheet_file=str(template_path)
         )
 
-    def transform(self, md_str: str):
+    def transform(self, md_str: str) -> tuple[bool, str]:
         arguments = {
             'breaks': True,
             'html': True,
@@ -81,3 +81,11 @@ class Template:
         result = self.executable.transform_to_string(xdm_node=node)
         status = not self.processor.exception_occurred
         return (status, result)
+
+    def debug(self, md_str: str) -> int:
+        lines = md_str.splitlines()
+        for line_number, line in enumerate(lines):
+            block = '\n'.join(lines[:line_number])
+            (status, result) = self.transform(block)
+            if not result:
+                return line_number + 1
