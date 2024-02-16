@@ -29,7 +29,6 @@ def transform(path: Path) -> str:
 @app.command()
 def transform_and_serialise(path: Path, syntax: str = 'json-ld') -> None:
     result = transform(path)
-    # print(result)
     match syntax:
         case 'json-ld':
             print_json(result)
