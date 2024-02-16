@@ -5,12 +5,25 @@ import typer
 from pathlib import Path
 from rdflib import ConjunctiveGraph
 from rich import print_json
+from typing_extensions import Annotated
 
 from articular import Template
 
 
 logging.basicConfig(level=logging.DEBUG)
 app = typer.Typer()
+
+ValidPath = Annotated[
+    Path,
+    typer.Argument(
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        writable=False,
+        readable=True,
+        resolve_path=True,
+    )
+]
 
 
 def transform(path: Path) -> str:
@@ -27,7 +40,7 @@ def transform(path: Path) -> str:
 
 
 @app.command()
-def transform_and_serialise(path: Path, syntax: str = 'json-ld') -> None:
+def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld') -> None:
     (status, result) = transform(path)
     if status:
         match syntax:
