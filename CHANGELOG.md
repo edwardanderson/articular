@@ -2,7 +2,7 @@
 
 ## 2.4.2
 
-* Fix single single class
+* Fix single class
 
 ## 2.4.1
 

@@ -13,8 +13,7 @@ logging.basicConfig(level=logging.DEBUG)
 app = typer.Typer()
 
 
-@app.command()
-def transform(path: Path, syntax: str = 'json-ld'):
+def transform(path: Path) -> str:
     with open(path, 'r') as in_file:
         settings, document = frontmatter.parse(in_file.read())
 
@@ -24,11 +23,17 @@ def transform(path: Path, syntax: str = 'json-ld'):
 
     template = Template(**settings)
     result = template.transform(document)
+    return result
+
+
+@app.command()
+def transform_and_serialise(path: Path, syntax: str = 'json-ld') -> None:
+    result = transform(path)
     match syntax:
         case 'json-ld':
             print_json(result)
         case _:
             graph = ConjunctiveGraph()
             graph.parse(data=result, format='json-ld')
-            syntax = graph.serialize(format=syntax)
-            print(syntax)
+            data = graph.serialize(format=syntax)
+            print(data)
