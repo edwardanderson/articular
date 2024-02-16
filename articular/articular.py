@@ -79,4 +79,5 @@ class Template:
         logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
         node = self.processor.parse_xml(xml_text=str(html_doc_str))
         result = self.executable.transform_to_string(xdm_node=node)
-        return result
+        status = not self.processor.exception_occurred
+        return (status, result)

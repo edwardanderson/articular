@@ -28,12 +28,13 @@ def transform(path: Path) -> str:
 
 @app.command()
 def transform_and_serialise(path: Path, syntax: str = 'json-ld') -> None:
-    result = transform(path)
-    match syntax:
-        case 'json-ld':
-            print_json(result)
-        case _:
-            graph = ConjunctiveGraph()
-            graph.parse(data=result, format='json-ld')
-            data = graph.serialize(format=syntax)
-            print(data)
+    (status, result) = transform(path)
+    if status:
+        match syntax:
+            case 'json-ld':
+                print_json(result)
+            case _:
+                graph = ConjunctiveGraph()
+                graph.parse(data=result, format='json-ld')
+                data = graph.serialize(format=syntax)
+                print(data)
