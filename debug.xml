@@ -1,0 +1,21 @@
+<document>
+    <ul>
+        <li>Routine<ul>
+            <li>is<ol>
+                <li>Wake</li>
+            </ol>
+            <ul>
+                <li>feels<ul>
+                    <li>good</li>
+                </ul>
+            </li>
+        </ul>
+        <ol start="2">
+            <li>Work</li>
+            <li>Sleep</li>
+        </ol>
+    </li>
+</ul>
+</li>
+</ul>
+</document>
