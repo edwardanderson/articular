@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.7.0
+
+* Support glossary sidecar file for external definition lists.
+  Example: [glossary.md](examples/features/glossary.md)
+
 ## 2.6.0
 
 * Add error reporting to transformation failure

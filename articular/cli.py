@@ -42,7 +42,20 @@ def parse(path: Path) -> tuple[dict, str]:
 def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld') -> None:
     (settings, document) = parse(path)
     template = Template(**settings)
-    (status, result) = template.transform(document)
+    
+    glossary_path_str = settings.get('glossary')
+    if glossary_path_str:
+        glossary_path = path.parent / glossary_path_str
+        (_, glossary_document) = parse(glossary_path)
+        glossary_html = template._transform_md_to_html(glossary_document)
+        glossary_dls = glossary_html.xpath('/document/dl')
+
+    html = template._transform_md_to_html(document)
+    doc = html.xpath('/document')[0]
+    for dl in glossary_dls:
+        doc.append(dl)
+
+    (status, result) = template._transform_html_to_json_ld(html)
     if not status:
         console = Console()
         error_line_number = template.debug(document)
