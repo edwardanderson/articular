@@ -45,7 +45,7 @@
 
 ## 2.0.0
 
-* Simply everything
+* Simplify everything
 
 ## 0.1.5
 
