@@ -41,7 +41,7 @@ class Template:
             stylesheet_file=str(template_path)
         )
 
-    def transform(self, md_str: str) -> tuple[bool, str]:
+    def _transform_md_to_html(self, md_str):
         arguments = {
             'breaks': True,
             'html': True,
@@ -65,7 +65,6 @@ class Template:
         html_doc = '<document>' + html_str + '</document>'
         logger.debug(html_doc)
         html_obj = etree.fromstring(html_doc, parser=Template._parser)
-
         # Trim trailing new line characters from list items.
         items = html_obj.xpath('//li')
         for item in items:
@@ -74,18 +73,25 @@ class Template:
             except AttributeError:
                 pass
 
-        html_doc_str = etree.tostring(html_obj).decode('utf-8')
+        return html_obj
 
-        logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
-        node = self.processor.parse_xml(xml_text=str(html_doc_str))
+    def _transform_html_to_json_ld(self, html) -> tuple[bool, str]:
+        html_str = etree.tostring(html).decode('utf-8')
+        node = self.processor.parse_xml(xml_text=str(html_str))
         result = self.executable.transform_to_string(xdm_node=node)
         status = not self.processor.exception_occurred
+        return (status, result)        
+
+    def transform(self, md_str: str) -> tuple[bool, str]:
+        html_obj = self._transform_md_to_html(md_str)
+        logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
+        (status, result) = self._transform_html_to_json_ld(html_obj)
         return (status, result)
 
     def debug(self, md_str: str) -> int:
         lines = md_str.splitlines()
         for line_number, line in enumerate(lines):
             block = '\n'.join(lines[:line_number])
-            (status, result) = self.transform(block)
+            (_, result) = self.transform(block)
             if not result:
                 return line_number + 1
