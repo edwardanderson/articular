@@ -23,6 +23,7 @@
                 <xsl:if test="p/a">
                     <array key="_seeAlso">
                         <xsl:apply-templates select="p/a" mode="reference"/>
+                        <xsl:apply-templates select="p/img" mode="reference"/>
                     </array>
                 </xsl:if>
             </xsl:when>
@@ -34,7 +35,7 @@
     </xsl:template>
 
     <!-- See also -->
-    <xsl:template match="a" mode="reference">
+    <xsl:template match="a|img" mode="reference">
         <map>
             <xsl:apply-templates select="."/>
         </map>

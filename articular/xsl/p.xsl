@@ -43,6 +43,11 @@
                         <string key="@value">
                             <xsl:apply-templates select="text()"/>
                         </string>
+                        <xsl:if test="$language">
+                            <string key="@language">
+                                <xsl:value-of select="$language"/>
+                            </string>
+                        </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -50,6 +55,11 @@
                 <string key="@value">
                     <xsl:apply-templates select="text()"/>
                 </string>
+                <xsl:if test="$language">
+                    <string key="@language">
+                        <xsl:value-of select="$language"/>
+                    </string>
+                </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
