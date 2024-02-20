@@ -4,6 +4,7 @@ import typer
 
 from pathlib import Path
 from rdflib import ConjunctiveGraph
+from rdflib.plugin import PluginException
 from rich import print_json
 from rich.console import Console
 from typing_extensions import Annotated
@@ -75,5 +76,10 @@ def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld') -> None:
         case _:
             graph = ConjunctiveGraph()
             graph.parse(data=result, format='json-ld')
-            data = graph.serialize(format=syntax)
-            print(data)
+            try:
+                data = graph.serialize(format=syntax)
+                print(data)
+            except PluginException:
+                print(f'Unrecognised RDF syntax: "{syntax}".')
+                print('Try: "nt", "turtle" or "nquads".')
+                typer.Exit(code=1)

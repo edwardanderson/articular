@@ -3,7 +3,7 @@ requires = ["setuptools >= 66.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-version = "2.7.0"
+version = "2.7.1"
 name = "Articular"
 description = "Create RDF knowledge graphs with Markdown."
 keywords = [
@@ -11,6 +11,7 @@ keywords = [
     "Markdown",
     "RDF"
 ]
+readme = 'README.md'
 urls = { project-url = "https://github.com/edwardanderson/articular" }
 dependencies = [
     "lxml",

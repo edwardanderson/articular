@@ -6,7 +6,6 @@
     - [Input](#input)
     - [Output](#output)
       - [Data](#data)
-      - [Visualisation](#visualisation)
   - [Model](#model)
     - [Logical](#logical)
     - [Physical](#physical)
@@ -44,7 +43,7 @@ autotype: false
   - description
     - > **Adventures of Huckleberry Finn** is a novel by American author [Mark Twain](https://en.wikipedia.org/wiki/Mark_Twain).
       - [source](https://schema.org/isBasedOn)
-        - <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn>
+        - ["Adventures of Huckleberry Finn", Wikipedia](https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn)
   - author
     - [Mark Twain](http://www.wikidata.org/entity/Q7245)
       - date of birth
@@ -64,12 +63,6 @@ autotype: false
 | `application/ld+json` | [examples/adventures_of_huckleberry_finn.json](examples/adventures_of_huckleberry_finn.json) |
 | `text/turtle`         | [examples/adventures_of_huckleberry_finn.ttl](examples/adventures_of_huckleberry_finn.ttl)   |
 | `application/trig`    | [examples/adventures_of_huckleberry_finn.trig](examples/adventures_of_huckleberry_finn.trig) |
-
-#### Visualisation
-
-![Visualisation](examples/adventures_of_huckleberry_finn.png)
-
-Generated with [RDF Sketch](https://sketch.zazuko.com/)
 
 ## Model
 
@@ -118,12 +111,12 @@ Documents are nested lists of these components.
 Definition lists can identify multiple references of the same **Thing**.
 
 ```text
-* John
-  * born in
-    * Liverpool
-* Paul
-  * born in
-    * Liverpool
+- John
+  - born in
+    - Liverpool
+- Paul
+  - born in
+    - Liverpool
 
 Liverpool
 : <http://www.wikidata.org/entity/Q24826>

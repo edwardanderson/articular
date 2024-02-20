@@ -22,9 +22,35 @@
 
     <!-- Label (without language) -->
     <xsl:template match="(li|a|img)[not(code or (strong|em|del))][not(node() = /document/dl/dt)]" mode="label">
-        <string key="_label">
-            <xsl:apply-templates select="@alt|text()"/>
-        </string>
+        <xsl:choose>
+            <!-- Parent paragraph language -->
+            <xsl:when test="../code">
+                <map key="_label">
+                    <string key="@language">
+                        <xsl:value-of select="../code"/>
+                    </string>
+                    <string key="@value">
+                        <xsl:apply-templates select="@alt|text()"/>
+                    </string>
+                </map>
+            </xsl:when>
+            <!-- Default language -->
+            <xsl:when test="$language">
+                <map key="_label">
+                    <string key="@language">
+                        <xsl:value-of select="$language"/>
+                    </string>
+                    <string key="@value">
+                        <xsl:apply-templates select="@alt|text()"/>
+                    </string>
+                </map>
+            </xsl:when>
+            <xsl:otherwise>
+                <string key="_label">
+                    <xsl:apply-templates select="@alt|text()"/>
+                </string>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <!-- Label (with language) -->

@@ -19,6 +19,9 @@
       },
       "_value": {
         "@id": "rdf:value"
+      },
+      "source": {
+        "@id": "https://schema.org/isBasedOn"
       }
     }
   ],
@@ -26,7 +29,10 @@
   "@graph": [
     {
       "@id": "1",
-      "_label": "Adventures of Huckleberry Finn",
+      "_label": {
+        "@language": "en",
+        "@value": "Adventures of Huckleberry Finn"
+      },
       "@type": "Book",
       "description": [
         {
@@ -38,13 +44,19 @@
           "_seeAlso": [
             {
               "@id": "https://en.wikipedia.org/wiki/Mark_Twain",
-              "_label": "Mark Twain"
+              "_label": {
+                "@language": "en",
+                "@value": "Mark Twain"
+              }
             }
           ],
           "source": [
             {
               "@id": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
-              "_label": "“Adventures of Huckleberry Finn”, Wikipedia"
+              "_label": {
+                "@language": "en",
+                "@value": "“Adventures of Huckleberry Finn”, Wikipedia"
+              }
             }
           ]
         }
@@ -52,7 +64,10 @@
       "author": [
         {
           "@id": "http://www.wikidata.org/entity/Q7245",
-          "_label": "Mark Twain",
+          "_label": {
+            "@language": "en",
+            "@value": "Mark Twain"
+          },
           "date_of_birth": [
             {
               "@type": "xsd:date",
@@ -61,7 +76,8 @@
           ],
           "name": [
             {
-              "@value": "Samuel Longhorn Clemens"
+              "@value": "Samuel Longhorn Clemens",
+              "@language": "en"
             },
             {
               "@language": "ar",

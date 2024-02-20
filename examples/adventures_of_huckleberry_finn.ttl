@@ -2,20 +2,21 @@
 @prefix html: <http://www.w3.org/1999/xhtml/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/1> a :Book ;
     rdfs:label "Adventures of Huckleberry Finn"@en ;
     :author <http://www.wikidata.org/entity/Q7245> ;
     :description [ a html:blockquote ;
-            :source <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> ;
             rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;
-            rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ] .
+            rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
+            schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> ] .
 
 <http://www.wikidata.org/entity/Q7245> rdfs:label "Mark Twain"@en ;
     :date_of_birth "1835-11-30"^^xsd:date ;
-    :name "Samuel Longhorn Clemens",
-        "صمويل لانغهورن كليمنس"@ar,
+    :name "صمويل لانغهورن كليمنس"@ar,
+        "Samuel Longhorn Clemens"@en,
         "塞姆·朗赫恩·克莱門斯"@zh .
 
 <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> rdfs:label "“Adventures of Huckleberry Finn”, Wikipedia"@en .

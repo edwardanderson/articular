@@ -1,5 +1,5 @@
-* Shopping list
-  * [contains](https://schema.org/contains)
-    * Apples
-    * Oranges
-    * Bananas
+- Shopping list
+  - [contains](https://schema.org/contains)
+    - Apples
+    - Oranges
+    - Bananas

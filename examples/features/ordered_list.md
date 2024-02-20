@@ -1,7 +1,7 @@
-* Routine
-    * is
+- Routine
+    - is
         1. Wake
         2. Work
-            * at
-                * Library
+            - at
+                - Library
         3. Sleep
