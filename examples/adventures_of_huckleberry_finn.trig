@@ -9,19 +9,28 @@
     <http://example.org/1> a :Book ;
         rdfs:label "Adventures of Huckleberry Finn"@en ;
         :author <http://www.wikidata.org/entity/Q7245> ;
-        :description _:N299d230f988449109e6065492cc2fcb3 .
+        :description _:N31c2b9604c3d46a2a6b5d0989bb7c55c .
+
+    <http://www.wikidata.org/entity/Q101243225> rdfs:label "Sarony"@en .
 
     <http://www.wikidata.org/entity/Q7245> rdfs:label "Mark Twain"@en ;
         :date_of_birth "1835-11-30"^^xsd:date ;
+        :description <https://en.wikipedia.org/wiki/Mark_Twain> ;
         :name "صمويل لانغهورن كليمنس"@ar,
             "Samuel Longhorn Clemens"@en,
-            "塞姆·朗赫恩·克莱門斯"@zh .
+            "塞姆·朗赫恩·克莱門斯"@zh ;
+        :portrait <https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mark_Twain_by_Sarony%2C_1884.JPG/155px-Mark_Twain_by_Sarony%2C_1884.JPG> .
 
     <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> rdfs:label "“Adventures of Huckleberry Finn”, Wikipedia"@en .
 
-    <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en .
+    <https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mark_Twain_by_Sarony%2C_1884.JPG/155px-Mark_Twain_by_Sarony%2C_1884.JPG> a html:img ;
+        rdfs:label "Mark Twain by Sarony, 1884"@en ;
+        :creator <http://www.wikidata.org/entity/Q101243225> .
 
-    _:N299d230f988449109e6065492cc2fcb3 a html:blockquote ;
+    <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en,
+            "“Mark Twain”, Wikipedia"@en .
+
+    _:N31c2b9604c3d46a2a6b5d0989bb7c55c a html:blockquote ;
         rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
         schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> .

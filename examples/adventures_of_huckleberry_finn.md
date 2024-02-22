@@ -18,3 +18,9 @@ autotype: false
         - > Samuel Longhorn Clemens
         - > صمويل لانغهورن كليمنس `ar`
         - > 塞姆·朗赫恩·克莱門斯 `zh`
+      - portrait
+        - ![Mark Twain by Sarony, 1884](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mark_Twain_by_Sarony%2C_1884.JPG/155px-Mark_Twain_by_Sarony%2C_1884.JPG)
+          - creator
+            - [Sarony](http://www.wikidata.org/entity/Q101243225)
+      - description
+        - ["Mark Twain", Wikipedia](https://en.wikipedia.org/wiki/Mark_Twain)

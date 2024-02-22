@@ -1,8 +1,15 @@
 # Changelog
 
+## 2.7.2
+
+- Extend example, reserialise data
+- Prefer `longturtle` serialisation for readability
+- Fix blank node creation when blockquote has image but no hyperlink
+- Prefer `html:img` to `schema:ImageObject` as default image class
+
 ## 2.7.1
 
-- Create `rdfs:seeAlso` references for images inside block quotes
+- Create `rdfs:seeAlso` references for images inside blockquotes
 - Always use `-` list item delimiter in examples
 - Fix missing default `@language` on untyped and unstyled blockquotes
 - Resources referenced in blockquotes get labels with language tags:
