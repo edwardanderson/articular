@@ -87,6 +87,34 @@
               "@language": "zh",
               "@value": "塞姆·朗赫恩·克莱門斯"
             }
+          ],
+          "portrait": [
+            {
+              "@id": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mark_Twain_by_Sarony%2C_1884.JPG/155px-Mark_Twain_by_Sarony%2C_1884.JPG",
+              "@type": "html:img",
+              "_label": {
+                "@language": "en",
+                "@value": "Mark Twain by Sarony, 1884"
+              },
+              "creator": [
+                {
+                  "@id": "http://www.wikidata.org/entity/Q101243225",
+                  "_label": {
+                    "@language": "en",
+                    "@value": "Sarony"
+                  }
+                }
+              ]
+            }
+          ],
+          "description": [
+            {
+              "@id": "https://en.wikipedia.org/wiki/Mark_Twain",
+              "_label": {
+                "@language": "en",
+                "@value": "“Mark Twain”, Wikipedia"
+              }
+            }
           ]
         }
       ]

@@ -21,7 +21,7 @@
     <xsl:param name="base">http://example.org/</xsl:param>
     <xsl:param name="vocab">http://example.org/terms/</xsl:param>
     <xsl:param name="language"></xsl:param>
-    <xsl:param name="class-image">schema:ImageObject</xsl:param>
+    <xsl:param name="class-image">html:img</xsl:param>
     <xsl:param name="class-blockquote">html:blockquote</xsl:param>
 
     <xsl:variable name="bcp-47" select="document(bcp_47.xml)"/>

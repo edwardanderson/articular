@@ -4,11 +4,12 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns="http://www.w3.org/2005/xpath-functions">
 
+    <!-- Blockquote -->
     <xsl:template match="blockquote">
         <!-- Content -->
         <xsl:choose>
             <!-- Blank node -->
-            <xsl:when test="p/a or ../ul/li">
+            <xsl:when test="p/a or p/img or ../ul/li">
                 <!-- Class -->
                 <xsl:if test="../../../text()[1] != 'a'">
                     <string key="@type">
@@ -20,7 +21,7 @@
                     <xsl:apply-templates select="p"/>
                 </map>
                 <!-- See also -->
-                <xsl:if test="p/a">
+                <xsl:if test="p/(a|img)">
                     <array key="_seeAlso">
                         <xsl:apply-templates select="p/a" mode="reference"/>
                         <xsl:apply-templates select="p/img" mode="reference"/>
