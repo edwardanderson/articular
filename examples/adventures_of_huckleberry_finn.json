@@ -5,6 +5,8 @@
       "@language": "en",
       "@version": 1.1,
       "@vocab": "http://example.org/terms/",
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcmit": "http://purl.org/dc/dcmitype/",
       "html": "http://www.w3.org/1999/xhtml/",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -26,6 +28,13 @@
     }
   ],
   "@id": "adventures_of_huckleberry_finn.md",
+  "dc:format": {
+    "@language": null,
+    "@value": "text/markdown"
+  },
+  "dc:type": {
+    "@id": "dcmit:Dataset"
+  },
   "@graph": [
     {
       "@id": "1",

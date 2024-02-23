@@ -1,6 +1,5 @@
 ---
 language: en
-autotype: false
 ---
 
 - [Adventures of Huckleberry Finn](1)
