@@ -17,7 +17,11 @@
                     <string key="@language"><xsl:value-of select="$language"></xsl:value-of></string>
                 </xsl:if>
                 <number key="@version">1.1</number>
-                <string key="@vocab"><xsl:value-of select="$vocab"/></string>
+                <string key="@vocab">
+                    <xsl:value-of select="$vocab"/>
+                </string>
+                <string key="dc">http://purl.org/dc/elements/1.1/</string>
+                <string key="dcmit">http://purl.org/dc/dcmitype/</string>
                 <string key="html">http://www.w3.org/1999/xhtml/</string>
                 <string key="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</string>
                 <string key="rdfs">http://www.w3.org/2000/01/rdf-schema#</string>

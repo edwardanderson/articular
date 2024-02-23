@@ -16,6 +16,7 @@
     <xsl:param name="boolean-true" select="('true', 'True', 'TRUE')"/>
     <xsl:param name="boolean-false" select="('false', 'False', 'FALSE')"/>
     <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
+    <xsl:param name="frontmatter-metadata" select="true()"/>
     <!-- Data-->
     <xsl:param name="graph-name"/>
     <xsl:param name="base">http://example.org/</xsl:param>
@@ -55,6 +56,17 @@
                         <xsl:value-of select="$graph-name"/>
                     </string>
                 </xsl:if>
+                <!-- Metadata -->
+                <xsl:if test="$frontmatter-metadata">
+                    <map key="dc:format">
+                        <null key="@language"/>
+                        <string key="@value">text/markdown</string>
+                    </map>
+                    <map key="dc:type">
+                        <string key="@id">dcmit:Dataset</string>
+                    </map>
+                </xsl:if>
+                <!-- Content -->
                 <array key="@graph">
                     <xsl:apply-templates select="ul"/>
                 </array>
