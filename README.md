@@ -33,7 +33,6 @@ articular examples/adventures_of_huckleberry_finn.md
 ```markdown
 ---
 language: en
-autotype: false
 ---
 
 - [Adventures of Huckleberry Finn](1)

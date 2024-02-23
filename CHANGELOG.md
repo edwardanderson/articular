@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.8.0
+
+- Add basic Dublin Core statements about the Markdown document dataset
+
 ## 2.7.2
 
 - Extend example, reserialise data
