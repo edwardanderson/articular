@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.9.0
+
+- Generate `owl:sameAs` relations for entities with two or more definition list entries.
+
 ## 2.8.0
 
 - Add basic Dublin Core statements about the Markdown document dataset

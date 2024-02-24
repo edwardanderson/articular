@@ -31,9 +31,10 @@
     <xsl:import href="a.xsl"/>
     <xsl:import href="blockquote.xsl"/>
     <xsl:import href="context.xsl"/>
+    <xsl:import href="dl.xsl"/>
+    <xsl:import href="identifier.xsl"/>
     <xsl:import href="img.xsl"/>
     <xsl:import href="label.xsl"/>
-    <xsl:import href="identifier.xsl"/>
     <xsl:import href="li.xsl"/>
     <xsl:import href="p.xsl"/>
     <xsl:import href="table.xsl"/>
@@ -68,7 +69,10 @@
                 </xsl:if>
                 <!-- Content -->
                 <array key="@graph">
+                    <!-- Data -->
                     <xsl:apply-templates select="ul"/>
+                    <!-- Definition list -->
+                    <xsl:apply-templates select="dl"/>
                 </array>
             </map>
         </xsl:variable>
