@@ -25,6 +25,6 @@ language: en
         - ["Mark Twain", Wikipedia](https://en.wikipedia.org/wiki/Mark_Twain)
 
 Mark Twain
-: <http://www.wikidata.org/entity/Q2599>
-: <http://viaf.org/viaf/100252012>
-: <https://vocab.getty.edu/ulan/500249736>
+: <http://www.wikidata.org/entity/Q7245>
+: <http://viaf.org/viaf/50566653>
+: <https://vocab.getty.edu/ulan/500020427>

@@ -2,6 +2,7 @@ PREFIX : <http://example.org/terms/>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
 PREFIX html: <http://www.w3.org/1999/xhtml/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <https://schema.org/>
@@ -25,6 +26,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dc:type dcmitype:Dataset ;
 .
 
+<http://viaf.org/viaf/50566653>
+    rdfs:label "Mark Twain"@en ;
+.
+
 <http://www.wikidata.org/entity/Q101243225>
     rdfs:label "Sarony"@en ;
 .
@@ -38,6 +43,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         "Samuel Longhorn Clemens"@en ,
         "塞姆·朗赫恩·克莱門斯"@zh ;
     :portrait <https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mark_Twain_by_Sarony%2C_1884.JPG/155px-Mark_Twain_by_Sarony%2C_1884.JPG> ;
+    owl:sameAs
+        <http://viaf.org/viaf/50566653> ,
+        <https://vocab.getty.edu/ulan/500020427> ;
 .
 
 <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn>
@@ -48,6 +56,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a html:img ;
     rdfs:label "Mark Twain by Sarony, 1884"@en ;
     :creator <http://www.wikidata.org/entity/Q101243225> ;
+.
+
+<https://vocab.getty.edu/ulan/500020427>
+    rdfs:label "Mark Twain"@en ;
 .
 
 <https://en.wikipedia.org/wiki/Mark_Twain>
