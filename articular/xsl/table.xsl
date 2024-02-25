@@ -9,7 +9,7 @@
     <!-- Table -->
     <xsl:template match="table">
         <string key="@type">html:table</string>
-        <map key="_value">
+        <map key="_content">
             <string key="@value">
                 <xsl:value-of select="serialize(.)"/>
             </string>

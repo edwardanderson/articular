@@ -12,12 +12,10 @@
             <xsl:when test="p/a or p/img or ../ul/li">
                 <!-- Class -->
                 <xsl:if test="../../../text()[1] != 'a'">
-                    <string key="@type">
-                        <xsl:value-of select="$class-blockquote"/>
-                    </string>
+                    <string key="@type">_Text</string>
                 </xsl:if>
                 <!-- Value -->
-                <map key="_value">
+                <map key="_content">
                     <xsl:apply-templates select="p"/>
                 </map>
                 <!-- See also -->

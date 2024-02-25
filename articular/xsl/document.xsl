@@ -59,13 +59,8 @@
                 </xsl:if>
                 <!-- Metadata -->
                 <xsl:if test="$frontmatter-metadata">
-                    <map key="dc:format">
-                        <null key="@language"/>
-                        <string key="@value">text/markdown</string>
-                    </map>
-                    <map key="dc:type">
-                        <string key="@id">dcmit:Dataset</string>
-                    </map>
+                    <string key="_format">text/markdown</string>
+                    <string key="_type">_Dataset</string>
                 </xsl:if>
                 <!-- Content -->
                 <array key="@graph">
@@ -77,7 +72,6 @@
             </map>
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml)"/>
-        <!-- <xsl:value-of select="serialize($xml)"/> -->
     </xsl:template>
 
 </xsl:stylesheet>
