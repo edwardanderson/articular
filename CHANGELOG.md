@@ -1,8 +1,12 @@
 # Changelog
 
+## 2.9.1
+
+- Fix bug in blockquote hyperlink label mapping to `rdfs:seeAlso`
+
 ## 2.9.0
 
-- Generate `owl:sameAs` relations for entities with two or more definition list entries.
+- Generate `owl:sameAs` relations for entities with two or more definition list entries
 
 ## 2.8.0
 

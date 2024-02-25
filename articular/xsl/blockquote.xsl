@@ -36,7 +36,7 @@
     </xsl:template>
 
     <!-- See also -->
-    <xsl:template match="a|img" mode="reference">
+    <xsl:template match="p/(a|img)" mode="reference">
         <map>
             <xsl:apply-templates select="."/>
         </map>

@@ -21,7 +21,7 @@
     </xsl:template>
 
     <!-- Label (without language) -->
-    <xsl:template match="(li|a|img)[not(code or (strong|em|del))][not(node() = /document/dl/dt)]" mode="label">
+    <xsl:template match="(li[not(node() = /document/dl/dt)]|a|img)[not(code or (strong|em|del))]" mode="label">
         <xsl:choose>
             <!-- Parent paragraph language -->
             <xsl:when test="../code">

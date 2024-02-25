@@ -11,8 +11,8 @@
 
     <!-- Same as -->
     <xsl:template match="dt">
-        <xsl:variable name="term" select="generate-id(.)"/>
         <xsl:variable name="label" select="text()"/>
+        <xsl:variable name="term" select="generate-id(.)"/>
         <xsl:if test="count(following-sibling::dd[generate-id(preceding-sibling::dt[1]) = $term]) gt 1">
             <map>
                 <string key="@id">
