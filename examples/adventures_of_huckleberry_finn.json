@@ -1,9 +1,9 @@
 {
   "@context": [
     {
-      "@base": "http://example.org/",
-      "@language": "en",
       "@version": 1.1,
+      "@language": "en",
+      "@base": "http://example.org/",
       "@vocab": "http://example.org/terms/",
       "dc": "http://purl.org/dc/elements/1.1/",
       "dcmit": "http://purl.org/dc/dcmitype/",
@@ -13,6 +13,14 @@
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_content": {
+        "@id": "rdf:value",
+        "@container": "@set"
+      },
+      "_format": {
+        "@language": null,
+        "@id": "dc:format"
+      },
       "_label": {
         "@id": "rdfs:label"
       },
@@ -24,8 +32,18 @@
         "@id": "rdfs:seeAlso",
         "@container": "@set"
       },
-      "_value": {
-        "@id": "rdf:value"
+      "_type": {
+        "@id": "dc:type",
+        "@type": "@vocab"
+      },
+      "_Dataset": {
+        "@id": "dcmit:Dataset"
+      },
+      "_Image": {
+        "@id": "html:img"
+      },
+      "_Text": {
+        "@id": "html:blockquote"
       },
       "source": {
         "@id": "https://schema.org/isBasedOn"
@@ -33,13 +51,8 @@
     }
   ],
   "@id": "adventures_of_huckleberry_finn.md",
-  "dc:format": {
-    "@language": null,
-    "@value": "text/markdown"
-  },
-  "dc:type": {
-    "@id": "dcmit:Dataset"
-  },
+  "_format": "text/markdown",
+  "_type": "_Dataset",
   "@graph": [
     {
       "@id": "1",
@@ -50,8 +63,8 @@
       "@type": "Book",
       "description": [
         {
-          "@type": "html:blockquote",
-          "_value": {
+          "@type": "_Text",
+          "_content": {
             "@value": "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>",
             "@type": "rdf:HTML"
           },
@@ -102,7 +115,7 @@
           "portrait": [
             {
               "@id": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mark_Twain_by_Sarony%2C_1884.JPG/155px-Mark_Twain_by_Sarony%2C_1884.JPG",
-              "@type": "html:img",
+              "@type": "_Image",
               "_label": {
                 "@language": "en",
                 "@value": "Mark Twain by Sarony, 1884"

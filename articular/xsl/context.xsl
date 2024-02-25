@@ -12,11 +12,11 @@
         <xsl:param name="context"/>
         <array key="@context">
             <map>
-                <string key="@base"><xsl:value-of select="$base"></xsl:value-of></string>
+                <number key="@version">1.1</number>
                 <xsl:if test="$language">
                     <string key="@language"><xsl:value-of select="$language"></xsl:value-of></string>
                 </xsl:if>
-                <number key="@version">1.1</number>
+                <string key="@base"><xsl:value-of select="$base"></xsl:value-of></string>
                 <string key="@vocab">
                     <xsl:value-of select="$vocab"/>
                 </string>
@@ -28,6 +28,14 @@
                 <string key="rdfs">http://www.w3.org/2000/01/rdf-schema#</string>
                 <string key="schema">https://schema.org/</string>
                 <string key="xsd">http://www.w3.org/2001/XMLSchema#</string>
+                <map key="_content">
+                    <string key="@id">rdf:value</string>
+                    <string key="@container">@set</string>
+                </map>
+                <map key="_format">
+                    <null key="@language"/>
+                    <string key="@id">dc:format</string>
+                </map>
                 <map key="_label">
                     <string key="@id">rdfs:label</string>
                 </map>
@@ -39,8 +47,22 @@
                     <string key="@id">rdfs:seeAlso</string>
                     <string key="@container">@set</string>
                 </map>
-                <map key="_value">
-                    <string key="@id">rdf:value</string>
+                <map key="_type">
+                    <string key="@id">dc:type</string>
+                    <string key="@type">@vocab</string>
+                </map>
+                <map key="_Dataset">
+                    <string key="@id">dcmit:Dataset</string>
+                </map>
+                <map key="_Image">
+                    <string key="@id">
+                        <xsl:value-of select="$class-image"/>
+                    </string>
+                </map>
+                <map key="_Text">
+                    <string key="@id">
+                        <xsl:value-of select="$class-blockquote"/>
+                    </string>
                 </map>
                 <!-- User aliases -->
                 <xsl:apply-templates select="/document/ul/li/ul/li" mode="context"/>

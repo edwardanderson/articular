@@ -10,9 +10,7 @@
         <xsl:apply-templates select="@src" mode="identifier"/>
         <!-- Class -->
         <xsl:if test="not(../ul/li[text()[1] = 'a'])">
-            <string key="@type">
-                <xsl:value-of select="$class-image"/>
-            </string>
+            <string key="@type">_Image</string>
         </xsl:if>
         <!-- Label -->
         <xsl:apply-templates select="." mode="label"/>
