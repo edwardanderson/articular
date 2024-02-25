@@ -10,7 +10,7 @@ language: en
       - [source](https://schema.org/isBasedOn)
         - ["Adventures of Huckleberry Finn", Wikipedia](https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn)
   - author
-    - [Mark Twain](http://www.wikidata.org/entity/Q7245)
+    - Mark Twain
       - date of birth
         - > 1835-11-30 `date`
       - name
@@ -23,3 +23,8 @@ language: en
             - [Sarony](http://www.wikidata.org/entity/Q101243225)
       - description
         - ["Mark Twain", Wikipedia](https://en.wikipedia.org/wiki/Mark_Twain)
+
+Mark Twain
+: <http://www.wikidata.org/entity/Q2599>
+: <http://viaf.org/viaf/100252012>
+: <https://vocab.getty.edu/ulan/500249736>
