@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xsl:stylesheet version="3.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns="http://www.w3.org/2005/xpath-functions">
 
@@ -36,7 +37,7 @@
                     </xsl:when>
                     <!-- Boolean: false -->
                     <xsl:when test="text() = $boolean-false">
-                         <boolean key="@value">false</boolean>
+                        <boolean key="@value">false</boolean>
                     </xsl:when>
                     <!-- Undetected -->
                     <xsl:otherwise>
@@ -172,6 +173,57 @@
         <string key="@type">
             <xsl:text>rdf:HTML</xsl:text>
         </string>
+    </xsl:template>
+
+    <!-- Plain text representation of HTML -->
+    <xsl:template match="p" mode="html-to-plain">
+        <xsl:variable name="content">
+            <xsl:choose>
+                <xsl:when test="self::text()">
+                    <xsl:value-of select="."/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="node()[not(self::code[not(following-sibling::*)])]" mode="html-to-plain"/>
+                    <xsl:variable name="element-type" as="xs:boolean">
+                        <xsl:call-template name="tag-is-inline">
+                            <xsl:with-param name="tag" select="local-name()"/>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <xsl:if test="not($element-type)">
+                        <xsl:text>&#xa;</xsl:text>
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <!-- Language -->
+        <xsl:choose>
+            <xsl:when test="code[not(following-sibling::*)]">
+                <string key="@language">
+                    <xsl:value-of select="code"/>
+                </string>
+            </xsl:when>
+            <xsl:when test="$language">
+                <string key="@language">
+                    <xsl:value-of select="$language"/>
+                </string>
+            </xsl:when>
+        </xsl:choose>
+        <!-- Text -->
+        <string key="@value">
+            <xsl:value-of select="normalize-space($content)"/>
+        </string>
+    </xsl:template>
+
+    <xsl:template name="tag-is-inline">
+        <xsl:param name="tag"/>
+        <xsl:choose>
+            <xsl:when test="$tag = ('a', 'em', 'mark', 'strike', 'strong')">
+                <xsl:sequence select="true()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:sequence select="false()"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 </xsl:stylesheet>

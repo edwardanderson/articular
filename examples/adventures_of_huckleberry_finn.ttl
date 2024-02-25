@@ -15,7 +15,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     :description
         [
             a html:blockquote ;
-            rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;
+            rdf:value
+                "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ,
+                "Adventures of Huckleberry Finn is a novel by American author Mark Twain."@en ;
             rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
             schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> ;
         ] ;

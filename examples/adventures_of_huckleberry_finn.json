@@ -64,10 +64,16 @@
       "description": [
         {
           "@type": "_Text",
-          "_content": {
-            "@value": "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>",
-            "@type": "rdf:HTML"
-          },
+          "_content": [
+            {
+              "@value": "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>",
+              "@type": "rdf:HTML"
+            },
+            {
+              "@language": "en",
+              "@value": "Adventures of Huckleberry Finn is a novel by American author Mark Twain."
+            }
+          ],
           "_seeAlso": [
             {
               "@id": "https://en.wikipedia.org/wiki/Mark_Twain",

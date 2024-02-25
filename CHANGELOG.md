@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.10.0
+
+- Create a plain text representation of styled blockquote text
+
 ## 2.9.1
 
 - Fix bug in blockquote hyperlink label mapping to `rdfs:seeAlso`

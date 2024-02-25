@@ -15,6 +15,7 @@
     "@container": "@set"
   },
   "_format": {
+    "@language": null,
     "@id": "dc:format"
   },
   "_label": {
@@ -29,7 +30,8 @@
     "@container": "@set"
   },
   "_type": {
-    "@id": "dc:type"
+    "@id": "dc:type",
+    "@type": "@vocab"
   },
   "_Dataset": {
     "@id": "dcmit:Dataset"
