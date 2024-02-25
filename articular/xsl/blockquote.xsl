@@ -15,9 +15,26 @@
                     <string key="@type">_Text</string>
                 </xsl:if>
                 <!-- Value -->
-                <map key="_content">
-                    <xsl:apply-templates select="p"/>
-                </map>
+                <array key="_content">
+                    <xsl:choose>
+                        <xsl:when test="p/(a|img|strong|em)">
+                            <!-- Rich -->
+                            <map>
+                                <xsl:apply-templates select="p"/>
+                            </map>
+                            <!-- Plain -->
+                            <map>
+                                <xsl:apply-templates select="p" mode="html-to-plain"/>
+                            </map>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <!-- Plain -->
+                            <map>
+                                <xsl:apply-templates select="p"/>
+                            </map>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </array>
                 <!-- See also -->
                 <xsl:if test="p/(a|img)">
                     <array key="_seeAlso">

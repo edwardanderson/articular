@@ -8,11 +8,16 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+{
+    <http://example.org/adventures_of_huckleberry_finn.md> dc:format "text/markdown" ;
+        dc:type dcmitype:Dataset .
+}
+
 <http://example.org/adventures_of_huckleberry_finn.md> {
     <http://example.org/1> a :Book ;
         rdfs:label "Adventures of Huckleberry Finn"@en ;
         :author <http://www.wikidata.org/entity/Q7245> ;
-        :description _:N69fe65556c5f4212b9825a845d7b6c96 .
+        :description _:N22e7a1290d1045d3b259f4ba3097f936 .
 
     <http://viaf.org/viaf/50566653> rdfs:label "Mark Twain"@en .
 
@@ -39,15 +44,11 @@
     <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en,
             "“Mark Twain”, Wikipedia"@en .
 
-    _:N69fe65556c5f4212b9825a845d7b6c96 a html:blockquote ;
-        rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML ;
+    _:N22e7a1290d1045d3b259f4ba3097f936 a html:blockquote ;
+        rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML,
+            "Adventures of Huckleberry Finn is a novel by American author Mark Twain."@en ;
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
         schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> .
-}
-
-{
-    <http://example.org/adventures_of_huckleberry_finn.md> dc:format "text/markdown" ;
-        dc:type dcmitype:Dataset .
 }
 
 
