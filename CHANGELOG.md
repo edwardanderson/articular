@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.11.3
+
+- Fix empty image label
+
 ## 2.11.2
 
 - Prefer `false` defaults
