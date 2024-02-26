@@ -51,8 +51,6 @@
     }
   ],
   "@id": "adventures_of_huckleberry_finn.md",
-  "_format": "text/markdown",
-  "_type": "_Dataset",
   "@graph": [
     {
       "@id": "1",

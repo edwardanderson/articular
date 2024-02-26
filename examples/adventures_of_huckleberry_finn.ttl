@@ -1,6 +1,4 @@
 PREFIX : <http://example.org/terms/>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
 PREFIX html: <http://www.w3.org/1999/xhtml/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -21,11 +19,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
             schema:isBasedOn <https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn> ;
         ] ;
-.
-
-<http://example.org/adventures_of_huckleberry_finn.md>
-    dc:format "text/markdown" ;
-    dc:type dcmitype:Dataset ;
 .
 
 <http://viaf.org/viaf/50566653>

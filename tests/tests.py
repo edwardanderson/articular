@@ -31,10 +31,19 @@ for position, test in enumerate(tree.findall('h2')):
     generated = ConjunctiveGraph()
     generated.parse(data=result, format='json-ld')
     expected = ConjunctiveGraph()
-    expected.parse(data=turtle, format='turtle')
+    try:
+        expected.parse(data=turtle, format='turtle')
+    except Exception:
+        expected.parse(data=turtle, format='trig')
+
     status = to_isomorphic(generated) == to_isomorphic(expected)
     if status:
         print(status, '\t', name)
     else:
-        print(f'\n{name}\n')
+        print(f'\n=== {name} ===\n')
+        print('Generated:\n')
         print(generated.serialize(format='turtle'))
+        print('----------')
+        print('\nExpected:\n')
+        print(expected.serialize(format='turtle'))
+        print('=========')

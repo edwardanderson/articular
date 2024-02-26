@@ -12,7 +12,7 @@
 
     <!-- === Parameters === -->
     <!-- Application -->
-    <xsl:param name="autotype" select="true()"/>
+    <xsl:param name="autotype" select="false()"/>
     <xsl:param name="boolean-true" select="('true', 'True', 'TRUE')"/>
     <xsl:param name="boolean-false" select="('false', 'False', 'FALSE')"/>
     <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
