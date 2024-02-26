@@ -23,6 +23,7 @@ for position, test in enumerate(tree.findall('h2')):
     name = test.text
     markdown = markdown_fixtures[position].text
     turtle = turtle_fixtures[position].text
+
     settings, document = frontmatter.parse(markdown)
     template = Template(**settings)
     html = template._transform_md_to_html(document)
