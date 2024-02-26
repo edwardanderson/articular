@@ -7,6 +7,7 @@
   - [Identify and label resources globally (definition list)](#identify-and-label-resources-globally-definition-list)
   - [Identify equivalent global resources](#identify-equivalent-global-resources)
   - [Relate resources with local term](#relate-resources-with-local-term)
+  - [Relate multiple resources with local term](#relate-multiple-resources-with-local-term)
   - [Relate resources with global term](#relate-resources-with-global-term)
   - [Assign local class](#assign-local-class)
   - [Assign global class](#assign-global-class)
@@ -111,10 +112,10 @@ Paul
 <http://www.wikidata.org/entity/Q1203> rdfs:label "John" ;
   owl:sameAs <https://vocab.getty.edu/ulan/500106615> .
 
+<https://vocab.getty.edu/ulan/500106615> rdfs:label "John" .
+
 <http://www.wikidata.org/entity/Q2599> rdfs:label "Paul" ;
   owl:sameAs <https://vocab.getty.edu/ulan/500249736> .
-
-<https://vocab.getty.edu/ulan/500106615> rdfs:label "John" .
 
 <https://vocab.getty.edu/ulan/500249736> rdfs:label "Paul" .
 ```
@@ -133,6 +134,26 @@ Paul
 
 [] rdfs:label "John" ;
   :knows [ rdfs:label "Paul" ] .
+```
+
+## Relate multiple resources with local term
+
+```markdown
+- John
+  - knows
+    - Paul
+    - George
+    - Ringo
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  :knows [ rdfs:label "Paul" ],
+    [ rdfs:label "George" ],
+    [ rdfs:label "Ringo" ] .
 ```
 
 ## Relate resources with global term

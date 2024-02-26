@@ -1,5 +1,5 @@
 import frontmatter
-import xml.etree.ElementTree as etree
+import xml.etree.ElementTree as ET
 
 from markdown_it import MarkdownIt
 from pathlib import Path
@@ -15,7 +15,7 @@ with open(tests_path, 'r') as in_file:
     html_str = md.render(in_file.read())
 
 html_doc = '<html>' + html_str + '</html>'
-tree = etree.ElementTree(etree.fromstring(html_doc))
+tree = ET.ElementTree(ET.fromstring(html_doc))
 markdown_fixtures = tree.findall('pre/code[@class="language-markdown"]')
 turtle_fixtures = tree.findall('pre/code[@class="language-turtle"]')
 
