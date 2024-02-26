@@ -9,7 +9,7 @@
         <!-- Content -->
         <xsl:choose>
             <!-- Blank node -->
-            <xsl:when test="p/a or p/img or ../ul/li">
+            <xsl:when test="p/(a|img|br) or ../ul/li">
                 <!-- Class -->
                 <xsl:if test="../../../text()[1] != 'a'">
                     <string key="@type">_Text</string>
@@ -17,7 +17,7 @@
                 <!-- Value -->
                 <array key="_content">
                     <xsl:choose>
-                        <xsl:when test="p/(a|img|strong|em)">
+                        <xsl:when test="p/(a|img|strong|em|br)">
                             <!-- Rich -->
                             <map>
                                 <xsl:apply-templates select="p"/>

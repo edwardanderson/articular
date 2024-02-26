@@ -67,10 +67,17 @@
         </array>
     </xsl:template>
 
-    <!-- Predicate (class, single) -->
-    <xsl:template match="li[text() = 'a'][not(a)][count(ul/li) eq 1]" mode="predicate">
+    <!-- Predicate (class, single, local) -->
+    <xsl:template match="li[text() = 'a'][not(a)][count(ul/li) eq 1][not(ul/li/a)]" mode="predicate">
         <string key="@type">
             <xsl:value-of select="ul/li/text()"/>
+        </string>
+    </xsl:template>
+
+    <!-- Predicate (class, single, global) -->
+    <xsl:template match="li[text() = 'a'][not(a)][count(ul/li) eq 1][ul/li/a]" mode="predicate">
+        <string key="@type">
+            <xsl:value-of select="ul/li/a/@href"/>
         </string>
     </xsl:template>
 

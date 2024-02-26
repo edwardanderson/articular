@@ -16,7 +16,7 @@
     <xsl:param name="boolean-true" select="('true', 'True', 'TRUE')"/>
     <xsl:param name="boolean-false" select="('false', 'False', 'FALSE')"/>
     <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
-    <xsl:param name="frontmatter-metadata" select="true()"/>
+    <xsl:param name="frontmatter-metadata" select="false()"/>
     <!-- Data-->
     <xsl:param name="graph-name"/>
     <xsl:param name="base">http://example.org/</xsl:param>
@@ -24,8 +24,6 @@
     <xsl:param name="language"></xsl:param>
     <xsl:param name="class-image">html:img</xsl:param>
     <xsl:param name="class-blockquote">html:blockquote</xsl:param>
-
-    <xsl:variable name="bcp-47" select="document(bcp_47.xml)"/>
 
     <!-- Child templates -->
     <xsl:import href="a.xsl"/>

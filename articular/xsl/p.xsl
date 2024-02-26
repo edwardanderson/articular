@@ -6,43 +6,44 @@
     xmlns="http://www.w3.org/2005/xpath-functions">
 
     <!-- Plain text (without language or datatype) -->
-    <xsl:template match="p[not(strong|em|del)][not(code)]">
+    <xsl:template match="p[not(strong|em|del|br)][not(code)]">
+        <xsl:variable name="content" select="text()[1]"/>
         <xsl:choose>
             <xsl:when test="$autotype">
                 <xsl:choose>
                     <!-- Date: YYYY-MM-DD -->
-                    <xsl:when test="matches(text(), '^\d{4}-[01]\d-[0-3]\d$')">
+                    <xsl:when test="matches($content, '^\d{4}-[01]\d-[0-3]\d$')">
                         <string key="@type">xsd:date</string>
                         <string key="@value">
-                            <xsl:apply-templates select="text()"/>
+                            <xsl:apply-templates select="$content"/>
                         </string>
                     </xsl:when>
                     <!-- Integer -->
-                    <xsl:when test="matches(text(), '^\d+$')">
+                    <xsl:when test="matches($content, '^\d+$')">
                         <string key="@type">xsd:integer</string>
                         <string key="@value">
-                            <xsl:apply-templates select="text()"/>
+                            <xsl:apply-templates select="$content"/>
                         </string>
                     </xsl:when>
                     <!-- Decimal -->
-                    <xsl:when test="matches(text(), '^[0-9]+\.[0-9]+$')">
+                    <xsl:when test="matches($content, '^[0-9]+\.[0-9]+$')">
                         <string key="@type">xsd:decimal</string>
                         <number key="@value">
-                            <xsl:apply-templates select="text()"/>
+                            <xsl:apply-templates select="$content"/>
                         </number>
                     </xsl:when>
                     <!-- Boolean: true -->
-                    <xsl:when test="text() = $boolean-true">
+                    <xsl:when test="$content = $boolean-true">
                         <boolean key="@value">true</boolean>
                     </xsl:when>
                     <!-- Boolean: false -->
-                    <xsl:when test="text() = $boolean-false">
+                    <xsl:when test="$content = $boolean-false">
                         <boolean key="@value">false</boolean>
                     </xsl:when>
                     <!-- Undetected -->
                     <xsl:otherwise>
                         <string key="@value">
-                            <xsl:apply-templates select="text()"/>
+                            <xsl:apply-templates select="$content"/>
                         </string>
                         <xsl:if test="$language">
                             <string key="@language">
@@ -54,7 +55,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <string key="@value">
-                    <xsl:apply-templates select="text()"/>
+                    <xsl:apply-templates select="$content"/>
                 </string>
                 <xsl:if test="$language">
                     <string key="@language">
@@ -66,7 +67,7 @@
     </xsl:template>
 
     <!-- Plain text (with language or datatype) -->
-    <xsl:template match="p[not(strong|em|del)][code]">
+    <xsl:template match="p[not(strong|em|del|br)][code]">
         <xsl:choose>
             <!-- Datatype -->
             <xsl:when test="code=('integer', 'boolean')">
@@ -121,7 +122,7 @@
     </xsl:template>
 
     <!-- HTML (without language or datatype) -->
-    <xsl:template match="p[strong|em|del][not(code)]">
+    <xsl:template match="p[strong|em|del|br][not(code)]">
         <xsl:choose>
             <!-- Default language -->
             <xsl:when test="$language">
@@ -145,7 +146,7 @@
     </xsl:template>
 
     <!-- HTML (with language) -->
-    <xsl:template match="p[strong|em|del][code]">
+    <xsl:template match="p[strong|em|del|br][code]">
         <xsl:variable name="text" select="node()[not(self::code[not(following-sibling::*)])]"/>
         <xsl:variable name="content" select="normalize-space(serialize($text))"/>
         <!-- Content -->
@@ -190,7 +191,7 @@
                         </xsl:call-template>
                     </xsl:variable>
                     <xsl:if test="not($element-type)">
-                        <xsl:text>&#xa;</xsl:text>
+                        <!-- <xsl:text>&#xa;</xsl:text> -->
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
