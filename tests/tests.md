@@ -13,6 +13,8 @@
     - [Assign local class](#assign-local-class)
     - [Assign global class](#assign-global-class)
     - [Object literal (plain)](#object-literal-plain)
+    - [Object literal (plain, smartquotes)](#object-literal-plain-smartquotes)
+    - [Object literal (plain, typographic replacements)](#object-literal-plain-typographic-replacements)
     - [Object literal (language)](#object-literal-language)
     - [Object literal (type: xsd:gYear)](#object-literal-type-xsdgyear)
     - [Object literal (type: xsd:gMonth)](#object-literal-type-xsdgmonth)
@@ -227,6 +229,40 @@ Paul
 
 [] rdfs:label "John" ;
   :name "John Winston Lennon" .
+```
+
+### Object literal (plain, smartquotes)
+
+```markdown
+- John
+  - description
+    - ['John Lennon', Wikipedia](https://en.wikipedia.org/wiki/John_Lennon)
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  :description <https://en.wikipedia.org/wiki/John_Lennon> .
+
+<https://en.wikipedia.org/wiki/John_Lennon> rdfs:label "‘John Lennon’, Wikipedia" .
+```
+
+### Object literal (plain, typographic replacements)
+
+```markdown
+- Imagine
+  - creditline
+    - > (c) John Lennon, Yoko Ono
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "Imagine" ;
+  :creditline "© John Lennon, Yoko Ono" .
 ```
 
 ### Object literal (language)
