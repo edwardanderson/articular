@@ -360,7 +360,7 @@ language: fr
 
 - John `en`
   - description
-    - > John Lennon né le 9 octobre 1940 à Liverpool et mort assassiné le 8 décembre 1980 à New York `fr`
+    - > John Lennon né le 9 octobre 1940 à Liverpool et mort assassiné le 8 décembre 1980 à New York
 ```
 
 ```turtle
