@@ -427,11 +427,11 @@ base: http://other-example.org/
 vocab: https://schema.org/
 ---
 
-- John
+- Imagine
   - a
-    - Person
-  - knows
-    - Paul
+    - CreativeWork
+  - creator
+    - John
       - a
         - Person
 ```
@@ -440,11 +440,11 @@ vocab: https://schema.org/
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 
-[] a schema:Person ;
-  rdfs:label "John" ;
-  schema:knows [
+[] a schema:CreativeWork ;
+  rdfs:label "Imagine" ;
+  schema:creator [
     a schema:Person ;
-    rdfs:label "Paul"
+    rdfs:label "John"
   ] .
 ```
 
