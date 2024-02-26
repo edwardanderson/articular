@@ -22,6 +22,7 @@
   - [Image](#image)
   - [Document default language](#document-default-language)
   - [Document base](#document-base)
+  - [Document vocabulary](#document-vocabulary)
 
 ## Label anonymous resources
 
@@ -409,4 +410,32 @@ base: http://other-example.org/
 <http://other-example.org/1> rdfs:label "John" .
 
 <http://other-example.org/2> rdfs:label "Paul" .
+```
+
+## Document vocabulary
+
+```markdown
+---
+vocab: https://schema.org/
+---
+
+- John
+  - a
+    - Person
+  - knows
+    - Paul
+      - a
+        - Person
+```
+
+```turtle
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+
+[] a schema:Person ;
+  rdfs:label "John" ;
+  schema:knows [
+    a schema:Person ;
+    rdfs:label "Paul"
+  ] .
 ```
