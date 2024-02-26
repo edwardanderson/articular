@@ -29,6 +29,7 @@
     - [Vocabulary](#vocabulary)
     - [Metadata](#metadata)
     - [Autotype](#autotype)
+    - [Default class](#default-class)
 
 ## Document
 
@@ -391,8 +392,9 @@ Paul
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-[] :said_by [ rdfs:label "John" ] ;
-  rdf:value "Life is what happens while you are busy making other plans." .
+[] a html:blockquote ;
+  rdf:value "Life is what happens while you are busy making other plans." ;
+  :said_by [ rdfs:label "John" ] .
 ```
 
 ### Image
@@ -401,6 +403,7 @@ Paul
 - John
   - portrait
     - ![John Lennon being interviewed in Los Angeles](https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r)
+    - ![](https://upload.wikimedia.org/wikipedia/commons/9/97/John_Lennon_%28cropped%29.jpg)
 ```
 
 ```turtle
@@ -409,10 +412,12 @@ Paul
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-  :portrait <https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r> .
+  :portrait <https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r> , <https://upload.wikimedia.org/wikipedia/commons/9/97/John_Lennon_%28cropped%29.jpg> .
 
 <https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r> a html:img ;
     rdfs:label "John Lennon being interviewed in Los Angeles" .
+
+<https://upload.wikimedia.org/wikipedia/commons/9/97/John_Lennon_%28cropped%29.jpg> a html:img .
 ```
 
 ## Frontmatter
@@ -529,4 +534,30 @@ autotype: true
 
 [] rdfs:label "John" ;
   :date_of_birth "1940-10-09"^^xsd:date .
+```
+
+### Default class
+
+```markdown
+---
+class-blockquote: https://schema.org/CreativeWork
+class-image: https://schema.org/ImageObject
+---
+
+- > Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - image
+    - ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Lorem_Ipsum_Highway_Gothic_Sample.png/274px-Lorem_Ipsum_Highway_Gothic_Sample.png)
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+
+[] a schema:CreativeWork ;
+  rdf:value "Lorem ipsum dolor sit amet, consectetur adipiscing elit" ;
+  :image <https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Lorem_Ipsum_Highway_Gothic_Sample.png/274px-Lorem_Ipsum_Highway_Gothic_Sample.png> .
+
+<https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Lorem_Ipsum_Highway_Gothic_Sample.png/274px-Lorem_Ipsum_Highway_Gothic_Sample.png> a schema:ImageObject .
 ```
