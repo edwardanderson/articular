@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.11.0
+
+- Simple tests scaffolding and examples
+
 ## 2.10.0
 
 - Create a plain text representation of styled blockquote text
