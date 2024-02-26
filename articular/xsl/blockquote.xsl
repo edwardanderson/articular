@@ -11,7 +11,7 @@
             <!-- Blank node -->
             <xsl:when test="p/(a|img|br) or ../ul/li">
                 <!-- Class -->
-                <xsl:if test="../../../text()[1] != 'a'">
+                <xsl:if test="(../../../text()[1] != 'a') or not(../li)">
                     <string key="@type">_Text</string>
                 </xsl:if>
                 <!-- Value -->

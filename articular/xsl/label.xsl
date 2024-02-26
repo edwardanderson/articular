@@ -22,35 +22,37 @@
 
     <!-- Label (without language) -->
     <xsl:template match="(li[not(node() = /document/dl/dt)]|a|img)[not(code or (strong|em|del))]" mode="label">
-        <xsl:choose>
-            <!-- Parent paragraph language -->
-            <xsl:when test="../code">
-                <map key="_label">
-                    <string key="@language">
-                        <xsl:value-of select="../code"/>
-                    </string>
-                    <string key="@value">
+        <xsl:if test="(@alt|text()) != ''">
+            <xsl:choose>
+                <!-- Parent paragraph language -->
+                <xsl:when test="../code">
+                    <map key="_label">
+                        <string key="@language">
+                            <xsl:value-of select="../code"/>
+                        </string>
+                        <string key="@value">
+                            <xsl:apply-templates select="@alt|text()"/>
+                        </string>
+                    </map>
+                </xsl:when>
+                <!-- Default language -->
+                <xsl:when test="$language">
+                    <map key="_label">
+                        <string key="@language">
+                            <xsl:value-of select="$language"/>
+                        </string>
+                        <string key="@value">
+                            <xsl:apply-templates select="@alt|text()"/>
+                        </string>
+                    </map>
+                </xsl:when>
+                <xsl:otherwise>
+                    <string key="_label">
                         <xsl:apply-templates select="@alt|text()"/>
                     </string>
-                </map>
-            </xsl:when>
-            <!-- Default language -->
-            <xsl:when test="$language">
-                <map key="_label">
-                    <string key="@language">
-                        <xsl:value-of select="$language"/>
-                    </string>
-                    <string key="@value">
-                        <xsl:apply-templates select="@alt|text()"/>
-                    </string>
-                </map>
-            </xsl:when>
-            <xsl:otherwise>
-                <string key="_label">
-                    <xsl:apply-templates select="@alt|text()"/>
-                </string>
-            </xsl:otherwise>
-        </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
     </xsl:template>
 
     <!-- Label (with language) -->
