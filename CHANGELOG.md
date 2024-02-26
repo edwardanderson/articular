@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.11.2
+
+- Prefer `false` defaults
+
 ## 2.11.1
 
 - Extend tests manifest

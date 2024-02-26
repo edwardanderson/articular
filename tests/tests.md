@@ -23,6 +23,8 @@
   - [Document default language](#document-default-language)
   - [Document base](#document-base)
   - [Document vocabulary](#document-vocabulary)
+  - [Document metadata](#document-metadata)
+  - [Document autotype](#document-autotype)
 
 ## Label anonymous resources
 
@@ -438,4 +440,51 @@ vocab: https://schema.org/
     a schema:Person ;
     rdfs:label "Paul"
   ] .
+```
+
+## Document metadata
+
+```markdown
+---
+frontmatter-metadata: true
+graph-name: example.md
+---
+
+- John
+```
+
+```turtle
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+{
+  <http://example.org/example.md> dc:format "text/markdown" ;
+      dc:type dcmitype:Dataset .
+}
+
+<http://example.org/example.md> {
+  [] rdfs:label "John" .
+}
+```
+
+## Document autotype
+
+```markdown
+---
+autotype: true
+---
+
+- John
+  - date of birth
+    - > 1940-10-09
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] rdfs:label "John" ;
+  :date_of_birth "1940-10-09"^^xsd:date .
 ```
