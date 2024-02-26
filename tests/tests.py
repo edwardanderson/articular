@@ -19,7 +19,7 @@ tree = ET.ElementTree(ET.fromstring(html_doc))
 markdown_fixtures = tree.findall('pre/code[@class="language-markdown"]')
 turtle_fixtures = tree.findall('pre/code[@class="language-turtle"]')
 
-for position, test in enumerate(tree.findall('h2')):
+for position, test in enumerate(tree.findall('h3')):
     name = test.text
     markdown = markdown_fixtures[position].text
     turtle = turtle_fixtures[position].text

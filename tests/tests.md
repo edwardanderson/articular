@@ -1,32 +1,36 @@
 # Tests
 
 - [Tests](#tests)
-  - [Label anonymous resources](#label-anonymous-resources)
-  - [Identify and label resources locally](#identify-and-label-resources-locally)
-  - [Identify and label resources globally (in-line)](#identify-and-label-resources-globally-in-line)
-  - [Identify and label resources globally (definition list)](#identify-and-label-resources-globally-definition-list)
-  - [Identify equivalent global resources](#identify-equivalent-global-resources)
-  - [Relate resources with local term](#relate-resources-with-local-term)
-  - [Relate multiple resources with local term](#relate-multiple-resources-with-local-term)
-  - [Relate resources with global term](#relate-resources-with-global-term)
-  - [Assign local class](#assign-local-class)
-  - [Assign global class](#assign-global-class)
-  - [Object literal (plain)](#object-literal-plain)
-  - [Object literal (language)](#object-literal-language)
-  - [Object literal (type: xsd:gYear)](#object-literal-type-xsdgyear)
-  - [Object literal (type: xsd:gMonth)](#object-literal-type-xsdgmonth)
-  - [Object literal (type: xsd:date)](#object-literal-type-xsddate)
-  - [Object literal (styled)](#object-literal-styled)
-  - [Object literal (styled, with language)](#object-literal-styled-with-language)
-  - [Subject literal](#subject-literal)
-  - [Image](#image)
-  - [Document default language](#document-default-language)
-  - [Document base](#document-base)
-  - [Document vocabulary](#document-vocabulary)
-  - [Document metadata](#document-metadata)
-  - [Document autotype](#document-autotype)
+  - [Document](#document)
+    - [Label anonymous resources](#label-anonymous-resources)
+    - [Identify and label resources locally](#identify-and-label-resources-locally)
+    - [Identify and label resources globally (in-line)](#identify-and-label-resources-globally-in-line)
+    - [Identify and label resources globally (definition list)](#identify-and-label-resources-globally-definition-list)
+    - [Identify equivalent global resources](#identify-equivalent-global-resources)
+    - [Relate resources with local term](#relate-resources-with-local-term)
+    - [Relate multiple resources with local term](#relate-multiple-resources-with-local-term)
+    - [Relate resources with global term](#relate-resources-with-global-term)
+    - [Assign local class](#assign-local-class)
+    - [Assign global class](#assign-global-class)
+    - [Object literal (plain)](#object-literal-plain)
+    - [Object literal (language)](#object-literal-language)
+    - [Object literal (type: xsd:gYear)](#object-literal-type-xsdgyear)
+    - [Object literal (type: xsd:gMonth)](#object-literal-type-xsdgmonth)
+    - [Object literal (type: xsd:date)](#object-literal-type-xsddate)
+    - [Object literal (styled)](#object-literal-styled)
+    - [Object literal (styled, with language)](#object-literal-styled-with-language)
+    - [Subject literal](#subject-literal)
+    - [Image](#image)
+  - [Frontmatter](#frontmatter)
+    - [Default language](#default-language)
+    - [Base](#base)
+    - [Vocabulary](#vocabulary)
+    - [Metadata](#metadata)
+    - [Autotype](#autotype)
 
-## Label anonymous resources
+## Document
+
+### Label anonymous resources
 
 ```markdown
 - John
@@ -41,7 +45,7 @@
 [] rdfs:label "Paul" .
 ```
 
-## Identify and label resources locally
+### Identify and label resources locally
 
 ```markdown
 - [John](1)
@@ -56,7 +60,7 @@
 <http://example.org/2> rdfs:label "Paul" .
 ```
 
-## Identify and label resources globally (in-line)
+### Identify and label resources globally (in-line)
 
 ```markdown
 - [John](http://www.wikidata.org/entity/Q1203)
@@ -71,7 +75,7 @@
 <http://www.wikidata.org/entity/Q2599> rdfs:label "Paul" .
 ```
 
-## Identify and label resources globally (definition list)
+### Identify and label resources globally (definition list)
 
 
 ```markdown
@@ -93,7 +97,7 @@ Paul
 <http://www.wikidata.org/entity/Q2599> rdfs:label "Paul" .
 ```
 
-## Identify equivalent global resources
+### Identify equivalent global resources
 
 ```markdown
 - John
@@ -123,7 +127,7 @@ Paul
 <https://vocab.getty.edu/ulan/500249736> rdfs:label "Paul" .
 ```
 
-## Relate resources with local term
+### Relate resources with local term
 
 ```markdown
 - John
@@ -139,7 +143,7 @@ Paul
   :knows [ rdfs:label "Paul" ] .
 ```
 
-## Relate multiple resources with local term
+### Relate multiple resources with local term
 
 ```markdown
 - John
@@ -159,7 +163,7 @@ Paul
     [ rdfs:label "Ringo" ] .
 ```
 
-## Relate resources with global term
+### Relate resources with global term
 
 ```markdown
 - John
@@ -176,7 +180,7 @@ Paul
   foaf:knows [ rdfs:label "Paul" ] .
 ```
 
-## Assign local class
+### Assign local class
 
 ```markdown
 - John
@@ -192,7 +196,7 @@ Paul
   rdfs:label "John" .
 ```
 
-## Assign global class
+### Assign global class
 
 ```markdown
 - John
@@ -209,7 +213,7 @@ Paul
   rdfs:label "John" .
 ```
 
-## Object literal (plain)
+### Object literal (plain)
 
 ```markdown
 - John
@@ -225,7 +229,7 @@ Paul
   :name "John Winston Lennon" .
 ```
 
-## Object literal (language)
+### Object literal (language)
 
 ```markdown
 - John
@@ -241,7 +245,7 @@ Paul
   :name "John Winston Lennon"@en .
 ```
 
-## Object literal (type: xsd:gYear)
+### Object literal (type: xsd:gYear)
 
 ```markdown
 - John
@@ -258,7 +262,7 @@ Paul
   :date_of_birth "1940"^^xsd:gYear .
 ```
 
-## Object literal (type: xsd:gMonth)
+### Object literal (type: xsd:gMonth)
 
 ```markdown
 - John
@@ -275,7 +279,7 @@ Paul
   :date_of_birth "1940-10"^^xsd:gMonth .
 ```
 
-## Object literal (type: xsd:date)
+### Object literal (type: xsd:date)
 
 ```markdown
 - John
@@ -292,7 +296,7 @@ Paul
   :date_of_birth "1940-10-09"^^xsd:date .
 ```
 
-## Object literal (styled)
+### Object literal (styled)
 
 ```markdown
 - John
@@ -318,7 +322,7 @@ Paul
 <https://en.wikipedia.org/wiki/The_Beatles> rdfs:label "the Beatles" .
 ```
 
-## Object literal (styled, with language)
+### Object literal (styled, with language)
 
 ```markdown
 - John
@@ -337,7 +341,7 @@ Paul
 
 * TODO: This should generate a plain-text version too.
 
-## Subject literal
+### Subject literal
 
 ```markdown
 - > Life is what happens while you are busy making other plans.
@@ -355,7 +359,7 @@ Paul
   rdf:value "Life is what happens while you are busy making other plans." .
 ```
 
-## Image
+### Image
 
 ```markdown
 - John
@@ -375,7 +379,9 @@ Paul
     rdfs:label "John Lennon being interviewed in Los Angeles" .
 ```
 
-## Document default language
+## Frontmatter
+
+### Default language
 
 ```markdown
 ---
@@ -395,7 +401,7 @@ language: fr
   :description "John Lennon né le 9 octobre 1940 à Liverpool et mort assassiné le 8 décembre 1980 à New York"@fr .
 ```
 
-## Document base
+### Base
 
 ```markdown
 ---
@@ -414,7 +420,7 @@ base: http://other-example.org/
 <http://other-example.org/2> rdfs:label "Paul" .
 ```
 
-## Document vocabulary
+### Vocabulary
 
 ```markdown
 ---
@@ -442,7 +448,7 @@ vocab: https://schema.org/
   ] .
 ```
 
-## Document metadata
+### Metadata
 
 ```markdown
 ---
@@ -468,7 +474,7 @@ graph-name: example.md
 }
 ```
 
-## Document autotype
+### Autotype
 
 ```markdown
 ---
