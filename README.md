@@ -8,6 +8,7 @@
   - [Model](#model)
     - [Logical](#logical)
     - [Physical](#physical)
+  - [Test](#test)
 
 Articular is a tool for creating [RDF](https://www.w3.org/TR/rdf11-primer/) knowledge graphs with [Markdown](https://www.markdownguide.org/) elements: lists of hyperlinks, images, tables and styled or plain text.
 
@@ -141,3 +142,9 @@ language: fr
 autotype: true
 ---
 ```
+
+## Test
+
+Tests are in development.
+
+The `tests/tests.py` application executes each example documented in [tests/tests.md](tests/tests.md).

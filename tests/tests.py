@@ -16,10 +16,14 @@ with open(tests_path, 'r') as in_file:
 
 html_doc = '<html>' + html_str + '</html>'
 tree = etree.ElementTree(etree.fromstring(html_doc))
+markdown_fixtures = tree.findall('pre/code[@class="language-markdown"]')
+turtle_fixtures = tree.findall('pre/code[@class="language-turtle"]')
+
 for position, test in enumerate(tree.findall('h2')):
     name = test.text
-    markdown = tree.findall('pre/code[@class="language-markdown"]')[position].text
-    turtle = tree.findall('pre/code[@class="language-turtle"]')[position].text
+    markdown = markdown_fixtures[position].text
+    turtle = turtle_fixtures[position].text
+
     settings, document = frontmatter.parse(markdown)
     template = Template(**settings)
     html = template._transform_md_to_html(document)
@@ -28,4 +32,9 @@ for position, test in enumerate(tree.findall('h2')):
     generated.parse(data=result, format='json-ld')
     expected = ConjunctiveGraph()
     expected.parse(data=turtle, format='turtle')
-    print(to_isomorphic(generated) == to_isomorphic(expected), '\t', name)
+    status = to_isomorphic(generated) == to_isomorphic(expected)
+    if status:
+        print(status, '\t', name)
+    else:
+        print(f'\n{name}\n')
+        print(generated.serialize(format='turtle'))

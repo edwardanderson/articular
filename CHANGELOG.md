@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.11.1
+
+- Extend tests manifest
+- General bug fixes:
+  - Fix assignment of global class
+  - Progress towards multi-line blockquotes
+
 ## 2.11.0
 
 - Simple tests scaffolding and examples
