@@ -19,8 +19,15 @@ tree = etree.fromstring(html_doc)
 markdown_fixtures = tree.findall('pre/code[@class="language-markdown"]')
 expected_fixtures = tree.xpath('//pre/code[@class="language-turtle" or @class="language-trig"]')
 
+ns = {'re': 'http://exslt.org/regular-expressions'}
+headings = tree.xpath(
+    '//*[re:test(local-name(), "^h\d+$")]',
+    namespaces=ns
+)
+tests = [heading for heading in headings if heading.getnext().tag == 'pre']
+
 template = Template()
-for position, test in enumerate(tree.findall('h3')):
+for position, test in enumerate(tests):
     name = test.text
     markdown = markdown_fixtures[position].text
     fixture = expected_fixtures[position]
