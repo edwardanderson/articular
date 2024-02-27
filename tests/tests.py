@@ -1,6 +1,6 @@
 import frontmatter
-import xml.etree.ElementTree as ET
 
+from lxml import etree
 from markdown_it import MarkdownIt
 from pathlib import Path
 from rdflib import ConjunctiveGraph
@@ -15,26 +15,28 @@ with open(tests_path, 'r') as in_file:
     html_str = md.render(in_file.read())
 
 html_doc = '<html>' + html_str + '</html>'
-tree = ET.ElementTree(ET.fromstring(html_doc))
+tree = etree.fromstring(html_doc)
 markdown_fixtures = tree.findall('pre/code[@class="language-markdown"]')
-turtle_fixtures = tree.findall('pre/code[@class="language-turtle"]')
+expected_fixtures = tree.xpath('//pre/code[@class="language-turtle" or @class="language-trig"]')
 
+template = Template()
 for position, test in enumerate(tree.findall('h3')):
     name = test.text
     markdown = markdown_fixtures[position].text
-    turtle = turtle_fixtures[position].text
+    fixture = expected_fixtures[position]
+    syntax = fixture.get('class').split('-')[-1]
+    expected_data = fixture.text
 
     settings, document = frontmatter.parse(markdown)
-    template = Template(**settings)
+    if settings:
+        template = Template(**settings)
+
     html = template._transform_md_to_html(document)
     (status, result) = template._transform_html_to_json_ld(html)
     generated = ConjunctiveGraph()
     generated.parse(data=result, format='json-ld')
     expected = ConjunctiveGraph()
-    try:
-        expected.parse(data=turtle, format='turtle')
-    except Exception:
-        expected.parse(data=turtle, format='trig')
+    expected.parse(data=expected_data, format=syntax)
 
     status = to_isomorphic(generated) == to_isomorphic(expected)
     if status:
