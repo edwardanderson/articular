@@ -43,7 +43,7 @@ class Template:
 
     def _transform_md_to_html(self, md_str):
         arguments = {
-            'breaks': True,
+            'breaks': False,
             'html': True,
             'typographer': True
         }

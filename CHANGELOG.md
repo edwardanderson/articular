@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.13.0
+
+- Detect tests at any heading depth
+- Stop breaking blockquote lines
+
 ## 2.12.0
 
 - Parameterise embedding `@context`

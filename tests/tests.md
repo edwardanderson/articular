@@ -14,6 +14,7 @@
     - [Assign local class](#assign-local-class)
     - [Assign global class](#assign-global-class)
     - [Object literal (plain)](#object-literal-plain)
+    - [Object literal (plain, multiline)](#object-literal-plain-multiline)
     - [Object literal (plain, smartquotes)](#object-literal-plain-smartquotes)
     - [Object literal (plain, typographic replacements)](#object-literal-plain-typographic-replacements)
     - [Object literal (language)](#object-literal-language)
@@ -254,6 +255,24 @@ Paul
 
 [] rdfs:label "John" ;
   :name "John Winston Lennon" .
+```
+
+### Object literal (plain, multiline)
+
+```markdown
+- John
+  - description
+    - > John Winston Ono Lennon (born John Winston Lennon; 9 October 1940 – 8 December
+      > 1980) was an English singer, songwriter and musician who gained worldwide fame as
+      > the founder, co-songwriter, co-lead vocalist and rhythm guitarist of the Beatles.
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  :description "John Winston Ono Lennon (born John Winston Lennon; 9 October 1940 – 8 December 1980) was an English singer, songwriter and musician who gained worldwide fame as the founder, co-songwriter, co-lead vocalist and rhythm guitarist of the Beatles." .
 ```
 
 ### Object literal (plain, smartquotes)
