@@ -7,23 +7,27 @@
     xmlns="http://www.w3.org/2005/xpath-functions">
 
     <xsl:output method="text" encoding="utf-8"/>
-
     <xsl:strip-space elements="*"/>
 
     <!-- === Parameters === -->
+
     <!-- Application -->
     <xsl:param name="autotype" select="false()"/>
+    <xsl:param name="articular-context-uri">http://example.com/articular.json</xsl:param>
+    <xsl:param name="embed-context" select="true()"/>
+    <xsl:param name="frontmatter-metadata" select="false()"/>
+    <!-- Document -->
+    <xsl:param name="base">http://example.org/</xsl:param>
+    <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
+    <xsl:param name="graph-name"/>
+    <xsl:param name="language"></xsl:param>
+    <xsl:param name="vocab">http://example.org/terms/</xsl:param>
+    <!-- Data -->
     <xsl:param name="boolean-true" select="('true', 'True', 'TRUE')"/>
     <xsl:param name="boolean-false" select="('false', 'False', 'FALSE')"/>
-    <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
-    <xsl:param name="frontmatter-metadata" select="false()"/>
-    <!-- Data-->
-    <xsl:param name="graph-name"/>
-    <xsl:param name="base">http://example.org/</xsl:param>
-    <xsl:param name="vocab">http://example.org/terms/</xsl:param>
-    <xsl:param name="language"></xsl:param>
     <xsl:param name="class-image">html:img</xsl:param>
     <xsl:param name="class-blockquote">html:blockquote</xsl:param>
+    <xsl:param name="definition-equivalence">owl:sameAs</xsl:param>
 
     <!-- Child templates -->
     <xsl:import href="a.xsl"/>
@@ -37,6 +41,8 @@
     <xsl:import href="p.xsl"/>
     <xsl:import href="table.xsl"/>
     <xsl:import href="ul.xsl"/>
+
+    <!-- === Templates === -->
 
     <!-- Document -->
     <xsl:template match="/document">

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.13.0
+
+- Detect tests at any heading depth
+- Stop breaking blockquote lines
+
+## 2.12.0
+
+- Parameterise embedding `@context`
+- Extend tests to include `ol` object sequences
+- Parameterise `_sameAs`
+
 ## 2.11.3
 
 - Fix empty image label

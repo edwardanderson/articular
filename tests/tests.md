@@ -8,11 +8,13 @@
     - [Identify and label resources globally (definition list)](#identify-and-label-resources-globally-definition-list)
     - [Identify equivalent global resources](#identify-equivalent-global-resources)
     - [Relate resources with local term](#relate-resources-with-local-term)
-    - [Relate multiple resources with local term](#relate-multiple-resources-with-local-term)
     - [Relate resources with global term](#relate-resources-with-global-term)
+    - [Relate multiple resources with local term](#relate-multiple-resources-with-local-term)
+    - [Relate multiple resources in sequence](#relate-multiple-resources-in-sequence)
     - [Assign local class](#assign-local-class)
     - [Assign global class](#assign-global-class)
     - [Object literal (plain)](#object-literal-plain)
+    - [Object literal (plain, multiline)](#object-literal-plain-multiline)
     - [Object literal (plain, smartquotes)](#object-literal-plain-smartquotes)
     - [Object literal (plain, typographic replacements)](#object-literal-plain-typographic-replacements)
     - [Object literal (language)](#object-literal-language)
@@ -30,6 +32,7 @@
     - [Metadata](#metadata)
     - [Autotype](#autotype)
     - [Default class](#default-class)
+    - [Default equivalence](#default-equivalence)
 
 ## Document
 
@@ -146,6 +149,23 @@ Paul
   :knows [ rdfs:label "Paul" ] .
 ```
 
+### Relate resources with global term
+
+```markdown
+- John
+  - [knows](http://xmlns.com/foaf/0.1/knows)
+    - Paul
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  foaf:knows [ rdfs:label "Paul" ] .
+```
+
 ### Relate multiple resources with local term
 
 ```markdown
@@ -166,21 +186,26 @@ Paul
     [ rdfs:label "Ringo" ] .
 ```
 
-### Relate resources with global term
+### Relate multiple resources in sequence
 
 ```markdown
 - John
-  - [knows](http://xmlns.com/foaf/0.1/knows)
-    - Paul
+  - discography
+    1. Unfinished Music No. 1: Two Virgins
+    2. Unfinished Music No. 2: Life with the Lions
+    3. Wedding Album
 ```
 
 ```turtle
 @prefix : <http://example.org/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-  foaf:knows [ rdfs:label "Paul" ] .
+  :discography (
+    [ rdfs:label "Unfinished Music No. 1: Two Virgins" ]
+    [ rdfs:label "Unfinished Music No. 2: Life with the Lions" ]
+    [ rdfs:label "Wedding Album" ]
+  ) .
 ```
 
 ### Assign local class
@@ -232,12 +257,14 @@ Paul
   :name "John Winston Lennon" .
 ```
 
-### Object literal (plain, smartquotes)
+### Object literal (plain, multiline)
 
 ```markdown
 - John
   - description
-    - ['John Lennon', Wikipedia](https://en.wikipedia.org/wiki/John_Lennon)
+    - > John Winston Ono Lennon (born John Winston Lennon; 9 October 1940 – 8 December
+      > 1980) was an English singer, songwriter and musician who gained worldwide fame as
+      > the founder, co-songwriter, co-lead vocalist and rhythm guitarist of the Beatles.
 ```
 
 ```turtle
@@ -245,9 +272,23 @@ Paul
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-  :description <https://en.wikipedia.org/wiki/John_Lennon> .
+  :description "John Winston Ono Lennon (born John Winston Lennon; 9 October 1940 – 8 December 1980) was an English singer, songwriter and musician who gained worldwide fame as the founder, co-songwriter, co-lead vocalist and rhythm guitarist of the Beatles." .
+```
 
-<https://en.wikipedia.org/wiki/John_Lennon> rdfs:label "‘John Lennon’, Wikipedia" .
+### Object literal (plain, smartquotes)
+
+```markdown
+- John
+  - see also
+    - > 'John Lennon', Wikipedia
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  :see_also "‘John Lennon’, Wikipedia" .
 ```
 
 ### Object literal (plain, typographic replacements)
@@ -500,7 +541,7 @@ graph-name: example.md
 - John
 ```
 
-```turtle
+```trig
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -560,4 +601,29 @@ class-image: https://schema.org/ImageObject
   :image <https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Lorem_Ipsum_Highway_Gothic_Sample.png/274px-Lorem_Ipsum_Highway_Gothic_Sample.png> .
 
 <https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Lorem_Ipsum_Highway_Gothic_Sample.png/274px-Lorem_Ipsum_Highway_Gothic_Sample.png> a schema:ImageObject .
+```
+
+### Default equivalence
+
+```markdown
+---
+definition-equivalence: https://linked.art/ns/terms/equivalent
+---
+
+- John
+
+John
+: <http://www.wikidata.org/entity/Q1203>
+: <https://vocab.getty.edu/ulan/500106615>
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix la: <https://linked.art/ns/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.wikidata.org/entity/Q1203> rdfs:label "John" ;
+  la:equivalent <https://vocab.getty.edu/ulan/500106615> .
+
+<https://vocab.getty.edu/ulan/500106615> rdfs:label "John" .
 ```

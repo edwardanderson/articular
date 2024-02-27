@@ -161,4 +161,4 @@ cython_debug/
 
 # Local
 dev/
-vv/
+.venv/
