@@ -73,12 +73,26 @@ class Template:
             except AttributeError:
                 pass
 
+        # Concatenate consecutive paragraphs.
+        paragraphs = html_obj.xpath('//p[following-sibling::p]')
+        for paragraph in paragraphs:
+            following_paragraphs = paragraph.xpath('following-sibling::p')
+            for following_paragraph in following_paragraphs:
+                br = etree.Element('br')
+                br.tail = following_paragraph.text
+                paragraph.append(br)
+                following_paragraph.getparent().remove(following_paragraph)
+
+        logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
         return html_obj
 
     def _transform_html_to_json_ld(self, html) -> tuple[bool, str]:
         html_str = etree.tostring(html).decode('utf-8')
         node = self.processor.parse_xml(xml_text=str(html_str))
         result = self.executable.transform_to_string(xdm_node=node)
+        # Fix escaped newlines.
+        result = result.replace(r'\\n', r'\n')
+        logger.debug(result)
         status = not self.processor.exception_occurred
         return (status, result)        
 
