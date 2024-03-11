@@ -6,8 +6,8 @@
     xmlns="http://www.w3.org/2005/xpath-functions">
 
     <!-- Plain text (without language or datatype) -->
-    <xsl:template match="p[not(strong|em|del|br)][not(code)]">
-        <xsl:variable name="content" select="text()[1]"/>
+    <xsl:template match="p[not(strong|em|del)][not(code)]">
+        <xsl:variable name="content" select="text()"/>
         <xsl:choose>
             <xsl:when test="$autotype">
                 <xsl:choose>
@@ -54,20 +54,13 @@
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <string key="@value">
-                    <xsl:apply-templates select="$content"/>
-                </string>
-                <xsl:if test="$language">
-                    <string key="@language">
-                        <xsl:value-of select="$language"/>
-                    </string>
-                </xsl:if>
+                <xsl:apply-templates select="." mode="html-to-plain"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
     <!-- Plain text (with language or datatype) -->
-    <xsl:template match="p[not(strong|em|del|br)][code]">
+    <xsl:template match="p[not(strong|em|del)][code]">
         <xsl:choose>
             <!-- Datatype -->
             <xsl:when test="code=('integer', 'boolean')">
@@ -111,18 +104,13 @@
             </xsl:when>
             <!-- BCP 47 language -->
             <xsl:when test="matches(code, '^[a-z]{2}(-[A-Z]{2})?$')">
-                <string key="@language">
-                    <xsl:value-of select="code"/>
-                </string>
-                <string key="@value">
-                    <xsl:apply-templates select="text()"/>
-                </string>
+                <xsl:apply-templates select="." mode="html-to-plain"/>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
 
     <!-- HTML (without language or datatype) -->
-    <xsl:template match="p[strong|em|del|br][not(code)]">
+    <xsl:template match="p[strong|em|del][not(code)]">
         <xsl:choose>
             <!-- Default language -->
             <xsl:when test="$language">
@@ -146,7 +134,7 @@
     </xsl:template>
 
     <!-- HTML (with language) -->
-    <xsl:template match="p[strong|em|del|br][code]">
+    <xsl:template match="p[strong|em|del][code]">
         <xsl:variable name="text" select="node()[not(self::code[not(following-sibling::*)])]"/>
         <xsl:variable name="content" select="normalize-space(serialize($text))"/>
         <!-- Content -->
@@ -177,7 +165,7 @@
     </xsl:template>
 
     <!-- Plain text representation of HTML -->
-    <xsl:template match="p" mode="html-to-plain">
+    <xsl:template match="*" mode="html-to-plain">
         <xsl:variable name="content">
             <xsl:choose>
                 <xsl:when test="self::text()">
@@ -191,14 +179,14 @@
                         </xsl:call-template>
                     </xsl:variable>
                     <xsl:if test="not($element-type)">
-                        <!-- <xsl:text>&#xa;</xsl:text> -->
+                        <xsl:text>\n</xsl:text>
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <!-- Language -->
         <xsl:choose>
-            <xsl:when test="code[not(following-sibling::*)]">
+            <xsl:when test="matches(code[not(following-sibling::*)], '^[a-z]{2}(-[A-Z]{2})?$')">
                 <string key="@language">
                     <xsl:value-of select="code"/>
                 </string>
@@ -218,7 +206,7 @@
     <xsl:template name="tag-is-inline">
         <xsl:param name="tag"/>
         <xsl:choose>
-            <xsl:when test="$tag = ('a', 'em', 'mark', 'strike', 'strong')">
+            <xsl:when test="$tag = ('a', 'em', 'mark', 'p', 'strike', 'strong')">
                 <xsl:sequence select="true()"/>
             </xsl:when>
             <xsl:otherwise>

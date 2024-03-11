@@ -76,6 +76,7 @@
             </map>
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml)"/>
+        <!-- <xsl:value-of select="serialize($xml)"/> -->
     </xsl:template>
 
 </xsl:stylesheet>

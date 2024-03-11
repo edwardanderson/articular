@@ -15,6 +15,7 @@
     - [Assign global class](#assign-global-class)
     - [Object literal (plain)](#object-literal-plain)
     - [Object literal (plain, multiline)](#object-literal-plain-multiline)
+    - [Object literal (plain, paragraphs)](#object-literal-plain-paragraphs)
     - [Object literal (plain, smartquotes)](#object-literal-plain-smartquotes)
     - [Object literal (plain, typographic replacements)](#object-literal-plain-typographic-replacements)
     - [Object literal (language)](#object-literal-language)
@@ -273,6 +274,25 @@ Paul
 
 [] rdfs:label "John" ;
   :description "John Winston Ono Lennon (born John Winston Lennon; 9 October 1940 – 8 December 1980) was an English singer, songwriter and musician who gained worldwide fame as the founder, co-songwriter, co-lead vocalist and rhythm guitarist of the Beatles." .
+```
+
+### Object literal (plain, paragraphs)
+
+```markdown
+- John
+  - description
+    - > Born in Liverpool, Lennon became involved in the skiffle craze as a teenager.
+      >
+      > In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960.
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  :description """Born in Liverpool, Lennon became involved in the skiffle craze as a teenager.
+In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960.""" .
 ```
 
 ### Object literal (plain, smartquotes)
