@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.14.1
+
+- Fix misassignment of language to plain-text representation of HTML text
+
 ## 2.14.0
 
 - Support muliple paragraphs in block quotes

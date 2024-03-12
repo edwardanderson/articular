@@ -10,7 +10,7 @@
     <http://example.org/1> a :Book ;
         rdfs:label "Adventures of Huckleberry Finn"@en ;
         :author <http://www.wikidata.org/entity/Q7245> ;
-        :description _:N63bed97639d540c9bea36a08c01ce128 .
+        :description _:Ne4eb05b0c04542619823cda8244cce6f .
 
     <http://viaf.org/viaf/50566653> rdfs:label "Mark Twain"@en .
 
@@ -37,7 +37,7 @@
     <https://en.wikipedia.org/wiki/Mark_Twain> rdfs:label "Mark Twain"@en,
             "“Mark Twain”, Wikipedia"@en .
 
-    _:N63bed97639d540c9bea36a08c01ce128 a html:blockquote ;
+    _:Ne4eb05b0c04542619823cda8244cce6f a html:blockquote ;
         rdf:value "<p lang=\"en\"><strong>Adventures of Huckleberry Finn</strong> is a novel by American author <a href=\"https://en.wikipedia.org/wiki/Mark_Twain\">Mark Twain</a>.</p>"^^rdf:HTML,
             "Adventures of Huckleberry Finn is a novel by American author Mark Twain."@en ;
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Mark_Twain> ;
