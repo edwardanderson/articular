@@ -81,6 +81,12 @@ class Template:
                 br = etree.Element('br')
                 br.tail = following_paragraph.text
                 paragraph.append(br)
+                children = following_paragraph.getchildren()
+                if children:
+                    br.tail = following_paragraph.text
+                    for i in children:
+                        paragraph.append(i)
+
                 following_paragraph.getparent().remove(following_paragraph)
 
         logger.debug(etree.tostring(html_obj, pretty_print=True).decode('utf-8'))
