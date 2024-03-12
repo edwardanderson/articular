@@ -9,13 +9,14 @@
     - [Identify equivalent global resources](#identify-equivalent-global-resources)
     - [Relate resources with local term](#relate-resources-with-local-term)
     - [Relate resources with global term](#relate-resources-with-global-term)
+    - [Reference local resources by name](#reference-local-resources-by-name)
     - [Relate multiple resources with local term](#relate-multiple-resources-with-local-term)
     - [Relate multiple resources in sequence](#relate-multiple-resources-in-sequence)
     - [Assign local class](#assign-local-class)
     - [Assign global class](#assign-global-class)
     - [Object literal (plain)](#object-literal-plain)
     - [Object literal (plain, multiline)](#object-literal-plain-multiline)
-    - [Object literal (plain, paragraphs)](#object-literal-plain-paragraphs)
+    - [Object literal (plain, paragraphs, language)](#object-literal-plain-paragraphs-language)
     - [Object literal (plain, smartquotes)](#object-literal-plain-smartquotes)
     - [Object literal (plain, typographic replacements)](#object-literal-plain-typographic-replacements)
     - [Object literal (language)](#object-literal-language)
@@ -168,6 +169,27 @@ Paul
   foaf:knows [ rdfs:label "Paul" ] .
 ```
 
+### Reference local resources by name
+
+```markdown
+- John
+  - knows
+    - Paul
+      - knows
+        - John
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:b0 rdfs:label "John" ;
+  :knows _:b1 .
+
+_:b1 rdfs:label "Paul" ;
+  :knows _:b0 .
+```
+
 ### Relate multiple resources with local term
 
 ```markdown
@@ -277,7 +299,7 @@ Paul
   :description "John Winston Ono Lennon (born John Winston Lennon; 9 October 1940 – 8 December 1980) was an English singer, songwriter and musician who gained worldwide fame as the founder, co-songwriter, co-lead vocalist and rhythm guitarist of the Beatles." .
 ```
 
-### Object literal (plain, paragraphs)
+### Object literal (plain, paragraphs, language)
 
 ```markdown
 - John
@@ -317,7 +339,7 @@ In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960."""@en 
 ```markdown
 - Imagine
   - creditline
-    - > (c) John Lennon, Yoko Ono
+    - > (c) John Lennon, Yoko Ono ...
 ```
 
 ```turtle
@@ -325,7 +347,7 @@ In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960."""@en 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "Imagine" ;
-  :creditline "© John Lennon, Yoko Ono" .
+  :creditline "© John Lennon, Yoko Ono …" .
 ```
 
 ### Object literal (language)
