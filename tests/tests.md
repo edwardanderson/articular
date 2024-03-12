@@ -28,6 +28,7 @@
     - [Image](#image)
   - [Frontmatter](#frontmatter)
     - [Default language](#default-language)
+    - [Default language (styled)](#default-language-styled)
     - [Base](#base)
     - [Vocabulary](#vocabulary)
     - [Metadata](#metadata)
@@ -501,6 +502,35 @@ language: fr
 
 [] rdfs:label "John"@en ;
   :description "John Lennon né le 9 octobre 1940 à Liverpool et mort assassiné le 8 décembre 1980 à New York"@fr .
+```
+
+### Default language (styled)
+
+```markdown
+---
+language: en
+---
+
+- John
+  - description
+    - > Born in **Liverpool**, Lennon became involved in the [skiffle](http://www.wikidata.org/entity/Q606089) craze as a teenager.
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John"@en ;
+  :description [
+    a html:blockquote ;
+    rdf:value "<p lang=\"en\">Born in <strong>Liverpool</strong>, Lennon became involved in the <a href=\"http://www.wikidata.org/entity/Q606089\">skiffle</a> craze as a teenager.</p>"^^rdf:HTML ;
+    rdfs:seeAlso <http://www.wikidata.org/entity/Q606089> ;
+    rdf:value "Born in Liverpool, Lennon became involved in the skiffle craze as a teenager."@en
+  ] .
+
+<http://www.wikidata.org/entity/Q606089> rdfs:label "skiffle"@en .
 ```
 
 ### Base

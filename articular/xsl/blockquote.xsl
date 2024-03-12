@@ -24,6 +24,19 @@
                             </map>
                             <!-- Plain -->
                             <map>
+                                <!-- Temporary fix for assigning language.-->
+                                <xsl:choose>
+                                    <xsl:when test="p/code[not(following-sibling::*)]">
+                                        <string key="@language">
+                                            <xsl:value-of select="p/code[not(following-sibling::*)]"/>
+                                        </string>
+                                    </xsl:when>
+                                    <xsl:when test="$language">
+                                        <string key="@language">
+                                            <xsl:value-of select="$language"/>
+                                        </string>
+                                    </xsl:when>
+                                </xsl:choose>
                                 <xsl:apply-templates select="p" mode="html-to-plain"/>
                             </map>
                         </xsl:when>

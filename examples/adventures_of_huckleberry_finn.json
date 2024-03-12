@@ -2,9 +2,6 @@
   "@context": [
     {
       "@version": 1.1,
-      "@language": "en",
-      "@base": "http://example.org/",
-      "@vocab": "http://example.org/terms/",
       "dc": "http://purl.org/dc/elements/1.1/",
       "dcmit": "http://purl.org/dc/dcmitype/",
       "html": "http://www.w3.org/1999/xhtml/",
@@ -44,7 +41,12 @@
       },
       "_Text": {
         "@id": "html:blockquote"
-      },
+      }
+    },
+    {
+      "@language": "en",
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/",
       "source": {
         "@id": "https://schema.org/isBasedOn"
       }

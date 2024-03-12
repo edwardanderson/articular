@@ -42,19 +42,24 @@
                     </xsl:when>
                     <!-- Undetected -->
                     <xsl:otherwise>
-                        <string key="@value">
-                            <xsl:apply-templates select="$content"/>
-                        </string>
                         <xsl:if test="$language">
                             <string key="@language">
                                 <xsl:value-of select="$language"/>
                             </string>
                         </xsl:if>
+                        <string key="@value">
+                            <xsl:apply-templates select="$content"/>
+                        </string>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="." mode="html-to-plain"/>
+                <xsl:if test="$language">
+                    <string key="@language">
+                        <xsl:value-of select="$language"/>
+                    </string>
+                </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -103,7 +108,10 @@
                 </xsl:choose>
             </xsl:when>
             <!-- BCP 47 language -->
-            <xsl:when test="matches(code, '^[a-z]{2}(-[A-Z]{2})?$')">
+            <xsl:when test="matches(code[not(following-sibling::*)], '^[a-z]{2}(-[A-Z]{2})?$')">
+                <string key="@language">
+                    <xsl:value-of select="code"/>
+                </string>
                 <xsl:apply-templates select="." mode="html-to-plain"/>
             </xsl:when>
         </xsl:choose>
@@ -184,19 +192,6 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <!-- Language -->
-        <xsl:choose>
-            <xsl:when test="matches(code[not(following-sibling::*)], '^[a-z]{2}(-[A-Z]{2})?$')">
-                <string key="@language">
-                    <xsl:value-of select="code"/>
-                </string>
-            </xsl:when>
-            <xsl:when test="$language">
-                <string key="@language">
-                    <xsl:value-of select="$language"/>
-                </string>
-            </xsl:when>
-        </xsl:choose>
         <!-- Text -->
         <string key="@value">
             <xsl:value-of select="normalize-space($content)"/>
