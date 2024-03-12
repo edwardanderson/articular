@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.14.0
+
+- Support muliple paragraphs in block quotes
+
 ## 2.13.0
 
 - Detect tests at any heading depth
