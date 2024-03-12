@@ -283,7 +283,7 @@ Paul
   - description
     - > Born in Liverpool, Lennon became involved in the skiffle craze as a teenager.
       >
-      > In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960.
+      > In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960. `en`
 ```
 
 ```turtle
@@ -292,7 +292,7 @@ Paul
 
 [] rdfs:label "John" ;
   :description """Born in Liverpool, Lennon became involved in the skiffle craze as a teenager.
-In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960.""" .
+In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960."""@en .
 ```
 
 ### Object literal (plain, smartquotes)
