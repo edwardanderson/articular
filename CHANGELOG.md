@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.14.2
+
+- Add `--debug` option
+- Only name referenced blank nodes
+- Add test for date between 1 and 1000 CE
+
 ## 2.14.1
 
 - Fix misassignment of language to plain-text representation of HTML text

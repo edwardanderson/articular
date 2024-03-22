@@ -6,10 +6,24 @@
 
     <!-- Blank -->
     <xsl:template match="li[not(a|img|blockquote)][not(node() = /document/dl/dt)]" mode="identifier">
-        <string key="@id">
-            <xsl:text>_:</xsl:text>
-            <xsl:apply-templates select="node()[not(self::code)]" mode="plain-text"/>
-        </string>
+        <xsl:variable name="text" select="text()"/>
+        <!-- <xsl:variable name="text" select="normalize-space(text()[1])[1]"/> -->
+        <!-- Name blank node if referenced elsewhere. -->
+        <xsl:if test="count(//li[text() = $text]) gt 1">
+            <string key="@id">
+                <xsl:text>_:</xsl:text>
+                <!-- Remove special characters. -->
+                <xsl:variable name="bnode"
+                    select="
+                    translate(
+                        encode-for-uri(
+                            translate($text, ' ', '_')
+                        ), '%', '_'
+                    )"
+                />
+                <xsl:value-of select="$bnode"/>
+            </string>
+        </xsl:if>
     </xsl:template>
 
     <!-- Defined -->

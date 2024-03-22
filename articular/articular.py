@@ -82,10 +82,8 @@ class Template:
                 br.tail = following_paragraph.text
                 paragraph.append(br)
                 children = following_paragraph.getchildren()
-                if children:
-                    br.tail = following_paragraph.text
-                    for i in children:
-                        paragraph.append(i)
+                for i in children:
+                    paragraph.append(i)
 
                 following_paragraph.getparent().remove(following_paragraph)
 
