@@ -5,6 +5,7 @@
 - Add `--debug` option
 - Only name referenced blank nodes
 - Add test for date between 1 and 1000 CE
+- Add Getting Started docs
 
 ## 2.14.1
 
