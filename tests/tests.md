@@ -3,6 +3,7 @@
 - [Tests](#tests)
   - [Document](#document)
     - [Label anonymous resources](#label-anonymous-resources)
+    - [Label anonymous resources (with spaces)](#label-anonymous-resources-with-spaces)
     - [Identify and label resources locally](#identify-and-label-resources-locally)
     - [Identify and label resources globally (in-line)](#identify-and-label-resources-globally-in-line)
     - [Identify and label resources globally (definition list)](#identify-and-label-resources-globally-definition-list)
@@ -21,6 +22,7 @@
     - [Object literal (plain, typographic replacements)](#object-literal-plain-typographic-replacements)
     - [Object literal (language)](#object-literal-language)
     - [Object literal (type: xsd:gYear)](#object-literal-type-xsdgyear)
+    - [Object literal (type: xsd:gYear, before 1000 CE)](#object-literal-type-xsdgyear-before-1000-ce)
     - [Object literal (type: xsd:gMonth)](#object-literal-type-xsdgmonth)
     - [Object literal (type: xsd:date)](#object-literal-type-xsddate)
     - [Object literal (styled)](#object-literal-styled)
@@ -52,6 +54,24 @@
 [] rdfs:label "John" .
 
 [] rdfs:label "Paul" .
+```
+
+### Label anonymous resources (with spaces)
+
+```markdown
+- John Lennon
+  - knows
+    - Paul McCartney
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:john_lennon rdfs:label "John Lennon" ;
+  :knows _:paul_mccartney .
+
+_:paul_mccartney rdfs:label "Paul McCartney" .
 ```
 
 ### Identify and label resources locally
@@ -381,6 +401,23 @@ In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960."""@en 
 
 [] rdfs:label "John" ;
   :date_of_birth "1940"^^xsd:gYear .
+```
+
+### Object literal (type: xsd:gYear, before 1000 CE)
+
+```markdown
+- Alfred the Great
+  - birth date
+    - > 849 `date`
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] rdfs:label "Alfred the Great" ;
+  :date_of_birth "0849"^^xsd:gYear .
 ```
 
 ### Object literal (type: xsd:gMonth)

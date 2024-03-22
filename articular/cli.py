@@ -12,7 +12,6 @@ from typing_extensions import Annotated
 from articular import Template
 
 
-logging.basicConfig(level=logging.INFO)
 app = typer.Typer()
 
 ValidPath = Annotated[
@@ -39,8 +38,18 @@ def parse(path: Path) -> tuple[dict, str]:
     return (settings, document)
 
 
+def configure_logging(debug: bool) -> None:
+    if debug:
+        level = logging.DEBUG
+    else:
+        level = logging.INFO
+
+    logging.basicConfig(level=level)
+
+
 @app.command()
-def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld') -> None:
+def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld', debug: bool = False) -> None:
+    configure_logging(debug)
     (settings, document) = parse(path)
     template = Template(**settings)
     html = template._transform_md_to_html(document)
