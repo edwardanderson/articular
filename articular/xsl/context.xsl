@@ -44,6 +44,9 @@
                             <string key="@id">rdfs:seeAlso</string>
                             <string key="@container">@set</string>
                         </map>
+                        <map key="_title">
+                            <string key="@id">dc:title</string>
+                        </map>
                         <map key="_type">
                             <string key="@id">dc:type</string>
                             <string key="@type">@vocab</string>

@@ -40,6 +40,7 @@
     <xsl:import href="li.xsl"/>
     <xsl:import href="p.xsl"/>
     <xsl:import href="table.xsl"/>
+    <xsl:import href="h1.xsl"/>
     <xsl:import href="ul.xsl"/>
 
     <!-- === Templates === -->
@@ -65,6 +66,8 @@
                 <xsl:if test="$frontmatter-metadata">
                     <string key="_format">text/markdown</string>
                     <string key="_type">_Dataset</string>
+                    <!-- Title -->
+                    <xsl:apply-templates select="h1"/>
                 </xsl:if>
                 <!-- Content -->
                 <array key="@graph">
