@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.14.3
+
+- Start factoring source/result documents into separate classes
+- Add parsing for h1 title
+
 ## 2.14.2
 
 - Add `--debug` option
