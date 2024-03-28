@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.14.4
+
+- Add test for asserting language of image caption
+- Rename `frontmatter-metadata` parameter to `metadata`
+
 ## 2.14.3
 
 - Start factoring source/result documents into separate classes

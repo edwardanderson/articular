@@ -29,6 +29,7 @@
     - [Object literal (styled, with language)](#object-literal-styled-with-language)
     - [Subject literal](#subject-literal)
     - [Image](#image)
+    - [Image caption language](#image-caption-language)
   - [Frontmatter](#frontmatter)
     - [Default language](#default-language)
     - [Default language (styled)](#default-language-styled)
@@ -541,6 +542,26 @@ In 1956, he formed the Quarrymen, which evolved into the Beatles in 1960."""@en 
 <https://upload.wikimedia.org/wikipedia/commons/9/97/John_Lennon_%28cropped%29.jpg> a html:img .
 ```
 
+### Image caption language
+
+```markdown
+- John
+  - portrait
+    - ![ジョン・レノン](https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r) `jp`
+```
+
+```turtle
+@prefix : <http://example.org/terms/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "John" ;
+  :portrait <https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r> .
+
+<https://digital.library.ucla.edu/catalog/ark:/21198/zz0002pv3r> a html:img ;
+    rdfs:label "ジョン・レノン"@jp .
+```
+
 ## Frontmatter
 
 ### Default language
@@ -643,7 +664,7 @@ vocab: https://schema.org/
 
 ```markdown
 ---
-frontmatter-metadata: true
+metadata: true
 graph-name: example.md
 ---
 

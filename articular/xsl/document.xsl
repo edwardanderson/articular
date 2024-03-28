@@ -15,7 +15,7 @@
     <xsl:param name="autotype" select="false()"/>
     <xsl:param name="articular-context-uri">http://example.com/articular.json</xsl:param>
     <xsl:param name="embed-context" select="true()"/>
-    <xsl:param name="frontmatter-metadata" select="false()"/>
+    <xsl:param name="metadata" select="false()"/>
     <!-- Document -->
     <xsl:param name="base">http://example.org/</xsl:param>
     <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
@@ -63,7 +63,7 @@
                     </string>
                 </xsl:if>
                 <!-- Metadata -->
-                <xsl:if test="$frontmatter-metadata">
+                <xsl:if test="$metadata">
                     <string key="_format">text/markdown</string>
                     <string key="_type">_Dataset</string>
                     <!-- Title -->
