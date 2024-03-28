@@ -1,5 +1,5 @@
 ---
-frontmatter-metadata: true
+metadata: true
 ---
 
 # The Beatles
