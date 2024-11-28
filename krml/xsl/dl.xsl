@@ -15,7 +15,7 @@
         <xsl:variable name="label" select="text()"/>
         <xsl:variable name="term" select="generate-id(.)"/>
         <!-- Match subject or object resource -->
-        <xsl:if test="text() = /document/ul/li/text() or text() = /document/ul/li/ul/li/ul/li/text()">
+        <xsl:if test="text() = /document/ul/li/text() or text() = /document//ul/li/ul/li/ul/li/text()">
             <map>
                 <string key="@id">
                     <xsl:value-of select="following-sibling::dd[1]/a/@href"/>
