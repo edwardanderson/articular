@@ -12,35 +12,30 @@
     <!-- === Parameters === -->
 
     <!-- Application -->
-    <xsl:param name="autotype" select="false()"/>
-    <xsl:param name="articular-context-uri">http://example.com/articular.json</xsl:param>
+    <xsl:param name="krml-context-uri">http://example.com/krml.json</xsl:param>
     <xsl:param name="embed-context" select="true()"/>
-    <xsl:param name="metadata" select="false()"/>
     <!-- Document -->
     <xsl:param name="base">http://example.org/</xsl:param>
     <xsl:param name="context">https://linked.art/ns/v1/linked-art.json</xsl:param>
-    <xsl:param name="graph-name"/>
-    <xsl:param name="language"></xsl:param>
+    <xsl:param name="language"/>
+    <xsl:param name="title"/>
     <xsl:param name="vocab">http://example.org/terms/</xsl:param>
     <!-- Data -->
     <xsl:param name="boolean-true" select="('true', 'True', 'TRUE')"/>
     <xsl:param name="boolean-false" select="('false', 'False', 'FALSE')"/>
-    <xsl:param name="class-image">html:img</xsl:param>
-    <xsl:param name="class-blockquote">html:blockquote</xsl:param>
-    <xsl:param name="definition-equivalence">owl:sameAs</xsl:param>
 
     <!-- Child templates -->
     <xsl:import href="a.xsl"/>
     <xsl:import href="blockquote.xsl"/>
     <xsl:import href="context.xsl"/>
     <xsl:import href="dl.xsl"/>
-    <xsl:import href="identifier.xsl"/>
+    <!-- <xsl:import href="identifier.xsl"/> -->
     <xsl:import href="img.xsl"/>
-    <xsl:import href="label.xsl"/>
+    <!-- <xsl:import href="label.xsl"/> -->
     <xsl:import href="li.xsl"/>
     <xsl:import href="p.xsl"/>
-    <xsl:import href="table.xsl"/>
-    <xsl:import href="h1.xsl"/>
+    <!-- <xsl:import href="table.xsl"/> -->
+    <!-- <xsl:import href="h1.xsl"/> -->
     <xsl:import href="ul.xsl"/>
 
     <!-- === Templates === -->
@@ -54,32 +49,23 @@
                     <xsl:with-param name="base" select="$base"/>
                     <xsl:with-param name="vocab" select="$vocab"/>
                     <xsl:with-param name="language" select="$language"/>
-                    <!-- <xsl:with-param name="context" select="$context"/> -->
                 </xsl:call-template>
                 <!-- (Un)named graph -->
-                <xsl:if test="$graph-name">
+                <xsl:if test="$title">
                     <string key="@id">
-                        <xsl:value-of select="$graph-name"/>
+                        <xsl:value-of select="encode-for-uri($title)"/>
                     </string>
-                </xsl:if>
-                <!-- Metadata -->
-                <xsl:if test="$metadata">
-                    <string key="_format">text/markdown</string>
-                    <string key="_type">_Dataset</string>
-                    <!-- Title -->
-                    <xsl:apply-templates select="h1"/>
                 </xsl:if>
                 <!-- Content -->
                 <array key="@graph">
                     <!-- Data -->
                     <xsl:apply-templates select="ul"/>
-                    <!-- Definition list -->
+                    <!-- Definition -->
                     <xsl:apply-templates select="dl"/>
                 </array>
             </map>
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml)"/>
-        <!-- <xsl:value-of select="serialize($xml)"/> -->
     </xsl:template>
 
 </xsl:stylesheet>

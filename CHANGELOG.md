@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+- Rename project to Knowledge Representation Markup Language
+- Refactor specification and implementation
+- Add testmark fixtures to the specification
+
 ## 2.14.4
 
 - Add test for asserting language of image caption

@@ -160,6 +160,8 @@ cython_debug/
 #.idea/
 
 # Local
+v/
 dev/
 .venv/
 notebooks/
+.vscode/

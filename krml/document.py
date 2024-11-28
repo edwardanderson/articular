@@ -3,11 +3,11 @@ import json
 
 from pathlib import Path
 from rdflib import ConjunctiveGraph, Dataset
-from articular import Template
+from krml import Template
 
 
 
-class ArticularResultDocument:
+class KrmlResultDocument:
     
     def __init__(self, json_ld: str) -> None:
         self.json = json.loads(json_ld)
@@ -31,14 +31,14 @@ class ArticularResultDocument:
         return json.dumps(self.json, indent=2, ensure_ascii=False)
 
 
-class ArticularSourceDocument:
+class KrmlSourceDocument:
 
     def __init__(self, md: str, name: str | None = None) -> None:
         self._md = md
         settings, document = frontmatter.parse(md)
-        if 'graph-name' not in settings:
+        if 'title' not in settings:
             if name:
-                settings['graph-name'] = name
+                settings['title'] = name
 
         self.template = Template(**settings)
         self.html = self.template._transform_md_to_html(document)
@@ -59,9 +59,9 @@ class ArticularSourceDocument:
     def __str__(self) -> str:
         return self.html
 
-    def transform(self) -> ArticularResultDocument:
+    def transform(self) -> KrmlResultDocument:
         (status, result) = self.template._transform_html_to_json_ld(self.html)
-        document = ArticularResultDocument(result)
+        document = KrmlResultDocument(result)
         return document
 
     @property

@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "_HTML": {
+      "@id": "rdf:HTML"
+    },
+    "_Image": {
+      "@id": "dcmitype:Image"
+    },
+    "_content": {
+      "@id": "rdf:value"
+    },
+    "_label": {
+      "@id": "rdfs:label"
+    },
+    "_sameAs": {
+      "@id": "owl:sameAs",
+      "@container": "@set"
+    },
+    "_seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@container": "@set"
+    }
+  }
+}

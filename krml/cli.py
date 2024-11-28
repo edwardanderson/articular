@@ -9,7 +9,7 @@ from rich import print_json
 from rich.console import Console
 from typing_extensions import Annotated
 
-from articular import Template
+from krml import Template
 
 
 app = typer.Typer()
@@ -81,7 +81,7 @@ def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld', debug: boo
 
     match syntax:
         case 'json-ld':
-            print_json(result)
+            print_json(result, ensure_ascii=False)
         case _:
             graph = ConjunctiveGraph()
             graph.parse(data=result, format='json-ld')

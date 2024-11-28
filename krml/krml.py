@@ -55,7 +55,7 @@ class Template:
             .enable(
                 [
                     'replacements',
-                    'smartquotes',
+                    # 'smartquotes',
                     'table'
                 ]
             )

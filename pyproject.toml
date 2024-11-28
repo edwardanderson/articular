@@ -3,27 +3,28 @@ requires = ["setuptools >= 66.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-version = "2.14.4"
-name = "Articular"
-description = "Create RDF knowledge graphs with Markdown."
+version = "3.0.0"
+name = "krml"
+description = "Knowledge Representation Markup Language"
 keywords = [
     "Knowledge graphs",
     "Markdown",
     "RDF"
 ]
 readme = 'README.md'
-urls = { project-url = "https://github.com/edwardanderson/articular" }
+urls = { project-url = "https://github.com/edwardanderson/krml" }
 dependencies = [
     "lxml",
     "markdown-it-py[plugins]",
     "python-frontmatter",
+    "python-testmark",
     "rdflib",
     "rich",
-    "typer",
-    "saxonche"
+    "saxonche",
+    "typer"
 ]
 
 [tool.setuptools.packages.find]
 
 [project.scripts]
-articular = "articular.cli:app"
+krml = "krml.cli:app"
