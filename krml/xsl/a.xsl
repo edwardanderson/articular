@@ -26,11 +26,29 @@
                     </string>
                 </map>
             </xsl:when>
-            <xsl:when test="@href ne text()">
+            <xsl:when test="text() and @href ne text()">
                 <string key="_label">
                     <xsl:value-of select="text()"/>
                 </string>
             </xsl:when>
+            <xsl:otherwise>
+                <!-- USe final part of URI path as label -->
+                <xsl:variable name="label">
+                    <xsl:choose>
+                        <!-- If string ends with a slash, capture from the second-last slash -->
+                        <xsl:when test="matches(@href, '/$')">
+                            <xsl:value-of select="replace(@href, '^(.*/)([^/]+)/$', '$2')" />
+                        </xsl:when>
+                        <!-- Otherwise, capture text after the last slash -->
+                        <xsl:otherwise>
+                            <xsl:value-of select="replace(@href, '.*/', '')" />
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <xsl:call-template name="label">
+                    <xsl:with-param name="text" select="$label"/>
+                </xsl:call-template>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 

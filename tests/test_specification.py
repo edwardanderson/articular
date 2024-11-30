@@ -23,7 +23,6 @@ for identifier, content in fixtures.items():
         tests[key] = {category: content}
 
 for identifier, fixture in tests.items():
-    print(identifier)
     # Arrange.
     source = fixture.get('arrange')
     document = KrmlSourceDocument(source)
@@ -34,7 +33,10 @@ for identifier, fixture in tests.items():
 
     expected_str = fixture.get('assert-json')
     if expected_str:
-        expected_json = json.loads(expected_str)
+        try:
+            expected_json = json.loads(expected_str)
+        except:
+            expected_json = {}
 
     # Act.
     try:
@@ -44,13 +46,8 @@ for identifier, fixture in tests.items():
         continue
 
     # Assert.
-    status = to_isomorphic(result.graph) == to_isomorphic(expected_graph)
-    print(f'\t{status}')
-    if not status:
-        print(result.json_ld)
-        print(result.graph.serialize(format='turtle'))
+    status_shape = to_isomorphic(result.graph) == to_isomorphic(expected_graph)
+    status_syntax = result == expected_json
 
-    # assert to_isomorphic(result.graph) == to_isomorphic(expected_graph)
-    # assert result.json == expected_str
-
-    input('...')
+    # Report.
+    print(f'{identifier}\t{status_shape}\t{status_syntax}')

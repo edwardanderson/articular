@@ -71,7 +71,7 @@ Graphs of triples are composed of nests of either [unordered](#unordered) or [or
 
 [testmark]:# (1.1.1.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -125,7 +125,7 @@ Objects may be listed in sequence.
 
 [testmark]:# (1.1.1.2.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -189,7 +189,7 @@ Comments not intended to be represented in data may be given in HTML.
 
 [testmark]:# (1.1.2.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -231,6 +231,7 @@ Comments not intended to be represented in data may be given in HTML.
 
 Definition lists may be use to identify [plain text resources](#122-plain-text) in the [graph](#111-graph).
 
+[testmark]:# (1.1.3.a. arrange)
 ```markdown
 - John
   - date of birth
@@ -399,7 +400,7 @@ IRIs may be absolute or relative. Resources are resolved relative to the [base](
 - [](http://example.org/george)
 - [Ringo][1]
 
-[1]: http://example.com/ringo
+[1]: http://example.org/ringo
 ```
 
 <details><summary><code>text/turtle</code></summary>
@@ -563,7 +564,7 @@ The predicate keyword `a` can be provided to specify the `rdf:type` of a resourc
 
 [testmark]:# (1.2.1.2.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -612,7 +613,7 @@ The tokens `â` or `^a` may be used to inverse the direction of the class assign
 
 [testmark]:# (1.2.1.2.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -676,7 +677,7 @@ Person
 
 [testmark]:# (1.2.1.2.c. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -757,7 +758,7 @@ Subject and object resources in plain text are labelled anonymous (blank node) r
 
 [testmark]:# (1.2.2.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:John rdfs:label "John" ;
@@ -829,9 +830,8 @@ Resources that share labels but are unique from eachother can be disambiguated b
 <details><summary><code>text/turtle</code></summary>
 
 [testmark]:# (1.2.2.1.b. assert-graph)
-
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -1016,7 +1016,7 @@ Blockquotes contain literal text.
 
 [testmark]:# (1.2.3.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -1070,7 +1070,7 @@ A preceding sibling hyperlink identifies the blockquote.
 
 [testmark]:# (1.2.3.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1132,7 +1132,7 @@ A plain-text resource may also identify the blockquote in the local scope.
 
 [testmark]:# (1.2.3.1.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1203,7 +1203,7 @@ Making a statement about a blockquote reifies it.
 
 [testmark]:# (1.2.3.2.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1270,7 +1270,7 @@ A [BCP47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag may be s
 
 [testmark]:# (1.2.3.3.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -1324,7 +1324,7 @@ Styled text is serialised as HTML.
 
 [testmark]:# (1.2.3.4.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1379,7 +1379,7 @@ Specifying the language of styled text attributes the paragraph `p`.
 
 [testmark]:# (1.2.3.4.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1439,7 +1439,7 @@ Specifying the language of styled text attributes the paragraph `p`.
 
 [testmark]:# (1.2.3.5.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1591,7 +1591,7 @@ date
 
 [testmark]:# (1.2.3.6.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -1647,7 +1647,7 @@ Booleans may be set using the built-in `boolean` datatype token.
 
 [testmark]:# (1.2.3.6.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -1695,7 +1695,7 @@ To escape a code-fenced term from being processed as a [language](#language) or 
 
 [testmark]:# (1.2.3.6.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -1752,7 +1752,7 @@ Numbers are detected automatically.
 
 [testmark]:# (1.2.3.7.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
@@ -1855,7 +1855,7 @@ Image classes may be specified in the same way as for [hyperlink classes](#class
 
 [testmark]:# (1.2.5.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1923,7 +1923,7 @@ Another example.
 
 [testmark]:# (1.2.5.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
@@ -1991,7 +1991,7 @@ Tables are handled as HTML. It may be preferable to represent information semant
 
 [testmark]:# (1.2.6.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -2049,7 +2049,7 @@ Materialise the inverse path of a given predicate by separating it with a `|` to
 
 [testmark]:# (1.3.1.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -2076,7 +2076,7 @@ Reverse the direction of the predicate from object to subject.
 <details><summary><code>text/turtle</code></summary>
 
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "Paul" ;
@@ -2102,7 +2102,7 @@ Add the token `o` to materialise a predicate's relationships in both directions 
 
 [testmark]:# (1.3.1.3.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:John rdfs:label "John" ;
@@ -2188,7 +2188,7 @@ Relate all the members of the combined set of subject and object resources via t
 
 [testmark]:# (1.3.1.4.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:John rdfs:label "John" ;
@@ -2227,7 +2227,7 @@ base: http://example.org/
 [testmark]:# (2.1.a. assert-graph)
 ```turtle
 @base <http://example.org/> .
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <people/1> rdfs:label "John" ;
@@ -2291,7 +2291,7 @@ vocab: https://schema.org/
 
 [testmark]:# (2.2.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
@@ -2327,7 +2327,7 @@ language: en
 
 [testmark]:# (2.3.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix : <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John"@en ;
