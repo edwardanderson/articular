@@ -37,6 +37,11 @@
                     <xsl:value-of select="$type"/>
                 </string>
             </xsl:when>
+            <xsl:when test="$type = 'boolean'">
+                <string key="@type">
+                    <xsl:value-of>_boolean</xsl:value-of>
+                </string>
+            </xsl:when>
             <xsl:otherwise>
                 <string key="@type">
                     <xsl:value-of select="$type"/>

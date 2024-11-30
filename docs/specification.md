@@ -1517,16 +1517,16 @@ An arbitrary datatype may be given.
     - > 1940-10-09 `date`
 ```
 
-[testmark]:# (1.2.3.6.b. assert-graph)
+[testmark]:# (1.2.3.6.a. assert-graph)
 ```turtle
 @prefix exterms: <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-    :date-of-birth "1940-10-09"^^exterms:date .
+    exterms:date%20of%20birth "1940-10-09"^^exterms:date .
 ```
 
-[testmark]:# (1.2.3.6.b. assert-json)
+[testmark]:# (1.2.3.6.a. assert-json)
 ```json
 {
   "@context": [
@@ -1599,12 +1599,12 @@ date
 
 [testmark]:# (1.2.3.6.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] rdfs:label "John" ;
-    :date-of-birth "1940-10-09"^^xsd:date .
+    exterms:date%20of%20birth "1940-10-09"^^xsd:date .
 ```
 
 </details>
@@ -1655,12 +1655,12 @@ Booleans may be set using the built-in `boolean` datatype token.
 
 [testmark]:# (1.2.3.6.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] rdfs:label "John" ;
-    :alive false .
+    exterms:alive "false"^^xsd:boolean .
 ```
 
 </details>
