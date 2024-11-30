@@ -132,7 +132,7 @@
         </map>
     </xsl:template>
 
-    <!-- Class -->
+    <!-- Predicate class -->
     <xsl:template match="ul/li/ul/li[a][(ol|ul)/li]" mode="predicate-class">
         <map>
             <string key="@id">

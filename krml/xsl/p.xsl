@@ -19,7 +19,6 @@
                     <xsl:value-of select="text()"/>
                 </number>
             </xsl:when>
-            
             <xsl:otherwise>
                 <string key="@value">
                     <xsl:value-of select="text()"/>
@@ -88,7 +87,7 @@
                 </xsl:when>
             </xsl:choose>
             <xsl:text>"&gt;</xsl:text>
-            <xsl:value-of select="serialize(node())"/>
+            <xsl:value-of select="normalize-space(serialize(node()[not(self::code[not(following-sibling::*)])]))"/>
             <xsl:text>&lt;/p&gt;</xsl:text>
         </string>
     </xsl:template>

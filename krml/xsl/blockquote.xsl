@@ -5,12 +5,12 @@
     xmlns="http://www.w3.org/2005/xpath-functions">
 
     <!-- Blockquote (literal) -->
-    <xsl:template match="li[not(ul/li)]/blockquote">
+    <xsl:template match="li[not(ul/li)]/blockquote[not(p/a)]">
         <xsl:apply-templates select="p"/>
     </xsl:template>
 
     <!-- Blockquote (reified) -->
-    <xsl:template match="li[ul/li]/blockquote">
+    <xsl:template match="li[ul/li]/blockquote|li/blockquote[p/a]">
         <xsl:if test="not(ul/li[text() = 'a']/ul/li)">
             <string key="@type">
                 <xsl:text>_Text</xsl:text>

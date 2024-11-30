@@ -838,7 +838,7 @@ Resources that share labels but are unique from eachother can be disambiguated b
 
 [] rdfs:label "John" ;
     :mother [ rdfs:label "Julia" ] ;
-    :half_sister [ rdfs:label "Julia" ] ;
+    :half%20sister [ rdfs:label "Julia" ] ;
     :wrote [
         rdfs:label "Julia" ;
         a :Song
@@ -967,6 +967,8 @@ John
 
 <http://www.wikidata.org/entity/Q1203> rdfs:label "John" ;
     owl:sameAs <https://vocab.getty.edu/ulan/500106615> .
+
+<https://vocab.getty.edu/ulan/500106615> rdfs:label "John" .
 ```
 
 </details>
@@ -1206,11 +1208,13 @@ Making a statement about a blockquote reifies it.
 [testmark]:# (1.2.3.2.a. assert-graph)
 ```turtle
 @prefix : <http://example.org/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
     :description [
+        a dcmitype:Text ;
         rdf:value "He gained worldwide fame as the founder, co-lead vocalist and rhythm guitarist of the Beatles." ;
         :source <http://www.wikidata.org/entity/Q52>
     ] .
@@ -1331,7 +1335,7 @@ Styled text is serialised as HTML.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-    :note "<p><strong>John Winston Ono Lennon</strong> was an English singer, songwriter and musician</p>"^^rdf:HTML .
+    :note "<p><strong>John Winston Ono Lennon</strong> was an English singer, songwriter and musician.</p>"^^rdf:HTML .
 ```
 
 </details>
@@ -1442,11 +1446,13 @@ Specifying the language of styled text attributes the paragraph `p`.
 [testmark]:# (1.2.3.5.a. assert-graph)
 ```turtle
 @prefix : <http://example.org/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
     :description [
+        a dcmitype:Text ;
         rdf:value "<p>In 1956, he formed the <a href=\"https://en.wikipedia.org/wiki/The_Quarrymen\">Quarrymen</a></p>"^^rdf:HTML ;
         rdfs:seeAlso <https://en.wikipedia.org/wiki/The_Quarrymen>
     ] .
