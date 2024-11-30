@@ -148,7 +148,7 @@
     <!-- == Class == -->
 
     <!-- Class (single, literal) -->
-    <xsl:template match="li[text() = 'a'][count(ul/li) eq 1]" mode="predicate">
+    <xsl:template match="li[text() = 'a'][count(ul/li) eq 1][not(ul/li/a)]" mode="predicate">
         <string key="@type">
             <xsl:value-of select="ul/li/text()"/>
         </string>
@@ -193,6 +193,13 @@
                 </map>
             </xsl:for-each>
         </array>
+    </xsl:template>
+
+    <!-- Class (reified, identified) -->
+    <xsl:template match="li[text() = 'a'][count(ul/li) eq 1][ul/li/a]" mode="predicate">
+        <string key="@type">
+            <xsl:value-of select="ul/li/a/@href"/>
+        </string>
     </xsl:template>
 
 </xsl:stylesheet>
