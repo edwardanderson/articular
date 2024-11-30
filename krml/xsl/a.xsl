@@ -10,12 +10,46 @@
         <string key="@id">
             <xsl:value-of select="@href"/>
         </string>
+        <!-- Class -->
+        <xsl:apply-templates select="@title"/>
         <!-- Label -->
         <xsl:apply-templates select="." mode="label"/>
     </xsl:template>
 
     <xsl:template match="a" mode="label">
         <xsl:choose>
+            <xsl:when test="del|em|strong">
+                <map key="_label">
+                    <string key="@type">
+                        <xsl:text>_HTML</xsl:text>
+                    </string>
+                    <xsl:choose>
+                        <xsl:when test="$language or code[not(following-sibling::*)]">
+                            <string key="@value">
+                                <xsl:text>&lt;p lang="</xsl:text>
+                                <xsl:choose>
+                                    <xsl:when test="code[not(following-sibling::*)]">
+                                        <xsl:value-of select="code[not(following-sibling::*)]"/>
+                                    </xsl:when>
+                                    <xsl:when test="$language">
+                                        <xsl:value-of select="$language"/>
+                                    </xsl:when>
+                                </xsl:choose>
+                                <xsl:text>"&gt;</xsl:text>
+                                <xsl:value-of select="serialize(node())"/>
+                                <xsl:text>&lt;/p&gt;</xsl:text>
+                            </string>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <string key="@value">
+                                <xsl:text>&lt;p&gt;</xsl:text>
+                                <xsl:value-of select="serialize(node())"/>
+                                <xsl:text>&lt;/p&gt;</xsl:text>
+                            </string>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </map>
+            </xsl:when>
             <xsl:when test="code">
                 <map key="_label">
                     <string key="@language">
@@ -26,7 +60,7 @@
                     </string>
                 </map>
             </xsl:when>
-            <xsl:when test="text() and @href ne text()">
+            <xsl:when test="@href ne text()">
                 <string key="_label">
                     <xsl:value-of select="text()"/>
                 </string>
@@ -50,6 +84,22 @@
                 </xsl:call-template>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+
+    <!-- Class (identified) -->
+    <xsl:template match="@title[not(text() = /document/dl/dt/text())]">
+        <xsl:variable name="value" select="text()"/>
+        <string key="@type">
+            <xsl:value-of select="."/>
+        </string>
+    </xsl:template>
+
+    <!-- Class (defined) -->
+    <xsl:template match="@title[text() = /document/dl/dt/text()]">
+        <xsl:variable name="value" select="text()"/>
+        <string key="@type">
+            <xsl:value-of select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a/@href"/>
+        </string>
     </xsl:template>
 
     <!-- Reference -->

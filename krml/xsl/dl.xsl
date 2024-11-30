@@ -60,6 +60,17 @@
                     </string>
                 </map>
             </xsl:when>
+            <!-- Class -->
+            <xsl:when test="text() = /document//ul/li/a/@title">
+                <map key="{encode-for-uri(text())}">
+                    <string key="@id">
+                        <xsl:value-of select="following-sibling::dd[1]/a/@href"/>
+                    </string>
+                    <string key="@container">
+                        <xsl:text>@set</xsl:text>
+                    </string>
+                </map>
+            </xsl:when>
             <!-- Datatype -->
             <xsl:when test="text() = /document//ul/li/ul/li/ul/li/blockquote/p/code">
                 <map key="{text()}">

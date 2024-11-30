@@ -665,31 +665,32 @@ Hyperlinks may include a class by overloading the hyperlink's `title` attribute 
 
 [testmark]:# (1.2.1.2.c. arrange)
 ```markdown
-- [John](http://example.org/john "http://example.org/Person")
+- [John](http://example.org/john "http://example.org/terms/Person")
   - [knows](http://xmlns.com/foaf/0.1/knows "http://www.w3.org/2002/07/owl#SymmetricProperty")
     - [Paul](http://example.org/paul "Person")
 
 Person
-: <http://schema.org/Person>
+: <https://schema.org/Person>
 ```
 
 <details><summary><code>text/turtle</code></summary>
 
 [testmark]:# (1.2.1.2.c. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix : <http://example.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://example.org/john> rdfs:label "John" ;
-    a <http://example.org/Person> ;
+    a <http://example.org/terms/Person> ;
     foaf:knows <http://example.org/paul> .
 
 <http://example.org/paul> rdfs:label "Paul" ;
-    a <http://example.org/Person> .
+    a <https://schema.org/Person> .
 
-foaf:knows a owl:SymmetricProperty .
+foaf:knows a owl:SymmetricProperty ;
+  rdfs:label "knows" .
 ```
 
 </details>
@@ -758,15 +759,16 @@ Subject and object resources in plain text are labelled anonymous (blank node) r
 
 [testmark]:# (1.2.2.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix : <http://example.org/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:John rdfs:label "John" ;
-  :knows _:Paul .
+  exterms:knows _:Paul .
 
 _:Paul rdfs:label "Paul" ;
-  :knows _:John ;
-  :birth_place [ rdfs:label "Liverpool" ] .
+  exterms:knows _:John ;
+  exterms:birth%20place [ rdfs:label "Liverpool" ] .
 ```
 
 </details>

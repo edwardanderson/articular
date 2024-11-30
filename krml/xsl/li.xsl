@@ -132,6 +132,19 @@
         </map>
     </xsl:template>
 
+    <!-- Class -->
+    <xsl:template match="ul/li/ul/li[a][(ol|ul)/li]" mode="predicate-class">
+        <map>
+            <string key="@id">
+                <xsl:value-of select="a/@href"/>
+            </string>
+            <xsl:apply-templates select="a/@title"/>
+            <xsl:call-template name="label">
+                <xsl:with-param name="text" select="a"/>
+            </xsl:call-template>
+        </map>
+    </xsl:template>
+
     <!-- == Class == -->
 
     <!-- Class (single, literal) -->

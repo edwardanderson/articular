@@ -76,6 +76,8 @@
                     </xsl:if>
                     <!-- Data -->
                     <xsl:apply-templates select="ul"/>
+                    <!-- Predicate annotations -->
+                    <xsl:apply-templates select="ul/li/ul/li[a][(ol|ul)/li]" mode="predicate-class"/>
                     <!-- Definition -->
                     <xsl:apply-templates select="dl"/>
                 </array>
