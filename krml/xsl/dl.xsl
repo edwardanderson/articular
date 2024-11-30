@@ -15,13 +15,10 @@
         <xsl:variable name="label" select="text()"/>
         <xsl:variable name="term" select="generate-id(.)"/>
         <!-- Match subject or object resource -->
-        <xsl:if test="text() = /document/ul/li/text() or text() = /document//ul/li/ul/li/ul/li/text()">
+        <xsl:if test="text() = /document//ul/li/text() or text() = /document//ul/li/ul/li/ul/li/text()">
             <map>
                 <string key="@id">
                     <xsl:value-of select="following-sibling::dd[1]/a/@href"/>
-                </string>
-                <string key="_label">
-                    <xsl:value-of select="$label"/>
                 </string>
                 <xsl:if test="count(following-sibling::dd[generate-id(preceding-sibling::dt[1]) = $term]) gt 1">
                     <array key="_sameAs">
@@ -54,15 +51,12 @@
         <xsl:choose>
             <!-- Predicate -->
             <xsl:when test="text() = /document//ul/li/ul/li[ul/li]/text()">
-                <map key="{text()}">
+                <map key="{encode-for-uri(text())}">
                     <string key="@id">
                         <xsl:value-of select="following-sibling::dd[1]/a/@href"/>
                     </string>
                     <string key="@container">
                         <xsl:text>@set</xsl:text>
-                    </string>
-                    <string key="@type">
-                        <xsl:text>@id</xsl:text>
                     </string>
                 </map>
             </xsl:when>

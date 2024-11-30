@@ -6,12 +6,20 @@
 
     <!-- Literal (text/plain, without language) -->
     <xsl:template match="p[not(code[not(following-sibling::*)])][not(a|del|em|strong)]">
+        <!-- Make default language explicit -->
+        <xsl:if test="$language">
+            <string key="@language">
+                <xsl:value-of select="$language"/>
+            </string>
+        </xsl:if>
+        <!-- Cast content to number or string -->
         <xsl:choose>
             <xsl:when test="number(text())">
                 <number key="@value">
                     <xsl:value-of select="text()"/>
                 </number>
             </xsl:when>
+            
             <xsl:otherwise>
                 <string key="@value">
                     <xsl:value-of select="text()"/>
@@ -24,6 +32,7 @@
     <xsl:template match="p[code[not(following-sibling::*)]][not(node() = /document/dl/dt)][not(a|del|em|strong)]">
         <xsl:variable name="type" select="code[not(following-sibling::*)]"/>
         <xsl:choose>
+            <!-- Determine if code is BCP47 language tag -->
             <xsl:when test="matches($type, '^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$')">
                 <string key="@language">
                     <xsl:value-of select="$type"/>

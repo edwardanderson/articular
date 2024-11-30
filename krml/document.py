@@ -19,7 +19,7 @@ class KrmlResultDocument:
             self._graph = ConjunctiveGraph()
             # self._graph = Dataset()
             self._graph.parse(data=self.json, format='json-ld')
-        
+
         return self._graph
 
     @property
@@ -36,10 +36,6 @@ class KrmlSourceDocument:
     def __init__(self, md: str, name: str | None = None) -> None:
         self._md = md
         settings, document = frontmatter.parse(md)
-        if 'title' not in settings:
-            if name:
-                settings['title'] = name
-
         self.template = Template(**settings)
         self.html = self.template._transform_md_to_html(document)
 

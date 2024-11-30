@@ -12,6 +12,7 @@ author: Edward Anderson
         - [1.1.1.1. Unordered](#1111-unordered)
         - [1.1.1.2. Ordered](#1112-ordered)
       - [1.1.2. Comment](#112-comment)
+      - [1.1.3. Definition List](#113-definition-list)
     - [1.2. Resource](#12-resource)
       - [1.2.1. Hyperlink](#121-hyperlink)
         - [1.2.1.1. Label](#1211-label)
@@ -42,8 +43,10 @@ author: Edward Anderson
     - [2.2. Vocab](#22-vocab)
     - [2.3. Language](#23-language)
     - [2.4. Import](#24-import)
+    - [2.5. Identifier](#25-identifier)
+    - [2.6. Title](#26-title)
 
-This document specifies the Knowledge Representation Markup Language (KRML). It includes [go-testmark](https://github.com/warpfork/go-testmark) integration test fixtures, with input scenarios each accompanied by an expected graph shape (in Turtle) and an expected serialisation (JSON-LD).
+This document specifies the Knowledge Representation Markup Language (KRML). It includes [go-testmark](https://github.com/warpfork/go-testmark) integration test fixtures, with input scenarios each accompanied by an expected Turtle graph shape and an expected JSON-LD serialisation.
 
 A KRML document is a plain-text Markdown document that complies with the following conventions for structure format and syntax.
 
@@ -217,6 +220,161 @@ Comments not intended to be represented in data may be given in HTML.
           "_label": "Paul"
         }
       ]
+    }
+  ]
+}
+```
+
+</details>
+
+#### 1.1.3. Definition List
+
+Definition lists may be use to identify [plain text resources](#122-plain-text) in the [graph](#111-graph).
+
+```markdown
+- John
+  - date of birth
+    - > 1940-10-09 `date`
+  - born in
+    - Liverpool
+- Paul
+  - born in
+    - Liverpool
+
+John
+: <http://www.wikidata.org/entity/Q1203>
+
+date of birth
+: <https://schema.org/birthDate>
+
+date
+: <http://www.w3.org/2001/XMLSchema#date>
+
+born in
+: <https://schema.org/birthPlace>
+
+Liverpool
+: <http://www.wikidata.org/entity/Q24826>
+```
+
+<details><summary><code>text/turtle</code></summary>
+
+[testmark]:# (1.1.3.a. assert-graph)
+```turtle
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.wikidata.org/entity/Q1203> rdfs:label "John" ;
+  schema:birthPlace <http://www.wikidata.org/entity/Q24826> ;
+  schema:birthDate "1940-10-09"^^xsd:date .
+
+[] rdfs:label "Paul" ;
+  schema:birthPlace <http://www.wikidata.org/entity/Q24826> .
+
+<http://www.wikidata.org/entity/Q24826> rdfs:label "Liverpool" .
+```
+
+</details>
+
+<details><summary><code>application/ld+json</code></summary>
+
+[testmark]:# (1.1.3.a. assert-json)
+```json
+{
+  "@context": [
+    {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/",
+      "date%20of%20birth": {
+        "@id": "https://schema.org/birthDate",
+        "@container": "@set"
+      },
+      "date": {
+        "@id": "http://www.w3.org/2001/XMLSchema#date",
+        "@type": "@id"
+      },
+      "born%20in": {
+        "@id": "https://schema.org/birthPlace",
+        "@container": "@set"
+      }
+    }
+  ],
+  "@id": "test.md",
+  "@graph": [
+    {
+      "@id": "http://www.wikidata.org/entity/Q1203",
+      "_label": "John",
+      "date%20of%20birth": [
+        {
+          "@type": "date",
+          "@value": "1940-10-09"
+        }
+      ],
+      "born%20in": [
+        {
+          "@id": "http://www.wikidata.org/entity/Q24826",
+          "_label": "Liverpool"
+        }
+      ]
+    },
+    {
+      "_label": "Paul",
+      "born%20in": [
+        {
+          "@id": "http://www.wikidata.org/entity/Q24826",
+          "_label": "Liverpool"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.wikidata.org/entity/Q1203",
+      "_label": "John"
+    },
+    {
+      "@id": "https://schema.org/birthDate",
+      "_label": "date of birth"
+    },
+    {
+      "@id": "https://schema.org/birthPlace",
+      "_label": "born in"
+    },
+    {
+      "@id": "http://www.wikidata.org/entity/Q24826",
+      "_label": "Liverpool"
     }
   ]
 }
@@ -1353,15 +1511,68 @@ An arbitrary datatype may be given.
 
 [testmark]:# (1.2.3.6.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-    :date-of-birth "1940-10-09"^^:date .
+    :date-of-birth "1940-10-09"^^exterms:date .
 ```
 
 [testmark]:# (1.2.3.6.b. assert-json)
 ```json
+{
+  "@context": [
+    {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
+    }
+  ],
+  "@id": "test.md",
+  "@graph": [
+    {
+      "_label": "John",
+      "date%20of%20birth": [
+        {
+          "@type": "date",
+          "@value": "1940-10-09"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 A datatype may be given as a code-fenced reference to a defined term.
@@ -2237,3 +2448,161 @@ import: http://example.org/terms.md
 ```
 
 </details>
+
+### 2.5. Identifier
+
+Set the URI of the named graph.
+
+```markdown
+---
+id: docs/1
+---
+```
+
+```turtle
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+
+<http://example.org/docs/1> a dcmitype:Dataset .
+```
+
+```trig
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ns1: <http://example.org/docs/> .
+
+ns1:1 {
+    ns1:1 a dcmitype:Dataset .
+}
+```
+
+```json
+{
+  "@context": [
+    {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
+    }
+  ],
+  "@id": "docs/1",
+  "@graph": [
+    {
+      "@id": "docs/1",
+      "@type": "_Dataset"
+    }
+  ]
+}
+```
+
+### 2.6. Title
+
+Set a label for the (un)named graph.
+
+```markdown
+---
+title: Lorem Ipsum
+---
+```
+
+```turtle
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ex: <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:test.md a dcmitype:Dataset ;
+    rdfs:label "Lorem Ipsum" .
+```
+
+```trig
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ex: <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:test.md {
+    ex:test.md a dcmitype:Dataset ;
+        rdfs:label "Lorem Ipsum" .
+}
+```
+
+```json
+{
+  "@context": [
+    {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
+    }
+  ],
+  "@id": "test.md",
+  "@graph": [
+    {
+      "@id": "test.md",
+      "@type": "_Dataset",
+      "_label": "Lorem Ipsum"
+    }
+  ]
+}
+```

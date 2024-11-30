@@ -20,8 +20,11 @@ language: en
     - [Leonardo da Vinci](http://www.wikidata.org/entity/Q762)
       - description
         - > Italian Renaissance polymath (1452−1519)
-      - date of birth
+      - [date of birth](https://schema.org/birthDate)
         - > 1452-04-15 `date`
+
+---
+<!-- Term definitions -->
 
 Mona Lisa
 : <http://www.wikidata.org/entity/Q12418>

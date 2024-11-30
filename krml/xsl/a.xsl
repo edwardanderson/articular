@@ -26,11 +26,11 @@
                     </string>
                 </map>
             </xsl:when>
-            <xsl:otherwise>
+            <xsl:when test="@href ne text()">
                 <string key="_label">
                     <xsl:value-of select="text()"/>
                 </string>
-            </xsl:otherwise>
+            </xsl:when>
         </xsl:choose>
     </xsl:template>
 

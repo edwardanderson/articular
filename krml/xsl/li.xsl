@@ -84,7 +84,7 @@
 
     <!-- Unidentified, unordered -->
     <xsl:template match="li[not(text() eq 'a')][not(a)][ul]" mode="predicate">
-        <xsl:variable name="key" select="encode-for-uri(replace(text(), ' ', '_'))"/>
+        <xsl:variable name="key" select="encode-for-uri(text())"/>
         <array key="{$key}">
             <xsl:for-each select="ul/li">
                 <map>
@@ -96,7 +96,7 @@
 
     <!-- Unidentified, ordered -->
     <xsl:template match="li[not(text() eq 'a')][ol]" mode="predicate">
-        <xsl:variable name="key" select="encode-for-uri(replace(text(), ' ', '_'))"/>
+        <xsl:variable name="key" select="encode-for-uri(text())"/>
         <map key="{$key}">
             <array key="@list">
                 <xsl:for-each select="ol/li">
