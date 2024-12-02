@@ -41,7 +41,7 @@ for identifier, fixture in tests.items():
     # Act.
     try:
         result = document.transform()
-    except:
+    except Exception as e:
         print(f'cannot transform: {identifier}')
         continue
 

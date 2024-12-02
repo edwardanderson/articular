@@ -32,6 +32,7 @@
     <xsl:import href="img.xsl"/>
     <xsl:import href="li.xsl"/>
     <xsl:import href="p.xsl"/>
+    <xsl:import href="pre.xsl"/>
     <xsl:import href="ul.xsl"/>
 
     <!-- === Templates === -->
@@ -77,13 +78,16 @@
                     <!-- Data -->
                     <xsl:apply-templates select="ul"/>
                     <!-- Predicate annotations -->
-                    <xsl:apply-templates select="ul/li/ul/li[a][(ol|ul)/li]" mode="predicate-class"/>
-                    <!-- Definition -->
+                    <xsl:apply-templates select="ul/li/ul/li[a][(ol|ul)/li]" mode="predicate-annotation"/>
+                    <!-- Class annotations-->
+                    <xsl:apply-templates select="//li[text() = 'a']/ul/li[a]" mode="class-annotation"/>
+                    <!-- Definitions -->
                     <xsl:apply-templates select="dl"/>
                 </array>
             </map>
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml)"/>
+        <!-- <xsl:value-of select="serialize($xml)"></xsl:value-of> -->
     </xsl:template>
 
 </xsl:stylesheet>

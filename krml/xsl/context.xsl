@@ -15,6 +15,7 @@
                     <map>
                         <number key="@version">1.1</number>
                         <string key="dcmitype">http://purl.org/dc/dcmitype/</string>
+                        <string key="dcterms">http://purl.org/dc/terms/</string>
                         <string key="owl">http://www.w3.org/2002/07/owl#</string>
                         <string key="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</string>
                         <string key="rdfs">http://www.w3.org/2000/01/rdf-schema#</string>
@@ -36,6 +37,9 @@
                         </map>
                         <map key="_content">
                             <string key="@id">rdf:value</string>
+                        </map>
+                        <map key="_format">
+                            <string key="@id">dcterms:format</string>
                         </map>
                         <map key="_label">
                             <string key="@id">rdfs:label</string>

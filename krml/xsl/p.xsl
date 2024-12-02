@@ -4,8 +4,13 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns="http://www.w3.org/2005/xpath-functions">
 
-    <!-- Literal (text/plain, without language) -->
-    <xsl:template match="p[not(code[not(following-sibling::*)])][not(a|del|em|strong)]">
+    <!-- Literal (text/plain, without explicit datatype or language) -->
+    <xsl:template
+        match="p
+        [
+            (: does not have HTML element :)
+            not(a|code|del|em|strong)
+        ]">
         <!-- Make default language explicit -->
         <xsl:if test="$language">
             <string key="@language">
@@ -27,8 +32,26 @@
         </xsl:choose>
     </xsl:template>
 
-    <!-- Literal (text/plain, with language or datatype) -->
-    <xsl:template match="p[code[not(following-sibling::*)]][not(node() = /document/dl/dt)][not(a|del|em|strong)]">
+    <!-- Literal (text/plain, with explicit datatype or language) -->
+    <xsl:template
+        match="p
+        [
+            (: does not have HTML element :)
+            not(
+                (a|del|em|strong)
+                or code[following-sibling::node()]
+            )
+        ]
+        [
+            (: has a trailing `code` element :)
+            code[
+                not(following-sibling::node())
+
+                (: `code` element is not a defined term :)
+                and not(node() = /document/dl/dt)
+            ]
+        ]
+        ">
         <xsl:variable name="type" select="code[not(following-sibling::*)]"/>
         <xsl:choose>
             <!-- Determine if code is BCP47 language tag -->
@@ -54,7 +77,21 @@
     </xsl:template>
 
     <!-- Literal (text/plain, defined datatype) -->
-    <xsl:template match="p[code[not(following-sibling::*)]][node() = /document/dl/dt]">
+    <xsl:template
+        match="p
+        [
+            (: does not have HTML element :)
+            not(a|del|em|strong)
+        ]
+        [
+            (: has a trailing `code` element :)
+            code[
+                not(following-sibling::node())
+                (: `code` element is a defined term :)
+                and node() = /document/dl/dt
+            ]
+        ]
+        ">
         <xsl:variable name="value" select="code"/>
         <string key="@type">
             <xsl:value-of select="/document/dl/dt[node() = $value]"/>
@@ -65,19 +102,82 @@
     </xsl:template>
 
     <!-- Literal (text/html, without language) -->
-    <xsl:template match="p[a|del|em|strong][not(code[not(following-sibling::*)] or $language)]">
+    <!-- <xsl:template
+        match="p
+        [
+            (: has HTML element :)
+            (a|del|em|strong)
+
+            (: has a non-trailing `code` element :)
+            or code[following-sibling::node()]
+            and not($language)
+        ]">
         <string key="@type">
             <xsl:text>_HTML</xsl:text>
         </string>
         <string key="@value">
             <xsl:text>&lt;p&gt;</xsl:text>
-            <xsl:value-of select="serialize(node())"/>
+            <xsl:choose>
+                <xsl:when test="ends-with(., '&#160;')">
+                    <xsl:value-of select="substring(serialize(node()), 1, string-length(serialize(node())) - 1)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="serialize(node())"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:text>&lt;/p&gt;</xsl:text>
+        </string>
+    </xsl:template> -->
+
+
+    <!-- Literal (text/html, without language) -->
+    <xsl:template
+        match="p
+        [
+            (: has HTML element :)
+            (a|code|del|em|strong)
+
+            (: does not haves a trailing `code` element :)
+            and not(
+                code[not(following-sibling::node())]
+                or $language
+            )
+        ]
+        ">
+        <string key="@type">
+            <xsl:text>_HTML</xsl:text>
+        </string>
+        <string key="@value">
+            <xsl:text>&lt;p&gt;</xsl:text>
+            <xsl:choose>
+                <xsl:when test="ends-with(., '&#160;')">
+                    <xsl:value-of select="normalize-space(serialize(node()))"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="serialize(node())"/>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:text>&lt;/p&gt;</xsl:text>
         </string>
     </xsl:template>
 
     <!-- Literal (text/html, with language) -->
-    <xsl:template match="p[a|del|em|strong][code[not(following-sibling::*)] or $language]">
+    <xsl:template
+        match="p
+        [
+            (: has HTML element :)
+            (
+                (a|del|em|strong)
+                or code[following-sibling::node()]
+            )
+
+            (: has a trailing `code` element :)
+            and (
+                code[not(following-sibling::node())]
+                or $language
+            )
+        ]
+        ">
         <string key="@type">
             <xsl:text>_HTML</xsl:text>
         </string>

@@ -40,10 +40,10 @@ class KrmlSourceDocument:
         self.html = self.template._transform_md_to_html(document)
 
         content = self.html.xpath('/document')[0]
-        glossary_path_str = settings.get('glossary')
+        glossary_path_str = settings.get('import')
         if glossary_path_str:
             template = Template()
-            glossary_path = Path('document') / Path(glossary_path_str)
+            glossary_path = Path(glossary_path_str)
             with open(glossary_path, 'r') as in_file:
                 glossary = template._transform_md_to_html(in_file.read())
 

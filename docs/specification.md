@@ -33,11 +33,6 @@ author: Edward Anderson
       - [1.2.5. Code Block](#125-code-block)
       - [1.2.6. Table](#126-table)
     - [1.3. Syntax](#13-syntax)
-      - [1.3.1. Predicate Modifier](#131-predicate-modifier)
-        - [1.3.1.1. Inverse Path](#1311-inverse-path)
-        - [1.3.1.2. Inverse Direction](#1312-inverse-direction)
-        - [1.3.1.3. Symetric](#1313-symetric)
-        - [1.3.1.4. Product](#1314-product)
   - [2. Frontmatter](#2-frontmatter)
     - [2.1. Base](#21-base)
     - [2.2. Vocab](#22-vocab)
@@ -1640,82 +1635,33 @@ date
 
 </details>
 
-###### 1.2.3.6.1. Boolean
-
-Booleans may be set using the built-in `boolean` datatype token.
-
-[testmark]:# (1.2.3.6.1.a. arrange)
-```markdown
-- John
-  - alive
-    - > false `boolean`
-```
-
-<details><summary><code>text/turtle</code></summary>
-
-[testmark]:# (1.2.3.6.1.a. assert-graph)
-```turtle
-@prefix exterms: <http://example.org/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] rdfs:label "John" ;
-    exterms:alive "false"^^xsd:boolean .
-```
-
-</details>
-
-<details><summary><code>application/ld+json</code></summary>
-
-[testmark]:# (1.2.3.6.1.a. assert-json)
-```json
-{
-  "@context": [
-    {
-      "@vocab": "http://example.org/terms/"
-    }
-  ],
-  "@graph": [
-    {
-      "_label": "John",
-      "alive": [
-        {
-          "@value": false
-        }
-      ]
-    }
-  ]
-}
-```
-
-</details>
 
 To escape a code-fenced term from being processed as a [language](#language) or [datatype](#datatype), add a line-feed character `&#xA;`.
 
-[testmark]:# (1.2.3.6.b. arrange)
+[testmark]:# (1.2.3.6.c. arrange)
 ```markdown
 - John
   - said
-    - > It's been too long since we took the `time`&#xA;
+    - > It's been too long since we took the `time`&#160;
 ```
 
 <details><summary><code>text/turtle</code></summary>
 
-[testmark]:# (1.2.3.6.b. assert-graph)
+[testmark]:# (1.2.3.6.c. assert-graph)
 ```turtle
 @prefix : <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-    :said "It's been too long since we took the <code>time</code>"^^rdf:HTML .
+    :said "<p>It's been too long since we took the <code>time</code></p>"^^rdf:HTML .
 ```
 
 </details>
 
 <details><summary><code>application/ld+json</code></summary>
 
-[testmark]:# (1.2.3.6.b. assert-json)
+[testmark]:# (1.2.3.6.c. assert-json)
 ```json
 {
   "@context": [
@@ -1739,6 +1685,56 @@ To escape a code-fenced term from being processed as a [language](#language) or 
         }
       ]
     }  
+  ]
+}
+```
+
+</details>
+
+###### 1.2.3.6.1. Boolean
+
+Booleans may be set using the built-in `boolean` datatype token.
+
+[testmark]:# (1.2.3.6.1.a. arrange)
+```markdown
+- John
+  - alive
+    - > false `boolean`
+```
+
+<details><summary><code>text/turtle</code></summary>
+
+[testmark]:# (1.2.3.6.1.a. assert-graph)
+```turtle
+@prefix exterms: <http://example.org/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] rdfs:label "John" ;
+    exterms:alive false .
+```
+
+</details>
+
+<details><summary><code>application/ld+json</code></summary>
+
+[testmark]:# (1.2.3.6.1.a. assert-json)
+```json
+{
+  "@context": [
+    {
+      "@vocab": "http://example.org/terms/"
+    }
+  ],
+  "@graph": [
+    {
+      "_label": "John",
+      "alive": [
+        {
+          "@value": false
+        }
+      ]
+    }
   ]
 }
 ```
@@ -1863,16 +1859,17 @@ Image classes may be specified in the same way as for [hyperlink classes](#class
 
 [testmark]:# (1.2.5.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "Yesterday" ;
-  :lyrics [
+  exterms:lyrics [
     dcterms:format "text" ;
-    rdf:value "There are places I remember\nAll my life, though some have changed"
-  ] .
+    rdf:value """There are places I remember
+All my life, though some have changed
+""" ] .
 ```
 
 </details>
@@ -1934,15 +1931,19 @@ Another example.
 @prefix : <http://example.org/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] dcterms:format "text" ; 
-  rdf:value """  . 　　 　　　　　
-  　·   ·   　    　
-  　 ·  ✦ * 
-   ✵  . 　　　　·  ·  ⋆  　 
-     ✫  ✵  ·　　✵   　　 ˚ 
-  · 　  ✵ 　　 　 .  ·""" ;
+  rdf:value """. 　　 　　　　　
+　·   ·   　    　
+　 ·  ✦ * 
+ ✵  . 　　　　·  ·  ⋆  　 
+   ✫  ✵  ·　　✵   　　 ˚ 
+· 　  ✵ 　　 　 .  ·
+""" ;
   :source <https://x.com/tiny_star_field/status/1681381641753640960> .
+
+<https://x.com/tiny_star_field/status/1681381641753640960> rdfs:label "1681381641753640960" .
 ```
 
 </details>
@@ -2042,178 +2043,6 @@ Inserting hyperlinks or images into cells will reify the table as a blank node a
 
 ### 1.3. Syntax
 
-#### 1.3.1. Predicate Modifier
-
-##### 1.3.1.1. Inverse Path
-
-Materialise the inverse path of a given predicate by separating it with a `|` token.
-
-[testmark]:# (1.3.1.1.a. arrange)
-```markdown
-- John
-  - has child | has parent
-    - Julian
-```
-
-[testmark]:# (1.3.1.1.a. assert-graph)
-```turtle
-@prefix : <http://example.org/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-_:John rdfs:label "John" ;
-    :has_child [
-        rdfs:label "Julian" ;
-        :has_parent _:John
-    ] .
-
-:has_child owl:inverseOf :has_parent .
-```
-
-##### 1.3.1.2. Inverse Direction
-
-Reverse the direction of the predicate from object to subject.
-
-[testmark]:# (1.3.1.2.a. arrange)
-```markdown
-- John
-  - knows `^`
-    - Paul
-```
-
-<details><summary><code>text/turtle</code></summary>
-
-```turtle
-@prefix : <http://example.org/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-[] rdfs:label "Paul" ;
-  :knows [ rdfs:label "John" ] .
-```
-
-</details>
-
-##### 1.3.1.3. Symetric
-
-Add the token `o` to materialise a predicate's relationships in both directions for all object resources.
-
-[testmark]:# (1.3.1.3.a. arrange)
-```markdown
-- John
-  - knows `o`
-   - Paul
-   - George
-   - Ringo
-```
-
-<details><summary><code>text/turtle</code></summary>
-
-[testmark]:# (1.3.1.3.a. assert-graph)
-```turtle
-@prefix : <http://example.org/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-_:John rdfs:label "John" ;
-  :knows [
-    rdfs:label "Paul" ;
-    :knows _:John
-  ] , [
-    rdfs:label "George" ;
-    :knows _:John
-  ] , [
-    rdfs:label "Ringo" ;
-    :knows _:John
-  ] .
-```
-
-</details>
-
-<details><summary><code>application/ld+json</code></summary>
-
-[testmark]:# (1.3.1.3.a. assert-json)
-```json
-{
-  "@context": [
-    {
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
-    },
-    {
-      "@vocab": "http://example.org/"
-    }
-  ],
-  "@graph": [
-    {
-      "@id": "_:John",
-      "_label": "John",
-      "knows": [
-        {
-          "_label": "Paul",
-          "knows": [
-            {
-              "@id": "_:John"
-            }
-          ]
-        },
-        {
-          "_label": "George",
-          "knows": [
-            {
-              "@id": "_:John"
-            }
-          ]
-        },
-        {
-          "_label": "Ringo",
-          "knows": [
-            {
-              "@id": "_:John"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-</details>
-
-##### 1.3.1.4. Product
-
-Relate all the members of the combined set of subject and object resources via the predicate in both directions, excluding reflexive relations.
-
-[testmark]:# (1.3.1.4.a. arrange)
-```markdown
-- John
-  - knows `x`
-    - Paul
-    - George
-    - Ringo
-```
-
-<details><summary><code>text/turtle</code></summary>
-
-[testmark]:# (1.3.1.4.a. assert-graph)
-```turtle
-@prefix : <http://example.org/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-_:John rdfs:label "John" ;
-    :knows _:Paul , _:George , _:Ringo .
-  
-_:Paul rdfs:label "Paul" ;
-    :knows _:John , _:George , _:Ringo .
-
-_:George rdfs:label "George" ;
-    :knows _:John , _:Paul , _:Ringo .
-
-_:Ringo rdfs:label "Ringo" ;
-    :knows _:John , _:Paul , _:George .
-```
-
-</details>
-
 ## 2. Frontmatter
 
 ### 2.1. Base
@@ -2299,12 +2128,12 @@ vocab: https://schema.org/
 
 [testmark]:# (2.2.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix : <http://example.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 
-:John a foaf:Person ;
+[] a foaf:Person ;
     rdfs:label "John" ;
     schema:knows [ rdfs:label "Paul" ] .
 
@@ -2403,7 +2232,7 @@ Import data from another file.
 [testmark]:# (2.4.a. arrange)
 ```markdown
 ---
-import: http://example.org/terms.md
+import: tests/extra/terms.md
 ---
 
 - John
