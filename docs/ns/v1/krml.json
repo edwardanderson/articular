@@ -2,9 +2,11 @@
   "@context": {
     "@version": 1.1,
     "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "_Dataset": {
       "@id": "dcmitype:Dataset"
     },
@@ -17,8 +19,14 @@
     "_Text": {
       "@id": "dcmitype:Text"
     },
+    "_boolean": {
+      "@id": "xsd:boolean"
+    },
     "_content": {
       "@id": "rdf:value"
+    },
+    "_format": {
+      "@id": "dcterms:format"
     },
     "_label": {
       "@id": "rdfs:label"
