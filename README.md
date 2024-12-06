@@ -26,7 +26,7 @@ The language is defined in this [Specification](docs/specification.md).
 The following description of the [Mona Lisa](https://en.wikipedia.org/wiki/Mona_Lisa) demonstrates many of the features of the language.
 
 ```bash
-krml examples/mona_lisa.md --embed-context
+krml examples/mona_lisa.md
 ```
 
 ### Input
@@ -406,7 +406,7 @@ Liverpool
 : <http://www.wikidata.org/entity/Q24826>
 ```
 
-Document configuration parameters can be set in the frontmatter.
+Document configuration parameters can be set in the [frontmatter](docs/specification.md#2-frontmatter).
 
 ```markdown
 ---
