@@ -151,7 +151,7 @@
             <xsl:text>&lt;p&gt;</xsl:text>
             <xsl:choose>
                 <xsl:when test="ends-with(., '&#160;')">
-                    <xsl:value-of select="normalize-space(serialize(node()))"/>
+                    <xsl:value-of select="replace(normalize-space(serialize(node())), '&#160;$', '')" />
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:value-of select="serialize(node())"/>

@@ -1642,7 +1642,7 @@ date
 </details>
 
 
-To escape a code-fenced term from being processed as a [language](#language) or [datatype](#datatype), add a line-feed character `&#xA;`.
+To escape a code-fenced term from being processed as a [language](#language) or [datatype](#datatype), add a non-breaking space character `&#160;`.
 
 [testmark]:# (1.2.3.6.c. arrange)
 ```markdown
