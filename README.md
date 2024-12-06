@@ -12,7 +12,7 @@
 
 ## Overview
 
-Knowledge Representation Markup Language (KRML) is a simple data markup language for creating RDF knowledge graphs using [Markdown](https://en.wikipedia.org/wiki/Markdown) elements: lists of hyperlinks, images, tables and styled or plain text.
+Knowledge Representation Markup Language (KRML) is a simple language for creating RDF knowledge graphs using [Markdown](https://en.wikipedia.org/wiki/Markdown) elements: lists of hyperlinks, images, tables and styled or plain text.
 
 As a readable, content-first, low-syntax document format, KRML is optimised for humans. It's intended to facilitate the exchange of structured data between researchers, writers and developers to support the construction of databases of networked information.
 
