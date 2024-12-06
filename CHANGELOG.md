@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.0-alpha
+
+- Rename project to Knowledge Representation Markup Language
+- Refactor specification and implementation
+- Add testmark fixtures to the specification
+- Improve CLI
+  - Option: Rich syntax highlighting
+  - Option: embed context document
+
 ## 2.14.4
 
 - Add test for asserting language of image caption
