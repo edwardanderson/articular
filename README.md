@@ -35,6 +35,7 @@ krml examples/mona_lisa.md
 
 ```markdown
 ---
+id: http://example.org/mona-lisa
 title: Mona Lisa
 language: en
 ---
