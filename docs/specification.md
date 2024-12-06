@@ -3809,10 +3809,10 @@ id: docs/1
 <details><summary><code>text/turtle</code></summary>
 
 [testmark]:# (2.5.a. assert-graph)
-```trig
+```turtle
 @base <http://exaple.org/> .
 
-<docs/2> {
+<docs/1> {
 
 }
 ```
