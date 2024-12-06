@@ -617,7 +617,7 @@ IRIs may be absolute or relative. Resources are resolved relative to the [base](
 
 ##### 1.2.1.1. Label
 
-The language of the label may be specified.
+The language of the label may be specified. Trailing spaces are not preserved. To preserve the trailing space use a [whitespace character](https://en.wikipedia.org/wiki/Whitespace_character).
 
 [testmark]:# (1.2.1.1.a. arrange)
 ```markdown
@@ -704,8 +704,6 @@ The language of the label may be specified.
 ```
 
 </details>
-
-Trailing spaces are not preserved. To preserve the trailing space use a [whitespace character](https://en.wikipedia.org/wiki/Whitespace_character).
 
 The label may be [styled](#style).
 
@@ -1250,7 +1248,7 @@ _:Paul rdfs:label "Paul" ;
 
 </details>
 
-Resources that share labels but are unique from eachother can be disambiguated by wrapping the label in double quotation marks.
+Resources that share labels but are unique from each other can be disambiguated by wrapping the label in double quotation marks.
 
 [testmark]:# (1.2.2.1.b. arrange)
 ```markdown
@@ -1678,7 +1676,7 @@ A preceding sibling hyperlink identifies the blockquote.
 ```markdown
 - John
   - description
-    - [bio](http://example.org/biography/1)
+    - [biography](http://example.org/biography/1)
       > Born in Liverpool, Lennon became involved in the skiffle craze as a teenager.
 ```
 
@@ -1696,7 +1694,7 @@ A preceding sibling hyperlink identifies the blockquote.
 
 <http://example.org/biography/1>
     a dcmitype:Text ;
-    rdfs:label "bio" ;
+    rdfs:label "biography" ;
     rdf:value "Born in Liverpool, Lennon became involved in the skiffle craze as a teenager." .
 ```
 
@@ -1764,7 +1762,7 @@ A preceding sibling hyperlink identifies the blockquote.
       "description": [
         {
           "@id": "http://example.org/biography/1",
-          "_label": "bio",
+          "_label": "biography",
           "@type": [
             "_Text"
           ],
@@ -3689,7 +3687,7 @@ Import data from another file.
 > : <https://schema.org/birthDate>
 > ```
 >
-> -- <http://example.org/terms.md>
+> -- [terms.md](../tests/extra/terms.md)
 
 [testmark]:# (2.4.a. arrange)
 ```markdown
@@ -3801,27 +3799,29 @@ import: tests/extra/terms.md
 
 Set the URI of the named graph.
 
+[testmark]:# (2.5.a. arrange)
 ```markdown
 ---
 id: docs/1
 ---
 ```
 
-```turtle
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+<details><summary><code>text/turtle</code></summary>
 
-<http://example.org/docs/1> a dcmitype:Dataset .
-```
-
+[testmark]:# (2.5.a. assert-graph)
 ```trig
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
-@prefix ns1: <http://example.org/docs/> .
+@base <http://exaple.org/> .
 
-ns1:1 {
-    ns1:1 a dcmitype:Dataset .
+<docs/2> {
+
 }
 ```
 
+</details>
+
+<details><summary><code>application/ld+json</code></summary>
+
+[testmark]:# (2.5.a. assert-json)
 ```json
 {
   "@context": [
@@ -3876,45 +3876,40 @@ ns1:1 {
     }
   ],
   "@id": "docs/1",
-  "@graph": [
-    {
-      "@id": "docs/1",
-      "@type": "_Dataset"
-    }
-  ]
+  "@graph": []
 }
 ```
+
+</details>
 
 ### 2.6. Title
 
 Set a label for the (un)named graph.
 
+[testmark]:# (2.6.a. arrange)
 ```markdown
 ---
 title: Lorem Ipsum
 ---
 ```
 
+<details><summary><code>text/turtle</code></summary>
+
+[testmark]:# (2.6.a. assert-graph)
 ```turtle
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix ex: <http://example.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ex:test.md a dcmitype:Dataset ;
-    rdfs:label "Lorem Ipsum" .
+[] rdfs:label "Lorem Ipsum" .
 ```
 
-```trig
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
-@prefix ex: <http://example.org/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+</details>
 
-ex:test.md {
-    ex:test.md a dcmitype:Dataset ;
-        rdfs:label "Lorem Ipsum" .
-}
-```
 
+
+<details><summary><code>application/ld+json</code></summary>
+
+[testmark]:# (2.6.a. assert-json)
 ```json
 {
   "@context": [
@@ -3968,13 +3963,9 @@ ex:test.md {
       "@vocab": "http://example.org/terms/"
     }
   ],
-  "@id": "test.md",
-  "@graph": [
-    {
-      "@id": "test.md",
-      "@type": "_Dataset",
-      "_label": "Lorem Ipsum"
-    }
-  ]
+  "_label": "Lorem Ipsum",
+  "@graph": []
 }
 ```
+
+</details>

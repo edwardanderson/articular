@@ -5,7 +5,7 @@ Execute the Specification test fixtures.
 import json
 import testmark
 
-from rdflib import Graph
+from rdflib import ConjunctiveGraph, Graph
 from rdflib.compare import to_isomorphic
 from pathlib import Path
 
@@ -29,10 +29,16 @@ for identifier, fixture in tests.items():
         'embed-context': True
     }
     document = KrmlSourceDocument(source, **params)
-    expected_ttl = fixture.get('assert-graph')
-    if expected_ttl:
-        expected_graph = Graph()
-        expected_graph.parse(data=expected_ttl, format='turtle')
+    expected_graph_str = fixture.get('assert-graph')
+    if expected_graph_str:
+        if 'id' in document.settings:
+            expected_graph = ConjunctiveGraph()
+            syntax = 'trig'
+        else:
+            expected_graph = Graph()
+            syntax = 'turtle'
+
+        expected_graph.parse(data=expected_graph_str, format=syntax)
 
     expected_str = fixture.get('assert-json')
     if expected_str:

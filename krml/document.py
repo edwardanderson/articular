@@ -35,16 +35,19 @@ class KrmlSourceDocument:
 
     def __init__(self, md: str, name: str | None = None, **settings) -> None:
         self._md = md
+        self.settings = {}
+        self.settings.update(**settings)
         document_settings, document = frontmatter.parse(md)
-        settings.update(document_settings)
-        self.template = Template(**settings)
+        self.settings.update(**document_settings)
+        self.template = Template(**self.settings)
         self.html = self.template._transform_md_to_html(document)
 
         content = self.html.xpath('/document')[0]
-        glossary_path_str = settings.get('import')
+        glossary_path_str = self.settings.get('import')
+        
         if glossary_path_str:
+            glossary_path = Path.cwd() / glossary_path_str
             template = Template()
-            glossary_path = Path(glossary_path_str)
             with open(glossary_path, 'r') as in_file:
                 glossary = template._transform_md_to_html(in_file.read())
 
