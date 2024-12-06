@@ -82,11 +82,49 @@ Graphs of triples are composed of nests of either [unordered](#unordered) or [or
 {
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -139,11 +177,49 @@ Objects may be listed in sequence.
 {
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-       "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -200,11 +276,49 @@ Comments not intended to be represented in data may be given in HTML.
 {
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -282,9 +396,11 @@ Liverpool
     {
       "@version": 1.1,
       "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
       },
@@ -297,8 +413,14 @@ Liverpool
       "_Text": {
         "@id": "dcmitype:Text"
       },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
       "_content": {
         "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
       },
       "_label": {
         "@id": "rdfs:label"
@@ -329,7 +451,6 @@ Liverpool
       }
     }
   ],
-  "@id": "test.md",
   "@graph": [
     {
       "@id": "http://www.wikidata.org/entity/Q1203",
@@ -355,22 +476,6 @@ Liverpool
           "_label": "Liverpool"
         }
       ]
-    },
-    {
-      "@id": "http://www.wikidata.org/entity/Q1203",
-      "_label": "John"
-    },
-    {
-      "@id": "https://schema.org/birthDate",
-      "_label": "date of birth"
-    },
-    {
-      "@id": "https://schema.org/birthPlace",
-      "_label": "born in"
-    },
-    {
-      "@id": "http://www.wikidata.org/entity/Q24826",
-      "_label": "Liverpool"
     }
   ]
 }
@@ -422,8 +527,49 @@ IRIs may be absolute or relative. Resources are resolved relative to the [base](
 {
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -473,15 +619,57 @@ The language of the label may be specified.
 
 [testmark]:# (1.2.1.1.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
+      "@id": "http://example.org/john",
       "_label": {
         "@language": "en",
         "@value":  "John"
@@ -520,14 +708,52 @@ The label may be [styled](#style).
 
 [testmark]:# (1.2.1.1.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
-      "@vocab": "http://example.org/",
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_HTML": "rdf:HTML"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -572,20 +798,60 @@ The predicate keyword `a` can be provided to specify the `rdf:type` of a resourc
 
 [testmark]:# (1.2.1.2.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "_label": "John",
-      "@type": "Person"
+      "@type": [
+        "Person"
+      ]
     }
   ]
 }
@@ -627,28 +893,72 @@ The tokens `â` or `^a` may be used to inverse the direction of the class assign
 
 [testmark]:# (1.2.1.2.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "_label": "John",
-      "@type": "Person"
+      "@type": [
+        "Person"
+      ]
     },
     {
       "_label": "Paul",
-      "@type": "Person"
+      "@type": [
+        "Person"
+      ]
     },
     {
       "_label": "George",
-      "@type": "Person"
+      "@type": [
+        "Person"
+      ]
     }
   ]
 }
@@ -694,37 +1004,81 @@ foaf:knows a owl:SymmetricProperty ;
 
 [testmark]:# (1.2.1.2.c. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "knows": {
-        "@id": "http://xmlns.com/foaf/0.1/knows"
-      },
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/",
       "Person": {
-        "@id": "http://schema.org/Person"
+        "@id": "https://schema.org/Person",
+        "@container": "@set"
       }
     }
   ],
   "@graph": [
     {
       "@id": "http://example.org/john",
-      "@type": "Person",
+      "@type": [
+        "http://example.org/terms/Person"
+      ],
       "_label": "John",
-      "knows": [
+      "http://xmlns.com/foaf/0.1/knows": [
         {
           "@id": "http://example.org/paul",
-          "@type": "Person",
+          "@type": [
+            "Person"
+          ],
           "_label": "Paul"
         }
       ]
     },
     {
       "@id": "http://xmlns.com/foaf/0.1/knows",
-      "@type": "http://www.w3.org/2002/07/owl#SymmetricProperty"
+      "@type": [
+        "http://www.w3.org/2002/07/owl#SymmetricProperty"
+      ],
+      "_label": "knows"
     }
   ]
 }
@@ -772,14 +1126,52 @@ _:Paul rdfs:label "Paul" ;
 
 [testmark]:# (1.2.2.1.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -792,14 +1184,19 @@ _:Paul rdfs:label "Paul" ;
           "_label": "Paul",
           "knows": [
             {
-              "@id": "_:John"
-            }
-          ],
-          "birth_place": [
-            {
-              "_label": "Liverpool"
+              "@id": "_:John",
+              "_label": "John"
             }
           ]
+        }
+      ]
+    },
+    {
+      "@id": "_:Paul",
+      "_label": "Paul",
+      "birth%20place": [
+        {
+          "_label": "Liverpool"
         }
       ]
     }
@@ -846,14 +1243,52 @@ Resources that share labels but are unique from eachother can be disambiguated b
 
 [testmark]:# (1.2.2.1.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -864,15 +1299,17 @@ Resources that share labels but are unique from eachother can be disambiguated b
           "_label": "Julia"
         }
       ],
-      "half_sister": [
+      "half%20sister": [
         {
           "_label": "Julia"
-        },
+        }
       ],
       "wrote": [
         {
           "_label": "Julia",
-          "@type": "Song"
+          "@type": [
+            "Song"
+          ]
         }
       ]
     }
@@ -916,14 +1353,56 @@ knows
 
 [testmark]:# (1.2.2.2.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "knows": "http://xmlns.com/foaf/0.1/knows"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/",
+      "knows": {
+        "@id": "http://xmlns.com/foaf/0.1/knows",
+        "@container": "@set"
+      }
     }
   ],
   "@graph": [
@@ -972,25 +1451,65 @@ John
 
 [testmark]:# (1.2.2.d. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_same_as": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
         "@id": "owl:sameAs",
         "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
       }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "@id": "http://www.wikidata.org/entity/Q1203",
-      "_label": "John",
-      "_same_as": [
+      "_label": "John"
+    },
+    {
+      "@id": "http://www.wikidata.org/entity/Q1203",
+      "_sameAs": [
         {
-          "@id": "https://vocab.getty.edu/ulan/500106615"
+          "@id": "https://vocab.getty.edu/ulan/500106615",
+          "_label": "John"
         }
       ]
     }
@@ -1028,14 +1547,52 @@ Blockquotes contain literal text.
 
 [testmark]:# (1.2.3.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1089,16 +1646,52 @@ A preceding sibling hyperlink identifies the blockquote.
 
 [testmark]:# (1.2.3.1.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_content": "rdf:value"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1108,7 +1701,12 @@ A preceding sibling hyperlink identifies the blockquote.
         {
           "@id": "http://example.org/biography/1",
           "_label": "bio",
-          "_content": "Born in Liverpool, Lennon became involved in the skiffle craze as a teenager."
+          "@type": [
+            "_Text"
+          ],
+          "_content": {
+            "@value": "Born in Liverpool, Lennon became involved in the skiffle craze as a teenager."
+          }
         }
       ]
     }
@@ -1157,16 +1755,52 @@ _:b rdfs:label "name b" ;
 
 [testmark]:# (1.2.3.1.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_content": "rdf:value"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1174,14 +1808,24 @@ _:b rdfs:label "name b" ;
       "_label": "John",
       "name": [
         {
-          "@id": "_:a",
-          "_label": "a",
-          "_content": "John Winston Lennon"
+          "@id": "_:name%20a",
+          "_label": "name a",
+          "@type": [
+            "_Text"
+          ],
+          "_content": {
+            "@value": "John Winston Lennon"
+          }
         },
         {
-          "@id": "_:b",
-          "_label": "b",
-          "_content": "John Winston Ono Lennon"
+          "@id": "_:name%20b",
+          "_label": "name b",
+          "@type": [
+            "_Text"
+          ],
+          "_content": {
+            "@value": "John Winston Ono Lennon"
+          }
         }
       ]
     }
@@ -1229,16 +1873,52 @@ Making a statement about a blockquote reifies it.
 
 [testmark]:# (1.2.3.2.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_content": "rdf:value"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1246,7 +1926,12 @@ Making a statement about a blockquote reifies it.
       "_label": "John",
       "description": [
         {
-          "_content": "He gained worldwide fame as the founder, co-lead vocalist and rhythm guitarist of the Beatles.",
+          "@type": [
+            "_Text"
+          ],
+          "_content": {
+            "@value": "He gained worldwide fame as the founder, co-lead vocalist and rhythm guitarist of the Beatles."
+          },
           "source": [
             {
               "@id": "http://www.wikidata.org/entity/Q52",
@@ -1290,14 +1975,52 @@ A [BCP47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag may be s
 
 [testmark]:# (1.2.3.3.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1345,16 +2068,52 @@ Styled text is serialised as HTML.
 
 [testmark]:# (1.2.3.4.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_HTML": "rdf:HTML"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1363,7 +2122,7 @@ Styled text is serialised as HTML.
       "note": [
         {
           "@type": "_HTML",
-          "@value": "<p><strong>John Winston Ono Lennon</strong> was an English singer, songwriter and musician</p>"
+          "@value": "<p><strong>John Winston Ono Lennon</strong> was an English singer, songwriter and musician.</p>"
         }
       ]
     }
@@ -1400,19 +2159,52 @@ Specifying the language of styled text attributes the paragraph `p`.
 
 [testmark]:# (1.2.3.4.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_content": {
-        "@id": "rdf:value",
-        "@type": "rdf:HTML"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
       },
-      "_label": "rdfs:label"
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1467,32 +2259,67 @@ Specifying the language of styled text attributes the paragraph `p`.
 
 [testmark]:# (1.2.3.5.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_HTML": "rdf:HTML",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
       "_content": {
         "@id": "rdf:value"
       },
-      "_label": "rdfs:label",
-      "_see_also": "rdfs:seeAlso"
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "_label": "John",
       "description": [
-          {
+        {
+          "@type": [
+            "_Text"
+          ],
           "_content": {
             "@type": "_HTML",
             "@value": "<p>In 1956, he formed the <a href=\"https://en.wikipedia.org/wiki/The_Quarrymen\">Quarrymen</a></p>"
           },
-          "_see_also": [
+          "_seeAlso": [
             {
               "@id": "https://en.wikipedia.org/wiki/The_Quarrymen",
               "_label": "Quarrymen"
@@ -1529,14 +2356,16 @@ An arbitrary datatype may be given.
 
 [testmark]:# (1.2.3.6.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
       "@version": 1.1,
       "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
       },
@@ -1549,8 +2378,14 @@ An arbitrary datatype may be given.
       "_Text": {
         "@id": "dcmitype:Text"
       },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
       "_content": {
         "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
       },
       "_label": {
         "@id": "rdfs:label"
@@ -1569,7 +2404,6 @@ An arbitrary datatype may be given.
       "@vocab": "http://example.org/terms/"
     }
   ],
-  "@id": "test.md",
   "@graph": [
     {
       "_label": "John",
@@ -1614,21 +2448,62 @@ date
 
 [testmark]:# (1.2.3.6.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/",
-      "date": "http://www.w3.org/2001/XMLSchema#date"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/",
+      "date": {
+        "@id": "http://www.w3.org/2001/XMLSchema#date",
+        "@type": "@id"
+      }
     }
   ],
   "@graph": [
     {
       "_label": "John",
-      "date_of_birth": [
+      "date%20of%20birth": [
         {
           "@type": "date",
           "@value": "1940-10-09"
@@ -1669,16 +2544,52 @@ To escape a code-fenced term from being processed as a [language](#language) or 
 
 [testmark]:# (1.2.3.6.c. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_HTML": "rdf:HTML"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1687,7 +2598,7 @@ To escape a code-fenced term from being processed as a [language](#language) or 
       "said": [
         {
           "@type": "_HTML",
-          "@value": "It's been too long since we took the <code>time</code>"
+          "@value": "<p>It's been too long since we took the <code>time</code></p>"
         }
       ]
     }  
@@ -1726,9 +2637,51 @@ Booleans may be set using the built-in `boolean` datatype token.
 
 [testmark]:# (1.2.3.6.1.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
       "@vocab": "http://example.org/terms/"
     }
   ],
@@ -1737,7 +2690,8 @@ Booleans may be set using the built-in `boolean` datatype token.
       "_label": "John",
       "alive": [
         {
-          "@value": false
+          "@type": "_boolean",
+          "@value": "false"
         }
       ]
     }
@@ -1775,16 +2729,52 @@ Numbers are detected automatically.
 
 [testmark]:# (1.2.3.7.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_HTML": "rdf:HTML"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1826,20 +2816,61 @@ Numbers are detected automatically.
 
 [testmark]:# (1.2.4.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
       "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label",
-      "_Image": "dcmitype:Image"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "@id": "https://shorturl.at/SacIh",
       "_label": "John Lennon, 1974 (restored cropped)",
-      "@type": "_Image"
+      "@type": [
+        "_Image"
+      ]
     }  
   ]
 }
@@ -1886,18 +2917,52 @@ All my life, though some have changed
 
 [testmark]:# (1.2.5.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
       "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_content": "rdf:value",
-      "_label": "rdfs:label",
-      "_format": "dcterms:format"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
@@ -1905,8 +2970,13 @@ All my life, though some have changed
       "_label": "Yesterday",
       "lyrics": [
         {
+          "@type": [
+            "_Text"
+          ],
           "_format": "text",
-          "_content": "There are places I remember\nAll my life, though some have changed"
+          "_content": {
+            "@value":"There are places I remember\nAll my life, though some have changed\n"
+          }
         }
       ]
     }
@@ -1962,26 +3032,67 @@ Another example.
 
 [testmark]:# (1.2.5.b. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
       "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_content": "rdf:value",
-      "_format": "dcterms:format"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
+      "@type": [
+        "_Text"
+      ],
       "_format": "text",
-      "_content": "\n  . \u3000\u3000 \u3000\u3000\u3000\u3000\u3000\n  \u3000\u00b7   \u00b7   \u3000    \u3000\n  \u3000 \u00b7  \u2726 * \n   \u2735  . \u3000\u3000\u3000\u3000\u00b7  \u00b7  \u22c6  \u3000 \n     \u272b  \u2735  \u00b7\u3000\u3000\u2735   \u3000\u3000 \u02da \n  \u00b7 \u3000  \u2735 \u3000\u3000 \u3000 .  \u00b7\n",
+      "_content": {
+        "@value": ". 　　 　　　　　\n　·   ·   　    　\n　 ·  ✦ * \n ✵  . 　　　　·  ·  ⋆  　 \n   ✫  ✵  ·　　✵   　　 ˚ \n· 　  ✵ 　　 　 .  ·\n"
+      },
       "source": [
         {
-          "@id": "https://x.com/tiny_star_field/status/1681381641753640960"
+          "@id": "https://x.com/tiny_star_field/status/1681381641753640960",
+          "_label": "1681381641753640960"
         }
       ]
     }
@@ -2090,26 +3201,68 @@ base: http://example.org/
 
 [testmark]:# (2.1.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
       "@base": "http://example.org/",
-      "@vocab": "http://example.org/"
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "@id": "people/1",
-      "@type": "Person",
+      "@type": [
+        "Person"
+      ],
       "_label": "John"
     },
     {
       "@id": "people/2",
-      "@type": "Person",
-      "_label": "Person"
+      "@type": [
+        "Person"
+      ],
+      "_label": "Paul"
     }
   ]
 }
@@ -2152,6 +3305,80 @@ foaf:Person rdfs:label "Person" .
 
 </details>
 
+<details><summary><code>application/ld+json</code></summary>
+
+[testmark]:# (2.2.a. assert-json)
+```json
+{  
+  "@context": [
+    {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
+    },
+    {
+      "@base": "http://example.org/",
+      "@vocab": "https://schema.org/"
+    }
+  ],
+  "@graph": [
+    {
+      "_label": "John",
+      "@type": [
+        "http://xmlns.com/foaf/0.1/Person"
+      ],
+      "knows": [
+        {
+          "_label": "Paul"
+        }
+      ]
+    },
+    {
+      "@id": "http://xmlns.com/foaf/0.1/Person",
+      "_label": "Person"
+    }
+  ]
+}
+```
+
+</details>
+
 ### 2.3. Language
 
 Set the default language for all strings, unless overridden in-line.
@@ -2190,22 +3417,64 @@ language: en
 
 [testmark]:# (2.3.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
       "@base": "http://example.org/",
-      "@language": "en",
-      "@vocab": "http://example.org/"
+      "@vocab": "http://example.org/terms/",
+      "@language": "en"
     }
   ],
   "@graph": [
     {
       "_label": "John",
-      "said": "I believe in everything until it's disproved"
+      "said": [
+        {
+          "@language": "en",
+          "@value": "I believe in everything until it's disproved"
+        }
+      ]
     },
     {
       "_label": "Yoko",
@@ -2268,22 +3537,67 @@ import: tests/extra/terms.md
 
 [testmark]:# (2.4.a. assert-json)
 ```json
-{
+{  
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_label": "rdfs:label"
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "date": "http://www.w3.org/2001/XMLSchema#date",
-      "date_of_birth": "https://schema.org/birthDate"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/",
+      "date%20of%20birth": {
+        "@id": "https://schema.org/birthDate",
+        "@container": "@set"
+      },
+      "date": {
+        "@id": "http://www.w3.org/2001/XMLSchema#date",
+        "@type": "@id"
+      }
     }
   ],
   "@graph": [
     {
       "@id": "http://www.wikidata.org/entity/Q1203",
       "_label": "John",
-      "date_of_birth": [
+      "date%20of%20birth": [
         {
           "@type": "date",
           "@value": "1940-10-09"

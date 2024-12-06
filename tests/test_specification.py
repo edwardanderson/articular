@@ -25,7 +25,10 @@ for identifier, content in fixtures.items():
 for identifier, fixture in tests.items():
     # Arrange.
     source = fixture.get('arrange')
-    document = KrmlSourceDocument(source)
+    params = {
+        'embed-context': True
+    }
+    document = KrmlSourceDocument(source, **params)
     expected_ttl = fixture.get('assert-graph')
     if expected_ttl:
         expected_graph = Graph()
@@ -47,7 +50,12 @@ for identifier, fixture in tests.items():
 
     # Assert.
     status_shape = to_isomorphic(result.graph) == to_isomorphic(expected_graph)
-    status_syntax = result == expected_json
+    status_syntax = result.json == expected_json
 
     # Report.
     print(f'{identifier}\t{status_shape}\t{status_syntax}')
+
+    if not status_syntax:
+        input('...')
+        print(result.json_ld)
+        input('...')

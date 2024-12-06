@@ -33,9 +33,10 @@ class KrmlResultDocument:
 
 class KrmlSourceDocument:
 
-    def __init__(self, md: str, name: str | None = None) -> None:
+    def __init__(self, md: str, name: str | None = None, **settings) -> None:
         self._md = md
-        settings, document = frontmatter.parse(md)
+        document_settings, document = frontmatter.parse(md)
+        settings.update(document_settings)
         self.template = Template(**settings)
         self.html = self.template._transform_md_to_html(document)
 

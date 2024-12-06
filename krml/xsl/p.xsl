@@ -102,35 +102,6 @@
     </xsl:template>
 
     <!-- Literal (text/html, without language) -->
-    <!-- <xsl:template
-        match="p
-        [
-            (: has HTML element :)
-            (a|del|em|strong)
-
-            (: has a non-trailing `code` element :)
-            or code[following-sibling::node()]
-            and not($language)
-        ]">
-        <string key="@type">
-            <xsl:text>_HTML</xsl:text>
-        </string>
-        <string key="@value">
-            <xsl:text>&lt;p&gt;</xsl:text>
-            <xsl:choose>
-                <xsl:when test="ends-with(., '&#160;')">
-                    <xsl:value-of select="substring(serialize(node()), 1, string-length(serialize(node())) - 1)"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="serialize(node())"/>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:text>&lt;/p&gt;</xsl:text>
-        </string>
-    </xsl:template> -->
-
-
-    <!-- Literal (text/html, without language) -->
     <xsl:template
         match="p
         [
