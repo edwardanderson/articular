@@ -6,6 +6,11 @@
 
     <!-- Preformatted text. -->
     <xsl:template match="pre">
+        <xsl:call-template name="class">
+            <xsl:with-param name="application">
+                <xsl:text>_Text</xsl:text>
+            </xsl:with-param>
+        </xsl:call-template>
         <xsl:apply-templates select="code[@class]"/>
         <map key="_content">
             <string key="@value">

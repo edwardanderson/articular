@@ -11,11 +11,11 @@
 
     <!-- Blockquote (reified) -->
     <xsl:template match="li[ul/li]/blockquote|li/blockquote[p/a]">
-        <xsl:if test="not(ul/li[text() = 'a']/ul/li)">
-            <string key="@type">
+        <xsl:call-template name="class">
+            <xsl:with-param name="application">
                 <xsl:text>_Text</xsl:text>
-            </string>
-        </xsl:if>
+            </xsl:with-param>
+        </xsl:call-template>
         <map key="_content">
             <xsl:apply-templates select="p"/>
         </map>

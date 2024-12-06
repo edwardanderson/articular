@@ -10,8 +10,6 @@
         <string key="@id">
             <xsl:value-of select="@href"/>
         </string>
-        <!-- Class -->
-        <xsl:apply-templates select="@title"/>
         <!-- Label -->
         <xsl:apply-templates select="." mode="label"/>
     </xsl:template>
@@ -87,20 +85,24 @@
     </xsl:template>
 
     <!-- Class (identified) -->
-    <xsl:template match="@title[not(text() = /document/dl/dt/text())]">
+    <xsl:template match="@title">
         <xsl:variable name="value" select="text()"/>
-        <string key="@type">
-            <xsl:value-of select="."/>
-        </string>
+        <map>
+            <string key="@id">
+                <xsl:value-of select="."/>
+            </string>
+        </map>
     </xsl:template>
 
     <!-- Class (defined) -->
-    <xsl:template match="@title[text() = /document/dl/dt/text()]">
-        <xsl:variable name="value" select="text()"/>
-        <string key="@type">
-            <xsl:value-of select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a/@href"/>
-        </string>
-    </xsl:template>
+    <!-- <xsl:template match="@title[. = /document/dl/dt/text()]">
+        <xsl:variable name="value" select="."/>
+        <map>
+            <string key="@id">
+                <xsl:value-of select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a/@href"/>
+            </string>
+        </map>
+    </xsl:template> -->
 
     <!-- Reference -->
     <xsl:template match="a[@href]" mode="reference">

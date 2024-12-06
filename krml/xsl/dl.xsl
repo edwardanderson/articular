@@ -16,7 +16,7 @@
         <xsl:variable name="term" select="generate-id(.)"/>
         <!-- Match subject or object resource -->
         <xsl:if test="text() = /document//ul/li/text() or text() = /document//ul/li/ul/li/ul/li/text()">
-                <xsl:if test="count(following-sibling::dd[generate-id(preceding-sibling::dt[1]) = $term]) gt 1">
+            <xsl:if test="count(following-sibling::dd[generate-id(preceding-sibling::dt[1]) = $term]) gt 1">
                 <map>
                     <string key="@id">
                         <xsl:value-of select="following-sibling::dd[1]/a/@href"/>
@@ -35,8 +35,8 @@
                             </xsl:if>
                         </xsl:for-each>
                     </array>
-                                </map>
-                </xsl:if>
+                </map>
+            </xsl:if>
         </xsl:if>
     </xsl:template>
 

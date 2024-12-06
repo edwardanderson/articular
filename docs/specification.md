@@ -1859,6 +1859,7 @@ Image classes may be specified in the same way as for [hyperlink classes](#class
 
 [testmark]:# (1.2.5.a. assert-graph)
 ```turtle
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix exterms: <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -1866,6 +1867,7 @@ Image classes may be specified in the same way as for [hyperlink classes](#class
 
 [] rdfs:label "Yesterday" ;
   exterms:lyrics [
+    a dcmitype:Text ;
     dcterms:format "text" ;
     rdf:value """There are places I remember
 All my life, though some have changed
@@ -1929,11 +1931,13 @@ Another example.
 [testmark]:# (1.2.5.b. assert-graph)
 ```turtle
 @prefix : <http://example.org/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-[] dcterms:format "text" ; 
+[] a dcmitype:Text ; 
+  dcterms:format "text" ; 
   rdf:value """. 　　 　　　　　
 　·   ·   　    　
 　 ·  ✦ * 

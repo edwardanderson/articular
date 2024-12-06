@@ -24,7 +24,7 @@
     <xsl:param name="title"/>
     <xsl:param name="vocab">http://example.org/terms/</xsl:param>
 
-    <!-- Child templates -->
+    <!-- === Templaes === -->
     <xsl:import href="a.xsl"/>
     <xsl:import href="blockquote.xsl"/>
     <xsl:import href="context.xsl"/>
@@ -35,7 +35,9 @@
     <xsl:import href="pre.xsl"/>
     <xsl:import href="ul.xsl"/>
 
-    <!-- === Templates === -->
+    <xsl:import href="common/class.xsl"/>
+
+    <!-- === Transformations === -->
 
     <!-- Document -->
     <xsl:template match="/document">

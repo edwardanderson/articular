@@ -7,24 +7,18 @@
     <!-- Subject -->
     <xsl:template match="li[not(ul/li[text() = ('â')])]" mode="subject">
         <xsl:apply-templates select="."/>
+        <!-- Class -->
+        <xsl:call-template name="class"/>
         <!-- Predicate -->
-        <xsl:apply-templates select="(ul|ol)/li" mode="predicate"/>
-    </xsl:template>
-
-    <!-- Inverse object of rdf:type -->
-    <xsl:template match="li[ul/li[text() = ('â')]][not(a)]" mode="subject">
-        <string key="@type">
-            <xsl:value-of select="text()"/>
-        </string>
-    </xsl:template>
-
-    <xsl:template match="li[ul/li[text() = ('â')]][a]" mode="subject">
-        <string key="@type">
-            <xsl:value-of select="a/@href"/>
-        </string>
+        <xsl:apply-templates select="(ul|ol)/li[not(text() eq 'a')]" mode="predicate"/>
     </xsl:template>
 
     <!-- == Subect/Object Resource == -->
+
+    <!-- Blockquote -->
+    <xsl:template match="li[blockquote]">
+        <xsl:apply-templates select="blockquote"/>
+    </xsl:template>
 
     <!-- Defined term -->
     <xsl:template match="li
@@ -42,11 +36,6 @@
             <xsl:value-of select="/document/dl/dt[node() = $value]/following-sibling::dd[1]/a/@href"/>
         </string>
         <xsl:call-template name="label"/>
-    </xsl:template>
-
-    <!-- Blockquote -->
-    <xsl:template match="li[blockquote]">
-        <xsl:apply-templates select="blockquote"/>
     </xsl:template>
 
     <!-- Hyperlink -->
@@ -84,8 +73,6 @@
         </xsl:if>
         <!-- Label -->
         <xsl:call-template name="label"/>
-        <!-- <xsl:call-template name="inverse-type"/> -->
-        <xsl:apply-templates select="../../../../../li[ul/li[text() = ('â')]]" mode="subject"/>
     </xsl:template>
 
     <!-- Undefined (blank node singleton) -->
@@ -124,30 +111,11 @@
 
     <!-- == Predicate == -->
 
-    <!-- Unidentified, unordered -->
+    <!-- Identified, ordered -->
     <xsl:template match="li
         [
-            not(text() eq 'a')
+            a
         ]
-        [
-            not(a)
-        ]
-        [
-            ul
-        ]"
-        mode="predicate">
-        <xsl:variable name="key" select="encode-for-uri(text())"/>
-        <array key="{$key}">
-            <xsl:for-each select="ul/li">
-                <map>
-                    <xsl:apply-templates select="." mode="subject"/>
-                </map>
-            </xsl:for-each>
-        </array>
-    </xsl:template>
-
-    <!-- Unidentified, ordered -->
-    <xsl:template match="li
         [
             not(text() eq 'a')
         ]
@@ -155,8 +123,7 @@
             ol
         ]"
         mode="predicate">
-        <xsl:variable name="key" select="encode-for-uri(text())"/>
-        <map key="{$key}">
+        <map key="{a/@href}">
             <array key="@list">
                 <xsl:for-each select="ol/li">
                     <map>
@@ -188,11 +155,8 @@
         </array>
     </xsl:template>
 
-    <!-- Identified, ordered -->
+    <!-- Unidentified, ordered -->
     <xsl:template match="li
-        [
-            a
-        ]
         [
             not(text() eq 'a')
         ]
@@ -200,7 +164,8 @@
             ol
         ]"
         mode="predicate">
-        <map key="{a/@href}">
+        <xsl:variable name="key" select="encode-for-uri(text())"/>
+        <map key="{$key}">
             <array key="@list">
                 <xsl:for-each select="ol/li">
                     <map>
@@ -211,7 +176,38 @@
         </map>
     </xsl:template>
 
-    <!-- Predicate class -->
+    <!-- Unidentified, unordered -->
+    <xsl:template match="li
+        [
+            not(text() eq 'a')
+        ]
+        [
+            not(a)
+        ]
+        [
+            ul
+        ]"
+        mode="predicate">
+        <xsl:variable name="key" select="encode-for-uri(text())"/>
+        <array key="{$key}">
+            <xsl:for-each select="ul/li">
+                <map>
+                    <xsl:apply-templates select="." mode="subject"/>
+                </map>
+            </xsl:for-each>
+        </array>
+    </xsl:template>
+
+    <!-- Class predicate -->
+    <!-- <xsl:template match="li[text() eq 'a']" mode="predicate">
+        <xsl:for-each select="ul/li">
+            <map>
+                <xsl:apply-templates select="."/>
+            </map>
+        </xsl:for-each>
+    </xsl:template> -->
+
+    <!-- Predicate annotation -->
     <xsl:template match="ul/li/ul/li
         [
             a
@@ -224,122 +220,14 @@
             <string key="@id">
                 <xsl:value-of select="a/@href"/>
             </string>
-            <xsl:apply-templates select="a/@title"/>
+            <!-- <xsl:apply-templates select="a/@title"/> -->
+            <xsl:call-template name="class"/>
             <xsl:call-template name="label">
                 <xsl:with-param name="text" select="a"/>
             </xsl:call-template>
         </map>
     </xsl:template>
-
-    <!-- == Class == -->
-
-    <!-- Class (single, literal) -->
-    <xsl:template match="li
-        [
-            text() = 'a'
-        ]
-        [
-            count(ul/li) eq 1
-        ]
-        [
-            not(ul/li/a)
-        ]"
-        mode="predicate">
-        <string key="@type">
-            <xsl:value-of select="ul/li/text()"/>
-        </string>
-    </xsl:template>
-
-    <!-- Class (multiple, literal) -->
-    <xsl:template match="li
-        [
-            text() = 'a'
-        ]
-        [
-            count(ul/li) gt 1
-        ]"
-        mode="predicate">
-        <array key="@type">
-            <xsl:for-each select="ul/li">
-                <string>
-                    <xsl:value-of select="text()"/>
-                </string>
-            </xsl:for-each>
-        </array>
-    </xsl:template>
-
-    <!-- Class (single, reified) -->
-    <xsl:template match="li
-        [
-            text() = 'a'
-        ]
-        [
-            ul/li/ul/li
-        ]
-        [
-            count(ul/li) eq 1
-        ]"
-        mode="predicate">
-        <map key="@type">
-            <xsl:for-each select="ul/li">
-                <!-- Identifier -->
-                <string key="@id">
-                    <xsl:value-of select="encode-for-uri(text())"/>
-                </string>
-                <!-- Predicate -->
-                <xsl:apply-templates select="(ul|ol)/li" mode="predicate"/>
-            </xsl:for-each>
-        </map>
-    </xsl:template>
-
-    <!-- Class (multiple, reified) -->
-    <xsl:template match="li
-        [
-            text() = 'a'
-        ]
-        [
-            ul/li/ul/li
-        ]
-        [
-            count(ul/li) gt 1
-        ]"
-        mode="predicate">
-        <array key="@type">
-            <xsl:for-each select="ul/li">
-                <map>
-                    <!-- Identifier -->
-                    <string key="@id">
-                        <xsl:value-of select="encode-for-uri(text())"/>
-                    </string>
-                    <!-- Predicate -->
-                    <xsl:apply-templates select="(ul|ol)/li" mode="predicate"/>
-                </map>
-            </xsl:for-each>
-        </array>
-    </xsl:template>
-
-    <!-- Class (reified, identified) -->
-    <xsl:template match="li
-        [
-            text() = 'a'
-        ]
-        [
-            count(ul/li) eq 1
-        ]
-        [
-            ul/li/a
-        ]"
-        mode="predicate">
-        <string key="@type">
-            <xsl:value-of select="ul/li/a/@href"/>
-        </string>
-    </xsl:template>
-
-    <!-- Class (invese) -->
-    <!-- <xsl:template match="li[text() = ('â', '^a')]">
-
-    </xsl:template> -->
-
+ 
     <!-- Class label annotation -->
     <xsl:template match="li
         [
@@ -349,12 +237,12 @@
             @href and text() ne ''
         ]"
         mode="class-annotation">
-        <map>
+        <!-- <map>
             <string key="@id">
                 <xsl:value-of select="@href"/>
             </string>
             <xsl:call-template name="label"/>
-        </map>
+        </map> -->
     </xsl:template>
 
 </xsl:stylesheet>

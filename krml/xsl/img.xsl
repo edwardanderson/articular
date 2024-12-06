@@ -9,9 +9,11 @@
         <string key="@id">
             <xsl:value-of select="@src"/>
         </string>
-        <string key="@type">
-            <xsl:text>_Image</xsl:text>
-        </string>
+        <xsl:call-template name="class">
+            <xsl:with-param name="application">
+                <xsl:text>_Image</xsl:text>
+            </xsl:with-param>
+        </xsl:call-template>
         <xsl:call-template name="label">
             <xsl:with-param name="text" select="@alt"/>
         </xsl:call-template>
