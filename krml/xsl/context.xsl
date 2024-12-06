@@ -19,6 +19,7 @@
                         <string key="owl">http://www.w3.org/2002/07/owl#</string>
                         <string key="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</string>
                         <string key="rdfs">http://www.w3.org/2000/01/rdf-schema#</string>
+                        <string key="schema">https://schema.org/</string>
                         <string key="xsd">http://www.w3.org/2001/XMLSchema#</string>
                         <map key="_Dataset">
                             <string key="@id">dcmitype:Dataset</string>
@@ -28,6 +29,9 @@
                         </map>
                         <map key="_Image">
                             <string key="@id">dcmitype:Image</string>
+                        </map>
+                        <map key="_Table">
+                            <string key="@id">schema:Table</string>
                         </map>
                         <map key="_Text">
                             <string key="@id">dcmitype:Text</string>

@@ -33,6 +33,7 @@
     <xsl:import href="li.xsl"/>
     <xsl:import href="p.xsl"/>
     <xsl:import href="pre.xsl"/>
+    <xsl:import href="table.xsl"/>
     <xsl:import href="ul.xsl"/>
 
     <xsl:import href="common/class.xsl"/>

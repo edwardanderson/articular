@@ -8,12 +8,16 @@
 
     <!-- Table -->
     <xsl:template match="table">
-        <string key="@type">html:table</string>
+        <xsl:call-template name="class">
+            <xsl:with-param name="application">
+                <xsl:text>_Table</xsl:text>
+            </xsl:with-param>
+        </xsl:call-template>
         <map key="_content">
+            <string key="@type">_HTML</string>
             <string key="@value">
                 <xsl:value-of select="serialize(.)"/>
             </string>
-            <string key="@type">rdf:HMTL</string>
         </map>
         <!-- See also -->
         <xsl:if test="(thead|tbody)/tr/(th|td)/a">

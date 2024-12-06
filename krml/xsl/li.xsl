@@ -53,13 +53,18 @@
         <xsl:apply-templates select="pre"/>
     </xsl:template>
 
+    <!-- Table -->
+    <xsl:template match="li[table]">
+        <xsl:apply-templates select="table"/>
+    </xsl:template>
+
     <!-- Undefined (blank node instance) -->
     <xsl:template match="li
         [
             not(starts-with(text(), '&quot;'))
         ]
         [
-            not(a|blockquote|img|pre)
+            not(a|blockquote|img|pre|table)
         ]
         [
             not(text() = /document/dl/dt/text())

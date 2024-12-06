@@ -88,6 +88,7 @@ Graphs of triples are composed of nests of either [unordered](#unordered) or [or
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -97,6 +98,9 @@ Graphs of triples are composed of nests of either [unordered](#unordered) or [or
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -183,6 +187,7 @@ Objects may be listed in sequence.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -192,6 +197,9 @@ Objects may be listed in sequence.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -282,6 +290,7 @@ Comments not intended to be represented in data may be given in HTML.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -291,6 +300,9 @@ Comments not intended to be represented in data may be given in HTML.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -400,6 +412,7 @@ Liverpool
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -409,6 +422,9 @@ Liverpool
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -533,6 +549,7 @@ IRIs may be absolute or relative. Resources are resolved relative to the [base](
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -542,6 +559,9 @@ IRIs may be absolute or relative. Resources are resolved relative to the [base](
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -619,7 +639,7 @@ The language of the label may be specified.
 
 [testmark]:# (1.2.1.1.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -628,6 +648,7 @@ The language of the label may be specified.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -637,6 +658,9 @@ The language of the label may be specified.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -708,7 +732,7 @@ The label may be [styled](#style).
 
 [testmark]:# (1.2.1.1.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -717,6 +741,7 @@ The label may be [styled](#style).
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -726,6 +751,9 @@ The label may be [styled](#style).
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -798,7 +826,7 @@ The predicate keyword `a` can be provided to specify the `rdf:type` of a resourc
 
 [testmark]:# (1.2.1.2.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -807,6 +835,7 @@ The predicate keyword `a` can be provided to specify the `rdf:type` of a resourc
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -816,6 +845,9 @@ The predicate keyword `a` can be provided to specify the `rdf:type` of a resourc
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -893,7 +925,7 @@ The tokens `â` or `^a` may be used to inverse the direction of the class assign
 
 [testmark]:# (1.2.1.2.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -902,6 +934,7 @@ The tokens `â` or `^a` may be used to inverse the direction of the class assign
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -911,6 +944,9 @@ The tokens `â` or `^a` may be used to inverse the direction of the class assign
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1004,7 +1040,7 @@ foaf:knows a owl:SymmetricProperty ;
 
 [testmark]:# (1.2.1.2.c. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1013,6 +1049,7 @@ foaf:knows a owl:SymmetricProperty ;
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1022,6 +1059,9 @@ foaf:knows a owl:SymmetricProperty ;
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1126,7 +1166,7 @@ _:Paul rdfs:label "Paul" ;
 
 [testmark]:# (1.2.2.1.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1135,6 +1175,7 @@ _:Paul rdfs:label "Paul" ;
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1144,6 +1185,9 @@ _:Paul rdfs:label "Paul" ;
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1243,7 +1287,7 @@ Resources that share labels but are unique from eachother can be disambiguated b
 
 [testmark]:# (1.2.2.1.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1252,6 +1296,7 @@ Resources that share labels but are unique from eachother can be disambiguated b
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1261,6 +1306,9 @@ Resources that share labels but are unique from eachother can be disambiguated b
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1353,7 +1401,7 @@ knows
 
 [testmark]:# (1.2.2.2.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1362,6 +1410,7 @@ knows
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1371,6 +1420,9 @@ knows
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1451,7 +1503,7 @@ John
 
 [testmark]:# (1.2.2.d. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1460,6 +1512,7 @@ John
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1469,6 +1522,9 @@ John
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1547,7 +1603,7 @@ Blockquotes contain literal text.
 
 [testmark]:# (1.2.3.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1556,6 +1612,7 @@ Blockquotes contain literal text.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1565,6 +1622,9 @@ Blockquotes contain literal text.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1646,7 +1706,7 @@ A preceding sibling hyperlink identifies the blockquote.
 
 [testmark]:# (1.2.3.1.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1655,6 +1715,7 @@ A preceding sibling hyperlink identifies the blockquote.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1664,6 +1725,9 @@ A preceding sibling hyperlink identifies the blockquote.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1755,7 +1819,7 @@ _:b rdfs:label "name b" ;
 
 [testmark]:# (1.2.3.1.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1764,6 +1828,7 @@ _:b rdfs:label "name b" ;
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1773,6 +1838,9 @@ _:b rdfs:label "name b" ;
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1873,7 +1941,7 @@ Making a statement about a blockquote reifies it.
 
 [testmark]:# (1.2.3.2.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1882,6 +1950,7 @@ Making a statement about a blockquote reifies it.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1891,6 +1960,9 @@ Making a statement about a blockquote reifies it.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -1975,7 +2047,7 @@ A [BCP47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag may be s
 
 [testmark]:# (1.2.3.3.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -1984,6 +2056,7 @@ A [BCP47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag may be s
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -1993,6 +2066,9 @@ A [BCP47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag may be s
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2068,7 +2144,7 @@ Styled text is serialised as HTML.
 
 [testmark]:# (1.2.3.4.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2077,6 +2153,7 @@ Styled text is serialised as HTML.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2086,6 +2163,9 @@ Styled text is serialised as HTML.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2159,7 +2239,7 @@ Specifying the language of styled text attributes the paragraph `p`.
 
 [testmark]:# (1.2.3.4.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2168,6 +2248,7 @@ Specifying the language of styled text attributes the paragraph `p`.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2177,6 +2258,9 @@ Specifying the language of styled text attributes the paragraph `p`.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2259,7 +2343,7 @@ Specifying the language of styled text attributes the paragraph `p`.
 
 [testmark]:# (1.2.3.5.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2268,6 +2352,7 @@ Specifying the language of styled text attributes the paragraph `p`.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2277,6 +2362,9 @@ Specifying the language of styled text attributes the paragraph `p`.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2356,7 +2444,7 @@ An arbitrary datatype may be given.
 
 [testmark]:# (1.2.3.6.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2365,6 +2453,7 @@ An arbitrary datatype may be given.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2374,6 +2463,9 @@ An arbitrary datatype may be given.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2448,7 +2540,7 @@ date
 
 [testmark]:# (1.2.3.6.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2457,6 +2549,7 @@ date
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2466,6 +2559,9 @@ date
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2544,7 +2640,7 @@ To escape a code-fenced term from being processed as a [language](#language) or 
 
 [testmark]:# (1.2.3.6.c. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2553,6 +2649,7 @@ To escape a code-fenced term from being processed as a [language](#language) or 
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2562,6 +2659,9 @@ To escape a code-fenced term from being processed as a [language](#language) or 
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2637,7 +2737,7 @@ Booleans may be set using the built-in `boolean` datatype token.
 
 [testmark]:# (1.2.3.6.1.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2646,6 +2746,7 @@ Booleans may be set using the built-in `boolean` datatype token.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2655,6 +2756,9 @@ Booleans may be set using the built-in `boolean` datatype token.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2729,7 +2833,7 @@ Numbers are detected automatically.
 
 [testmark]:# (1.2.3.7.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2738,6 +2842,7 @@ Numbers are detected automatically.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2747,6 +2852,9 @@ Numbers are detected automatically.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2816,7 +2924,7 @@ Numbers are detected automatically.
 
 [testmark]:# (1.2.4.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2825,6 +2933,7 @@ Numbers are detected automatically.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2834,6 +2943,9 @@ Numbers are detected automatically.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -2917,7 +3029,7 @@ All my life, though some have changed
 
 [testmark]:# (1.2.5.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -2926,6 +3038,7 @@ All my life, though some have changed
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -2935,6 +3048,9 @@ All my life, though some have changed
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -3032,7 +3148,7 @@ Another example.
 
 [testmark]:# (1.2.5.b. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -3041,6 +3157,7 @@ Another example.
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -3050,6 +3167,9 @@ Another example.
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -3121,12 +3241,15 @@ Tables are handled as HTML. It may be preferable to represent information semant
 
 [testmark]:# (1.2.6.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 
 [] rdfs:label "The Beatles" ;
-  :albums "<table><thead><tr><th>Title<th>Year<tbody><tr><td>Please Please Me<td>1963<tr><td>With the Beatles<td>1963<tr><td>A Hard Day's Night<td>1964</table>"^^rdf:HTML .
+    exterms:albums [
+      a schema:Table ;
+      rdf:value "<table><thead><tr><th>Title</th><th>Year</th></tr></thead><tbody><tr><td>Please Please Me</td><td>1963</td></tr><tr><td>With the Beatles</td><td>1963</td></tr><tr><td>A Hard Day's Night</td><td>1964</td></tr></tbody></table>"^^rdf:HTML ] .
 ```
 
 </details>
@@ -3138,21 +3261,69 @@ Tables are handled as HTML. It may be preferable to represent information semant
 {
   "@context": [
     {
+      "@version": 1.1,
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "_HTML": "rdf:HTML"
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "_Dataset": {
+        "@id": "dcmitype:Dataset"
+      },
+      "_HTML": {
+        "@id": "rdf:HTML"
+      },
+      "_Image": {
+        "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
+      },
+      "_Text": {
+        "@id": "dcmitype:Text"
+      },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
+      "_content": {
+        "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
+      },
+      "_label": {
+        "@id": "rdfs:label"
+      },
+      "_sameAs": {
+        "@id": "owl:sameAs",
+        "@container": "@set"
+      },
+      "_seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@container": "@set"
+      }
     },
     {
-      "@vocab": "http://example.org/"
+      "@base": "http://example.org/",
+      "@vocab": "http://example.org/terms/"
     }
   ],
   "@graph": [
     {
       "_label": "The Beatles",
-      "albums": {
-        "@type": "_HTML",
-        "@value": "<table><thead><tr><th>Title<th>Year<tbody><tr><td>Please Please Me<td>1963<tr><td>With the Beatles<td>1963<tr><td>A Hard Day's Night<td>1964</table>"
-      }
+      "albums": [
+        {
+          "@type": [
+            "_Table"
+          ],
+          "_content": {
+            "@type": "_HTML",
+            "@value": "<table><thead><tr><th>Title</th><th>Year</th></tr></thead><tbody><tr><td>Please Please Me</td><td>1963</td></tr><tr><td>With the Beatles</td><td>1963</td></tr><tr><td>A Hard Day's Night</td><td>1964</td></tr></tbody></table>"
+          }
+        }
+      ]
     }
   ]
 }
@@ -3201,7 +3372,7 @@ base: http://example.org/
 
 [testmark]:# (2.1.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -3210,6 +3381,7 @@ base: http://example.org/
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -3219,6 +3391,9 @@ base: http://example.org/
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -3309,7 +3484,7 @@ foaf:Person rdfs:label "Person" .
 
 [testmark]:# (2.2.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -3318,6 +3493,7 @@ foaf:Person rdfs:label "Person" .
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -3327,6 +3503,9 @@ foaf:Person rdfs:label "Person" .
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -3417,7 +3596,7 @@ language: en
 
 [testmark]:# (2.3.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -3426,6 +3605,7 @@ language: en
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -3435,6 +3615,9 @@ language: en
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -3537,7 +3720,7 @@ import: tests/extra/terms.md
 
 [testmark]:# (2.4.a. assert-json)
 ```json
-{  
+{
   "@context": [
     {
       "@version": 1.1,
@@ -3546,6 +3729,7 @@ import: tests/extra/terms.md
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
@@ -3555,6 +3739,9 @@ import: tests/extra/terms.md
       },
       "_Image": {
         "@id": "dcmitype:Image"
+      },
+      "_Table": {
+        "@id": "schema:Table"
       },
       "_Text": {
         "@id": "dcmitype:Text"
@@ -3641,9 +3828,12 @@ ns1:1 {
     {
       "@version": 1.1,
       "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
       },
@@ -3653,11 +3843,20 @@ ns1:1 {
       "_Image": {
         "@id": "dcmitype:Image"
       },
+      "_Table": {
+        "@id": "schema:Table"
+      },
       "_Text": {
         "@id": "dcmitype:Text"
       },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
       "_content": {
         "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
       },
       "_label": {
         "@id": "rdfs:label"
@@ -3722,9 +3921,12 @@ ex:test.md {
     {
       "@version": 1.1,
       "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
       },
@@ -3734,11 +3936,20 @@ ex:test.md {
       "_Image": {
         "@id": "dcmitype:Image"
       },
+      "_Table": {
+        "@id": "schema:Table"
+      },
       "_Text": {
         "@id": "dcmitype:Text"
       },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
       "_content": {
         "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
       },
       "_label": {
         "@id": "rdfs:label"

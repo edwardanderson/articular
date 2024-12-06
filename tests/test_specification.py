@@ -54,8 +54,3 @@ for identifier, fixture in tests.items():
 
     # Report.
     print(f'{identifier}\t{status_shape}\t{status_syntax}')
-
-    if not status_syntax:
-        input('...')
-        print(result.json_ld)
-        input('...')
