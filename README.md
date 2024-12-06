@@ -12,7 +12,7 @@
 
 ## Overview
 
-Knowledge Representation Markup Language (KRML) is a simple data markup language for creating RDF knowledge graphs using [Markdown](https://en.wikipedia.org/wiki/Markdown) syntax.
+Knowledge Representation Markup Language (KRML) is a simple data markup language for creating RDF knowledge graphs using [Markdown](https://en.wikipedia.org/wiki/Markdown) elements: lists of hyperlinks, images, tables and styled or plain text.
 
 As a readable, content-first, low-syntax document format, KRML is optimised for humans. It's intended to facilitate the exchange of structured data between researchers, writers and developers to support the construction of databases of networked information.
 
@@ -35,6 +35,7 @@ krml examples/mona_lisa.md --embed-context
 
 ```markdown
 ---
+title: Mona Lisa
 language: en
 ---
 
@@ -81,9 +82,12 @@ date
     {
       "@version": 1.1,
       "dcmitype": "http://purl.org/dc/dcmitype/",
+      "dcterms": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "_Dataset": {
         "@id": "dcmitype:Dataset"
       },
@@ -93,11 +97,20 @@ date
       "_Image": {
         "@id": "dcmitype:Image"
       },
+      "_Table": {
+        "@id": "schema:Table"
+      },
       "_Text": {
         "@id": "dcmitype:Text"
       },
+      "_boolean": {
+        "@id": "xsd:boolean"
+      },
       "_content": {
         "@id": "rdf:value"
+      },
+      "_format": {
+        "@id": "dcterms:format"
       },
       "_label": {
         "@id": "rdfs:label"
@@ -126,15 +139,14 @@ date
     }
   ],
   "@id": "mona_lisa.md",
+  "_label": "Mona Lisa",
   "@graph": [
-    {
-      "@id": "mona_lisa.md",
-      "@type": "_Dataset",
-      "_label": "mona_lisa"
-    },
     {
       "@id": "http://www.wikidata.org/entity/Q12418",
       "_label": "Mona Lisa",
+      "@type": [
+        "Painting"
+      ],
       "title": [
         {
           "@language": "en",
@@ -153,10 +165,11 @@ date
           "@value": "モナ・リザ"
         }
       ],
-      "@type": "Painting",
       "description": [
         {
-          "@type": "_Text",
+          "@type": [
+            "_Text"
+          ],
           "_content": {
             "@type": "_HTML",
             "@value": "<p lang=\"en\">Considered an archetypal <a href=\"https://en.wikipedia.org/wiki/Masterpiece\">masterpiece</a> of the <a href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] the most parodied work of art in the world.\"</p>"
@@ -174,7 +187,7 @@ date
           "source": [
             {
               "@id": "https://en.wikipedia.org/wiki/Mona_Lisa",
-              "_label": "https://en.wikipedia.org/wiki/Mona_Lisa"
+              "_label": "Mona_Lisa"
             }
           ]
         }
@@ -182,7 +195,9 @@ date
       "image": [
         {
           "@id": "https://w.wiki/C4dN",
-          "@type": "_Image",
+          "@type": [
+            "_Image"
+          ],
           "_label": "Mona Lisa, by Leonardo da Vinci"
         }
       ],
@@ -207,7 +222,6 @@ date
     },
     {
       "@id": "http://www.wikidata.org/entity/Q12418",
-      "_label": "Mona Lisa",
       "_sameAs": [
         {
           "@id": "https://collections.louvre.fr/ark:/53355/cl010062370",
@@ -232,8 +246,7 @@ PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 ex:mona_lisa.md
-    a dcmitype:Dataset ;
-    rdfs:label "mona_lisa"@en ;
+    rdfs:label "Mona Lisa"@en ;
 .
 
 <http://www.wikidata.org/entity/Q12418>
@@ -243,7 +256,8 @@ ex:mona_lisa.md
     exterms:description [
             a dcmitype:Text ;
             exterms:source <https://en.wikipedia.org/wiki/Mona_Lisa> ;
-            rdf:value "<p lang=\"en\">Considered an archetypal <a href=\"https://en.wikipedia.org/wiki/Masterpiece\">masterpiece</a> of the <a href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
+            rdf:value "<p lang=\"en\">Considered an archetypal <a href=\"https://en.wikipedia.org/wiki/Masterpiece\">masterpiece</a> of the <a 
+href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
             rdfs:seeAlso
                 <https://en.wikipedia.org/wiki/Italian_Renaissance> ,
                 <https://en.wikipedia.org/wiki/Masterpiece>
@@ -276,7 +290,7 @@ ex:mona_lisa.md
 .
 
 <https://en.wikipedia.org/wiki/Mona_Lisa>
-    rdfs:label "https://en.wikipedia.org/wiki/Mona_Lisa"@en ;
+    rdfs:label "Mona_Lisa"@en ;
 .
 
 <https://w.wiki/C4dN>
