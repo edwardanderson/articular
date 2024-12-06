@@ -308,7 +308,7 @@ the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
 
 <details><summary><code>application/trig</code></summary>
 
-```trig
+```turtle
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix ex: <http://example.org/> .
 @prefix exterms: <http://example.org/terms/> .
