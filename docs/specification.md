@@ -3806,7 +3806,7 @@ id: docs/1
 ---
 ```
 
-<details><summary><code>text/turtle</code></summary>
+<details><summary><code>application/trig</code></summary>
 
 [testmark]:# (2.5.a. assert-graph)
 ```turtle
