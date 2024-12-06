@@ -56,12 +56,7 @@
                         <xsl:value-of select="$id"/>
                     </string>
                 </xsl:if>
-                <xsl:if test="$title">
-                    <string key="_label">
-                        <xsl:value-of select="$title"/>
-                    </string>
-                </xsl:if>
-                <!-- Content -->
+                 <!-- Content -->
                 <array key="@graph">
                     <!-- Metadata -->
                     <xsl:if test="$metadata">
@@ -72,9 +67,6 @@
                                         <xsl:value-of select="$id"/>
                                     </string>
                                 </xsl:if>
-                                <string key="@type">
-                                    <xsl:text>_Dataset</xsl:text>
-                                </string>
                                 <xsl:if test="$title">
                                     <string key="_label">
                                         <xsl:value-of select="$title"/>

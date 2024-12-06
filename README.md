@@ -138,9 +138,12 @@ date
       }
     }
   ],
-  "@id": "mona_lisa.md",
-  "_label": "Mona Lisa",
+  "@id": "http://example.org/mona-lisa",
   "@graph": [
+    {
+      "@id": "http://example.org/mona-lisa",
+      "_label": "Mona Lisa"
+    },
     {
       "@id": "http://www.wikidata.org/entity/Q12418",
       "_label": "Mona Lisa",
@@ -245,7 +248,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-ex:mona_lisa.md
+ex:mona-lisa
     rdfs:label "Mona Lisa"@en ;
 .
 
@@ -257,7 +260,8 @@ ex:mona_lisa.md
             a dcmitype:Text ;
             exterms:source <https://en.wikipedia.org/wiki/Mona_Lisa> ;
             rdf:value "<p lang=\"en\">Considered an archetypal <a href=\"https://en.wikipedia.org/wiki/Masterpiece\">masterpiece</a> of the <a 
-href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
+href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] 
+the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
             rdfs:seeAlso
                 <https://en.wikipedia.org/wiki/Italian_Renaissance> ,
                 <https://en.wikipedia.org/wiki/Masterpiece>
@@ -313,16 +317,17 @@ href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:mona_lisa.md {
-    ex:mona_lisa.md a dcmitype:Dataset ;
-        rdfs:label "mona_lisa"@en .
+ex:mona-lisa {
+    ex:mona-lisa rdfs:label "Mona Lisa"@en .
 
     <http://www.wikidata.org/entity/Q12418> a exterms:Painting ;
         rdfs:label "Mona Lisa"@en ;
         exterms:creator <http://www.wikidata.org/entity/Q762> ;
         exterms:description [ a dcmitype:Text ;
                 exterms:source <https://en.wikipedia.org/wiki/Mona_Lisa> ;
-                rdf:value "<p lang=\"en\">Considered an archetypal <a href=\"https://en.wikipedia.org/wiki/Masterpiece\">masterpiece</a> of the <a href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
+                rdf:value "<p lang=\"en\">Considered an archetypal <a href=\"https://en.wikipedia.org/wiki/Masterpiece\">masterpiece</a> of the <a 
+href=\"https://en.wikipedia.org/wiki/Italian_Renaissance\">Italian Renaissance</a>, it has been described as \"the best known, the most visited, the most written about, the most sung about, [and] 
+the most parodied work of art in the world.\"</p>"^^rdf:HTML ;
                 rdfs:seeAlso <https://en.wikipedia.org/wiki/Italian_Renaissance>,
                     <https://en.wikipedia.org/wiki/Masterpiece> ] ;
         exterms:image <https://w.wiki/C4dN> ;
@@ -342,7 +347,7 @@ ex:mona_lisa.md {
 
     <https://en.wikipedia.org/wiki/Masterpiece> rdfs:label "masterpiece"@en .
 
-    <https://en.wikipedia.org/wiki/Mona_Lisa> rdfs:label "https://en.wikipedia.org/wiki/Mona_Lisa"@en .
+    <https://en.wikipedia.org/wiki/Mona_Lisa> rdfs:label "Mona_Lisa"@en .
 
     <https://w.wiki/C4dN> a dcmitype:Image ;
         rdfs:label "Mona Lisa, by Leonardo da Vinci"@en .
