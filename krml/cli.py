@@ -124,7 +124,7 @@ def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld', debug: boo
 
             console = Console()
             if pretty_print and console.is_terminal:
-                syntax_lexer = {
+                syntax_uses_lexer_name = {
                     'longturtle': 'turtle',
                     'n3': 'turtle',
                     'nquads': 'turtle',
@@ -132,7 +132,7 @@ def transform_and_serialise(path: ValidPath, syntax: str = 'json-ld', debug: boo
                     'pretty-xml': 'xml',
                     'trig': 'turtle'
                 }
-                lexer = syntax_lexer.get(syntax, syntax)
+                lexer = syntax_uses_lexer_name.get(syntax, syntax)
                 renderer = Syntax(
                     data,
                     lexer,

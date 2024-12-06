@@ -6,12 +6,15 @@
 
     <!-- Preformatted text. -->
     <xsl:template match="pre">
+        <!-- Class -->
         <xsl:call-template name="class">
             <xsl:with-param name="application">
                 <xsl:text>_Text</xsl:text>
             </xsl:with-param>
         </xsl:call-template>
+        <!-- Format -->
         <xsl:apply-templates select="code[@class]"/>
+        <!-- Content -->
         <map key="_content">
             <string key="@value">
                 <xsl:value-of select="code/text()"/>
@@ -19,6 +22,7 @@
         </map>
     </xsl:template>
 
+    <!-- Format -->
     <xsl:template match="code[@class]">
         <string key="_format">
             <xsl:value-of select="substring-after(@class, '-')"/>

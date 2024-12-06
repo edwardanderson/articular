@@ -1069,14 +1069,17 @@ A preceding sibling hyperlink identifies the blockquote.
 
 [testmark]:# (1.2.3.1.a. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-    :description <http://example.org/biography/1> .
+    exterms:description <http://example.org/biography/1> .
 
-<http://example.org/biography/1> rdfs:label "bio" ;
+<http://example.org/biography/1>
+    a dcmitype:Text ;
+    rdfs:label "bio" ;
     rdf:value "Born in Liverpool, Lennon became involved in the skiffle craze as a teenager." .
 ```
 
@@ -1121,9 +1124,9 @@ A plain-text resource may also identify the blockquote in the local scope.
 ```markdown
 - John
   - name
-    - a
+    - name a
       > John Winston Lennon
-    - b
+    - name b
       > John Winston Ono Lennon
 ```
 
@@ -1131,17 +1134,20 @@ A plain-text resource may also identify the blockquote in the local scope.
 
 [testmark]:# (1.2.3.1.b. assert-graph)
 ```turtle
-@prefix : <http://example.org/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix exterms: <http://example.org/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [] rdfs:label "John" ;
-    :name _:a , _:b .
+    exterms:name _:a , _:b .
 
-_:a rdfs:label "a" ;
-    rdf:value "John winston Lennon" .
+_:a rdfs:label "name a" ;
+    a dcmitype:Text ;
+    rdf:value "John Winston Lennon" .
 
-_:b rdfs:label "b" ;
+_:b rdfs:label "name b" ;
+    a dcmitype:Text ;
     rdf:value "John Winston Ono Lennon" .
 ```
 

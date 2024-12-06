@@ -220,7 +220,6 @@
             <string key="@id">
                 <xsl:value-of select="a/@href"/>
             </string>
-            <!-- <xsl:apply-templates select="a/@title"/> -->
             <xsl:call-template name="class"/>
             <xsl:call-template name="label">
                 <xsl:with-param name="text" select="a"/>
@@ -237,12 +236,12 @@
             @href and text() ne ''
         ]"
         mode="class-annotation">
-        <!-- <map>
+        <map>
             <string key="@id">
                 <xsl:value-of select="@href"/>
             </string>
             <xsl:call-template name="label"/>
-        </map> -->
+        </map>
     </xsl:template>
 
 </xsl:stylesheet>
