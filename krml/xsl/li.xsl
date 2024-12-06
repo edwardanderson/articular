@@ -5,7 +5,7 @@
     xmlns="http://www.w3.org/2005/xpath-functions">
 
     <!-- Subject -->
-    <xsl:template match="li[not(ul/li[text() = ('â')])]" mode="subject">
+    <xsl:template match="li[not(ul/li[text() = ('â', '^a')])]" mode="subject">
         <xsl:apply-templates select="."/>
         <!-- Class -->
         <xsl:call-template name="class"/>

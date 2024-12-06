@@ -17,7 +17,7 @@
                 <!-- Child -->
                 <xsl:apply-templates select="ul/li[text() eq 'a']/ul/li" mode="class"/>
                 <!-- Parent -->
-                <xsl:apply-templates select="ancestor::li[ul/li[text() = ('â')]]" mode="class"/>
+                <xsl:apply-templates select="ancestor::li[ul/li[text() = ('â', '^a')]]" mode="class"/>
                 <!-- Application-->
                 <xsl:if test="$application ne ''">
                     <string>
@@ -46,13 +46,13 @@
         </string>
     </xsl:template>
 
-    <xsl:template match="li[ul/li[text() = ('â')]][not(a)]" mode="class">
+    <xsl:template match="li[ul/li[text() = ('â', '^a')]][not(a)]" mode="class">
         <string>
             <xsl:value-of select="text()"/>
         </string>
     </xsl:template>
 
-    <xsl:template match="li[ul/li[text() = ('â')]][a]" mode="class">
+    <xsl:template match="li[ul/li[text() = ('â', '^a')]][a]" mode="class">
         <string>
             <xsl:value-of select="a/@href"/>
         </string>
