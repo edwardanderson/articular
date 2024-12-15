@@ -3905,8 +3905,6 @@ title: Lorem Ipsum
 
 </details>
 
-
-
 <details><summary><code>application/ld+json</code></summary>
 
 [testmark]:# (2.6.a. assert-json)

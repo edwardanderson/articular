@@ -9,6 +9,7 @@
     - [Logical](#logical)
     - [Physical](#physical)
   - [Quickstart](#quickstart)
+  - [Test](#test)
 
 ## Overview
 
@@ -438,3 +439,7 @@ pip install --editable .
 ```bash
 krml /path/to/file.md --help
 ```
+
+## Test
+
+This project uses `pytest` with `go-testmark` fixtures to validate the [Specification](docs/specification.md).

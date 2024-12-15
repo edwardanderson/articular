@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0
+
+- Refactor specification tests to use `pytest`
+
 ## 3.0.0-alpha
 
 - Rename project to Knowledge Representation Markup Language
