@@ -17,7 +17,7 @@ fixtures = testmark.parse(SPECIFICATION_PATH)
 
 def parse_fixtures(fixtures):
     '''
-    Organize fixtures into a dictionary with categories.
+    Organise fixtures into a dictionary with categories.
     '''
     tests = {}
     for identifier, content in fixtures.items():
