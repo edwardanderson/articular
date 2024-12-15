@@ -1,62 +1,71 @@
-'''
-Execute the Specification test fixtures.
-'''
-
 import json
+import pytest
 import testmark
 
+from pathlib import Path
 from rdflib import ConjunctiveGraph, Graph
 from rdflib.compare import to_isomorphic
-from pathlib import Path
-
 from krml.document import KrmlSourceDocument
 
 
-specification = Path(__file__).parent.parent / 'docs/specification.md'
-fixtures = testmark.parse(specification)
-tests = {}
-for identifier, content in fixtures.items():
-    key, category = identifier.split(' ')
-    try:
+# Path to the specification file
+SPECIFICATION_PATH = Path(__file__).parent.parent / 'docs/specification.md'
+
+# Parse testmark fixtures
+fixtures = testmark.parse(SPECIFICATION_PATH)
+
+
+def parse_fixtures(fixtures):
+    '''
+    Organise fixtures into a dictionary with categories.
+    '''
+    tests = {}
+    for identifier, content in fixtures.items():
+        key, category = identifier.split(' ')
+        if key not in tests:
+            tests[key] = {}
         tests[key][category] = content
-    except KeyError:
-        tests[key] = {category: content}
+    return tests
 
-for identifier, fixture in tests.items():
-    # Arrange.
+
+def prepare_expected_graph(expected_graph_str, graph_name):
+    '''
+    Prepare the expected graph based on the provided string.
+    '''
+    if not expected_graph_str:
+        return None
+
+    graph = ConjunctiveGraph() if graph_name else Graph()
+    syntax = 'trig' if graph_name else 'turtle'
+    graph.parse(data=expected_graph_str, format=syntax)
+    return graph
+
+
+@pytest.mark.parametrize('identifier, fixture', parse_fixtures(fixtures).items())
+def test_fixtures(identifier, fixture):
+    # Arrange
     source = fixture.get('arrange')
-    params = {
-        'embed-context': True
-    }
+    params = {'embed-context': True}
     document = KrmlSourceDocument(source, **params)
-    expected_graph_str = fixture.get('assert-graph')
-    if expected_graph_str:
-        if 'id' in document.settings:
-            expected_graph = ConjunctiveGraph()
-            syntax = 'trig'
-        else:
-            expected_graph = Graph()
-            syntax = 'turtle'
 
-        expected_graph.parse(data=expected_graph_str, format=syntax)
+    expected_graph_str = fixture.get('assert-graph')
+    graph_name = document.settings.get('id', None)
+    expected_graph = prepare_expected_graph(expected_graph_str, graph_name)
 
     expected_str = fixture.get('assert-json')
-    if expected_str:
-        try:
-            expected_json = json.loads(expected_str)
-        except:
-            expected_json = {}
+    expected_json = json.loads(expected_str) if expected_str else {}
 
-    # Act.
+    # Act
     try:
         result = document.transform()
     except Exception as e:
-        print(f'cannot transform: {identifier}')
-        continue
+        pytest.fail(f"Transformation failed for {identifier}: {e}")
 
-    # Assert.
-    status_shape = to_isomorphic(result.graph) == to_isomorphic(expected_graph)
-    status_syntax = result.json == expected_json
+    # Assert
+    if expected_graph:
+        isomorphic = to_isomorphic(result.graph) == to_isomorphic(expected_graph)
+        turtle = result.graph.serialize(format='turtle')
+        assert isomorphic is True, f'Graph mismatch for {identifier}; got: {turtle}'
 
-    # Report.
-    print(f'{identifier}\t{status_shape}\t{status_syntax}')
+    if expected_json:
+        assert result.json == expected_json, f'JSON mismatch for {identifier}'
