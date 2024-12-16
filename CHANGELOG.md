@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.1
+
+- Fix code to pass test 2.6.a
+
 ## 3.1.0
 
 - Refactor specification tests to use `pytest`
