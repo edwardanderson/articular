@@ -56,6 +56,11 @@
                         <xsl:value-of select="$id"/>
                     </string>
                 </xsl:if>
+                <xsl:if test="$title and not($metadata)">
+                    <string key="_label">
+                        <xsl:value-of select="$title"/>
+                    </string>
+                </xsl:if>
                  <!-- Content -->
                 <array key="@graph">
                     <!-- Metadata -->
